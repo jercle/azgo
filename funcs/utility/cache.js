@@ -4,7 +4,7 @@ const os = require("os")
 const inquirer = require("inquirer")
 
 let appCache = {
-  cachePath: "/Users/jercle/git/azure-tooling/testData/.cache/appcache.json",
+  cachePath: "/Users/jercle/git/stkcat/azure-tooling/testData/.cache/appcache.json",
   // cachePath: `${os.homedir()}/.azgo/appcache.json`,
   cache: {},
   init: function (opts) {
