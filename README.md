@@ -39,6 +39,7 @@ cd azure-tooling && npm install -g
 ## Authentication
 You must be logged in with `azure cli` as this uses the authentication provided by the user currently logged into Azure CLI
 
+For Azure DevOps functionality, you must have a Personal Access Token set against AZURE_DEVOPS_EXT_PAT environment variable
 
 
 ## Usage
