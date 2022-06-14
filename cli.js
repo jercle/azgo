@@ -11,6 +11,7 @@ const getSecrets = require("./funcs/az/getSecrets")
 const getAppServicePlan = require("./funcs/az/getAppServicePlan")
 const listSubscriptions = require("./funcs/az/listSubscriptions")
 const getAppService = require("./funcs/az/getAppService")
+const selectActiveSubscription = require("./funcs/utility/selectActiveSubscription")
 
 const { appCache, clearCacheConfirm } = require("./funcs/utility/cache")
 
@@ -142,7 +143,12 @@ const options = yargs
         demandOption: true,
       })
   })
-  .command("subs", "List subscriptions in current AZ CLI profile")
+  .command("subs", "List subscriptions in current AZ CLI profile", (yargs) => {
+    return yargs.command(
+      "active",
+      "Select current active subscription for this CLI and Azure CLI"
+    )
+  })
   .help()
   .alias("h", "help")
   .alias("v", "version")
@@ -175,9 +181,13 @@ function actOnCli() {
       getAppService(options, azCliCredential)
       break
     case "subs":
-      let data = listSubscriptions()
-      console.log(JSON.stringify(data, null, 2))
-      options.c && clipboardy.writeSync(JSON.stringify(data, null, 2))
+      if (options._[1] == "active") {
+        selectActiveSubscription()
+      } else {
+        let data = listSubscriptions()
+        console.log(JSON.stringify(data, null, 2))
+        options.c && clipboardy.writeSync(JSON.stringify(data, null, 2))
+      }
       break
   }
 }
