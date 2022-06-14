@@ -16,9 +16,9 @@
   "author": "Evan Colwell <ercolwell@outlook.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jERCle/a23-dawe-dmz-migration-tooling-azure/issues"
+    "url": "https://github.com/stkcat/azure-tooling/issues"
   },
-  "homepage": "https://github.com/jERCle/a23-dawe-dmz-migration-tooling-azure#readme",
+  "homepage": "https://github.com/stkcat/azure-tooling#readme",
   "dependencies": {
     "@azure/arm-appservice": "^12.0.0",
     "@azure/arm-containerregistry": "^10.0.0",
