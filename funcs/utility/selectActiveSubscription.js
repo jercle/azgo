@@ -63,9 +63,7 @@ async function selectActiveSubscription() {
     )
     return newAzCliProfile
   } else {
-    // console.log("false")
     return false
   }
 }
 module.exports = selectActiveSubscription
-// selectActiveSubscription()
