@@ -1,0 +1,12 @@
+.gitattributes
+.gitmodules
+.prettierrc
+
+## Github actions
+.github
+
+## Test directories
+test
+
+## Submodules
+testData
