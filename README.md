@@ -4,7 +4,7 @@
   - [Installation](#installation)
   - [Authentication](#authentication)
   - [Usage](#usage)
-    - [Set current subscription](#set-current-subscription)
+    - [Set current active subscription](#set-current-active-subscription)
     - [List all subscriptions](#list-all-subscriptions)
     - [List Files Within File Share](#list-files-within-file-share)
     - [List Keyvault Secrets](#list-keyvault-secrets)
@@ -20,38 +20,43 @@ Some of the reporting functionality is around container vulnerability scanning w
 
 This CLI is still very much under development, and functions with the `test-` prefix are considered not yet ready
 
-This is my first public project, so any advice is appreciated and taken onboard.
+This is my first public project, so any advice is appreciated and taken onboard. Also, having never REALLY done unit testing in NodeJS before, I have finally begun. I know, I know...
 
 ## Installation
 
 First clone the repo
 ```bash
-git clone git@github.com:jERCle/azure-tooling.git
+git clone git@github.com:jERCle/azgo.git
 
 ```
 
-Then install required plugins (currently only `yargs`, `yargonaut`, and `readline-sync`)
-
+CD to repositoriy then install dependencies
 ```bash
-cd azure-tooling && npm install -g
+cd azure-tooling && npm install
+```
+
+Use npm link `azgo` to link to newmain.js
+```bash
+npm link
 ```
 
 ## Authentication
 You must be logged in with `azure cli` as this uses the authentication provided by the user currently logged into Azure CLI
 
+For Azure DevOps functionality, you must have a Personal Access Token set against AZURE_DEVOPS_EXT_PAT environment variable
 
 
 ## Usage
-### Set current subscription
-Provides a small UI wrapper over `az subscription set` to select current active subscription. Gives a list of available subscriptions without the need to find the required ID and past into a flag
+### Set current active subscription
+Provides a small UI wrapper over `az account set --subscription` to select current active subscription. Gives a list of available subscriptions without the need to find the required ID and past into a flag
 
-```azure subs select```
+```azgo subs active```
 
 ### List all subscriptions
 Lists all subscriptions currently configured with `az login`. Similar to `az account list` but groups by TenantID
 
 ```
-azure subs
+azgo subs
 ```
 
 Output:
@@ -70,7 +75,7 @@ Output:
 
 ### List Files Within File Share
 ```
-azure ls -n <share name> -c <connection string>
+azgo ls -n <share name> -c <connection string>
 ```
 
 Output:
@@ -88,7 +93,7 @@ Output:
 
 ### List Keyvault Secrets
 ```
-azure secrets -n <appName> -e <appEnv> -s <subscription ID>
+azgo secrets -n <appName> -e <appEnv> -s <subscription ID>
 ```
 
 Output:
@@ -108,7 +113,7 @@ Output:
 
 ### Get App Service Plan Info
 ```
-azure asp -n <appName> -e <appEnv> -s <subscription ID>
+azgo asp -n <appName> -e <appEnv> -s <subscription ID>
 ```
 
 Output:
@@ -154,7 +159,7 @@ Output:
 
 ### List App Service Configuration
 ```
-azure app -n <appName> -e <appEnv> -s <subscription ID>
+azgo app -n <appName> -e <appEnv> -s <subscription ID>
 ```
 
 Output:
