@@ -4,7 +4,7 @@
   - [Installation](#installation)
   - [Authentication](#authentication)
   - [Usage](#usage)
-    - [Set current subscription](#set-current-subscription)
+    - [Set current active subscription](#set-current-active-subscription)
     - [List all subscriptions](#list-all-subscriptions)
     - [List Files Within File Share](#list-files-within-file-share)
     - [List Keyvault Secrets](#list-keyvault-secrets)
@@ -47,10 +47,10 @@ For Azure DevOps functionality, you must have a Personal Access Token set agains
 
 
 ## Usage
-### Set current subscription
-Provides a small UI wrapper over `az subscription set` to select current active subscription. Gives a list of available subscriptions without the need to find the required ID and past into a flag
+### Set current active subscription
+Provides a small UI wrapper over `az account set --subscription` to select current active subscription. Gives a list of available subscriptions without the need to find the required ID and past into a flag
 
-```azgo subs select```
+```azgo subs active```
 
 ### List all subscriptions
 Lists all subscriptions currently configured with `az login`. Similar to `az account list` but groups by TenantID
