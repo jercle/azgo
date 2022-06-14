@@ -33,15 +33,15 @@ You can obtain a Personal Access Token from https://dev.azure.com/YOUR_ORGANIZAT
 Then set the token as your environment variable using the following:
 Linux/macOS:
 ```bash
-export AZURE_DEVOPS_EXT_PAT=[token]
+export AZURE_DEVOPS_EXT_PAT=TOKEN
 ```
 Windows CMD:
 ```cmd
-set AZURE_DEVOPS_EXT_PAT=[token]
+set AZURE_DEVOPS_EXT_PAT=TOKEN
 ```
 Winows Powershell:
 ```powershell
-$env:AZURE_DEVOPS_EXT_PAT=[token]"
+$env:AZURE_DEVOPS_EXT_PAT=TOKEN"
 ```
 ## Installation
 
