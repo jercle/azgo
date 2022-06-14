@@ -26,14 +26,18 @@ This is my first public project, so any advice is appreciated and taken onboard.
 
 First clone the repo
 ```bash
-git clone git@github.com:jERCle/azure-tooling.git
+git clone git@github.com:jERCle/azgo.git
 
 ```
 
-Then install required plugins (currently only `yargs`, `yargonaut`, and `readline-sync`)
-
+CD to repositoriy then install dependencies
 ```bash
-cd azure-tooling && npm install -g
+cd azure-tooling && npm install
+```
+
+Use npm link `azgo` to link to newmain.js
+```bash
+npm link
 ```
 
 ## Authentication
@@ -46,13 +50,13 @@ For Azure DevOps functionality, you must have a Personal Access Token set agains
 ### Set current subscription
 Provides a small UI wrapper over `az subscription set` to select current active subscription. Gives a list of available subscriptions without the need to find the required ID and past into a flag
 
-```azure subs select```
+```azgo subs select```
 
 ### List all subscriptions
 Lists all subscriptions currently configured with `az login`. Similar to `az account list` but groups by TenantID
 
 ```
-azure subs
+azgo subs
 ```
 
 Output:
@@ -71,7 +75,7 @@ Output:
 
 ### List Files Within File Share
 ```
-azure ls -n <share name> -c <connection string>
+azgo ls -n <share name> -c <connection string>
 ```
 
 Output:
@@ -89,7 +93,7 @@ Output:
 
 ### List Keyvault Secrets
 ```
-azure secrets -n <appName> -e <appEnv> -s <subscription ID>
+azgo secrets -n <appName> -e <appEnv> -s <subscription ID>
 ```
 
 Output:
@@ -109,7 +113,7 @@ Output:
 
 ### Get App Service Plan Info
 ```
-azure asp -n <appName> -e <appEnv> -s <subscription ID>
+azgo asp -n <appName> -e <appEnv> -s <subscription ID>
 ```
 
 Output:
@@ -155,7 +159,7 @@ Output:
 
 ### List App Service Configuration
 ```
-azure app -n <appName> -e <appEnv> -s <subscription ID>
+azgo app -n <appName> -e <appEnv> -s <subscription ID>
 ```
 
 Output:
