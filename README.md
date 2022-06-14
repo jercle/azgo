@@ -20,7 +20,7 @@ Some of the reporting functionality is around container vulnerability scanning w
 
 This CLI is still very much under development, and functions with the `test-` prefix are considered not yet ready
 
-This is my first public project, so any advice is appreciated and taken onboard.
+This is my first public project, so any advice is appreciated and taken onboard. Also, having never REALLY done unit testing in NodeJS before, I have finally begun. I know, I know...
 
 ## Installation
 

@@ -44,6 +44,7 @@
     "yargs": "^17.5.1"
   },
   "devDependencies": {
-    "jest": "^28.1.1"
+    "jest": "^28.1.1",
+    "mock-stdin": "^1.0.0"
   }
 }
