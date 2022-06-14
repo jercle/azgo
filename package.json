@@ -5,7 +5,7 @@
   "main": "main.js",
   "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "bin": {
     "azgo": "newmain.js"
@@ -42,5 +42,8 @@
     "turndown": "^7.1.1",
     "yargonaut": "^1.1.4",
     "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "jest": "^28.1.1"
   }
 }
