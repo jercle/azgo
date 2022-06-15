@@ -11,18 +11,33 @@ const { DefaultAzureCredential } = require('@azure/identity');
 const { NetworkManagementClient } = require('@azure/arm-network');
 const fs = require('fs');
 
-// getNSG({
-//   rg: 'dmz-prod-1-net-rg',
-//   nsgName: 'dmz-prod-1-vnet1-dmz-prod-grants-ip-NSG',
-//   subscriptionId: 'cb45d5d6-bd1e-4016-b146-71bfce35fdbe',
-// }).then((r) => console.log(r));
+const opts = {
+  subscriptionId: process.env.subscriptionId,
+  resourceGroup: process.env.resourceGroup,
+  acrName: process.env.acrName,
+  assessmentName: process.env.assessmentName,
+  nsgName: process.env.nsgName,
+  acrRegistry: process.env.acrRegistry,
+  testDataPath: process.env.testDataPath
+}
+// {
+//   subscriptionId,
+//   resourceGroup,
+//   acrName,
+//   assessmentName,
+//   nsgName,
+//   acrRegistry,
+//   testDataPath,
+// }
 
-async function getNSG({ rg, nsgName, subscriptionId }) {
+// getNSG(opts).then((r) => console.log(r));
+
+async function getNSG({ resourceGroup, nsgName, subscriptionId }) {
   const client = new NetworkManagementClient(
     new DefaultAzureCredential(),
     subscriptionId
   );
-  let nsg = await client.networkSecurityGroups.get(rg, nsgName);
+  let nsg = await client.networkSecurityGroups.get(resourceGroup, nsgName);
   let formattedRules = nsg.securityRules.map((rule) => {
     return (({
       id,
