@@ -12,7 +12,10 @@ const { DefaultAzureCredential } = require("@azure/identity")
 const { writeFileSync, readFileSync } = require("fs")
 
 const opts = {
-  subscriptionId: "",
+  subscriptionId: process.env.subscriptionId,
+  resourceGroup: process.env.resourceGroup,
+  acrName: process.env.acrName,
+  assessmentName: process.env.assessmentName,
 }
 
 getAssessments(opts)
