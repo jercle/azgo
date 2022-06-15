@@ -3,8 +3,14 @@ const yargs = require("yargs")
 const { DefaultAzureCredential } = require("@azure/identity")
 const clipboardy = require("clipboardy")
 const inquirer = require("inquirer")
-const subList =
+let subList
+try {
+  subList =
   require(`${os.homedir()}/.azure/azureProfile.json`).subscriptions
+} catch (error) {
+  console.error("Azure CLI profile doesn't seem to be set up")
+  throw new Error(error)
+}
 
 const listShareFiles = require("./funcs/az/listShareFiles")
 const getSecrets = require("./funcs/az/getSecrets")
@@ -159,7 +165,7 @@ const options = yargs
     type: "boolean",
   })
   .epilogue(
-    "For more information, see the readme at https://github.com/stkcat/azure-tooling"
+    "For more information, see the readme at https://github.com/jercle/azgo"
   ).argv
 
 function actOnCli() {

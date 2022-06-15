@@ -18,12 +18,25 @@ const { DefaultAzureCredential } = require("@azure/identity")
 //   new DefaultAzureCredential()
 // )
 
-// const opts = {
-//   acrRegistry: "",
-//   subscriptionId: "",
-//   repoName: "gm",
-//   imageRetention: 30,
+const opts = {
+  subscriptionId: process.env.subscriptionId,
+  resourceGroup: process.env.resourceGroup,
+  acrName: process.env.acrName,
+  assessmentName: process.env.assessmentName,
+  nsgName: process.env.nsgName,
+  acrRegistry: process.env.acrRegistry,
+  testDataPath: process.env.testDataPath
+}
+// {
+//   subscriptionId,
+//   resourceGroup,
+//   acrName,
+//   assessmentName,
+//   nsgName,
+//   acrRegistry,
+//   testDataPath,
 // }
+
 
 // getContainerRespository(opts)
 

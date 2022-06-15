@@ -16,12 +16,23 @@ const opts = {
   resourceGroup: process.env.resourceGroup,
   acrName: process.env.acrName,
   assessmentName: process.env.assessmentName,
-  testDataPath: process.env.testDataPath,
+  nsgName: process.env.nsgName,
+  acrRegistry: process.env.acrRegistry,
+  testDataPath: process.env.testDataPath
 }
+// {
+//   subscriptionId,
+//   resourceGroup,
+//   acrName,
+//   assessmentName,
+//   nsgName,
+//   acrRegistry,
+//   testDataPath,
+// }
 
-getSubAssessments(opts, new DefaultAzureCredential())
+getsubAssessments(opts, new DefaultAzureCredential())
 
-async function getSubAssessments(
+async function getsubAssessments(
   { assessmentName, subscriptionId, resourceGroup, acrName, testDataPath },
   credentials
 ) {
@@ -32,21 +43,24 @@ async function getSubAssessments(
     `/subscriptions/${subscriptionId}/resourceGroups/${resourceGroup}/providers/Microsoft.ContainerRegistry/registries/${acrName}`,
     assessmentName
   )
-  console.log(subAssessmentsList)
-  let subassessments = []
-  for await (subAssessment of subAssessmentsList) {
-    subassessments = [...subassessments, subAssessment]
+  // console.log(subAssessmentsList)
+  let subAssessments = []
+  for await (sub of subAssessmentsList) {
+    subAssessments = [...subAssessments, sub]
   }
 
-  const dateGathered = new Date().toString()
 
 
-
-  writeFileSync(
-    `${testDataPath}/subassessments.json`,
-    JSON.stringify(subassessments)
-  )
-  return subassessments
+const data = {
+  syncDate: new Date().toString(),
+  subAssessments
 }
 
-module.exports = getSubAssessments
+  writeFileSync(
+    `${testDataPath}/getsubAssessments.json`,
+    JSON.stringify(data)
+  )
+  return data
+}
+
+module.exports = getsubAssessments

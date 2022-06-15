@@ -41,4 +41,3 @@ async function getAppServicePlan(
 }
 
 module.exports = getAppServicePlan;
-// getAppServicePlan({ appName: 'auchd', appEnv: 'dev' });

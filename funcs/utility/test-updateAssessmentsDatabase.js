@@ -16,26 +16,34 @@ const opts = {
   resourceGroup: process.env.resourceGroup,
   acrName: process.env.acrName,
   assessmentName: process.env.assessmentName,
-  testDataPath: process.env.testDataPath
+  testDataPath: process.env.testDataPath,
 }
 
 updateAssessmentsDatabase(opts)
 // updateAssessmentsDatabase(opts, new DefaultAzureCredential())
 
-async function updateAssessmentsDatabase(
-  { assessmentName, subscriptionId, resourceGroup, acrName, testDataPath}
-) {
-const subs = require(`${testDataPath}/subassessments.json`)
+async function updateAssessmentsDatabase({
+  assessmentName,
+  subscriptionId,
+  resourceGroup,
+  acrName,
+  testDataPath,
+}) {
+  const {
+    syncDate,
+    subAssessments,
+  } = require(`${testDataPath}/subassessments.json`)
 
+  // console.log(subs)
 
-const data = {
-  dateGathered: new Date().toString(),
-  subassessments: subs
-}
-console.log(data)
+  const formattedAssessments = subAssessments.map((sub) => ({
+    syncDate,
+    ...sub,
+  }))
 
+  console.log(JSON.stringify(formattedAssessments))
 
-  return
+  return formattedAssessments
 }
 
 module.exports = updateAssessmentsDatabase

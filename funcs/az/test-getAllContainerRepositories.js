@@ -13,22 +13,44 @@ const {
 } = require("@azure/container-registry")
 const { DefaultAzureCredential } = require("@azure/identity")
 
-// const opts = {
-//   acrRegistry: "",
-//   subscriptionId: "",
-//   repoName: "gm",
-//   imageRetention: 30,
+const { writeFileSync } = require('fs')
+
+const opts = {
+  subscriptionId: process.env.subscriptionId,
+  resourceGroup: process.env.resourceGroup,
+  acrName: process.env.acrName,
+  assessmentName: process.env.assessmentName,
+  nsgName: process.env.nsgName,
+  acrRegistry: process.env.acrRegistry,
+  testDataPath: process.env.testDataPath
+}
+// {
+//   subscriptionId,
+//   resourceGroup,
+//   acrName,
+//   assessmentName,
+//   nsgName,
+//   acrRegistry,
+//   testDataPath,
 // }
 
-// getAllContainerRepositories(opts, new DefaultAzureCredential())
+
+getAllContainerRepositories(opts, new DefaultAzureCredential())
 
 async function getAllContainerRepositories(
-  { repoName, acrRegistry },
+  {
+    subscriptionId,
+    resourceGroup,
+    acrName,
+    assessmentName,
+    testDataPath,
+    acrRegistry
+  },
   azCliCredential
 ) {
   const client = new ContainerRegistryClient(
     acrRegistry,
-    new DefaultAzureCredential(),
+    azCliCredential,
     {
       audience: KnownContainerRegistryAudience.AzureResourceManagerPublicCloud,
     }
@@ -66,6 +88,10 @@ async function getAllContainerRepositories(
     ]
   }
   // console.log(repositories)
+  writeFileSync(
+    `${testDataPath}/getAllContainerRepositories.json`,
+    JSON.stringify(repositories)
+  )
   return repositories
 }
 
