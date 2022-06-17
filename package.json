@@ -51,6 +51,7 @@
     "@azure/keyvault-secrets": "^4.4.0",
     "@azure/storage-blob": "^12.10.0",
     "@azure/storage-file-share": "^12.10.0",
+    "@jercle/yargonaut": "^1.1.5",
     "@supercharge/promise-pool": "^2.2.0",
     "azure-devops-node-api": "^11.1.1",
     "chalk": "^4.1.2",
@@ -59,7 +60,6 @@
     "moment": "^2.29.3",
     "mongodb": "^4.6.0",
     "turndown": "^7.1.1",
-    "yargonaut": "^1.1.4",
     "yargs": "^17.5.1"
   },
   "devDependencies": {
