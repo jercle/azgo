@@ -47,10 +47,9 @@
       "@oclif/plugin-plugins"
     ],
     "topicSeparator": " ",
-    "topics": {
-      "hello": {
-        "description": "Say hello to the world and others"
-      }
+    "topics": {},
+    "hooks": {
+      "init": "./src/hooks/init/init_cache"
     }
   },
   "scripts": {
