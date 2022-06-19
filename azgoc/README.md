@@ -29,8 +29,6 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`azgoc hello PERSON`](#azgoc-hello-person)
-* [`azgoc hello world`](#azgoc-hello-world)
 * [`azgoc help [COMMAND]`](#azgoc-help-command)
 * [`azgoc plugins`](#azgoc-plugins)
 * [`azgoc plugins:install PLUGIN...`](#azgoc-pluginsinstall-plugin)
@@ -41,46 +39,7 @@ USAGE
 * [`azgoc plugins:uninstall PLUGIN...`](#azgoc-pluginsuninstall-plugin-1)
 * [`azgoc plugins:uninstall PLUGIN...`](#azgoc-pluginsuninstall-plugin-2)
 * [`azgoc plugins update`](#azgoc-plugins-update)
-
-## `azgoc hello PERSON`
-
-Say hello
-
-```
-USAGE
-  $ azgoc hello [PERSON] -f <value>
-
-ARGUMENTS
-  PERSON  Person to say hello to
-
-FLAGS
-  -f, --from=<value>  (required) Whom is saying hello
-
-DESCRIPTION
-  Say hello
-
-EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
-```
-
-_See code: [dist/commands/hello/index.ts](https://github.com/jercle/azgo/blob/v0.0.0/dist/commands/hello/index.ts)_
-
-## `azgoc hello world`
-
-Say hello world
-
-```
-USAGE
-  $ azgoc hello world
-
-DESCRIPTION
-  Say hello world
-
-EXAMPLES
-  $ oex hello world
-  hello world! (./src/commands/hello/world.ts)
-```
+* [`azgoc subs`](#azgoc-subs)
 
 ## `azgoc help [COMMAND]`
 
@@ -331,4 +290,26 @@ FLAGS
 DESCRIPTION
   Update installed plugins.
 ```
+
+## `azgoc subs`
+
+Display current configured Azure CLI subscriptions
+
+```
+USAGE
+  $ azgoc subs [-s]
+
+FLAGS
+  -s, --setActive  Set active subscription for Azure CLI
+
+DESCRIPTION
+  Display current configured Azure CLI subscriptions
+
+EXAMPLES
+  $ azgoc subs
+
+  $ azgoc subs --setActive
+```
+
+_See code: [dist/commands/subs.ts](https://github.com/jercle/azgo/blob/v0.0.0/dist/commands/subs.ts)_
 <!-- commandsstop -->
