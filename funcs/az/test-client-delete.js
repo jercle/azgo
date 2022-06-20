@@ -6,18 +6,28 @@ const { DefaultAzureCredential } = require("@azure/identity")
 const { readFileSync, writeFileSync } = require("fs")
 const moment = require("moment")
 
+
 const opts = {
-  acrRegistry: {
-    prod: "https://dmzprodeastacr01.azurecr.io",
-    nonprod: "https://dmznonproddevacr01.azurecr.io",
-  },
-  subscriptionId: {
-    prod: "cb45d5d6-bd1e-4016-b146-71bfce35fdbe",
-    nonprod: "23310d40-a0d5-4446-8433-d0e6b151c2ab",
-  },
-  appName: "fmds",
-  imageRetention: 30,
+  subscriptionId: process.env.subscriptionId,
+  resourceGroup: process.env.resourceGroup,
+  acrName: process.env.acrName,
+  assessmentName: process.env.assessmentName,
+  nsgName: process.env.nsgName,
+  acrRegistry: process.env.acrRegistry,
+  testDataPath: process.env.testDataPath
 }
+// {
+//   subscriptionId,
+//   resourceGroup,
+//   acrName,
+//   assessmentName,
+//   nsgName,
+//   acrRegistry,
+//   testDataPath,
+// }
+
+
+
 
 async function main({ acrRegistry, subscriptionId, appName, imageRetention }) {
   // console.log(args)

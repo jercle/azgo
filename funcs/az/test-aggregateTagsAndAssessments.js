@@ -25,24 +25,26 @@ const {
 // $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/23310d40-a0d5-4446-8433-d0e6b151c2ab/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
 // $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
 
-
-
 const opts = {
-  subscriptionId: "23310d40-a0d5-4446-8433-d0e6b151c2ab",
-  resourceGroup: "DMZ-NonProd-Dev-RG",
-  acrName: "dmznonproddevacr01",
-  assessmentName: "dbd0cb49-b563-45e7-9724-889e799fa648",
+  subscriptionId: process.env.subscriptionId,
+  resourceGroup: process.env.resourceGroup,
+  acrName: process.env.acrName,
+  assessmentName: process.env.assessmentName,
+  nsgName: process.env.nsgName,
+  acrRegistry: process.env.acrRegistry,
+  testDataPath: process.env.testDataPath
 }
+// {
+//   subscriptionId,
+//   resourceGroup,
+//   acrName,
+//   assessmentName,
+//   nsgName,
+//   acrRegistry,
+//   testDataPath,
+// }
 
-const opts = {
-  acrRegistry: "https://stkcatacr.azurecr.io",
-  subscriptionId: "bae338c7-6098-4d52-b173-e2147e107dfa",
-  repoName: "gm",
-  imageRetention: 30,
-  resourceGroup: "DefaultResourceGroup-EAU",
-  acrName: "stkcatacr",
-  assessmentName: "dbd0cb49-b563-45e7-9724-889e799fa648",
-}
+
 
 aggregateTagsAndAssessments(opts, new DefaultAzureCredential())
 // aggregateTagsAndAssessments()
