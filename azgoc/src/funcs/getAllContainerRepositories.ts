@@ -14,7 +14,10 @@ import {
 
 import * as moment from "moment"
 import { bold, red } from "chalk"
+
 import { writeFileSync } from "fs"
+
+// import { DefaultAzureCredential } from '@azure/identity'
 
 // const opts = {
 //   acrRegistry: process.env.AZGO_ACR_REGISTRY,
@@ -32,9 +35,10 @@ export default async function getAllContainerRepositories(
 ) {
   if (!acrRegistry) {
     throw Error(
-      bold(red("Missing required environment variable: AZGO_acrRegistry"))
+      bold(red("Missing required environment variable: AZGO_ACR_REGISTRY"))
     )
   }
+
 
   const acrUri = `https://${acrRegistry}.azurecr.io`
   const client = new ContainerRegistryClient(acrUri, azCliCredential, {

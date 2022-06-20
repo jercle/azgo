@@ -18,10 +18,12 @@
   ],
   "dependencies": {
     "@azure/container-registry": "^1.0.0",
+    "@azure/identity": "^2.0.5",
     "@oclif/core": "^1",
     "@oclif/plugin-commands": "^2.2.0",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.0.1",
+    "chalk": "4.1.2",
     "moment": "^2.29.3"
   },
   "devDependencies": {
@@ -52,7 +54,9 @@
     ],
     "topicSeparator": " ",
     "topics": {},
-    "hooks": {}
+    "hooks": {
+      "init": "./src/hooks/init/auth"
+    }
   },
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",
