@@ -20,7 +20,7 @@ $ npm install -g azgoc
 $ azgoc COMMAND
 running command...
 $ azgoc (--version)
-azgoc/0.0.0 darwin-arm64 node-v16.15.1
+azgoc/0.0.0 darwin-arm64 node-v18.4.0
 $ azgoc --help [COMMAND]
 USAGE
   $ azgoc COMMAND

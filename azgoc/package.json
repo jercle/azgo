@@ -50,12 +50,7 @@
     ],
     "topicSeparator": " ",
     "topics": {},
-    "hooks": {
-      "init": [
-        "./src/hooks/init/init_cache",
-        "./src/hooks/init/myhook"
-      ]
-    }
+    "hooks": {}
   },
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",
