@@ -12,14 +12,24 @@ const { WebSiteManagementClient } = require("@azure/arm-appservice")
 const { readFileSync, writeFileSync } = require("fs")
 
 const opts = {
-  acrRegistry: "",
-  subscriptionId: {
-    prod: "",
-    nonprod: "",
-  },
-  appName: "",
-  imageRetention: 30,
+  subscriptionId: process.env.subscriptionId,
+  resourceGroup: process.env.resourceGroup,
+  acrName: process.env.acrName,
+  assessmentName: process.env.assessmentName,
+  nsgName: process.env.nsgName,
+  acrRegistry: process.env.acrRegistry,
+  testDataPath: process.env.testDataPath
 }
+// {
+//   subscriptionId,
+//   resourceGroup,
+//   acrName,
+//   assessmentName,
+//   nsgName,
+//   acrRegistry,
+//   testDataPath,
+// }
+
 
 listAllAppServices(opts, new DefaultAzureCredential())
 

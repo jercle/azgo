@@ -15,15 +15,24 @@ const {
 } = require("@azure/storage-blob")
 
 const opts = {
-  acrRegistry: "",
-  subscriptionId: {
-    prod: "",
-    nonprod: "",
-  },
-  appName: "static",
-  storageAccount: "",
-  appEnv: "dev",
+  subscriptionId: process.env.subscriptionId,
+  resourceGroup: process.env.resourceGroup,
+  acrName: process.env.acrName,
+  assessmentName: process.env.assessmentName,
+  nsgName: process.env.nsgName,
+  acrRegistry: process.env.acrRegistry,
+  testDataPath: process.env.testDataPath
 }
+// {
+//   subscriptionId,
+//   resourceGroup,
+//   acrName,
+//   assessmentName,
+//   nsgName,
+//   acrRegistry,
+//   testDataPath,
+// }
+
 
 getBlobStorage(opts, new DefaultAzureCredential())
 

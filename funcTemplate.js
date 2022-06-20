@@ -7,20 +7,29 @@
  * @return
  */
 
-const { DefaultAzureCredential } = require("@azure/identity")
+ const { DefaultAzureCredential } = require("@azure/identity")
+
+ const opts = {
+  subscriptionId: process.env.subscriptionId,
+  resourceGroup: process.env.resourceGroup,
+  acrName: process.env.acrName,
+  assessmentName: process.env.assessmentName,
+  nsgName: process.env.nsgName,
+  acrRegistry: process.env.acrRegistry,
+  testDataPath: process.env.testDataPath
+}
+// {
+//   subscriptionId,
+//   resourceGroup,
+//   acrName,
+//   assessmentName,
+//   nsgName,
+//   acrRegistry,
+//   testDataPath,
+// }
 
 __name__(opts, new DefaultAzureCredential())
 
-const opts = {
-  acrRegistry: "",
-  subscriptionId: {
-    prod: "",
-    nonprod: "",
-  },
-  appName: "",
-  imageRetention: 30,
-}
+ async function __name__({ appEnv, appName }, azCliCredential) {}
 
-async function __name__({ appEnv, appName }, azCliCredential) {}
-
-module.exports = __name__
+ module.exports = __name__

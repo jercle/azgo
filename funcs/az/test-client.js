@@ -4,10 +4,26 @@ const {
 } = require("@azure/container-registry")
 const { DefaultAzureCredential } = require("@azure/identity")
 
+
+
 const opts = {
-  acrRegistry: "https://dmznonproddevacr01.azurecr.io",
-  subscriptionId: "cb45d5d6-bd1e-4016-b146-71bfce35fdbe",
+  subscriptionId: process.env.subscriptionId,
+  resourceGroup: process.env.resourceGroup,
+  acrName: process.env.acrName,
+  assessmentName: process.env.assessmentName,
+  nsgName: process.env.nsgName,
+  acrRegistry: process.env.acrRegistry,
+  testDataPath: process.env.testDataPath
 }
+// {
+//   subscriptionId,
+//   resourceGroup,
+//   acrName,
+//   assessmentName,
+//   nsgName,
+//   acrRegistry,
+//   testDataPath,
+// }
 
 // const { setLogLevel } = require("@azure/logger");
 

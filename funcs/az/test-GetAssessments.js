@@ -12,8 +12,24 @@ const { DefaultAzureCredential } = require("@azure/identity")
 const { writeFileSync, readFileSync } = require("fs")
 
 const opts = {
-  subscriptionId: "",
+  subscriptionId: process.env.subscriptionId,
+  resourceGroup: process.env.resourceGroup,
+  acrName: process.env.acrName,
+  assessmentName: process.env.assessmentName,
+  nsgName: process.env.nsgName,
+  acrRegistry: process.env.acrRegistry,
+  testDataPath: process.env.testDataPath
 }
+// {
+//   subscriptionId,
+//   resourceGroup,
+//   acrName,
+//   assessmentName,
+//   nsgName,
+//   acrRegistry,
+//   testDataPath,
+// }
+
 
 getAssessments(opts)
 
@@ -70,16 +86,16 @@ async function getAssessments({ subscriptionId }) {
         ""
     )
   )
-  writeFileSync(
-    "../testData/singeSubAssessment.json",
-    JSON.stringify(
-      subs.filter(
-        (sub) =>
-          sub.id ==
-          ""
-      )
-    )
-  )
+  // writeFileSync(
+  //   "../testData/singeSubAssessment.json",
+  //   JSON.stringify(
+  //     subs.filter(
+  //       (sub) =>
+  //         sub.id ==
+  //         ""
+  //     )
+  //   )
+  // )
 
   // const subAss = await client.subAssessments.get(
   //   "",
