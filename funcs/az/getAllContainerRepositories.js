@@ -18,31 +18,27 @@ const { bold, red } = require("chalk")
 
 const { writeFileSync } = require("fs")
 
-const opts = {
-  acrRegistry: process.env.acrRegistry,
-  testDataPath: process.env.testDataPath,
-  saveFile: process.env.saveFile,
-  includeManifests: process.env.includeManifests,
-}
-// {
-//   acrRegistry, Example: azurecontainerregistry
-//   testDataPath,
+// const opts = {
+//   ACR_REGISTRY: process.env.AZGO_ACR_REGISTRY,
+//   SAVE_FILE: process.env.AZGO_SAVE_FILE,
+//   INCLUDE_MANIFESTS: process.env.AZGO_INCLUDE_MANIFESTS,
 // }
-
 // getAllContainerRepositories(
 //   opts,
 //   new (require("@azure/identity").DefaultAzureCredential)()
 // ).then((repositories) => console.log(repositories))
 
 async function getAllContainerRepositories(
-  { testDataPath, acrRegistry, saveFile, includeManifests },
+  { ACR_REGISTRY, SAVE_FILE, INCLUDE_MANIFESTS },
   azCliCredential
 ) {
-  if (!acrRegistry) {
-    throw Error(bold(red("Missing required environment variable: acrRegistry")))
+  if (!ACR_REGISTRY) {
+    throw Error(
+      bold(red("Missing required environment variable: AZGO_ACR_REGISTRY"))
+    )
   }
 
-  const acrUri = `https://${acrRegistry}.azurecr.io`
+  const acrUri = `https://${ACR_REGISTRY}.azurecr.io`
   const client = new ContainerRegistryClient(acrUri, azCliCredential, {
     audience: KnownContainerRegistryAudience.AzureResourceManagerPublicCloud,
   })
@@ -55,7 +51,7 @@ async function getAllContainerRepositories(
 
   for (repoName of repoNames) {
     let repoManifests = []
-    if (includeManifests) {
+    if (INCLUDE_MANIFESTS) {
       for await (manifest of await client
         .getRepository(repoName)
         .listManifestProperties()) {
@@ -79,17 +75,14 @@ async function getAllContainerRepositories(
       azgoSyncDate: moment().local().format(),
     }
 
-    if (includeManifests) {
+    if (INCLUDE_MANIFESTS) {
       repository.manifests = repoManifests
     }
 
     repositories = [...repositories, repository]
   }
-  if (saveFile) {
-    writeFileSync(
-      `${testDataPath}/getAllContainerRepositories.json`,
-      JSON.stringify(repositories)
-    )
+  if (SAVE_FILE) {
+    writeFileSync(SAVE_FILE, JSON.stringify(repositories))
   }
   return repositories
 }

@@ -11,44 +11,27 @@ const { SecurityCenter } = require("@azure/arm-security")
 const { writeFileSync } = require("fs")
 const moment = require("moment")
 
-const opts = {
-  subscriptionId: process.env.subscriptionId,
-  resourceGroup: process.env.resourceGroup,
-  assessmentId: process.env.assessmentId,
-  acrRegistry: process.env.acrRegistry,
-  testDataPath: process.env.testDataPath,
-  saveFile: process.env.saveFile,
-}
-
-// {
-//   subscriptionId,
-//   resourceGroup,
-//   assessmentId,
-//   acrRegistry,
-//   testDataPath,
+// const opts = {
+//   SUBSCRIPTION_ID: process.env.AZGO_SUBSCRIPTION_ID,
+//   RESOURCE_GROUP: process.env.AZGO_RESOURCE_GROUP,
+//   ASSESSMENT_ID: process.env.AZGO_ASSESSMENT_ID,
+//   ACR_REGISTRY: process.env.AZGO_ACR_REGISTRY,
+//   SAVE_FILE: process.env.AZGO_SAVE_FILE,
 // }
-
-getsubAssessments(
-  opts,
-  new (require("@azure/identity").DefaultAzureCredential)()
-).then((res) => console.log(res))
+// getsubAssessments(
+//   opts,
+//   new (require("@azure/identity").DefaultAzureCredential)()
+// ).then((res) => console.log(res))
 
 async function getsubAssessments(
-  {
-    assessmentId,
-    subscriptionId,
-    resourceGroup,
-    acrRegistry,
-    testDataPath,
-    saveFile,
-  },
+  { ASSESSMENT_ID, SUBSCRIPTION_ID, RESOURCE_GROUP, ACR_REGISTRY, SAVE_FILE },
   credentials
 ) {
-  const client = new SecurityCenter(credentials, subscriptionId)
+  const client = new SecurityCenter(credentials, SUBSCRIPTION_ID)
 
   const subAssessmentsList = await client.subAssessments.list(
-    `/subscriptions/${subscriptionId}/resourceGroups/${resourceGroup}/providers/Microsoft.ContainerRegistry/registries/${acrRegistry}`,
-    assessmentId
+    `/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${RESOURCE_GROUP}/providers/Microsoft.ContainerRegistry/registries/${ACR_REGISTRY}`,
+    ASSESSMENT_ID
   )
 
   let subAssessments = []
@@ -61,11 +44,8 @@ async function getsubAssessments(
     subAssessments,
   }
 
-  if (saveFile) {
-    writeFileSync(
-      `${testDataPath}/getsubAssessments.json`,
-      JSON.stringify(data)
-    )
+  if (SAVE_FILE) {
+    writeFileSync(SAVE_FILE, JSON.stringify(data))
   }
 
   return data
