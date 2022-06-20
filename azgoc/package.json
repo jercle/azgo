@@ -17,10 +17,12 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
+    "@azure/container-registry": "^1.0.0",
     "@oclif/core": "^1",
     "@oclif/plugin-commands": "^2.2.0",
     "@oclif/plugin-help": "^5",
-    "@oclif/plugin-plugins": "^2.0.1"
+    "@oclif/plugin-plugins": "^2.0.1",
+    "moment": "^2.29.3"
   },
   "devDependencies": {
     "@oclif/test": "^2",
