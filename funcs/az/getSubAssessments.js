@@ -14,7 +14,7 @@ const moment = require("moment")
 const opts = {
   subscriptionId: process.env.subscriptionId,
   resourceGroup: process.env.resourceGroup,
-  assessmentName: process.env.assessmentName,
+  assessmentId: process.env.assessmentId,
   acrRegistry: process.env.acrRegistry,
   testDataPath: process.env.testDataPath,
   saveFile: process.env.saveFile,
@@ -23,7 +23,7 @@ const opts = {
 // {
 //   subscriptionId,
 //   resourceGroup,
-//   assessmentName,
+//   assessmentId,
 //   acrRegistry,
 //   testDataPath,
 // }
@@ -35,7 +35,7 @@ getsubAssessments(
 
 async function getsubAssessments(
   {
-    assessmentName,
+    assessmentId,
     subscriptionId,
     resourceGroup,
     acrRegistry,
@@ -48,7 +48,7 @@ async function getsubAssessments(
 
   const subAssessmentsList = await client.subAssessments.list(
     `/subscriptions/${subscriptionId}/resourceGroups/${resourceGroup}/providers/Microsoft.ContainerRegistry/registries/${acrRegistry}`,
-    assessmentName
+    assessmentId
   )
 
   let subAssessments = []

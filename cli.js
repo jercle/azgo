@@ -14,6 +14,7 @@ try {
 
 const listShareFiles = require("./funcs/az/listShareFiles")
 const getSecrets = require("./funcs/az/getSecrets")
+const getSubAssessments = require("./funcs/az/getSubAssessments")
 const getAppServicePlan = require("./funcs/az/getAppServicePlan")
 const listSubscriptions = require("./funcs/az/listSubscriptions")
 const getAppService = require("./funcs/az/getAppService")
@@ -44,6 +45,7 @@ const options = yargs
   .check((argv, options) => {
     if (
       argv._[0] == "ls" ||
+      argv._[0] == "security" ||
       argv._[0] == "secrets" ||
       argv._[0] == "asp" ||
       argv._[0] == "app" ||
@@ -107,6 +109,46 @@ const options = yargs
         demandOption: true,
       })
   })
+  .command("security", "Security Center related actions", (yargs) => {
+    return yargs
+      .option("subscriptionId", {
+        describe: "Subscription ID",
+        alias: "s",
+        type: "string",
+        demandOption: true,
+      })
+      .option("assessmentId", {
+        describe: "Security assessment ID",
+        alias: "i",
+        type: "string",
+        demandOption: true,
+      })
+      .option("resourceGroup", {
+        describe: "Name of Resource Group",
+        alias: "g",
+        type: "string",
+        demandOption: true,
+      })
+      .option("acrRegistry", {
+        describe: "Name of ACR Registry",
+        alias: "r",
+        type: "string",
+        demandOption: true,
+      })
+      .option("saveFile", {
+        describe: "Save output to Environment Variable: testDataPath",
+        type: "boolean",
+      })
+  })
+
+  // subscriptionId: process.env.subscriptionId,
+  // resourceGroup: process.env.resourceGroup,
+  // assessmentId: process.env.assessmentId,
+  // acrRegistry: process.env.acrRegistry,
+  // testDataPath: process.env.testDataPath,
+  // saveFile: process.env.saveFile,
+
+
   .command("asp", "Get details of an App Service Plan", (yargs) => {
     return yargs
       .option("appName", {
@@ -173,6 +215,11 @@ function actOnCli() {
     case "init":
       options.clearCache && clearCacheConfirm()
       options.showCache && appCache.show()
+      break
+    case "security":
+      getSubAssessments(options, getSubAssessments)
+      // options.clearCache && clearCacheConfirm()
+      // options.showCache && appCache.show()
       break
     case "ls":
       listShareFiles(options, azCliCredential)
