@@ -18,6 +18,7 @@
   ],
   "dependencies": {
     "@oclif/core": "^1",
+    "@oclif/plugin-commands": "^2.2.0",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.0.1"
   },
@@ -44,12 +45,16 @@
     "commands": "./dist/commands",
     "plugins": [
       "@oclif/plugin-help",
-      "@oclif/plugin-plugins"
+      "@oclif/plugin-plugins",
+      "@oclif/plugin-commands"
     ],
     "topicSeparator": " ",
     "topics": {},
     "hooks": {
-      "init": "./src/hooks/init/init_cache"
+      "init": [
+        "./src/hooks/init/init_cache",
+        "./src/hooks/init/myhook"
+      ]
     }
   },
   "scripts": {
