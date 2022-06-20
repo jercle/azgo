@@ -7,49 +7,29 @@
  * @return
  */
 
-const { DefaultAzureCredential } = require('@azure/identity');
-const {
-  ContainerRegistryManagementClient,
-} = require('@azure/arm-containerregistry');
+ const { DefaultAzureCredential } = require("@azure/identity")
 
-purgeOldImageBuilds({
-  acrRegistry: 'dmznonproddevacr01',
-  subscriptionId: '23310d40-a0d5-4446-8433-d0e6b151c2ab',
-  rg: 'DMZ-NonProd-Dev-RG',
-}).then((r) => console.log(r));
-
-async function purgeOldImageBuilds(
-  { acrRegistry, subscriptionId, rg },
-  azCliCredential
-) {
-  const client = new ContainerRegistryManagementClient(
-    new DefaultAzureCredential(),
-    subscriptionId
-  );
-  // const iterator = await client.registries.get(rg, acrRegistry);
-  const iterator = await client.registries.get(rg, acrRegistry)
-  // console.log(registries)
-  // let registries = [];
-
-  // for await (registry of client.registries.list()) {
-  //   registries = [
-  //     ...registries,
-  //     {
-  //       name: registry.displayName,
-  //       subscriptionId: registry.subscriptionId,
-  //     },
-  //   ];
-  // console.log(registry)
-  // }
-
-  console.log(iterator)
-
-  // for await (const repository of iterator) {
-  // console.log(repository);
-  // }
-  // for await (registry of iterator) {
-  //   console.log(registry)
-  // }
+ const opts = {
+  subscriptionId: process.env.subscriptionId,
+  resourceGroup: process.env.resourceGroup,
+  acrName: process.env.acrName,
+  assessmentName: process.env.assessmentName,
+  nsgName: process.env.nsgName,
+  acrRegistry: process.env.acrRegistry,
+  testDataPath: process.env.testDataPath
 }
+// {
+//   subscriptionId,
+//   resourceGroup,
+//   acrName,
+//   assessmentName,
+//   nsgName,
+//   acrRegistry,
+//   testDataPath,
+// }
 
-module.exports = purgeOldImageBuilds;
+__name__(opts, new DefaultAzureCredential())
+
+ async function __name__({ appEnv, appName }, azCliCredential) {}
+
+ module.exports = __name__

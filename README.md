@@ -1,11 +1,12 @@
 # Azure Tooling
 - [Azure Tooling](#azure-tooling)
   - [Function of this CLI](#function-of-this-cli)
+  - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Authentication](#authentication)
   - [Usage](#usage)
-    - [Set current active subscription](#set-current-active-subscription)
     - [List all subscriptions](#list-all-subscriptions)
+    - [Set current active subscription](#set-current-active-subscription)
     - [List Files Within File Share](#list-files-within-file-share)
     - [List Keyvault Secrets](#list-keyvault-secrets)
     - [Get App Service Plan Info](#get-app-service-plan-info)
@@ -22,12 +23,31 @@ This CLI is still very much under development, and functions with the `test-` pr
 
 This is my first public project, so any advice is appreciated and taken onboard. Also, having never REALLY done unit testing in NodeJS before, I have finally begun. I know, I know...
 
+
+## Prerequisites
+[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) must be installed and logged in.
+For any Azure DevOps functions, a Personal Access Token must be set at AZURE_DEVOPS_EXT_PAT environment variable
+
+You can obtain a Personal Access Token from https://dev.azure.com/YOUR_ORGANIZATION/_usersSettings/tokens
+
+Then set the token as your environment variable using the following:
+Linux/macOS:
+```bash
+export AZURE_DEVOPS_EXT_PAT=TOKEN
+```
+Windows CMD:
+```cmd
+set AZURE_DEVOPS_EXT_PAT=TOKEN
+```
+Winows Powershell:
+```powershell
+$env:AZURE_DEVOPS_EXT_PAT=TOKEN"
+```
 ## Installation
 
 First clone the repo
 ```bash
 git clone git@github.com:jERCle/azgo.git
-
 ```
 
 CD to repositoriy then install dependencies
@@ -43,15 +63,10 @@ npm link
 ## Authentication
 You must be logged in with `azure cli` as this uses the authentication provided by the user currently logged into Azure CLI
 
-For Azure DevOps functionality, you must have a Personal Access Token set against AZURE_DEVOPS_EXT_PAT environment variable
+For Azure DevOps functionality, you must have a Personal Access Token saved to AZURE_DEVOPS_EXT_PAT environment variable as per [Function of this CLI](#function-of-this-cli)
 
 
 ## Usage
-### Set current active subscription
-Provides a small UI wrapper over `az account set --subscription` to select current active subscription. Gives a list of available subscriptions without the need to find the required ID and past into a flag
-
-```azgo subs active```
-
 ### List all subscriptions
 Lists all subscriptions currently configured with `az login`. Similar to `az account list` but groups by TenantID
 
@@ -73,6 +88,12 @@ Output:
 ]
 ```
 
+### Set current active subscription
+Provides a small UI wrapper over `az account set --subscription` to select current active subscription. Gives a list of available subscriptions without the need to find the required ID and past into a flag
+
+```bash
+azgo subs active
+```
 ### List Files Within File Share
 ```
 azgo ls -n <share name> -c <connection string>

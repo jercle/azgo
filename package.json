@@ -1,17 +1,20 @@
 {
   "name": "azgo",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "main.js",
   "type": "commonjs",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "pkg": "pkg -t node16-alpine-arm64,node16-linux-arm64,node16-macos-arm64,node16-win-arm64,node16-alpine-x64,node16-linux-x64,node16-macos-x64,node16-win-x64 .",
+    "pkgmbp": "pkg -t node16-macos-arm64 ."
   },
   "bin": {
     "azgo": "newmain.js"
   },
   "pkg": {
-    "outputPath": "dist"
+    "outputPath": "dist",
+    "version": "0.0.3"
   },
   "author": "Evan Colwell <ercolwell@outlook.com>",
   "license": "ISC",
@@ -23,6 +26,18 @@
     "type": "git",
     "url": "https://github.com/jercle/azgo.git"
   },
+  "files": [
+    "newmain.js",
+    "cli.js",
+    "funcs/utility/cache.js",
+    "funcs/az/listShareFiles.js",
+    "funcs/az/getSecrets.js",
+    "funcs/az/getAppServicePlan.js",
+    "funcs/az/listSubscriptions.js",
+    "funcs/az/getAppService.js",
+    "funcs/utility/selectActiveSubscription.js",
+    "funcs/az/listSubscriptions.js"
+  ],
   "dependencies": {
     "@azure/arm-appservice": "^12.0.0",
     "@azure/arm-containerregistry": "^10.0.0",
@@ -36,6 +51,7 @@
     "@azure/keyvault-secrets": "^4.4.0",
     "@azure/storage-blob": "^12.10.0",
     "@azure/storage-file-share": "^12.10.0",
+    "@jercle/yargonaut": "^1.1.5",
     "@supercharge/promise-pool": "^2.2.0",
     "azure-devops-node-api": "^11.1.1",
     "chalk": "^4.1.2",
@@ -44,11 +60,11 @@
     "moment": "^2.29.3",
     "mongodb": "^4.6.0",
     "turndown": "^7.1.1",
-    "yargonaut": "^1.1.4",
     "yargs": "^17.5.1"
   },
   "devDependencies": {
     "jest": "^28.1.1",
-    "mock-stdin": "^1.0.0"
+    "mock-stdin": "^1.0.0",
+    "pkg": "^5.7.0"
   }
 }
