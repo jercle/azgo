@@ -45,12 +45,23 @@
     "commands": "./dist/commands",
     "plugins": [
       "@oclif/plugin-help",
+<<<<<<< HEAD
       "@oclif/plugin-plugins",
       "@oclif/plugin-commands"
     ],
     "topicSeparator": " ",
     "topics": {},
     "hooks": {}
+=======
+      "@oclif/plugin-plugins"
+    ],
+    "topicSeparator": " ",
+    "topics": {
+      "hello": {
+        "description": "Say hello to the world and others"
+      }
+    }
+>>>>>>> 744366a (Added azgoc subdir with scaffolded oclif cli)
   },
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",

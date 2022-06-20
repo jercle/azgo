@@ -29,18 +29,21 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`azgoc commands`](#azgoc-commands)
-* [`azgoc help [COMMAND]`](#azgoc-help-command)
-* [`azgoc plugins`](#azgoc-plugins)
-* [`azgoc plugins:install PLUGIN...`](#azgoc-pluginsinstall-plugin)
-* [`azgoc plugins:inspect PLUGIN...`](#azgoc-pluginsinspect-plugin)
-* [`azgoc plugins:install PLUGIN...`](#azgoc-pluginsinstall-plugin-1)
-* [`azgoc plugins:link PLUGIN`](#azgoc-pluginslink-plugin)
-* [`azgoc plugins:uninstall PLUGIN...`](#azgoc-pluginsuninstall-plugin)
-* [`azgoc plugins:uninstall PLUGIN...`](#azgoc-pluginsuninstall-plugin-1)
-* [`azgoc plugins:uninstall PLUGIN...`](#azgoc-pluginsuninstall-plugin-2)
-* [`azgoc plugins update`](#azgoc-plugins-update)
-* [`azgoc subs`](#azgoc-subs)
+- [oclif-hello-world](#oclif-hello-world)
+- [Usage](#usage)
+- [Commands](#commands)
+  - [`azgoc commands`](#azgoc-commands)
+  - [`azgoc help [COMMAND]`](#azgoc-help-command)
+  - [`azgoc plugins`](#azgoc-plugins)
+  - [`azgoc plugins:install PLUGIN...`](#azgoc-pluginsinstall-plugin)
+  - [`azgoc plugins:inspect PLUGIN...`](#azgoc-pluginsinspect-plugin)
+  - [`azgoc plugins:install PLUGIN...`](#azgoc-pluginsinstall-plugin-1)
+  - [`azgoc plugins:link PLUGIN`](#azgoc-pluginslink-plugin)
+  - [`azgoc plugins:uninstall PLUGIN...`](#azgoc-pluginsuninstall-plugin)
+  - [`azgoc plugins:uninstall PLUGIN...`](#azgoc-pluginsuninstall-plugin-1)
+  - [`azgoc plugins:uninstall PLUGIN...`](#azgoc-pluginsuninstall-plugin-2)
+  - [`azgoc plugins update`](#azgoc-plugins-update)
+  - [`azgoc subs`](#azgoc-subs)
 
 ## `azgoc commands`
 
@@ -145,7 +148,7 @@ ALIASES
   $ azgoc plugins add
 
 EXAMPLES
-  $ azgoc plugins:install myplugin 
+  $ azgoc plugins:install myplugin
 
   $ azgoc plugins:install https://github.com/someuser/someplugin
 
@@ -205,7 +208,7 @@ ALIASES
   $ azgoc plugins add
 
 EXAMPLES
-  $ azgoc plugins:install myplugin 
+  $ azgoc plugins:install myplugin
 
   $ azgoc plugins:install https://github.com/someuser/someplugin
 
