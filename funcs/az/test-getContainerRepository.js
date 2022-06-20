@@ -25,7 +25,8 @@ const opts = {
   assessmentName: process.env.assessmentName,
   nsgName: process.env.nsgName,
   acrRegistry: process.env.acrRegistry,
-  testDataPath: process.env.testDataPath
+  testDataPath: process.env.testDataPath,
+  appName: process.env.appName
 }
 // {
 //   subscriptionId,
@@ -38,10 +39,10 @@ const opts = {
 // }
 
 
-// getContainerRespository(opts)
+// getContainerRespository(opts).then(res => console.log(res))
 
 async function getContainerRespository(
-  { repoName, acrRegistry },
+  { appName, acrRegistry },
   azCliCredential
 ) {
   const client = new ContainerRegistryClient(
@@ -54,7 +55,7 @@ async function getContainerRespository(
 
   let manifests = []
 
-  const repo = client.getRepository(repoName)
+  const repo = client.getRepository(appName)
   // console.log(await repo.getProperties())
   for await (manifest of repo.listManifestProperties()) {
     manifests = [...manifests, manifest]
@@ -92,7 +93,7 @@ async function getContainerRespository(
   // }
   // console.log(mans)
 
-  // console.log()
+  // console.log(repository)
   return repository
 }
 
