@@ -29,10 +29,10 @@ const opts = {
 //   testDataPath,
 // }
 
-getAllContainerRepositories(
-  opts,
-  new (require("@azure/identity").DefaultAzureCredential)()
-).then((repositories) => console.log(repositories))
+// getAllContainerRepositories(
+//   opts,
+//   new (require("@azure/identity").DefaultAzureCredential)()
+// ).then((repositories) => console.log(repositories))
 
 async function getAllContainerRepositories(
   { testDataPath, acrRegistry, saveFile, includeManifests },
@@ -76,7 +76,7 @@ async function getAllContainerRepositories(
       registryLoginServer: repoProps.registryLoginServer,
       createdOn: repoProps.createdOn,
       lastUpdatedOn: repoProps.lastUpdatedOn,
-      reportGenerated: moment().local().format(),
+      azgoSyncDate: moment().local().format(),
     }
 
     if (includeManifests) {
