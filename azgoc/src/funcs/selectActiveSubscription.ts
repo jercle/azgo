@@ -8,8 +8,8 @@
 import * as os from 'os'
 
 // const inquirer = require('inquirer');
-// import inquirer from 'inquirer'
-const inquirer = await import('inquirer')
+import inquirer from 'inquirer'
+// const inquirer = await import('inquirer')
 // const differenceInDays = require('date-fns/differenceInDays')
 
 // const { readFileSync, writeFileSync } = require('fs')
