@@ -34,7 +34,7 @@ const subs = subList.map((sub) => ({
   tenantId: sub.tenantId,
 }))
 
-require("yargonaut")
+require("@jercle/yargonaut")
   .style("yellow", "required")
   .helpStyle("green.underline")
   .errorsStyle("red.bold")
