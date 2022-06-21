@@ -16,9 +16,12 @@ import {
 
 // import * as moment from 'moment'
 import moment = require('moment')
+import { formatDistance, formatISO, differenceInHours, differenceInDays, parseISO } from 'date-fns'
+
+
 import chalk from "chalk"
 
-import { writeFileSync } from "fs"
+import { existsSync, readFileSync, writeFileSync } from "fs"
 
 
 // import { DefaultAzureCredential } from '@azure/identity'
@@ -33,16 +36,24 @@ import { writeFileSync } from "fs"
 //   new (require("@azure/identity").DefaultAzureCredential)()
 // ).then((repositories) => console.log(repositories))
 
+
+// if (saveFile) {
+//   writeFileSync(saveFile, JSON.stringify(repositories))
+// }
+
 export default async function getAllContainerRepositories(
-  { acrRegistry, saveFile, includeManifests },
+  { acrRegistry, saveFile, includeManifests, resyncData },
   azCliCredential
 ) {
-  if (!acrRegistry) {
-    throw Error(
-      chalk.bold(chalk.red("Missing required environment variable: AZGO_ACR_REGISTRY"))
-    )
-  }
 
+  if (existsSync(saveFile) && !resyncData) {
+    console.log(chalk.bold(chalk.green("Loading cached data from file...")))
+    const data = JSON.parse(readFileSync(saveFile).toString())
+    // console.log(`Last synced ${differenceInHours(new Date(), parseISO(data.azgoSyncDate))} hours ago`)
+    console.log(`Last synced ${formatDistance(parseISO(data.azgoSyncDate), new Date(), { addSuffix: true })}`)
+    // console.log(data)
+    return data
+  }
 
   const acrUri = `https://${acrRegistry}.azurecr.io`
   const client = new ContainerRegistryClient(acrUri, azCliCredential, {
@@ -78,14 +89,12 @@ export default async function getAllContainerRepositories(
       registryLoginServer: string,
       createdOn: Date,
       lastUpdatedOn: Date,
-      azgoSyncDate: string,
       manifests?: any
     } = {
       name: repoProps.name,
       registryLoginServer: repoProps.registryLoginServer,
       createdOn: repoProps.createdOn,
-      lastUpdatedOn: repoProps.lastUpdatedOn,
-      azgoSyncDate: moment().local().format(),
+      lastUpdatedOn: repoProps.lastUpdatedOn
     }
 
     if (includeManifests) {
@@ -93,9 +102,15 @@ export default async function getAllContainerRepositories(
     }
 
     repositories = [...repositories, repository]
+
+  }
+  const response = {
+    azgoSyncDate: formatISO(new Date()),
+    repositories,
   }
   if (saveFile) {
-    writeFileSync(saveFile, JSON.stringify(repositories))
+    writeFileSync(saveFile, JSON.stringify(response))
   }
-  return repositories
+  // console.log(repositories)
+  return response
 }

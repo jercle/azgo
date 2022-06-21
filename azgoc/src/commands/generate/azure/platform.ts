@@ -1,6 +1,6 @@
 import { Command, Flags } from '@oclif/core'
 import { readFileSync } from 'fs'
-import { parse, stringify } from 'yaml'
+// import { parse, stringify } from 'yaml'
 import * as os from 'os';
 
 const activeSubscription = JSON.parse(readFileSync(`${os.homedir()}/.azure/azureProfile.json`).toString().trim()).subscriptions.filter(sub => sub.isDefault)[0]
@@ -25,8 +25,6 @@ export default class GenerateAzurePlatform extends Command {
       Subscription ID to use.
       If not supplied, will use current active Azure CLI subscription.`,
       default: activeSubscription.id
-      // env: 'AZGO_SUBSCRIPTION_ID',
-      // required: true
     }),
     appEnvironemnts: Flags.string({
       char: 'e',
@@ -68,13 +66,5 @@ export default class GenerateAzurePlatform extends Command {
 
   public async run(): Promise<void> {
 
-    // console.log(currentActive)
-
-    // const { args, flags } = await this.parse(GenerateAzurePlatform)
-
-    // console.log(this.config)
-    // console.log(azureProfile)
-    // let tpl = readFileSync(`${__dirname}/../../../../templates/azure/platform.tpl`, 'utf8')
-    console.log('test')
   }
 }

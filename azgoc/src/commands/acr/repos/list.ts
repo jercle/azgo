@@ -1,4 +1,4 @@
-import { Command, Flags } from '@oclif/core'
+import { Command, Flags, CliUx } from '@oclif/core'
 
 // import { writeFileSync } from 'fs'
 
@@ -7,11 +7,11 @@ import { Command, Flags } from '@oclif/core'
 import { DefaultAzureCredential } from '@azure/identity'
 import { formatISO, differenceInHours, differenceInDays, parseISO } from 'date-fns'
 
-import getAllContainerRepositories from '../../funcs/getAllContainerRepositories.js'
+import getAllContainerRepositories from '../../../funcs/getAllContainerRepositories.js'
 
 const azCliCredential = new DefaultAzureCredential()
 
-export default class AcrVulns extends Command {
+export default class AcrReposList extends Command {
   static description = 'Get all container vulnerabilities'
 
   static examples = [
@@ -44,18 +44,16 @@ export default class AcrVulns extends Command {
   static args = []
 
   public async run(): Promise<void> {
-    const { args, flags } = await this.parse(AcrVulns)
-    // console.log(flags)
-    // console.log(this.config)
-    // const data = getAllContainerRepositories(flags, "azCliCredential")
-    // const dateLeft = parseISO("2022-06-20T18:32:57+10:00")
-    // const dateRight = parseISO("2013-06-10T18:32:57+10:00")
-
-    // console.log(formatISO(new Date()))
-
-    const vulnData = await getAllContainerRepositories(flags, azCliCredential)
-
-    // console.log(differenceInHours(new Date(), parseISO(vulnData.azgoSyncDate)))
+    const { args, flags } = await this.parse(AcrReposList)
+    const repos = await getAllContainerRepositories(flags, azCliCredential)
     // console.log(repos)
+    repos.repositories.map(repo => {
+      const manifests = repo.manifests ? repo.manifests.length : 0
+      console.log({
+        name: repo.name,
+        manifests
+      })
+    })
+    // TODO: Print table view: https://oclif.io/docs/table
   }
 }
