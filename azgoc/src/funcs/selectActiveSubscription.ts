@@ -19,7 +19,7 @@ import { readFileSync, writeFileSync } from 'fs'
 import chalk from 'chalk'
 
 const azureProfilePath = `${os.homedir()}/.azure/azureProfile.json`
-const { installationId, subscriptions } = JSON.parse(readFileSync(azureProfilePath).toString())
+const { installationId, subscriptions } = JSON.parse(readFileSync(azureProfilePath).toString().trim())
 
 export default async function selectActiveSubscription() {
   const currentActive = subscriptions.filter((sub) => sub.isDefault)[0]

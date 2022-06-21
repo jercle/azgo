@@ -8,9 +8,9 @@
 import * as os from 'os'
 
 import { readFileSync } from "fs"
-// const azCliProfile = require(`${os.homedir()}/.azure/azureProfile.json`)
-const azureProfilePath = `${os.homedir()}/.azure/azureProfile.json`
-const { installationId, subscriptions } = JSON.parse(readFileSync(azureProfilePath).toString())
+
+const azureProfile = readFileSync(`${os.homedir()}/.azure/azureProfile.json`).toString().trim()
+const { subscriptions } = JSON.parse(azureProfile)
 
 export default function listSubscriptions() {
   const formattedProfile = subscriptions.reduce(

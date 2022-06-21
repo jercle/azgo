@@ -3,7 +3,7 @@ import { readFileSync } from 'fs'
 import { parse, stringify } from 'yaml'
 import * as os from 'os';
 
-const activeSubscription = JSON.parse(readFileSync(`${os.homedir()}/.azure/azureProfile.json`).toString()).subscriptions.filter(sub => sub.isDefault)[0]
+const activeSubscription = JSON.parse(readFileSync(`${os.homedir()}/.azure/azureProfile.json`).toString().trim()).subscriptions.filter(sub => sub.isDefault)[0]
 
 export default class GenerateAzurePlatform extends Command {
   static description = 'Create Azure pipeline and armconfig files from template'
@@ -75,5 +75,6 @@ export default class GenerateAzurePlatform extends Command {
     // console.log(this.config)
     // console.log(azureProfile)
     // let tpl = readFileSync(`${__dirname}/../../../../templates/azure/platform.tpl`, 'utf8')
+    console.log('test')
   }
 }
