@@ -1,0 +1,45 @@
+#Deploy AHDB infrastrucutre
+
+# This is not a CI pipeline
+trigger: none
+
+# Reference shared template repository
+resources:
+  repositories:
+  - repository: templates
+    type: git
+    name: DevOps Pipeline Templates/Templates
+    ref: main
+
+extends:
+  template: /pipelines/platform-azure-deploy.yml@templates
+
+  parameters:
+    # ###############
+    # ARM Templates
+    ################
+    armConfigPath: "pipelines/armConfig.json"
+
+    ###############
+    # Environments
+    ###############    
+    environments:
+    - name: AWE_DMZ_D      
+      pool: DMZ-NonProd-Dev      
+      variablesTemplate: variables/variables-dev.yml
+      serviceConnection: DMZ-NonProd-Dev-DevOps-AHDB-SC
+      templateResourceGroup: $(resourceGroupName)
+      targetResourceGroup: $(resourceGroupName)
+
+    - name: AWE_DMZ_NP   
+      pool: DMZ-NonProd-Dev         
+      variablesTemplate: variables/variables-test.yml
+      serviceConnection: DMZ-NonProd-Test-DevOps-AHDB-SC
+      templateResourceGroup: $(resourceGroupName)
+      targetResourceGroup: $(resourceGroupName)
+      dependsOn:
+      - AWE_DMZ_D
+    
+
+
+       

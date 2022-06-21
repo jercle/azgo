@@ -12,10 +12,14 @@ import {
   KnownContainerRegistryAudience,
 } from "@azure/container-registry"
 
-import * as moment from "moment"
-import { bold, red } from "chalk"
+// import moment = require("momment")
+
+// import * as moment from 'moment'
+import moment = require('moment')
+import chalk from "chalk"
 
 import { writeFileSync } from "fs"
+
 
 // import { DefaultAzureCredential } from '@azure/identity'
 
@@ -35,7 +39,7 @@ export default async function getAllContainerRepositories(
 ) {
   if (!acrRegistry) {
     throw Error(
-      bold(red("Missing required environment variable: AZGO_ACR_REGISTRY"))
+      chalk.bold(chalk.red("Missing required environment variable: AZGO_ACR_REGISTRY"))
     )
   }
 

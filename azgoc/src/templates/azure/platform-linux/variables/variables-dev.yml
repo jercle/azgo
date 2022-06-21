@@ -1,0 +1,84 @@
+# Dev enviornment variables
+variables:
+- name: subscriptionId
+  value: 23310d40-a0d5-4446-8433-d0e6b151c2ab
+- name: resourceGroupName
+  value: DMZ-NonProd-Dev-AHDB-RG
+- name: serviceConnection
+  value: DMZ-NonProd-Dev-DevOps-AHDB-SC
+
+# Key Vault
+- name: keyVaultName
+  value: DMZ-NonProd-D-AHDB-KV
+- name: resourceObjectId
+  value: a221184c-4a0a-44b1-8c97-0f11305d4f8c
+
+# App Insights
+- name: applicationInsightsName
+  value: DMZ-NonProd-Dev-AHDB-ai
+
+ # Hosting plan
+- name: hostingPlanName
+  value: DMZ-NonProd-Dev-AHDB-ASP
+- name: aspResourceGroup  
+  value: DMZ-NonProd-Dev-AHDB-RG
+- name: skuName
+  value: P1v3
+- name: hostingPlanKind
+  value: linux
+- name: location
+  value: "Australia East"
+- name: reserved
+  value: "true"
+- name: hyperV
+  value: false
+
+# Networking
+- name: networkResourceGroupName
+  value: dmz-nonprod-1-net-rg
+- name: networkVnetName
+  value: dmz-nonprod-1-vnet1
+- name: networkSubnetName
+  value: dmz-nonprod-AHDB-ip
+
+# Web app
+- name: webAppName
+  value: DMZ-NonProd-Dev-AHDB-site
+- name: webAppKind
+  value: app,linux,container
+- name: osVersion
+  value: linux
+- name: stagingSlotName
+  value: staging
+
+- name: dockerRegistryUrl
+  value: https://mcr.microsoft.com
+
+# temp image
+- name: dockerImageName
+  value: mcr.microsoft.com/appsvc/staticsite:latest
+
+
+# Gateway rules
+- name: appGatewayRuleName
+  value: Allow-NonProd-AppGW01-in
+- name: appGatewayRuleIPAddress1
+  value: 172.25.2.10/32
+- name: appGatewayRuleIPAddress2
+  value: 20.53.68.194/32
+
+# Storage
+- name: storageAccountName
+  value: dmznonproddevahdb
+
+- name: storageAccountType
+  value: Standard_LRS
+
+# File Service
+- name: fileShareName
+  value: ahdbmount
+- name: shareQuota
+  value: "1"
+- name: mountPath
+  value: "/app"
+

@@ -29,21 +29,62 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-- [oclif-hello-world](#oclif-hello-world)
-- [Usage](#usage)
-- [Commands](#commands)
-  - [`azgoc commands`](#azgoc-commands)
-  - [`azgoc help [COMMAND]`](#azgoc-help-command)
-  - [`azgoc plugins`](#azgoc-plugins)
-  - [`azgoc plugins:install PLUGIN...`](#azgoc-pluginsinstall-plugin)
-  - [`azgoc plugins:inspect PLUGIN...`](#azgoc-pluginsinspect-plugin)
-  - [`azgoc plugins:install PLUGIN...`](#azgoc-pluginsinstall-plugin-1)
-  - [`azgoc plugins:link PLUGIN`](#azgoc-pluginslink-plugin)
-  - [`azgoc plugins:uninstall PLUGIN...`](#azgoc-pluginsuninstall-plugin)
-  - [`azgoc plugins:uninstall PLUGIN...`](#azgoc-pluginsuninstall-plugin-1)
-  - [`azgoc plugins:uninstall PLUGIN...`](#azgoc-pluginsuninstall-plugin-2)
-  - [`azgoc plugins update`](#azgoc-plugins-update)
-  - [`azgoc subs`](#azgoc-subs)
+* [`azgoc acr`](#azgoc-acr)
+* [`azgoc acr vulns`](#azgoc-acr-vulns)
+* [`azgoc commands`](#azgoc-commands)
+* [`azgoc generate azure app`](#azgoc-generate-azure-app)
+* [`azgoc generate azure platform`](#azgoc-generate-azure-platform)
+* [`azgoc help [COMMAND]`](#azgoc-help-command)
+* [`azgoc plugins`](#azgoc-plugins)
+* [`azgoc plugins:install PLUGIN...`](#azgoc-pluginsinstall-plugin)
+* [`azgoc plugins:inspect PLUGIN...`](#azgoc-pluginsinspect-plugin)
+* [`azgoc plugins:install PLUGIN...`](#azgoc-pluginsinstall-plugin-1)
+* [`azgoc plugins:link PLUGIN`](#azgoc-pluginslink-plugin)
+* [`azgoc plugins:uninstall PLUGIN...`](#azgoc-pluginsuninstall-plugin)
+* [`azgoc plugins:uninstall PLUGIN...`](#azgoc-pluginsuninstall-plugin-1)
+* [`azgoc plugins:uninstall PLUGIN...`](#azgoc-pluginsuninstall-plugin-2)
+* [`azgoc plugins update`](#azgoc-plugins-update)
+* [`azgoc subs`](#azgoc-subs)
+
+## `azgoc acr`
+
+Azure Container Registry related actions and data aggregations
+
+```
+USAGE
+  $ azgoc acr -r <value>
+
+FLAGS
+  -r, --acrRegistry=<value>  (required) ACR registry to use
+
+DESCRIPTION
+  Azure Container Registry related actions and data aggregations
+
+EXAMPLES
+  $ azgoc acr
+```
+
+_See code: [dist/commands/acr/index.ts](https://github.com/jercle/azgo/blob/v0.0.0/dist/commands/acr/index.ts)_
+
+## `azgoc acr vulns`
+
+Get all container vulnerabilities
+
+```
+USAGE
+  $ azgoc acr vulns -r <value> [-o <value>] [-m]
+
+FLAGS
+  -m, --includeManifests     Include manifests in output
+  -o, --saveFile=<value>     Save output to file
+  -r, --acrRegistry=<value>  (required) ACR registry to use
+
+DESCRIPTION
+  Get all container vulnerabilities
+
+EXAMPLES
+  $ azgoc acr vulns
+```
 
 ## `azgoc commands`
 
@@ -76,6 +117,74 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-commands](https://github.com/oclif/plugin-commands/blob/v2.2.0/src/commands/commands.ts)_
+
+## `azgoc generate azure app`
+
+Create Azure pipeline and armconfig files from template
+
+```
+USAGE
+  $ azgoc generate azure app [-n <value>]
+
+FLAGS
+  -n, --name=<value>  Name of Application
+
+DESCRIPTION
+  Create Azure pipeline and armconfig files from template
+
+EXAMPLES
+  $ azgoc generate azure app
+```
+
+## `azgoc generate azure platform`
+
+Create Azure pipeline and armconfig files from template
+
+```
+USAGE
+  $ azgoc generate azure platform -n <value> -e <value> [-s <value>] [-b <value>] [-d <value>] [-i]
+
+FLAGS
+  -b, --baseName=<value>
+      Base name of the application.
+      Eg: "DMZ" or "PROD".
+      Creates naming convention of <baseName>-<envName>-<subEnv>-<appName>
+      If not specified, will be left out of the resource names
+
+  -d, --subEnvironments=<value>
+      Sub Environment of the application.
+      Eg: "NonProd" or "Prod".
+      Can be used for creating names such as:
+      Web-NonProd-Dev-AppName
+      Web-NonProd-Test-AppName
+      Web-Prod-Prod-AppName
+      Creates naming convention of <baseName>-<envName>-<subEnv>-<appName>
+      If not specified, will be left out of the resource names
+
+  -e, --appEnvironemnts=<value>
+      (required) Comma separated list of application environments to build.
+      Eg: dev,prod
+      At least one is required as this creates the pipeline and
+      variable files per environment provided
+
+  -i, --ignoreDuplicates
+      Ignore duplicate names
+      Eg: 'Web-Prod-Prod-AppName' would become 'Web-Prod-AppName'
+
+  -n, --name=<value>
+      (required) Name of application
+
+  -s, --subscriptionId=<value>
+      [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
+      Subscription ID to use.
+      If not supplied, will use current active Azure CLI subscription.
+
+DESCRIPTION
+  Create Azure pipeline and armconfig files from template
+
+EXAMPLES
+  $ azgoc generate azure platform
+```
 
 ## `azgoc help [COMMAND]`
 
@@ -115,7 +224,7 @@ EXAMPLES
   $ azgoc plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.0.11/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.0/src/commands/plugins/index.ts)_
 
 ## `azgoc plugins:install PLUGIN...`
 
@@ -148,7 +257,7 @@ ALIASES
   $ azgoc plugins add
 
 EXAMPLES
-  $ azgoc plugins:install myplugin
+  $ azgoc plugins:install myplugin 
 
   $ azgoc plugins:install https://github.com/someuser/someplugin
 
@@ -208,7 +317,7 @@ ALIASES
   $ azgoc plugins add
 
 EXAMPLES
-  $ azgoc plugins:install myplugin
+  $ azgoc plugins:install myplugin 
 
   $ azgoc plugins:install https://github.com/someuser/someplugin
 

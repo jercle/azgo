@@ -4,13 +4,22 @@
  * @return {array} List of Tenants and their associated subscriptions in current state of AZ CLI
  */
 
-const os = require("os")
-const inquirer = require("inquirer")
-const { writeFileSync } = require("fs")
-const { dim, green } = require("chalk")
+// const os = require('os')
+import * as os from 'os'
+
+// const inquirer = require('inquirer');
+// import inquirer from 'inquirer'
+const inquirer = await import('inquirer')
+// const differenceInDays = require('date-fns/differenceInDays')
+
+// const { readFileSync, writeFileSync } = require('fs')
+import { readFileSync, writeFileSync } from 'fs'
+
+// const { dim, green } = require('chalk')
+import chalk from 'chalk'
 
 const azureProfilePath = `${os.homedir()}/.azure/azureProfile.json`
-const { installationId, subscriptions } = require(azureProfilePath)
+const { installationId, subscriptions } = JSON.parse(readFileSync(azureProfilePath).toString())
 
 export default async function selectActiveSubscription() {
   const currentActive = subscriptions.filter((sub) => sub.isDefault)[0]
@@ -32,7 +41,7 @@ export default async function selectActiveSubscription() {
     name: "changeActiveSub",
     message: `Are you sure you want to change active subscription?
 
-    ${dim(
+    ${chalk.dim(
       `Current active subscription is: ${currentActive.id} - ${currentActive.name} - ${currentActive.user.name}`
     )}
     `,
@@ -57,7 +66,7 @@ export default async function selectActiveSubscription() {
     const newAzCliProfile = { installationId, subscriptions: newSubList }
     writeFileSync(azureProfilePath, JSON.stringify(newAzCliProfile))
     console.log(
-      green(
+      chalk.green(
         `Active subscription changed to ${newSubAnswer.subscriptionId.subscriptionId} - ${newSubAnswer.subscriptionId.name} - ${newSubAnswer.subscriptionId.user}`
       )
     )
@@ -66,4 +75,3 @@ export default async function selectActiveSubscription() {
     return false
   }
 }
-// module.exports = selectActiveSubscription

@@ -1,15 +1,6 @@
-<<<<<<< HEAD
-// {
-//   "extends": [
-//     "oclif",
-//     "oclif-typescript"
-//   ]
-// }
-=======
 {
   "extends": [
     "oclif",
     "oclif-typescript"
   ]
 }
->>>>>>> 744366a (Added azgoc subdir with scaffolded oclif cli)

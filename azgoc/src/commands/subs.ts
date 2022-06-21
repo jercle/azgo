@@ -1,7 +1,7 @@
 import { Command, Flags } from '@oclif/core'
 
-import listSubscriptions from "../funcs/listSubscriptions"
-import selectActiveSubscription from "../funcs/selectActiveSubscription"
+import listSubscriptions from "../funcs/listSubscriptions.js"
+import selectActiveSubscription from "../funcs/selectActiveSubscription.js"
 
 export default class Subs extends Command {
   static description = 'Display current configured Azure CLI subscriptions'
