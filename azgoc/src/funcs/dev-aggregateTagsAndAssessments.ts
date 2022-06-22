@@ -25,6 +25,7 @@
 import { readFileSync, writeFileSync } from "fs";
 import getAllContainerRepositories from "./getAllContainerRepositories.js"
 import getSubAssessments from "./getSubAssessments.js"
+import { countByRepository, groupByRepository } from "./dev-countVulnerabilities.js";
 
 // $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/23310d40-a0d5-4446-8433-d0e6b151c2ab/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
 // $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
@@ -45,35 +46,72 @@ export default async function aggregateTagsAndAssessments(
   opts,
   credentials
 ) {
-  const repos = await getAllContainerRepositories(opts, credentials);
+  // const repos = await getAllContainerRepositories(opts, credentials);
+  const repos = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getAllContainerRepositories.json").toString().trim())
   console.log(`${repos.repositories.length} repos`)
   // console.log(repos)
   // console.log('getting assessments')
-  const containerVulnerabilities = await getSubAssessments(opts, credentials)
+  // const containerVulnerabilities = await getSubAssessments(opts, credentials)
+  const containerVulnerabilities = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getSubAssessments.json").toString().trim())
   console.log(`Overall vulnerability vulnerabilities: ${containerVulnerabilities.subAssessments.length}`)
   // console.log(containerVulnerabilities.subAssessments)
-
   const windowsVulns = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/aggregateReposAndAssessments-windowsVulns.json").toString().trim())
-  const linuxVulns = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/aggregateReposAndAssessments-linuxVulns.json").toString().trim())
-  const unknownOsVulns = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/aggregateReposAndAssessments-unknownOsVulns.json").toString().trim())
   // const windowsVulns = containerVulnerabilities.subAssessments.filter(
   //   (a) => a.category && a.category.toLowerCase() === "windows"
   // )
   console.log(`Windows container vulnerabilties: ${windowsVulns.length}`)
+  const linuxVulns = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/aggregateReposAndAssessments-linuxVulns.json").toString().trim())
   // const linuxVulns = containerVulnerabilities.subAssessments.filter(
   //   (a) => a.category && a.category.toLowerCase() !== "windows"
   // )
   console.log(`Linux container vulnerabilties: ${linuxVulns.length}`)
+  const unknownOsVulns = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/aggregateReposAndAssessments-unknownOsVulns.json").toString().trim())
   // const unknownOsVulns = containerVulnerabilities.subAssessments.filter(
   //   (a) => !a.category
   // )
   console.log(`unknownOsVulns container vulnerabilties: ${unknownOsVulns.length}`)
-
   console.log(`${windowsVulns.length + linuxVulns.length + unknownOsVulns.length} windowsVulns.length + linuxVulns.length + unknownOsVulns.length`)
 
-  // writeFileSync("/Users/jercle/git/azgo/testData/20220616/aggregateReposAndAssessments-windowsVulns.json", JSON.stringify(windowsVulns))
-  // writeFileSync("/Users/jercle/git/azgo/testData/20220616/aggregateReposAndAssessments-linuxVulns.json", JSON.stringify(linuxVulns))
-  // writeFileSync("/Users/jercle/git/azgo/testData/20220616/aggregateReposAndAssessments-unknownOsVulns.json", JSON.stringify(unknownOsVulns))
+
+  // const affectedImages = []
+
+
+  // Get all vulnerabilities from containerVulnerabilities, then get all repos from repos, and
+  // aggregate each repo.digest with vulnerability.additionalData.imageDigest
+  const formattedWindowsVulns = windowsVulns.map((vuln) => {
+    // console.log(vuln.id)
+    // !vuln.additionalData.imageDetails && console.log(vuln.additionalData.imageDetails)
+    // console.log(vuln.additionalData.imageDigest)
+    // console.log(vuln.additionalData.patchable)
+    const { id, name, ...formattedVuln } = vuln
+    formattedVuln.azureId = id
+    formattedVuln._id = name
+    // console.log(formattedVuln)
+    return formattedVuln
+  })
+
+
+  // const windowsDigests = formattedWindowsVulns.reduce((r, a) => {
+  //   // console.log(a.imageDigest)
+  //   r[a.additionalData.imageDigest] = {
+  //     vulns: (r[a.additionalData.imageDigest].vulns || 0) + 1
+  //   }
+  //   return r
+  // }, {})
+
+  // console.log(windowsDigests)
+
+
+
+  // const formattedProfile = groupByRepository(formattedWindowsVulns)
+
+  console.log(groupByRepository(formattedWindowsVulns))
+
+  countByRepository(formattedWindowsVulns)
+
+
+
+
 
   // const dbClient = new MongoClient(
   //   "mongodb://"
