@@ -54,6 +54,9 @@
     "bin": "azgoc",
     "dirname": "azgoc",
     "commands": "./dist/commands",
+    "additionalHelpFlags": [
+      "-h"
+    ],
     "plugins": [
       "@oclif/plugin-help",
       "@oclif/plugin-plugins",

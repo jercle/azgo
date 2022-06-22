@@ -44,18 +44,8 @@ export default class AcrVulns extends Command {
   static args = []
 
   public async run(): Promise<void> {
-    const { args, flags } = await this.parse(AcrVulns)
-    // console.log(flags)
-    // console.log(this.config)
-    // const data = getAllContainerRepositories(flags, "azCliCredential")
-    // const dateLeft = parseISO("2022-06-20T18:32:57+10:00")
-    // const dateRight = parseISO("2013-06-10T18:32:57+10:00")
-
-    // console.log(formatISO(new Date()))
-
-    const vulnData = await getAllContainerRepositories(flags, azCliCredential)
-
-    // console.log(differenceInHours(new Date(), parseISO(vulnData.azgoSyncDate)))
-    // console.log(repos)
+    const { flags } = await this.parse(AcrVulns)
+    const repos = await getAllContainerRepositories(flags, azCliCredential)
+    // const assessments = await
   }
 }

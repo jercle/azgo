@@ -29,7 +29,7 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`azgoc acr`](#azgoc-acr)
+* [`azgoc acr repos list`](#azgoc-acr-repos-list)
 * [`azgoc acr vulns`](#azgoc-acr-vulns)
 * [`azgoc commands`](#azgoc-commands)
 * [`azgoc generate azure app`](#azgoc-generate-azure-app)
@@ -46,25 +46,26 @@ USAGE
 * [`azgoc plugins update`](#azgoc-plugins-update)
 * [`azgoc subs`](#azgoc-subs)
 
-## `azgoc acr`
+## `azgoc acr repos list`
 
-Azure Container Registry related actions and data aggregations
+Get all container vulnerabilities
 
 ```
 USAGE
-  $ azgoc acr -r <value>
+  $ azgoc acr repos list -a <value> [-o <value>] [-m] [-r]
 
 FLAGS
-  -r, --acrRegistry=<value>  (required) ACR registry to use
+  -a, --acrRegistry=<value>  (required) ACR registry to use
+  -m, --includeManifests     Include manifests in output
+  -o, --saveFile=<value>     Save output to file
+  -r, --resyncData           Resync data from Azure
 
 DESCRIPTION
-  Azure Container Registry related actions and data aggregations
+  Get all container vulnerabilities
 
 EXAMPLES
-  $ azgoc acr
+  $ azgoc acr repos list
 ```
-
-_See code: [dist/commands/acr/index.ts](https://github.com/jercle/azgo/blob/v0.0.0/dist/commands/acr/index.ts)_
 
 ## `azgoc acr vulns`
 
@@ -72,12 +73,13 @@ Get all container vulnerabilities
 
 ```
 USAGE
-  $ azgoc acr vulns -r <value> [-o <value>] [-m]
+  $ azgoc acr vulns -a <value> [-o <value>] [-m] [-r]
 
 FLAGS
+  -a, --acrRegistry=<value>  (required) ACR registry to use
   -m, --includeManifests     Include manifests in output
   -o, --saveFile=<value>     Save output to file
-  -r, --acrRegistry=<value>  (required) ACR registry to use
+  -r, --resyncData           Resync data from Azure
 
 DESCRIPTION
   Get all container vulnerabilities
