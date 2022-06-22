@@ -8,6 +8,7 @@ import { DefaultAzureCredential } from '@azure/identity'
 import { formatISO, differenceInHours, differenceInDays, parseISO } from 'date-fns'
 
 import getAllContainerRepositories from '../../funcs/getAllContainerRepositories.js'
+import aggregateReposAndAssessments from '../../funcs/dev-aggregateReposAndAssessments.js'
 
 const azCliCredential = new DefaultAzureCredential()
 
@@ -45,7 +46,9 @@ export default class AcrVulns extends Command {
 
   public async run(): Promise<void> {
     const { flags } = await this.parse(AcrVulns)
-    const repos = await getAllContainerRepositories(flags, azCliCredential)
+    // const repos = await getAllContainerRepositories(flags, azCliCredential)
     // const assessments = await
+    const aggregatedData = await aggregateReposAndAssessments(flags, azCliCredential)
+    console.log(aggregatedData)
   }
 }
