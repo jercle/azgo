@@ -1,17 +1,13 @@
-// export default function countVulnerabilities(data) {
-
-// }
-
 import { readFileSync, writeFileSync } from "fs";
 
-const repos = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getAllContainerRepositories.json").toString().trim()).repositories
+// const repos = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getAllContainerRepositories.json").toString().trim()).repositories
 // console.log(repos[5])
 // const data = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/aggregateReposAndAssessments-windowsVulns.json").toString().trim())
-const data = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getsubAssessments.json").toString().trim()).subAssessments
+// const data = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getsubAssessments.json").toString().trim()).subAssessments
 // console.log(data)
 
 export function transformVulnerabilityData(data) {
-  const taggedManifests = getAllTaggedManifests(repos)
+  const taggedManifests = getAllManifests(repos)
   return data.map(item => {
     return {
       _id: item.name,
@@ -34,10 +30,9 @@ export function transformVulnerabilityData(data) {
   })
 }
 
-export function getAllTaggedManifests(repos, filter = null) {
+export function getAllManifests(repos, filter = null) {
   const allTaggedManifests = repos.reduce((all, item, index) => {
     return all.concat(item.manifests)
-  // }, [])
   }, []).filter(item => {
     if (filter === 'tagged') {
       return item.tags.length > 0
@@ -56,18 +51,16 @@ export function getAllTaggedManifests(repos, filter = null) {
 }
 
 // console.log(repos.length)
-// getAllTaggedManifests(repos)
-// console.log(getAllTaggedManifests(repos))
-// console.log(getAllTaggedManifests(repos))
-// console.log(getAllTaggedManifests(repos))
-// writeFileSync("/Users/jercle/git/azgo/testData/20220622/getAllTaggedManifests.json", JSON.stringify(getAllTaggedManifests(repos), null, 2))
+// getAllManifests(repos)
+// console.log(getAllManifests(repos, 'tagged'))
+// console.log(getAllManifests(repos, 'untagged'))
+// console.log(getAllManifests(repos))
+// writeFileSync("/Users/jercle/git/azgo/testData/20220622/getAllManifests.json", JSON.stringify(getAllManifests(repos), null, 2))
 
 
 
 
 // create flat array of all cves across all assessments
-// assessments: data
-// cves: data.cve
 export function getAllUniqueCves(data) {
   return [...new Set(data.reduce((acc, item) => {
     return acc.concat(item.cves)
@@ -86,70 +79,25 @@ export function groupByCve(data) {
     return acc
   }, {})
 }
-
 // console.log(groupByCve(transformVulnerabilityData(data)))
+
 export function groupByRepoUnderCve(data) {
-  return data.reduce((acc, item) => {
+  return data.reduce((all, item, index) => {
     const cves = item.cves.map(cve => cve.title)
     cves.forEach(cve => {
-      if (!acc[cve]) {
-        acc[cve] = {}
+      if (!all[cve]) {
+        all[cve] = {}
       }
-      if (!acc[cve][item.repository]) {
-        acc[cve][item.repository] = []
+      if (!all[cve][item.repository]) {
+        all[cve][item.repository] = []
       }
-      acc[cve][item.repository].push({
+      all[cve][item.repository].push({
         imageDigest: item.imageDigest
       })
     })
-    return acc
+    return all
   }, {})
 }
-
-// export function groupVulnerabiltiesByImageDigest(data) {
-//   return data.reduce((acc, item) => {
-//     if (!acc[item.imageDigest]) {
-//       acc[item.imageDigest] = []
-//     }
-//     acc[item.imageDigest].push(item)
-//     return acc
-//   }, {})
-// }
-
-// console.log(groupVulnerabiltiesByImageDigest(transformVulnerabilityData(data)))
-
-
-// writeFileSync("/Users/jercle/git/azgo/testData/20220622/groupByCve.json", JSON.stringify(groupByRepoUnderCve(transformVulnerabilityData(data)), null, 2))
-
-// const groupedByCve = groupByCve(transformVulnerabilityData(data))
-
-// const countByCve = Object.keys(groupedByCve).map(cve => {
-//   return {
-//     [cve]: groupedByCve[cve].length
-//   }
-// })
-
-// console.log(JSON.stringify(countByCve, null, 2))
-
-// const allCves = [...new Set(getAllCves(transformVulnerabilityData(data)))]
-// console.log(getAllUniqueCves)
-// console.log(getAllUniqueCves(transformVulnerabilityData(data)).length)
-
-// const aggr = transformVulnerabilityData(data).reduce((all, item, index) => {
-//   if (!all[item.repository]) {
-//     all[item.repository] = {
-//       repository: item.repository,
-//       vulnerabilities: [],
-//     }
-//   }
-//   all[item.repository].vulnerabilities.push(item)
-//   return all
-// }, {})
-// console.log(aggr.opg)
-
-// transformVulnerabilityData(data).map(i => {
-// console.log(i.vendorReferences)
-// let result = []
 
 
 // })
@@ -207,38 +155,6 @@ export function countByAttribute(data, attribute: string, dataType: string) {
 // console.log(countByAttribute(transformVulnerabilityData(data), "category", "object"))
 
 
-
-
-
-
-
-
-
-// export function groupByRepository(data) {
-//   return data.reduce((all, item, index) => {
-//     if (!all[item.additionalData.repositoryName]) {
-//       all[item.additionalData.repositoryName] = [];
-//     }
-//     all[item.additionalData.repositoryName] = [
-//       ...all[item.additionalData.repositoryName],
-//       {
-//         _id: item.name,
-//         displayName: item.displayName,
-//         remediation: item.remediation,
-//         impact: item.impact,
-//         description: item.description,
-//         resourceId: item.id,
-//         severity: item.status.severity,
-//         patchable: item.additionalData.patchable,
-//         imageDigest: item.additionalData.imageDigest,
-//         os: item.additionalData.imageDetails && item.additionalData.imageDetails.os || null,
-//         osDetails: item.additionalData.imageDetails && item.additionalData.imageDetails.osDetails || null,
-//       },
-//     ];
-//     return all;
-//   }, {});
-// }
-// console.log(groupByRepository(data))
 
 
 
