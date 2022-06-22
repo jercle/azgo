@@ -25,7 +25,7 @@
 import { readFileSync, writeFileSync } from "fs";
 import getAllContainerRepositories from "./getAllContainerRepositories.js"
 import getSubAssessments from "./getSubAssessments.js"
-import { countByRepository, groupByRepository } from "./dev-countVulnerabilities.js";
+import { groupByAttribute, countByAttribute } from "./azureVulnarabilityAggregation.js";
 
 // $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/23310d40-a0d5-4446-8433-d0e6b151c2ab/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
 // $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
