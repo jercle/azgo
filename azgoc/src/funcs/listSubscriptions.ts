@@ -5,11 +5,11 @@
  */
 
 // const os = require("os")
-import * as os from 'os'
+import { homedir } from 'os'
 
 import { readFileSync } from "fs"
 
-const azureProfile = readFileSync(`${os.homedir()}/.azure/azureProfile.json`).toString().trim()
+const azureProfile = readFileSync(`${homedir()}/.azure/azureProfile.json`).toString().trim()
 const { subscriptions } = JSON.parse(azureProfile)
 
 export default function listSubscriptions() {

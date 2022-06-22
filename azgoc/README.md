@@ -73,13 +73,16 @@ Get all container vulnerabilities
 
 ```
 USAGE
-  $ azgoc acr vulns -a <value> [-o <value>] [-m] [-r]
+  $ azgoc acr vulns -r <value> -g <value> [-s <value>] [-o <value>] [-r]
 
 FLAGS
-  -a, --acrRegistry=<value>  (required) ACR registry to use
-  -m, --includeManifests     Include manifests in output
-  -o, --saveFile=<value>     Save output to file
-  -r, --resyncData           Resync data from Azure
+  -g, --resourceGroup=<value>   (required) Resource Group of the ACR
+  -o, --saveFile=<value>        Save output to file
+  -r, --acrRegistry=<value>     (required) ACR registry to use
+  -r, --resyncData              Resync data from Azure
+  -s, --subscriptionId=<value>  [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
+                                Subscription ID to use.
+                                If not supplied, will use current active Azure CLI subscription.
 
 DESCRIPTION
   Get all container vulnerabilities

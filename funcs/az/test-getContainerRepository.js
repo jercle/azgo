@@ -19,14 +19,11 @@ const { DefaultAzureCredential } = require("@azure/identity")
 // )
 
 const opts = {
-  subscriptionId: process.env.subscriptionId,
-  resourceGroup: process.env.resourceGroup,
-  acrName: process.env.acrName,
-  assessmentName: process.env.assessmentName,
-  nsgName: process.env.nsgName,
-  acrRegistry: process.env.acrRegistry,
-  testDataPath: process.env.testDataPath,
-  appName: process.env.appName
+  subscriptionId: process.env.AZGO_SUBSCRIPTION_ID,
+  resourceGroup: process.env.AZGO_RESOURCE_GROUP,
+  acrRegistry: process.env.acrRAZGO_ACR_REGISTRYegistry,
+  saveFile: process.env.AZGO_SAVE_FILE,
+  appName: process.env.AZGO_APP_NAME
 }
 // {
 //   subscriptionId,
@@ -39,14 +36,14 @@ const opts = {
 // }
 
 
-// getContainerRespository(opts).then(res => console.log(res))
+getContainerRespository(opts).then(res => console.log(res))
 
 async function getContainerRespository(
   { appName, acrRegistry },
   azCliCredential
 ) {
   const client = new ContainerRegistryClient(
-    acrRegistry,
+    `https://${acrRegistry}.azurecr.io`,
     new DefaultAzureCredential(),
     {
       audience: KnownContainerRegistryAudience.AzureResourceManagerPublicCloud,
@@ -55,6 +52,7 @@ async function getContainerRespository(
 
   let manifests = []
 
+  console.log(appName)
   const repo = client.getRepository(appName)
   // console.log(await repo.getProperties())
   for await (manifest of repo.listManifestProperties()) {

@@ -5,7 +5,7 @@
  */
 
 // const os = require('os')
-import * as os from 'os'
+import { homedir } from 'os'
 
 // const inquirer = require('inquirer');
 import inquirer from 'inquirer'
@@ -18,7 +18,7 @@ import { readFileSync, writeFileSync } from 'fs'
 // const { dim, green } = require('chalk')
 import chalk from 'chalk'
 
-const azureProfilePath = `${os.homedir()}/.azure/azureProfile.json`
+const azureProfilePath = `${homedir()}/.azure/azureProfile.json`
 const { installationId, subscriptions } = JSON.parse(readFileSync(azureProfilePath).toString().trim())
 
 export default async function selectActiveSubscription() {

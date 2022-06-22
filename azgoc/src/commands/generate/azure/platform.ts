@@ -1,9 +1,9 @@
 import { Command, Flags } from '@oclif/core'
 import { readFileSync } from 'fs'
 // import { parse, stringify } from 'yaml'
-import * as os from 'os';
+import { homedir } from 'os';
 
-const activeSubscription = JSON.parse(readFileSync(`${os.homedir()}/.azure/azureProfile.json`).toString().trim()).subscriptions.filter(sub => sub.isDefault)[0]
+const activeSubscription = JSON.parse(readFileSync(`${homedir()}/.azure/azureProfile.json`).toString().trim()).subscriptions.filter(sub => sub.isDefault)[0]
 
 export default class GenerateAzurePlatform extends Command {
   static description = 'Create Azure pipeline and armconfig files from template'

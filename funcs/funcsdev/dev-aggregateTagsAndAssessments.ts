@@ -105,9 +105,9 @@ export default async function aggregateTagsAndAssessments(
 
   // const formattedProfile = groupByRepository(formattedWindowsVulns)
 
-  console.log(groupByRepository(formattedWindowsVulns))
+  // console.log(groupByRepository(formattedWindowsVulns))
 
-  countByRepository(formattedWindowsVulns)
+  // countByRepository(formattedWindowsVulns)
 
 
 

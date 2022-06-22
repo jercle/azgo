@@ -6,8 +6,8 @@ import { readFileSync, writeFileSync } from "fs";
 // const data = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getsubAssessments.json").toString().trim()).subAssessments
 // console.log(data)
 
-export function transformVulnerabilityData(data) {
-  const taggedManifests = getAllManifests(repos)
+export function transformVulnerabilityData(data, repos = null) {
+  const taggedManifests = repos ? getAllManifests(repos) : null
   return data.map(item => {
     return {
       _id: item.name,
@@ -25,7 +25,7 @@ export function transformVulnerabilityData(data) {
       os: item.additionalData.imageDetails && item.additionalData.imageDetails.os || null,
       osDetails: item.additionalData.imageDetails && item.additionalData.imageDetails.osDetails || null,
       imageDigest: item.additionalData.imageDigest,
-      imageTags: taggedManifests[item.imageDigest]
+      imageTags: taggedManifests[item.imageDigest] || []
     }
   })
 }
@@ -47,16 +47,7 @@ export function getAllManifests(repos, filter = null) {
     all[item.digest] = item.tags
     return all
   }, {})
-
 }
-
-// console.log(repos.length)
-// getAllManifests(repos)
-// console.log(getAllManifests(repos, 'tagged'))
-// console.log(getAllManifests(repos, 'untagged'))
-// console.log(getAllManifests(repos))
-// writeFileSync("/Users/jercle/git/azgo/testData/20220622/getAllManifests.json", JSON.stringify(getAllManifests(repos), null, 2))
-
 
 
 
