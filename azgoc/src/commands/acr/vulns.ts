@@ -16,11 +16,9 @@ import inquirer from 'inquirer'
 
 import {
   transformVulnerabilityData,
-  getAllManifests,
   groupByAttribute,
   getAllUniqueCves,
   groupByCve,
-  groupByRepoUnderCve,
   countByAttribute
 } from '../../funcs/azureVulnarabilityAggregation.js'
 
@@ -73,14 +71,26 @@ export default class AcrVulns extends Command {
       os: Operating System of affected container. e.g. 'Windows', 'Linux'
       osDetails: Operating System details, e.g. 'Windows Server 2016', 'Ubuntu 16.04', etc.
       imageDigest: Group by image digest
-      byRepoUnderCve:
-      `
+      byRepoUnderCve: Groups by CVE, then by repository name. Example:
+      ${chalk.dim(`...},
+      'CVE-2022-32230': {
+        repo1: [ [Object] ],
+        repo2: [ [Object], [Object] ],
+        repo3: [ [Object], [Object], [Object], [Object], [Object] ]
+      },
+      'CVE-2022-30131': {
+        ...`)}
+      `,
+      summary: 'Group CVEs by provided attribute'
     }),
     showCounts: Flags.boolean({
       char: 'c',
+      summary: "Show counts of vulnerabilities only, no detailed information.",
       description: `Show counts of vulnerabilities only, no detailed information.
 
-      Note: Detailed information will still be output to file if the --detailedOutput -d flag is used`
+      Note: Detailed information will still be output to file if the --detailedOutput -d flag is used
+
+      ${chalk.underline(chalk.yellow("Note: This flag does not currently function when grouping 'byRepoUnderCve'"))}`
     }),
     detailedOutput: Flags.boolean({
       char: 'd',
@@ -103,7 +113,7 @@ export default class AcrVulns extends Command {
       ...flags
     }
 
-    if (flags.groupBy.toLowerCase() === 'byrepoundercve') {
+    if (flags.showCounts && flags.groupBy.toLowerCase() === 'byrepoundercve') {
       console.log(chalk.red('Currently unable to perform count on byRepoUnderCve'))
       process.exit(1)
     }

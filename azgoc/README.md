@@ -92,42 +92,51 @@ USAGE
   $ azgoc acr vulns [-s <value>] [-o <value>] [-r] [-g <value>] [-d -c]
 
 FLAGS
-  -c, --showCounts
-      Show counts of vulnerabilities only, no detailed information.
-
-      Note: Detailed information will still be output to file if the --detailedOutput -d flag is used
-
-  -d, --detailedOutput
-      When used with the --showCounts -c flag, saves detailed information to output file instead of just counts
-
-  -g, --groupBy=<value>
-      Only display counts of vulnerabilities, grouped by provided countByAttribute
-      Possible attributes include:
-      repository: Group by repository name
-      category: Can group by values such as 'Windows', 'Ubuntu', 'Debian', etc.
-      severity: Severity of vulnerability, such as 'High', 'Medium', 'Low', etc.
-      patchable: Whether or not the vulnerability is patchable
-      os: Operating System of affected container. e.g. 'Windows', 'Linux'
-      osDetails: Operating System details, e.g. 'Windows Server 2016', 'Ubuntu 16.04', etc.
-      imageDigest: Group by image digest
-      byRepoUnderCve:
-
-  -o, --outfile=<value>
-      Save output to file
-
-  -r, --resyncData
-      Resync data from Azure
-
-  -s, --subscriptionId=<value>
-      [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
-      Subscription ID to use.
-      If not supplied, will use current active Azure CLI subscription.
+  -c, --showCounts              Show counts of vulnerabilities only, no detailed information.
+  -d, --detailedOutput          When used with the --showCounts -c flag, saves detailed information to output file
+                                instead of just counts
+  -g, --groupBy=<value>         Group CVEs by provided attribute
+  -o, --outfile=<value>         Save output to file
+  -r, --resyncData              Resync data from Azure
+  -s, --subscriptionId=<value>  [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
+                                Subscription ID to use.
+                                If not supplied, will use current active Azure CLI subscription.
 
 DESCRIPTION
   Get all vulnerabilities related to container images
 
 EXAMPLES
   $ azgoc acr vulns
+
+FLAG DESCRIPTIONS
+  -c, --showCounts  Show counts of vulnerabilities only, no detailed information.
+
+    Show counts of vulnerabilities only, no detailed information.
+
+    Note: Detailed information will still be output to file if the --detailedOutput -d flag is used
+
+    Note: This flag does not currently function when grouping 'byRepoUnderCve'
+
+  -g, --groupBy=<value>  Group CVEs by provided attribute
+
+    Only display counts of vulnerabilities, grouped by provided countByAttribute
+    Possible attributes include:
+    repository: Group by repository name
+    category: Can group by values such as 'Windows', 'Ubuntu', 'Debian', etc.
+    severity: Severity of vulnerability, such as 'High', 'Medium', 'Low', etc.
+    patchable: Whether or not the vulnerability is patchable
+    os: Operating System of affected container. e.g. 'Windows', 'Linux'
+    osDetails: Operating System details, e.g. 'Windows Server 2016', 'Ubuntu 16.04', etc.
+    imageDigest: Group by image digest
+    byRepoUnderCve: Groups by CVE, then by repository name. Example:
+    ...},
+    'CVE-2022-32230': {
+    repo1: [ [Object] ],
+    repo2: [ [Object], [Object] ],
+    repo3: [ [Object], [Object], [Object], [Object], [Object] ]
+    },
+    'CVE-2022-30131': {
+    ...
 ```
 
 ## `azgoc commands`

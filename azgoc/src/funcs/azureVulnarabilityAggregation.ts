@@ -153,6 +153,8 @@ export function groupByAttribute(data, attr: string) {
     return allCves
   } else if (attr.toLowerCase() === 'byrepoundercve') {
     return groupByRepoUnderCve(data)
+  } else if (attr.toLowerCase() === 'cve') {
+    return groupByCve(data)
   } else {
     return data.reduce((all, item, index) => {
       if (!all[item[attr]]) {
