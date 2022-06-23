@@ -18,7 +18,7 @@ import chalk from "chalk"
 //   resourceGroup: process.env.AZGO_RESOURCE_GROUP,
 //   assessmentId: process.env.AZGO_ASSESSMENT_ID,
 //   acrRegistry: process.env.AZGO_ACR_REGISTRY,
-//   saveFile: process.env.AZGO_SAVE_FILE,
+//   outfile: process.env.AZGO_SAVE_FILE,
 //   resyncData: false
 // }
 
@@ -31,13 +31,13 @@ import { DefaultAzureCredential } from '@azure/identity'
 // ).then((res) => console.log(res))
 
 export default async function getsubAssessments(
-  { assessmentId, subscriptionId, resourceGroup, acrRegistry, saveFile, resyncData},
+  { assessmentId, subscriptionId, resourceGroup, acrRegistry, outfile, resyncData},
   credentials
 ) {
 
-  // if (existsSync(saveFile) && !resyncData) {
+  // if (existsSync(outfile) && !resyncData) {
   //   console.log(chalk.bold(chalk.green("Loading cached data from file...")))
-  //   const data = JSON.parse(readFileSync(saveFile).toString())
+  //   const data = JSON.parse(readFileSync(outfile).toString())
   //   // console.log(`Last synced ${differenceInHours(new Date(), parseISO(data.azgoSyncDate))} hours ago`)
   //   console.log(`Last synced ${formatDistance(parseISO(data.azgoSyncDate), new Date(), { addSuffix: true })}`)
   //   // console.log(data)
@@ -62,8 +62,8 @@ export default async function getsubAssessments(
   //   subAssessments,
   // }
 
-  // if (saveFile) {
-  //   writeFileSync(saveFile, JSON.stringify(data))
+  // if (outfile) {
+  //   writeFileSync(outfile, JSON.stringify(data))
   // }
 
   // const cacheData = JSON.parse(readFileSync('/Users/jercle/git/azgo/testData/20220616/getSubAssessments.json').toString().trim())

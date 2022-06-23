@@ -25,7 +25,7 @@ export default class AcrReposList extends Command {
       env: 'AZGO_ACR_REGISTRY',
       required: true
     }),
-    saveFile: Flags.string({
+    outfile: Flags.string({
       char: 'o',
       description: 'Save output to file',
       env: 'AZGO_SAVE_FILE'

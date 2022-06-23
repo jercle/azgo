@@ -1,4 +1,4 @@
-// import { readFileSync, writeFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 
 // const repos = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getAllContainerRepositories.json").toString().trim()).repositories
 // console.log(repos[5])
@@ -163,7 +163,7 @@ export function groupByAttribute(data, attr: string) {
   }, {});
 }
 // console.log(Object.keys(groupByAttribute(transformVulnerabilityData(data), 'patchable')))
-// console.log(groupByAttribute(transformVulnerabilityData(data), 'imageDigest'))
+// console.log(groupByAttribute(transformVulnerabilityData(data, repos), 'category'))
 // console.log(groupByAttribute(transformVulnerabilityData(data, repos), 'tags'))
 // groupByAttribute(transformVulnerabilityData(data, repos), 'tags')
 // console.log(attribs)
@@ -208,7 +208,7 @@ export function countByAttribute(data, attribute: string, dataType: string) {
 // console.log(countByAttribute(transformVulnerabilityData(data, repos), "osDetails", "object"))
 // console.log(countByAttribute(transformVulnerabilityData(data, repos), "severity", "object"))
 // console.log(countByAttribute(transformVulnerabilityData(data, repos), "patchable", "object"))
-// console.log(countByAttribute(transformVulnerabilityData(data, repos), "category", "object"))
+// console.log(countByAttribute(transformVulnerabilityData(data, repos), "osDetails", "object"))
 
 
 

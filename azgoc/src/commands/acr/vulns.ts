@@ -33,7 +33,7 @@ const activeSubscription = JSON.parse(readFileSync(`${homedir()}/.azure/azurePro
   .filter(sub => sub.isDefault)[0]
 
 export default class AcrVulns extends Command {
-  static description = 'Get all container vulnerabilities'
+  static description = 'Get all vulnerabilities related to container images'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',
@@ -53,18 +53,42 @@ export default class AcrVulns extends Command {
     //   env: 'AZGO_RESOURCE_GROUP',
     //   required: true
     // }),
-    saveFile: Flags.string({
+    outfile: Flags.string({
       char: 'o',
       description: 'Save output to file',
-      env: 'AZGO_SAVE_FILE'
+      env: 'AZGO_SAVE_FILE',
     }),
     resyncData: Flags.boolean({
       char: 'r',
       description: 'Resync data from Azure',
+    }),
+    groupBy: Flags.string({
+      char: 'g',
+      description: `Only display counts of vulnerabilities, grouped by provided countByAttribute
+      Possible attributes include:
+      repository: Group by repository name
+      category: Can group by values such as 'Windows', 'Ubuntu', 'Debian', etc.
+      severity: Severity of vulnerability, such as 'High', 'Medium', 'Low', etc.
+      patchable: Whether or not the vulnerability is patchable
+      os: Operating System of affected container. e.g. 'Windows', 'Linux'
+      osDetails: Operating System details, e.g. 'Windows Server 2016', 'Ubuntu 16.04', etc.
+      imageDigest: Group by image digest
+      `
+    }),
+    showCounts: Flags.boolean({
+      char: 'c',
+      description: `Show counts of vulnerabilities only, no detailed information.
+
+      Note: Detailed information will still be output to file if the --detailedOutput -d flag is used`
+    }),
+    detailedOutput: Flags.boolean({
+      char: 'd',
+      description: "When used with the --showCounts -c flag, saves detailed information to output file instead of just counts",
+      dependsOn: ['showCounts']
     })
   }
-  // { acrRegistry, saveFile, includeManifests, resyncData },
-  // { assessmentId, subscriptionId, resourceGroup, acrRegistry, saveFile, resyncData},
+  // { acrRegistry, outfile, includeManifests, resyncData },
+  // { assessmentId, subscriptionId, resourceGroup, acrRegistry, outfile, resyncData},
   static args = []
 
   public async run(): Promise<void> {
@@ -79,7 +103,6 @@ export default class AcrVulns extends Command {
     }
 
     const registries = await getAllContainerRegistries(opts, azCliCredential)
-    // console.log(registries.length)
 
     if (registries.length === 1) {
       opts.acrRegistry = registries[0].name
@@ -96,7 +119,6 @@ export default class AcrVulns extends Command {
       opts.acrRegistryId = acrRegistry['id']
     }
 
-    // console.log(opts.acrRegistryId.split('/')[4])
     const resourceGroup = await inquirer.prompt({
       type: "confirm",
       name: "isCorrect",
@@ -104,8 +126,6 @@ export default class AcrVulns extends Command {
 Is "${opts.acrRegistryId.split('/')[4]}" correct?`,
       default: true
     })
-
-    // console.log(resourceGroup)
 
     if (resourceGroup.isCorrect) {
       opts.resourceGroup = opts.acrRegistryId.split('/')[4]
@@ -122,11 +142,27 @@ Is "${opts.acrRegistryId.split('/')[4]}" correct?`,
     const assessments = await getSubAssessments(opts, azCliCredential)
     // console.log(assessments)
     const repos = await getAllContainerRepositories(opts, azCliCredential)
+    // console.log(repos)
 
+    if (opts.groupBy && opts.showCounts) {
+      const result = countByAttribute(transformVulnerabilityData(assessments.subAssessments, repos.repositories), opts.groupBy, "object")
+      console.log(result)
+      opts.outfile && writeFileSync(opts.outfile, JSON.stringify(result, null, 2))
+      process.exit()
+    } else if (opts.groupBy) {
+      const result = groupByAttribute(transformVulnerabilityData(assessments.subAssessments, repos.repositories), opts.groupBy)
+      console.log(result)
+      opts.outfile && writeFileSync(opts.outfile, JSON.stringify(result, null, 2))
+      process.exit()
+    }
+    // console.log(opts.outfile)
+    // console.log(opts.outfile.replace('.', process.cwd()))
+    // console.log(process.cwd())
 
     // console.log(opts)
+    // console.log(countByAttribute(transformVulnerabilityData(data, repos), "osDetails", "object"))
 
-    // console.log(repos)
+    // console.log(result)
 
     // const transformedData = transformVulnerabilityData(assessments.subAssessments, repos.repositories)
     // console.log(transformedData)

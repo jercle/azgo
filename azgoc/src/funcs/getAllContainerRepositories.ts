@@ -28,7 +28,7 @@ import { existsSync, readFileSync, writeFileSync } from "fs"
 
 // const opts = {
 //   acrRegistry: process.env.AZGO_ACR_REGISTRY,
-//   saveFile: process.env.AZGO_SAVE_FILE,
+//   outfile: process.env.AZGO_SAVE_FILE,
 //   includeManifests: process.env.AZGO_INCLUDE_MANIFESTS,
 // }
 // getAllContainerRepositories(
@@ -37,18 +37,18 @@ import { existsSync, readFileSync, writeFileSync } from "fs"
 // ).then((repositories) => console.log(repositories))
 
 
-// if (saveFile) {
-//   writeFileSync(saveFile, JSON.stringify(repositories))
+// if (outfile) {
+//   writeFileSync(outfile, JSON.stringify(repositories))
 // }
 
 export default async function getAllContainerRepositories(
-  { acrRegistry, saveFile, includeManifests, resyncData },
+  { acrRegistry, outfile, includeManifests, resyncData },
   azCliCredential
 ) {
 
-  // if (existsSync(saveFile) && !resyncData) {
+  // if (existsSync(outfile) && !resyncData) {
   //   console.log(chalk.bold(chalk.green("Loading cached data from file...")))
-  //   const data = JSON.parse(readFileSync(saveFile).toString())
+  //   const data = JSON.parse(readFileSync(outfile).toString())
   //   // console.log(`Last synced ${differenceInHours(new Date(), parseISO(data.azgoSyncDate))} hours ago`)
   //   console.log(`Last synced ${formatDistance(parseISO(data.azgoSyncDate), new Date(), { addSuffix: true })}`)
   //   // console.log(data)
@@ -108,8 +108,8 @@ export default async function getAllContainerRepositories(
   //   azgoSyncDate: formatISO(new Date()),
   //   repositories,
   // }
-  // if (saveFile) {
-  //   writeFileSync(saveFile, JSON.stringify(response))
+  // if (outfile) {
+  //   writeFileSync(outfile, JSON.stringify(response))
   // }
   // console.log(repositories)
   return JSON.parse(readFileSync('/Users/jercle/git/azgo/testData/20220616/getAllContainerRepositories.json').toString().trim())
