@@ -47,12 +47,12 @@ export default class AcrVulns extends Command {
       If not supplied, will use current active Azure CLI subscription.`,
       default: activeSubscription.id
     }),
-    resourceGroup: Flags.string({
-      char: 'g',
-      description: 'Resource Group of the ACR',
-      env: 'AZGO_RESOURCE_GROUP',
-      required: true
-    }),
+    // resourceGroup: Flags.string({
+    //   char: 'g',
+    //   description: 'Resource Group of the ACR',
+    //   env: 'AZGO_RESOURCE_GROUP',
+    //   required: true
+    // }),
     saveFile: Flags.string({
       char: 'o',
       description: 'Save output to file',
@@ -73,6 +73,8 @@ export default class AcrVulns extends Command {
       includeManifests: true,
       assessmentId: "dbd0cb49-b563-45e7-9724-889e799fa648",
       acrRegistry: null,
+      acrRegistryId: null,
+      resourceGroup: null,
       ...flags
     }
 
@@ -81,6 +83,7 @@ export default class AcrVulns extends Command {
 
     if (registries.length === 1) {
       opts.acrRegistry = registries[0].name
+      opts.acrRegistryId = registries[0].id as string
       console.log(chalk.blue('1 ACR available on this subscription, which has been selected:', registries[0].name))
     } else if (registries.length > 1) {
       const acrRegistry = await inquirer.prompt({
@@ -90,12 +93,39 @@ export default class AcrVulns extends Command {
         choices: registries,
       })
       opts.acrRegistry = acrRegistry.name
+      opts.acrRegistryId = acrRegistry['id']
+    }
+
+    // console.log(opts.acrRegistryId.split('/')[4])
+    const resourceGroup = await inquirer.prompt({
+      type: "confirm",
+      name: "isCorrect",
+      message: `${chalk.dim(`Attemmpting to automatically find resource group for selected ACR, ${opts.acrRegistry}.`)}
+Is "${opts.acrRegistryId.split('/')[4]}" correct?`,
+      default: true
+    })
+
+    // console.log(resourceGroup)
+
+    if (resourceGroup.isCorrect) {
+      opts.resourceGroup = opts.acrRegistryId.split('/')[4]
+    } else {
+      const response = await inquirer.prompt({
+        type: "input",
+        name: "rgName",
+        message: "Enter resource group name",
+      })
+      opts.resourceGroup = response.rgName
     }
 
     // console.log(opts)
     const assessments = await getSubAssessments(opts, azCliCredential)
     // console.log(assessments)
     const repos = await getAllContainerRepositories(opts, azCliCredential)
+
+
+    // console.log(opts)
+
     // console.log(repos)
 
     // const transformedData = transformVulnerabilityData(assessments.subAssessments, repos.repositories)

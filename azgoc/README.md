@@ -89,10 +89,9 @@ Get all container vulnerabilities
 
 ```
 USAGE
-  $ azgoc acr vulns -g <value> [-s <value>] [-o <value>] [-r]
+  $ azgoc acr vulns [-s <value>] [-o <value>] [-r]
 
 FLAGS
-  -g, --resourceGroup=<value>   (required) Resource Group of the ACR
   -o, --saveFile=<value>        Save output to file
   -r, --resyncData              Resync data from Azure
   -s, --subscriptionId=<value>  [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
