@@ -18,7 +18,6 @@ import {
   transformVulnerabilityData,
   groupByAttribute,
   getAllUniqueCves,
-  groupByCve,
   countByAttribute
 } from '../../funcs/azureVulnarabilityAggregation.js'
 
@@ -45,12 +44,6 @@ export default class AcrVulns extends Command {
       If not supplied, will use current active Azure CLI subscription.`,
       default: activeSubscription.id
     }),
-    // resourceGroup: Flags.string({
-    //   char: 'g',
-    //   description: 'Resource Group of the ACR',
-    //   env: 'AZGO_RESOURCE_GROUP',
-    //   required: true
-    // }),
     outfile: Flags.string({
       char: 'o',
       description: 'Save output to file',
@@ -71,6 +64,7 @@ export default class AcrVulns extends Command {
       os: Operating System of affected container. e.g. 'Windows', 'Linux'
       osDetails: Operating System details, e.g. 'Windows Server 2016', 'Ubuntu 16.04', etc.
       imageDigest: Group by image digest
+      cve: Groups by CVE
       byRepoUnderCve: Groups by CVE, then by repository name. Example:
       ${chalk.dim(`...},
       'CVE-2022-32230': {
@@ -96,6 +90,10 @@ export default class AcrVulns extends Command {
       char: 'd',
       description: "When used with the --showCounts -c flag, saves detailed information to output file instead of just counts",
       dependsOn: ['showCounts']
+    }),
+    listAllCves: Flags.boolean({
+      char: 'l',
+      description: "List all CVEs found in assessed ACR",
     })
   }
   // { acrRegistry, outfile, includeManifests, resyncData },
@@ -167,6 +165,11 @@ Is "${opts.acrRegistryId.split('/')[4]}" correct?`,
       process.exit()
     } else if (opts.groupBy) {
       const result = groupByAttribute(transformVulnerabilityData(assessments.subAssessments, repos.repositories), opts.groupBy)
+      console.log(result)
+      opts.outfile && writeFileSync(opts.outfile, JSON.stringify(result, null, 2))
+      process.exit()
+    } else if (opts.listAllCves) {
+      const result = getAllUniqueCves(transformVulnerabilityData(assessments.subAssessments, repos.repositories))
       console.log(result)
       opts.outfile && writeFileSync(opts.outfile, JSON.stringify(result, null, 2))
       process.exit()
