@@ -9,7 +9,7 @@ import { homedir } from 'os';
 import { DefaultAzureCredential } from '@azure/identity'
 import { formatISO, differenceInHours, differenceInDays, parseISO } from 'date-fns'
 
-import getAllContainerRepositories from '../../funcs/getAllContainerRepositories.js'
+// import getAllContainerRepositories from '../../funcs/getAllContainerRepositories.js'
 // import aggregateReposAndAssessments from '../../funcs/dev-aggregateReposAndAssessments.js'
 
 const azCliCredential = new DefaultAzureCredential()
@@ -71,8 +71,9 @@ export default class AcrVulns extends Command {
 
     console.log(opts)
     // const repos = await getAllContainerRepositories(opts, azCliCredential)
+    // console.log(repos)
     // const assessments = await
-    // const aggregatedData = await aggregateReposAndAssessments(opts, azCliCredential)
-    // console.log(aggregatedData)
+    const aggregatedData = await aggregateReposAndAssessments(opts, azCliCredential)
+    console.log(aggregatedData)
   }
 }

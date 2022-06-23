@@ -29,6 +29,7 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`azgoc acr [ACTION]`](#azgoc-acr-action)
 * [`azgoc acr repos list`](#azgoc-acr-repos-list)
 * [`azgoc acr vulns`](#azgoc-acr-vulns)
 * [`azgoc commands`](#azgoc-commands)
@@ -45,6 +46,23 @@ USAGE
 * [`azgoc plugins:uninstall PLUGIN...`](#azgoc-pluginsuninstall-plugin-2)
 * [`azgoc plugins update`](#azgoc-plugins-update)
 * [`azgoc subs`](#azgoc-subs)
+
+## `azgoc acr [ACTION]`
+
+describe the command here
+
+```
+USAGE
+  $ azgoc acr [ACTION]
+
+DESCRIPTION
+  describe the command here
+
+EXAMPLES
+  $ azgoc acr
+```
+
+_See code: [dist/commands/acr/index.ts](https://github.com/jercle/azgo/blob/v0.0.0/dist/commands/acr/index.ts)_
 
 ## `azgoc acr repos list`
 
