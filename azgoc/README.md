@@ -1,13 +1,12 @@
-oclif-hello-world
+AZGO
 =================
 
-oclif example Hello World CLI
+Extends the functionality, UX, and data aggregation of the Azure CLI.
 
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
+<!-- [![Version](https://img.shields.io/npm/v/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
 [![CircleCI](https://circleci.com/gh/oclif/hello-world/tree/main.svg?style=shield)](https://circleci.com/gh/oclif/hello-world/tree/main)
 [![Downloads/week](https://img.shields.io/npm/dw/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
-[![License](https://img.shields.io/npm/l/oclif-hello-world.svg)](https://github.com/oclif/hello-world/blob/main/package.json)
+[![License](https://img.shields.io/npm/l/oclif-hello-world.svg)](https://github.com/oclif/hello-world/blob/main/package.json) -->
 
 <!-- toc -->
 * [Usage](#usage)
@@ -29,14 +28,17 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`azgoc acr list`](#azgoc-acr-list)
-* [`azgoc acr repos list`](#azgoc-acr-repos-list)
-* [`azgoc acr vulns`](#azgoc-acr-vulns)
-* [`azgoc commands`](#azgoc-commands)
-* [`azgoc generate azure app`](#azgoc-generate-azure-app)
-* [`azgoc generate azure platform`](#azgoc-generate-azure-platform)
-* [`azgoc help [COMMAND]`](#azgoc-help-command)
-* [`azgoc subs`](#azgoc-subs)
+- [AZGO](#azgo)
+- [Usage](#usage)
+- [Commands](#commands)
+  - [`azgoc acr list`](#azgoc-acr-list)
+  - [`azgoc acr repos list`](#azgoc-acr-repos-list)
+  - [`azgoc acr vulns`](#azgoc-acr-vulns)
+  - [`azgoc commands`](#azgoc-commands)
+  - [`azgoc generate azure app`](#azgoc-generate-azure-app)
+  - [`azgoc generate azure platform`](#azgoc-generate-azure-platform)
+  - [`azgoc help [COMMAND]`](#azgoc-help-command)
+  - [`azgoc subs`](#azgoc-subs)
 
 ## `azgoc acr list`
 
