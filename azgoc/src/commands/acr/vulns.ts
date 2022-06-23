@@ -73,6 +73,7 @@ export default class AcrVulns extends Command {
       os: Operating System of affected container. e.g. 'Windows', 'Linux'
       osDetails: Operating System details, e.g. 'Windows Server 2016', 'Ubuntu 16.04', etc.
       imageDigest: Group by image digest
+      byRepoUnderCve:
       `
     }),
     showCounts: Flags.boolean({
@@ -100,6 +101,11 @@ export default class AcrVulns extends Command {
       acrRegistryId: null,
       resourceGroup: null,
       ...flags
+    }
+
+    if (flags.groupBy.toLowerCase() === 'byrepoundercve') {
+      console.log(chalk.red('Currently unable to perform count on byRepoUnderCve'))
+      process.exit(1)
     }
 
     const registries = await getAllContainerRegistries(opts, azCliCredential)

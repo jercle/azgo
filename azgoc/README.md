@@ -110,6 +110,7 @@ FLAGS
       os: Operating System of affected container. e.g. 'Windows', 'Linux'
       osDetails: Operating System details, e.g. 'Windows Server 2016', 'Ubuntu 16.04', etc.
       imageDigest: Group by image digest
+      byRepoUnderCve:
 
   -o, --outfile=<value>
       Save output to file

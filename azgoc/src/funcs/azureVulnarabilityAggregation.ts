@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync } from "fs";
-
+import chalk from 'chalk'
 // const repos = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getAllContainerRepositories.json").toString().trim()).repositories
 // console.log(repos[5])
 // const data = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getsubAssessments.json").toString().trim()).subAssessments
@@ -120,6 +120,7 @@ export function groupByRepoUnderCve(data) {
 }
 
 
+// console.log(JSON.stringify(groupByRepoUnderCve(transformVulnerabilityData(data, repos)), null, 2))
 
 // })
 // console.log(transformVulnerabilityData(data, repos))
@@ -150,17 +151,20 @@ export function groupByAttribute(data, attr: string) {
 
     // console.log(allCves.untagged)
     return allCves
+  } else if (attr.toLowerCase() === 'byrepoundercve') {
+    return groupByRepoUnderCve(data)
+  } else {
+    return data.reduce((all, item, index) => {
+      if (!all[item[attr]]) {
+        all[item[attr]] = [];
+      }
+      all[item[attr]] = [
+        ...all[item[attr]],
+        item,
+      ];
+      return all;
+    }, {});
   }
-  return data.reduce((all, item, index) => {
-    if (!all[item[attr]]) {
-      all[item[attr]] = [];
-    }
-    all[item[attr]] = [
-      ...all[item[attr]],
-      item,
-    ];
-    return all;
-  }, {});
 }
 // console.log(Object.keys(groupByAttribute(transformVulnerabilityData(data), 'patchable')))
 // console.log(groupByAttribute(transformVulnerabilityData(data, repos), 'category'))
@@ -171,6 +175,7 @@ export function groupByAttribute(data, attr: string) {
 // transformVulnerabilityData(data, repos)
 
 export function countByAttribute(data, attribute: string, dataType: string) {
+  // TODO: Get this working with 'byrepoundercve' attribute
   let grouped = groupByAttribute(data, attribute)
 
   if (dataType === 'object') {
