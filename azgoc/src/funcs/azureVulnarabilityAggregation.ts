@@ -1,14 +1,18 @@
 import { readFileSync, writeFileSync } from "fs";
 
-// const repos = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getAllContainerRepositories.json").toString().trim()).repositories
+const repos = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getAllContainerRepositories.json").toString().trim()).repositories
 // console.log(repos[5])
-// const data = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/aggregateReposAndAssessments-windowsVulns.json").toString().trim())
-// const data = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getsubAssessments.json").toString().trim()).subAssessments
+const data = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getsubAssessments.json").toString().trim()).subAssessments
 // console.log(data)
 
+
 export function transformVulnerabilityData(data, repos = null) {
-  const taggedManifests = repos ? getAllManifests(repos) : null
+  // console.log(repos)
+  const taggedManifests = repos ? getAllManifests(repos, 'tagged') : null
+  // console.log(taggedManifests)
+
   return data.map(item => {
+    // console.log(taggedManifests[item.additionalData.imageDigest])
     return {
       _id: item.name,
       repository: item.additionalData.repositoryName,
@@ -25,14 +29,30 @@ export function transformVulnerabilityData(data, repos = null) {
       os: item.additionalData.imageDetails && item.additionalData.imageDetails.os || null,
       osDetails: item.additionalData.imageDetails && item.additionalData.imageDetails.osDetails || null,
       imageDigest: item.additionalData.imageDigest,
-      imageTags: taggedManifests[item.imageDigest] || []
+      imageTags: taggedManifests[item.additionalData.imageDigest] && taggedManifests[item.additionalData.imageDigest].tags || []
     }
   })
 }
 
+// transformVulnerabilityData(data, repos).map(i => console.log(i.imageTags))
+
+
+
+
 export function getAllManifests(repos, filter = null) {
   const allTaggedManifests = repos.reduce((all, item, index) => {
-    return all.concat(item.manifests)
+    const manifests = item.manifests.map(manifest => {
+      // console.log(manifest)
+      // console.log({
+      //   repo: item.name,
+      //   ...manifest
+      // })
+      return {
+        repo: item.name,
+        ...manifest
+      }
+    })
+    return all.concat(manifests)
   }, []).filter(item => {
     if (filter === 'tagged') {
       return item.tags.length > 0
@@ -43,11 +63,19 @@ export function getAllManifests(repos, filter = null) {
     }
   })
 
+  // console.log(allTaggedManifests)
   return allTaggedManifests.reduce((all, item, index) => {
-    all[item.digest] = item.tags
+    all[item.digest] = {
+      repo: item.repo,
+      tags: item.tags
+    }
     return all
   }, {})
 }
+// console.log(getAllManifests(repos, 'tagged'))
+// getAllManifests(repos, 'tagged')
+
+// export function getAllImageTags
 
 
 
@@ -70,7 +98,7 @@ export function groupByCve(data) {
     return acc
   }, {})
 }
-// console.log(groupByCve(transformVulnerabilityData(data)))
+// console.log(groupByCve(transformVulnerabilityData(data, repos)))
 
 export function groupByRepoUnderCve(data) {
   return data.reduce((all, item, index) => {
@@ -83,7 +111,8 @@ export function groupByRepoUnderCve(data) {
         all[cve][item.repository] = []
       }
       all[cve][item.repository].push({
-        imageDigest: item.imageDigest
+        imageDigest: item.imageDigest,
+        imageTags: item.imageTags,
       })
     })
     return all
@@ -91,8 +120,9 @@ export function groupByRepoUnderCve(data) {
 }
 
 
+
 // })
-// console.log(transformVulnerabilityData(data))
+// console.log(transformVulnerabilityData(data, repos))
 // console.log(countByAttribute(transformVulnerabilityData(data), "repository", "object"))
 // console.log(countByAttribute(getAllCves(transformVulnerabilityData(data)), "title", "object"))
 // console.log(Object.keys(countByAttribute(getAllCves(transformVulnerabilityData(data)), "title", "object")).length)
@@ -100,6 +130,25 @@ export function groupByRepoUnderCve(data) {
 
 
 export function groupByAttribute(data, attr: string) {
+  if (attr.toLowerCase() === 'imagetags' || attr.toLowerCase() === 'tags') {
+    // console.log(data)
+    const cvesWithTags = data.filter(item => item.imageTags.length > 0)
+    const cvesWithoutTags = data.filter(item => item.imageTags.length === 0)
+    // cvesWithTags.map(i => console.log(i.imageTags))
+    // let allTags = []
+    let allCvesWithTags = cvesWithTags.reduce((all, item, index) => {
+      let current = item.imageTags.map(tag => {
+        // `${item.repository}:${tag}`
+        if (!all[`${item.repository}:${tag}`]) {
+          all[`${item.repository}:${tag}`] = []
+        }
+        all[`${item.repository}:${tag}`] = [...all[`${item.repository}:${tag}`], item]
+      })
+      // console.log(current)
+      return all
+    }, {})
+    return allCvesWithTags
+  }
   return data.reduce((all, item, index) => {
     if (!all[item[attr]]) {
       all[item[attr]] = [];
@@ -113,8 +162,15 @@ export function groupByAttribute(data, attr: string) {
 }
 // console.log(Object.keys(groupByAttribute(transformVulnerabilityData(data), 'patchable')))
 // console.log(groupByAttribute(transformVulnerabilityData(data), 'imageDigest'))
+// console.log(groupByAttribute(transformVulnerabilityData(data, repos), 'tags'))
+// const tags = groupByAttribute(transformVulnerabilityData(data, repos), 'tags')
+// console.log(attribs)
+// Object.keys(tags).map(tag => console.log(tags[tag].length))
+// transformVulnerabilityData(data, repos)
 
+type TagCveCountList = TagCveCount[]
 
+type TagCveCount = [number]
 
 export function countByAttribute(data, attribute: string, dataType: string) {
   let grouped = groupByAttribute(data, attribute)
@@ -122,10 +178,17 @@ export function countByAttribute(data, attribute: string, dataType: string) {
   if (dataType === 'object') {
     // returns an object with attr:count
     // Eg: { true: 547, false: 60 }
-    return Object.keys(grouped).reduce((all, item, index) => {
+    const tags = Object.keys(grouped).reduce((all, item, index) => {
       all[item] = grouped[item].length
       return all
     }, {})
+
+    const sortable = Object.fromEntries(
+      (Object.entries(tags) as [string, number][]).sort(([, a], [, b]) => a - b)
+    );
+    // const entries =
+    // console.log(entries)
+    console.log(sortable)
   }
 
   if (dataType === 'array') {
@@ -136,9 +199,13 @@ export function countByAttribute(data, attribute: string, dataType: string) {
         attr: i,
         count: grouped[i].length
       }
+    }).sort((a, b) => {
+      return b.count - a.count
     })
   }
 }
+// console.log(countByAttribute(transformVulnerabilityData(data, repos), "tags", "object"))
+countByAttribute(transformVulnerabilityData(data, repos), "tags", "object")
 // console.log(countByAttribute(transformVulnerabilityData(data), "imageDigest", "object"))
 // console.log(countByAttribute(transformVulnerabilityData(data), "osDetails", "object"))
 // console.log(countByAttribute(transformVulnerabilityData(data), "severity", "object"))

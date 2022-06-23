@@ -35,16 +35,16 @@ export default async function selectActiveSubscription() {
     user: sub.user.name,
     tenantId: sub.tenantId,
   }))
-
   const answer = await inquirer.prompt({
     type: "confirm",
     name: "changeActiveSub",
-    message: `Are you sure you want to change active subscription?
-
-    ${chalk.dim(
-      `Current active subscription is: ${currentActive.id} - ${currentActive.name} - ${currentActive.user.name}`
+    message: `${chalk.dim(
+      `${chalk.bold('Current active subscription')}
+      ID: ${currentActive.id}
+      Name: ${currentActive.name}
+      Username: ${currentActive.user.name}`
     )}
-    `,
+    Are you sure you want to change active subscription?`,
     default: false,
   })
 
