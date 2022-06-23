@@ -47,12 +47,6 @@ export default class AcrVulns extends Command {
       If not supplied, will use current active Azure CLI subscription.`,
       default: activeSubscription.id
     }),
-    // acrRegistry: Flags.string({
-    //   char: 'r',
-    //   description: 'ACR registry to use',
-    //   env: 'AZGO_ACR_REGISTRY',
-    //   required: true
-    // }),
     resourceGroup: Flags.string({
       char: 'g',
       description: 'Resource Group of the ACR',
@@ -83,7 +77,7 @@ export default class AcrVulns extends Command {
     }
 
     const registries = await getAllContainerRegistries(opts, azCliCredential)
-    console.log(registries.length)
+    // console.log(registries.length)
 
     if (registries.length === 1) {
       opts.acrRegistry = registries[0].name
@@ -104,7 +98,7 @@ export default class AcrVulns extends Command {
     const repos = await getAllContainerRepositories(opts, azCliCredential)
     // console.log(repos)
 
-    const transformedData = transformVulnerabilityData(assessments.subAssessments, repos.repositories)
+    // const transformedData = transformVulnerabilityData(assessments.subAssessments, repos.repositories)
     // console.log(transformedData)
     // const groupedByCve = groupByCve(transformedData)
     // console.log(groupedByCve)

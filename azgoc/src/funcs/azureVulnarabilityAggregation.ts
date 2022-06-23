@@ -1,8 +1,8 @@
-import { readFileSync, writeFileSync } from "fs";
+// import { readFileSync, writeFileSync } from "fs";
 
-const repos = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getAllContainerRepositories.json").toString().trim()).repositories
+// const repos = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getAllContainerRepositories.json").toString().trim()).repositories
 // console.log(repos[5])
-const data = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getsubAssessments.json").toString().trim()).subAssessments
+// const data = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getsubAssessments.json").toString().trim()).subAssessments
 // console.log(data)
 
 
@@ -131,14 +131,12 @@ export function groupByRepoUnderCve(data) {
 
 export function groupByAttribute(data, attr: string) {
   if (attr.toLowerCase() === 'imagetags' || attr.toLowerCase() === 'tags') {
-    // console.log(data)
+
     const cvesWithTags = data.filter(item => item.imageTags.length > 0)
     const cvesWithoutTags = data.filter(item => item.imageTags.length === 0)
-    // cvesWithTags.map(i => console.log(i.imageTags))
-    // let allTags = []
-    let allCvesWithTags = cvesWithTags.reduce((all, item, index) => {
+
+    let allCves = cvesWithTags.reduce((all, item, index) => {
       let current = item.imageTags.map(tag => {
-        // `${item.repository}:${tag}`
         if (!all[`${item.repository}:${tag}`]) {
           all[`${item.repository}:${tag}`] = []
         }
@@ -147,7 +145,11 @@ export function groupByAttribute(data, attr: string) {
       // console.log(current)
       return all
     }, {})
-    return allCvesWithTags
+    // console.log(cvesWithoutTags)
+    allCves['untagged'] = cvesWithoutTags
+
+    // console.log(allCves.untagged)
+    return allCves
   }
   return data.reduce((all, item, index) => {
     if (!all[item[attr]]) {
@@ -163,14 +165,10 @@ export function groupByAttribute(data, attr: string) {
 // console.log(Object.keys(groupByAttribute(transformVulnerabilityData(data), 'patchable')))
 // console.log(groupByAttribute(transformVulnerabilityData(data), 'imageDigest'))
 // console.log(groupByAttribute(transformVulnerabilityData(data, repos), 'tags'))
-// const tags = groupByAttribute(transformVulnerabilityData(data, repos), 'tags')
+// groupByAttribute(transformVulnerabilityData(data, repos), 'tags')
 // console.log(attribs)
 // Object.keys(tags).map(tag => console.log(tags[tag].length))
 // transformVulnerabilityData(data, repos)
-
-type TagCveCountList = TagCveCount[]
-
-type TagCveCount = [number]
 
 export function countByAttribute(data, attribute: string, dataType: string) {
   let grouped = groupByAttribute(data, attribute)
@@ -183,12 +181,11 @@ export function countByAttribute(data, attribute: string, dataType: string) {
       return all
     }, {})
 
-    const sortable = Object.fromEntries(
+    const sorted = Object.fromEntries(
       (Object.entries(tags) as [string, number][]).sort(([, a], [, b]) => a - b)
     );
-    // const entries =
-    // console.log(entries)
-    console.log(sortable)
+    // console.log(sorted)
+    return sorted
   }
 
   if (dataType === 'array') {
@@ -204,13 +201,14 @@ export function countByAttribute(data, attribute: string, dataType: string) {
     })
   }
 }
+
 // console.log(countByAttribute(transformVulnerabilityData(data, repos), "tags", "object"))
-countByAttribute(transformVulnerabilityData(data, repos), "tags", "object")
-// console.log(countByAttribute(transformVulnerabilityData(data), "imageDigest", "object"))
-// console.log(countByAttribute(transformVulnerabilityData(data), "osDetails", "object"))
-// console.log(countByAttribute(transformVulnerabilityData(data), "severity", "object"))
-// console.log(countByAttribute(transformVulnerabilityData(data), "patchable", "object"))
-// console.log(countByAttribute(transformVulnerabilityData(data), "category", "object"))
+// countByAttribute(transformVulnerabilityData(data, repos), "tags", "object")
+// console.log(countByAttribute(transformVulnerabilityData(data, repos), "imageDigest", "object"))
+// console.log(countByAttribute(transformVulnerabilityData(data, repos), "osDetails", "object"))
+// console.log(countByAttribute(transformVulnerabilityData(data, repos), "severity", "object"))
+// console.log(countByAttribute(transformVulnerabilityData(data, repos), "patchable", "object"))
+// console.log(countByAttribute(transformVulnerabilityData(data, repos), "category", "object"))
 
 
 

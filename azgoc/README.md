@@ -29,7 +29,7 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`azgoc acr [ACTION]`](#azgoc-acr-action)
+* [`azgoc acr list`](#azgoc-acr-list)
 * [`azgoc acr repos list`](#azgoc-acr-repos-list)
 * [`azgoc acr vulns`](#azgoc-acr-vulns)
 * [`azgoc commands`](#azgoc-commands)
@@ -47,22 +47,20 @@ USAGE
 * [`azgoc plugins update`](#azgoc-plugins-update)
 * [`azgoc subs`](#azgoc-subs)
 
-## `azgoc acr [ACTION]`
+## `azgoc acr list`
 
 describe the command here
 
 ```
 USAGE
-  $ azgoc acr [ACTION]
+  $ azgoc acr list
 
 DESCRIPTION
   describe the command here
 
 EXAMPLES
-  $ azgoc acr
+  $ azgoc acr list
 ```
-
-_See code: [dist/commands/acr/index.ts](https://github.com/jercle/azgo/blob/v0.0.0/dist/commands/acr/index.ts)_
 
 ## `azgoc acr repos list`
 
@@ -91,12 +89,11 @@ Get all container vulnerabilities
 
 ```
 USAGE
-  $ azgoc acr vulns -r <value> -g <value> [-s <value>] [-o <value>] [-r]
+  $ azgoc acr vulns -g <value> [-s <value>] [-o <value>] [-r]
 
 FLAGS
   -g, --resourceGroup=<value>   (required) Resource Group of the ACR
   -o, --saveFile=<value>        Save output to file
-  -r, --acrRegistry=<value>     (required) ACR registry to use
   -r, --resyncData              Resync data from Azure
   -s, --subscriptionId=<value>  [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
                                 Subscription ID to use.
