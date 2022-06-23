@@ -111,8 +111,8 @@ export default class AcrVulns extends Command {
       ...flags
     }
 
-    if (flags.showCounts && flags.groupBy.toLowerCase() === 'byrepoundercve') {
-      console.log(chalk.red('Currently unable to perform count on byRepoUnderCve'))
+    if (flags.showCounts && ((flags.groupBy && flags.groupBy.toLowerCase() === 'byrepoundercve') || flags.listAllCves)) {
+      console.log(chalk.red('Currently unable to perform count on byRepoUnderCve or --listAllCves'))
       process.exit(1)
     }
 
@@ -136,7 +136,7 @@ export default class AcrVulns extends Command {
     const resourceGroup = await inquirer.prompt({
       type: "confirm",
       name: "isCorrect",
-      message: `${chalk.dim(`Attemmpting to automatically find resource group for selected ACR, ${opts.acrRegistry}.`)}
+      message: `${chalk.dim(`Attemmpted to automatically find resource group for selected ACR, ${opts.acrRegistry}.`)}
 Is "${opts.acrRegistryId.split('/')[4]}" correct?`,
       default: true
     })

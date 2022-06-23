@@ -89,13 +89,14 @@ Get all vulnerabilities related to container images
 
 ```
 USAGE
-  $ azgoc acr vulns [-s <value>] [-o <value>] [-r] [-g <value>] [-d -c]
+  $ azgoc acr vulns [-s <value>] [-o <value>] [-r] [-g <value>] [-d -c] [-l]
 
 FLAGS
   -c, --showCounts              Show counts of vulnerabilities only, no detailed information.
   -d, --detailedOutput          When used with the --showCounts -c flag, saves detailed information to output file
                                 instead of just counts
   -g, --groupBy=<value>         Group CVEs by provided attribute
+  -l, --listAllCves             List all CVEs found in assessed ACR
   -o, --outfile=<value>         Save output to file
   -r, --resyncData              Resync data from Azure
   -s, --subscriptionId=<value>  [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
@@ -128,6 +129,7 @@ FLAG DESCRIPTIONS
     os: Operating System of affected container. e.g. 'Windows', 'Linux'
     osDetails: Operating System details, e.g. 'Windows Server 2016', 'Ubuntu 16.04', etc.
     imageDigest: Group by image digest
+    cve: Groups by CVE
     byRepoUnderCve: Groups by CVE, then by repository name. Example:
     ...},
     'CVE-2022-32230': {
