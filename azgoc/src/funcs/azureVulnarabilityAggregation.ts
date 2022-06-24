@@ -7,7 +7,7 @@ import chalk from 'chalk'
 
 
 export function transformVulnerabilityData(data, repos = null) {
-  // console.log(repos)
+  // console.log(data)
   const taggedManifests = repos ? getAllManifests(repos, 'tagged') : null
   // console.log(taggedManifests)
 

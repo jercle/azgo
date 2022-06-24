@@ -24,6 +24,7 @@
     "@oclif/plugin-commands": "^2.2.0",
     "@oclif/plugin-help": "^5",
     "chalk": "^5.0.1",
+    "cli-ux": "^6.0.9",
     "date-fns": "^2.28.0",
     "esm": "^3.2.25",
     "inquirer": "^9.0.0",

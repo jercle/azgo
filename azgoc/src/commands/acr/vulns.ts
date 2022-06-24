@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from 'fs'
 import { homedir } from 'os';
+import {cli} from 'cli-ux'
 
 import { Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
@@ -174,6 +175,43 @@ Is "${opts.acrRegistryId.split('/')[4]}" correct?`,
       opts.outfile && writeFileSync(opts.outfile, JSON.stringify(result, null, 2))
       process.exit()
     }
+
+
+    // cli.table(users, {
+    //   name: {
+    //     minWidth: 7,
+    //   },
+    //   company: {
+    //     get: row => row.company && row.company.name
+    //   },
+    //   id: {
+    //     header: 'ID',
+    //     extended: true
+    //   }
+    // }, {
+      // printLine: this.log,
+      // ...flags, // parsed flags
+    // })
+
+
+
+    // cli.table(users, {
+    //   name: {
+    //     minWidth: 7,
+    //   },
+    //   company: {
+    //     get: row => row.company && row.company.name
+    //   },
+    //   id: {
+    //     header: 'ID',
+    //     extended: true
+    //   }
+    // }, {
+    //   printLine: this.log,
+    //   ...flags, // parsed flags
+    // })
+
+
     // console.log(opts.outfile)
     // console.log(opts.outfile.replace('.', process.cwd()))
     // console.log(process.cwd())
