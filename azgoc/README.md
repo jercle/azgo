@@ -28,17 +28,14 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-- [AZGO](#azgo)
-- [Usage](#usage)
-- [Commands](#commands)
-  - [`azgoc acr list`](#azgoc-acr-list)
-  - [`azgoc acr repos list`](#azgoc-acr-repos-list)
-  - [`azgoc acr vulns`](#azgoc-acr-vulns)
-  - [`azgoc commands`](#azgoc-commands)
-  - [`azgoc generate azure app`](#azgoc-generate-azure-app)
-  - [`azgoc generate azure platform`](#azgoc-generate-azure-platform)
-  - [`azgoc help [COMMAND]`](#azgoc-help-command)
-  - [`azgoc subs`](#azgoc-subs)
+* [`azgoc acr list`](#azgoc-acr-list)
+* [`azgoc acr repos list`](#azgoc-acr-repos-list)
+* [`azgoc acr vulns`](#azgoc-acr-vulns)
+* [`azgoc commands`](#azgoc-commands)
+* [`azgoc generate azure app`](#azgoc-generate-azure-app)
+* [`azgoc generate azure platform`](#azgoc-generate-azure-platform)
+* [`azgoc help [COMMAND]`](#azgoc-help-command)
+* [`azgoc subs`](#azgoc-subs)
 
 ## `azgoc acr list`
 
@@ -82,19 +79,30 @@ Get all vulnerabilities related to container images
 
 ```
 USAGE
-  $ azgoc acr vulns [-s <value>] [-o <value>] [-r] [-g <value>] [-d -c] [-l]
+  $ azgoc acr vulns [-s <value>] [-r <value>] [-a <value>] [--resyncData] [-f <value>] [-T ] [-C ] [-l |  |  |
+    [-d [-c -g repository|category|severity|patchable|os|osDetails|imageDigest|cve|byRepoUnderCve] -o <value>]]
 
 FLAGS
+  -C, --formatCsv               Show output as CSV
+  -T, --formatTable             Format output as a table
+  -a, --acrRegistry=<value>     Name of the ACR.
+                                If not supplied, will select ACR in the subscription, or list them if there are multiple
   -c, --showCounts              Show counts of vulnerabilities only, no detailed information.
   -d, --detailedOutput          When used with the --showCounts -c flag, saves detailed information to output file
                                 instead of just counts
-  -g, --groupBy=<value>         Group CVEs by provided attribute
+  -f, --filter=<value>...       [default: ] Fiter results to specific attribute values
+                                Example: 'severity:high,medium', 'os:linux', patchable:true
+  -g, --groupBy=<option>        Group CVEs by provided attribute
+                                <options:
+                                repository|category|severity|patchable|os|osDetails|imageDigest|cve|byRepoUnderCve>
   -l, --listAllCves             List all CVEs found in assessed ACR
   -o, --outfile=<value>         Save output to file
-  -r, --resyncData              Resync data from Azure
+  -r, --resourceGroup=<value>   Resource Group associate with the ACR
+                                If not supplied, will attempt to acquire from ACR's ID string
   -s, --subscriptionId=<value>  [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
                                 Subscription ID to use.
                                 If not supplied, will use current active Azure CLI subscription.
+  --resyncData                  Resync data from Azure
 
 DESCRIPTION
   Get all vulnerabilities related to container images
@@ -111,7 +119,9 @@ FLAG DESCRIPTIONS
 
     Note: This flag does not currently function when grouping 'byRepoUnderCve'
 
-  -g, --groupBy=<value>  Group CVEs by provided attribute
+  -g, --groupBy=repository|category|severity|patchable|os|osDetails|imageDigest|cve|byRepoUnderCve
+
+    Group CVEs by provided attribute
 
     Only display counts of vulnerabilities, grouped by provided countByAttribute
     Possible attributes include:

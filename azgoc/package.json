@@ -4,7 +4,7 @@
   "description": "oclif rebuild of azgo cli, previously using yargs",
   "author": "Evan Colwell @jercle",
   "bin": {
-    "azgoc": "./bin/run.cjs"
+    "azgoc": "./bin/run"
   },
   "homepage": "https://github.com/jercle/azgo",
   "license": "MIT",
@@ -59,7 +59,6 @@
     ],
     "plugins": [
       "@oclif/plugin-help",
-      "@oclif/plugin-plugins",
       "@oclif/plugin-commands"
     ],
     "topicSeparator": " ",
