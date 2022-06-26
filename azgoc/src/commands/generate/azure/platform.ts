@@ -66,5 +66,6 @@ export default class GenerateAzurePlatform extends Command {
 
   public async run(): Promise<void> {
 
+    console.log('Currently not functional')
   }
 }

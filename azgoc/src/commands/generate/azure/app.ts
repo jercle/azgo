@@ -21,7 +21,8 @@ export default class GenerateAzureApp extends Command {
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(GenerateAzureApp)
-    let tpl = readFileSync(`${__dirname}/../../../../templates/azure/app.tpl`, 'utf8')
+    // let tpl = readFileSync(`${__dirname}/../../../../templates/azure/app.tpl`, 'utf8')
+    console.log('Currently not functional')
   }
 }
 
