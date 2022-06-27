@@ -1,8 +1,10 @@
 // TODO: Filter array from array of conditions.
 import { readFileSync, utimes, writeFileSync } from "fs";
+import { arch, platform } from 'os'
 
 import chalk from 'chalk'
 import { MongoClient } from "mongodb";
+import commandExists from 'command-exists'
 
 
 import {
@@ -78,3 +80,44 @@ export async function uploadToMongoDatabase(data, { dbConnectionString }) {
     await client.close();
   }
 }
+
+// getTrivyDownload()
+export async function getTrivyDownload() {
+  const data = await (await fetch('https://api.github.com/repos/aquasecurity/trivy/releases/latest')).json()
+  // console.log(data)
+  const plat = platform() === 'darwin' ? 'macos' : platform()
+  const architecture = arch() === 'amd64' ? '64bit' : arch()
+  const filter = [plat, architecture]
+  // console.log(filter)
+  // only show browser_download_url attributes
+  const download = data.assets.filter(item => filter.every(f => item.browser_download_url.toLowerCase().includes(f)))
+  // const download = data.assets.filter(item => item.browser_download_url.toLowerCase().includes(filter))
+  const url = download.map(i => `${i.browser_download_url}\n`)
+
+  if (plat === 'macos') {
+    console.log(`${chalk.bold(chalk.underline('There are multiple ways in which you can install trivy'))}
+${chalk.underline('1. Homebrew:')}
+${chalk.dim('brew install aquasecurity/trivy/trivy')}
+${chalk.underline("2. Using AquaSec's install script:")}
+${chalk.dim('curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.18.3')}
+${chalk.underline('3. Download the appropriate binary and add it to your path:')}
+${chalk.dim(url.join('').trim())}
+3. Or build from source - see https://aquasecurity.github.io/trivy/v0.18.3/installation/ for more information`)
+} else {
+  console.log(`${chalk.bold(chalk.underline('There are multiple ways in which you can install trivy'))}
+  ${chalk.underline("1. Using AquaSec's install script:")}
+  ${chalk.dim('curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.18.3')}
+  ${chalk.underline('2. Download the appropriate binary and add it to your path:')}
+  ${chalk.dim(url.length > 0 ? url.join('').trim() : 'https://api.github.com/repos/aquasecurity/trivy/releases/latest')}
+3. Or build from source - see https://aquasecurity.github.io/trivy/v0.18.3/installation/ for more information`)
+  }
+}
+// const exists = commandExists.sync('trivy')
+// console.log(exists)
+
+// https://aquasecurity.github.io/trivy/v0.18.3/installation/#install-script
+// curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.18.3
+// arch:
+// 'arm', 'arm64', 'ia32', 'mips', 'mipsel', 'ppc', 'ppc64', 's390', 's390x', and 'x64'
+// platform:
+// 'aix', 'darwin', 'freebsd','linux', 'openbsd', 'sunos', and 'win32'.

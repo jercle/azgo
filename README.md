@@ -16,49 +16,49 @@ Extends the functionality, UX, and data aggregation of the Azure CLI.
 <!-- usage -->
 ```sh-session
 $ npm install -g azgo
-$ azgoc COMMAND
+$ azgo COMMAND
 running command...
-$ azgoc (--version)
+$ azgo (--version)
 azgo/0.0.5 darwin-arm64 node-v18.4.0
-$ azgoc --help [COMMAND]
+$ azgo --help [COMMAND]
 USAGE
-  $ azgoc COMMAND
+  $ azgo COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`azgoc acr list`](#azgoc-acr-list)
-* [`azgoc acr repos list`](#azgoc-acr-repos-list)
-* [`azgoc acr vulns`](#azgoc-acr-vulns)
-* [`azgoc commands`](#azgoc-commands)
-* [`azgoc generate azure app`](#azgoc-generate-azure-app)
-* [`azgoc generate azure platform`](#azgoc-generate-azure-platform)
-* [`azgoc help [COMMAND]`](#azgoc-help-command)
-* [`azgoc subs`](#azgoc-subs)
+* [`azgo acr list`](#azgo-acr-list)
+* [`azgo acr repos list`](#azgo-acr-repos-list)
+* [`azgo acr vulns`](#azgo-acr-vulns)
+* [`azgo commands`](#azgo-commands)
+* [`azgo generate azure app`](#azgo-generate-azure-app)
+* [`azgo generate azure platform`](#azgo-generate-azure-platform)
+* [`azgo help [COMMAND]`](#azgo-help-command)
+* [`azgo subs`](#azgo-subs)
 
-## `azgoc acr list`
+## `azgo acr list`
 
 describe the command here
 
 ```
 USAGE
-  $ azgoc acr list
+  $ azgo acr list
 
 DESCRIPTION
   describe the command here
 
 EXAMPLES
-  $ azgoc acr list
+  $ azgo acr list
 ```
 
-## `azgoc acr repos list`
+## `azgo acr repos list`
 
 Get all container vulnerabilities
 
 ```
 USAGE
-  $ azgoc acr repos list -a <value> [-o <value>] [-m] [-r]
+  $ azgo acr repos list -a <value> [-o <value>] [-m] [-r]
 
 FLAGS
   -a, --acrRegistry=<value>  (required) ACR registry to use
@@ -70,16 +70,16 @@ DESCRIPTION
   Get all container vulnerabilities
 
 EXAMPLES
-  $ azgoc acr repos list
+  $ azgo acr repos list
 ```
 
-## `azgoc acr vulns`
+## `azgo acr vulns`
 
 Get all vulnerabilities related to container images
 
 ```
 USAGE
-  $ azgoc acr vulns [-s <value>] [-r <value>] [-a <value>] [--resyncData] [-f <value>] [-T ] [-C ] [-l |  | -g
+  $ azgo acr vulns [-s <value>] [-r <value>] [-a <value>] [--resyncData] [-f <value>] [-T ] [-C ] [-l |  | -g
     repository|category|severity|patchable|os|osDetails|imageDigest|cve|byRepoUnderCve | [-d -c -o <value>]] [-U] [-S
     <value>]
 
@@ -112,7 +112,7 @@ DESCRIPTION
   Get all vulnerabilities related to container images
 
 EXAMPLES
-  $ azgoc acr vulns
+  $ azgo acr vulns
 
 FLAG DESCRIPTIONS
   -c, --showCounts  Show counts of vulnerabilities only, no detailed information.
@@ -148,13 +148,13 @@ FLAG DESCRIPTIONS
     ...
 ```
 
-## `azgoc commands`
+## `azgo commands`
 
 list all the commands
 
 ```
 USAGE
-  $ azgoc commands [--json] [-h] [--hidden] [--tree] [--columns <value> | -x] [--sort <value>] [--filter
+  $ azgo commands [--json] [-h] [--hidden] [--tree] [--columns <value> | -x] [--sort <value>] [--filter
     <value>] [--output csv|json|yaml |  | [--csv | --no-truncate]] [--no-header | ]
 
 FLAGS
@@ -180,13 +180,13 @@ DESCRIPTION
 
 _See code: [@oclif/plugin-commands](https://github.com/oclif/plugin-commands/blob/v2.2.0/src/commands/commands.ts)_
 
-## `azgoc generate azure app`
+## `azgo generate azure app`
 
 Create Azure pipeline and armconfig files from template
 
 ```
 USAGE
-  $ azgoc generate azure app [-n <value>]
+  $ azgo generate azure app [-n <value>]
 
 FLAGS
   -n, --name=<value>  Name of Application
@@ -195,16 +195,16 @@ DESCRIPTION
   Create Azure pipeline and armconfig files from template
 
 EXAMPLES
-  $ azgoc generate azure app
+  $ azgo generate azure app
 ```
 
-## `azgoc generate azure platform`
+## `azgo generate azure platform`
 
 Create Azure pipeline and armconfig files from template
 
 ```
 USAGE
-  $ azgoc generate azure platform -n <value> -e <value> [-s <value>] [-b <value>] [-d <value>] [-i]
+  $ azgo generate azure platform -n <value> -e <value> [-s <value>] [-b <value>] [-d <value>] [-i]
 
 FLAGS
   -b, --baseName=<value>
@@ -245,16 +245,16 @@ DESCRIPTION
   Create Azure pipeline and armconfig files from template
 
 EXAMPLES
-  $ azgoc generate azure platform
+  $ azgo generate azure platform
 ```
 
-## `azgoc help [COMMAND]`
+## `azgo help [COMMAND]`
 
-Display help for azgoc.
+Display help for azgo.
 
 ```
 USAGE
-  $ azgoc help [COMMAND] [-n]
+  $ azgo help [COMMAND] [-n]
 
 ARGUMENTS
   COMMAND  Command to show help for.
@@ -263,18 +263,18 @@ FLAGS
   -n, --nested-commands  Include all nested commands in the output.
 
 DESCRIPTION
-  Display help for azgoc.
+  Display help for azgo.
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.12/src/commands/help.ts)_
 
-## `azgoc subs`
+## `azgo subs`
 
 Display current configured Azure CLI subscriptions
 
 ```
 USAGE
-  $ azgoc subs [-s]
+  $ azgo subs [-s]
 
 FLAGS
   -s, --setActive  Set active subscription for Azure CLI
