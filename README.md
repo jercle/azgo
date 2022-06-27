@@ -1,376 +1,292 @@
-# Azure Tooling
-- [Azure Tooling](#azure-tooling)
-  - [Function of this CLI](#function-of-this-cli)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Authentication](#authentication)
-  - [Usage](#usage)
-    - [List all subscriptions](#list-all-subscriptions)
-    - [Set current active subscription](#set-current-active-subscription)
-    - [List Files Within File Share](#list-files-within-file-share)
-    - [List Keyvault Secrets](#list-keyvault-secrets)
-    - [Get App Service Plan Info](#get-app-service-plan-info)
-    - [List App Service Configuration](#list-app-service-configuration)
-  - [Build Package](#build-package)
-    - [Running the binary](#running-the-binary)
+AZGO
+=================
 
-## Function of this CLI
-This CLI has been created to add additional functionality to [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/) such as data aggregation from multiple `az` commands, reporting, and pulling data from both Azure DevOps and Azure.
+Extends the functionality, UX, and data aggregation of the Azure CLI.
 
-Some of the reporting functionality is around container vulnerability scanning with the ability to install a web portal as an Azure Web App in development
+<!-- [![Version](https://img.shields.io/npm/v/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
+[![CircleCI](https://circleci.com/gh/oclif/hello-world/tree/main.svg?style=shield)](https://circleci.com/gh/oclif/hello-world/tree/main)
+[![Downloads/week](https://img.shields.io/npm/dw/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
+[![License](https://img.shields.io/npm/l/oclif-hello-world.svg)](https://github.com/oclif/hello-world/blob/main/package.json) -->
 
-This CLI is still very much under development, and functions with the `test-` prefix are considered not yet ready
-
-This is my first public project, so any advice is appreciated and taken onboard. Also, having never REALLY done unit testing in NodeJS before, I have finally begun. I know, I know...
-
-
-## Prerequisites
-[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) must be installed and logged in.
-For any Azure DevOps functions, a Personal Access Token must be set at AZURE_DEVOPS_EXT_PAT environment variable
-
-You can obtain a Personal Access Token from https://dev.azure.com/YOUR_ORGANIZATION/_usersSettings/tokens
-
-Then set the token as your environment variable using the following:
-Linux/macOS:
-```bash
-export AZURE_DEVOPS_EXT_PAT=TOKEN
+<!-- toc -->
+* [Usage](#usage)
+* [Commands](#commands)
+<!-- tocstop -->
+# Usage
+<!-- usage -->
+```sh-session
+$ npm install -g azgo
+$ azgoc COMMAND
+running command...
+$ azgoc (--version)
+azgo/0.0.5 darwin-arm64 node-v18.4.0
+$ azgoc --help [COMMAND]
+USAGE
+  $ azgoc COMMAND
+...
 ```
-Windows CMD:
-```cmd
-set AZURE_DEVOPS_EXT_PAT=TOKEN
-```
-Winows Powershell:
-```powershell
-$env:AZURE_DEVOPS_EXT_PAT=TOKEN"
-```
-## Installation
+<!-- usagestop -->
+# Commands
+<!-- commands -->
+* [`azgoc acr list`](#azgoc-acr-list)
+* [`azgoc acr repos list`](#azgoc-acr-repos-list)
+* [`azgoc acr vulns`](#azgoc-acr-vulns)
+* [`azgoc commands`](#azgoc-commands)
+* [`azgoc generate azure app`](#azgoc-generate-azure-app)
+* [`azgoc generate azure platform`](#azgoc-generate-azure-platform)
+* [`azgoc help [COMMAND]`](#azgoc-help-command)
+* [`azgoc subs`](#azgoc-subs)
 
-First clone the repo
-```bash
-git clone git@github.com:jERCle/azgo.git
-```
+## `azgoc acr list`
 
-CD to repositoriy then install dependencies
-```bash
-cd azure-tooling && npm install
-```
-
-Use npm link `azgo` to link to newmain.js
-```bash
-npm link
-```
-
-## Authentication
-You must be logged in with `azure cli` as this uses the authentication provided by the user currently logged into Azure CLI
-
-For Azure DevOps functionality, you must have a Personal Access Token saved to AZURE_DEVOPS_EXT_PAT environment variable as per [Function of this CLI](#function-of-this-cli)
-
-
-## Usage
-### List all subscriptions
-Lists all subscriptions currently configured with `az login`. Similar to `az account list` but groups by TenantID
+describe the command here
 
 ```
-azgo subs
+USAGE
+  $ azgoc acr list
+
+DESCRIPTION
+  describe the command here
+
+EXAMPLES
+  $ azgoc acr list
 ```
 
-Output:
-```json
-[
-  {
-    "name": "NAME1",
-    "subscriptionId": "00000000-0000-0000-0000-000000000000"
-  },
-  {
-    "name": "NAME2",
-    "subscriptionId": "00000000-0000-0000-0000-000000000000"
-  }
-]
+## `azgoc acr repos list`
+
+Get all container vulnerabilities
+
+```
+USAGE
+  $ azgoc acr repos list -a <value> [-o <value>] [-m] [-r]
+
+FLAGS
+  -a, --acrRegistry=<value>  (required) ACR registry to use
+  -m, --includeManifests     Include manifests in output
+  -o, --outfile=<value>      Save output to file
+  -r, --resyncData           Resync data from Azure
+
+DESCRIPTION
+  Get all container vulnerabilities
+
+EXAMPLES
+  $ azgoc acr repos list
 ```
 
-### Set current active subscription
-Provides a small UI wrapper over `az account set --subscription` to select current active subscription. Gives a list of available subscriptions without the need to find the required ID and past into a flag
+## `azgoc acr vulns`
 
-```bash
-azgo subs active
-```
-### List Files Within File Share
-```
-azgo ls -n <share name> -c <connection string>
-```
+Get all vulnerabilities related to container images
 
-Output:
-```json
-[
-  "...",
-  {
-    "name": "DEMO_20418320215715517421919197105_1.kml",
-    "lastModified": "2022-02-24T02:42:43.000Z"
-  },
-  "..."
-]
 ```
+USAGE
+  $ azgoc acr vulns [-s <value>] [-r <value>] [-a <value>] [--resyncData] [-f <value>] [-T ] [-C ] [-l |  | -g
+    repository|category|severity|patchable|os|osDetails|imageDigest|cve|byRepoUnderCve | [-d -c -o <value>]] [-U] [-S
+    <value>]
 
+FLAGS
+  -C, --formatCsv                   Show output as CSV
+  -S, --dbConnectionString=<value>  Connection string for Database
+  -T, --formatTable                 Format output as a table
+  -U, --uploadToDb                  Upload to MongoDB Database
+  -a, --acrRegistry=<value>         Name of the ACR.
+                                    If not supplied, will select ACR in the subscription, or list them if there are
+                                    multiple
+  -c, --showCounts                  Show counts of vulnerabilities only, no detailed information.
+  -d, --detailedOutput              When used with the --showCounts -c flag, saves detailed information to output file
+                                    instead of just counts
+  -f, --filter=<value>...           [default: ] Fiter results to specific attribute values
+                                    Example: 'severity:high,medium', 'os:linux', patchable:true
+  -g, --groupBy=<option>            Group CVEs by provided attribute
+                                    <options:
+                                    repository|category|severity|patchable|os|osDetails|imageDigest|cve|byRepoUnderCve>
+  -l, --listAllCves                 List all CVEs found in assessed ACR
+  -o, --outfile=<value>             Save output to file
+  -r, --resourceGroup=<value>       Resource Group associate with the ACR
+                                    If not supplied, will attempt to acquire from ACR's ID string
+  -s, --subscriptionId=<value>      [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
+                                    Subscription ID to use.
+                                    If not supplied, will use current active Azure CLI subscription.
+  --resyncData                      Resync data from Azure
 
-### List Keyvault Secrets
-```
-azgo secrets -n <appName> -e <appEnv> -s <subscription ID>
-```
+DESCRIPTION
+  Get all vulnerabilities related to container images
 
-Output:
-```json
-[
-  "...",
-  {
-    "secretName": "dockerRegistryUsername",
-    "createdOn": "2022-02-03T02:43:26.000Z",
-    "updatedOn": "2022-02-03T02:43:26.000Z",
-    "id": "https://KV_NAME.vault.azure.net/secrets/dockerRegistryUsername/018247089124702847"
-  },
-  "..."
-]
-```
+EXAMPLES
+  $ azgoc acr vulns
 
+FLAG DESCRIPTIONS
+  -c, --showCounts  Show counts of vulnerabilities only, no detailed information.
 
-### Get App Service Plan Info
-```
-azgo asp -n <appName> -e <appEnv> -s <subscription ID>
-```
+    Show counts of vulnerabilities only, no detailed information.
 
-Output:
-```json
-{
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/RESOURCE_GROUP/providers/Microsoft.Web/serverfarms/APP_SERVICE_PLAN",
-  "name": "APP_SERVICE_PLAN",
-  "kind": "linux",
-  "location": "Australia East",
-  "type": "Microsoft.Web/serverfarms",
-  "tags": {},
-  "sku": {
-    "name": "P1v3",
-    "tier": "PremiumV3",
-    "size": "P1v3",
-    "family": "Pv3",
-    "capacity": 1
-  },
-  "workerTierName": null,
-  "status": "Ready",
-  "subscription": "00000000-0000-0000-0000-000000000000",
-  "hostingEnvironmentProfile": null,
-  "maximumNumberOfWorkers": 30,
-  "geoRegion": "Australia East",
-  "perSiteScaling": false,
-  "elasticScaleEnabled": false,
-  "maximumElasticWorkerCount": 1,
-  "numberOfSites": 1,
-  "isSpot": false,
-  "spotExpirationTime": null,
-  "freeOfferExpirationTime": null,
-  "resourceGroup": "RESOURCE_GROUP",
-  "reserved": true,
-  "isXenon": false,
-  "hyperV": false,
-  "targetWorkerCount": 0,
-  "targetWorkerSizeId": 0,
-  "provisioningState": "Succeeded",
-  "kubeEnvironmentProfile": null,
-  "zoneRedundant": false
-}
-```
+    Note: Detailed information will still be output to file if the --detailedOutput -d flag is used
 
-### List App Service Configuration
-```
-azgo app -n <appName> -e <appEnv> -s <subscription ID>
-```
+    Note: This flag does not currently function when grouping 'byRepoUnderCve'
 
-Output:
-```json
-{
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/RESOURCE_GROUP/providers/Microsoft.Web/sites/APP_SERVICE/config/web",
-  "name": "APP_SERVICE",
-  "type": "Microsoft.Web/sites/config",
-  "numberOfWorkers": 1,
-  "defaultDocuments": [
-    "Default.htm",
-    "Default.html",
-    "Default.asp",
-    "index.htm",
-    "index.html",
-    "iisstart.htm",
-    "default.aspx",
-    "index.php",
-    "hostingstart.html"
-  ],
-  "netFrameworkVersion": "v4.0",
-  "phpVersion": "",
-  "pythonVersion": "",
-  "nodeVersion": "",
-  "powerShellVersion": "",
-  "linuxFxVersion": "DOCKER|USER/IMAGE:TAG",
-  "windowsFxVersion": null,
-  "requestTracingEnabled": false,
-  "remoteDebuggingEnabled": false,
-  "remoteDebuggingVersion": "VS2019",
-  "httpLoggingEnabled": true,
-  "acrUseManagedIdentityCreds": true,
-  "acrUserManagedIdentityID": "",
-  "logsDirectorySizeLimit": 80,
-  "detailedErrorLoggingEnabled": false,
-  "publishingUsername": "$",
-  "appSettings": null,
-  "connectionStrings": null,
-  "machineKey": null,
-  "handlerMappings": null,
-  "documentRoot": null,
-  "scmType": "None",
-  "use32BitWorkerProcess": true,
-  "webSocketsEnabled": false,
-  "alwaysOn": true,
-  "javaVersion": null,
-  "javaContainer": null,
-  "javaContainerVersion": null,
-  "appCommandLine": "",
-  "managedPipelineMode": "Integrated",
-  "virtualApplications": [
-    {
-      "virtualPath": "/",
-      "physicalPath": "site\\wwwroot",
-      "preloadEnabled": true,
-      "virtualDirectories": null
-    }
-  ],
-  "loadBalancing": "LeastRequests",
-  "experiments": {
-    "rampUpRules": []
-  },
-  "limits": null,
-  "autoHealEnabled": false,
-  "autoHealRules": null,
-  "tracingOptions": null,
-  "vnetName": "VNET_OR_SUBNET_NAME",
-  "vnetRouteAllEnabled": false,
-  "vnetPrivatePortsCount": 0,
-  "cors": {
-    "allowedOrigins": null,
-    "supportCredentials": false
-  },
-  "push": null,
-  "apiDefinition": null,
-  "apiManagementConfig": null,
-  "autoSwapSlotName": null,
-  "localMySqlEnabled": false,
-  "managedServiceIdentityId": 27098,
-  "xManagedServiceIdentityId": null,
-  "keyVaultReferenceIdentity": null,
-  "ipSecurityRestrictions": [
-    {
-      "ipAddress": "10.0.0.1/32",
-      "action": "Allow",
-      "tag": "Default",
-      "priority": 10,
-      "name": "Allow-in"
+  -g, --groupBy=repository|category|severity|patchable|os|osDetails|imageDigest|cve|byRepoUnderCve
+
+    Group CVEs by provided attribute
+
+    Only display counts of vulnerabilities, grouped by provided countByAttribute
+    Possible attributes include:
+    repository: Group by repository name
+    category: Can group by values such as 'Windows', 'Ubuntu', 'Debian', etc.
+    severity: Severity of vulnerability, such as 'High', 'Medium', 'Low', etc.
+    patchable: Whether or not the vulnerability is patchable
+    os: Operating System of affected container. e.g. 'Windows', 'Linux'
+    osDetails: Operating System details, e.g. 'Windows Server 2016', 'Ubuntu 16.04', etc.
+    imageDigest: Group by image digest
+    cve: Groups by CVE
+    byRepoUnderCve: Groups by CVE, then by repository name. Example:
+    ...},
+    'CVE-2022-32230': {
+    repo1: [ [Object] ],
+    repo2: [ [Object], [Object] ],
+    repo3: [ [Object], [Object], [Object], [Object], [Object] ]
     },
-    {
-      "ipAddress": "Any",
-      "action": "Deny",
-      "priority": 2147483647,
-      "name": "Deny all",
-      "description": "Deny all access"
-    }
-  ],
-  "scmIpSecurityRestrictions": [
-    {
-      "ipAddress": "Any",
-      "action": "Allow",
-      "priority": 1,
-      "name": "Allow all",
-      "description": "Allow all access"
-    }
-  ],
-  "scmIpSecurityRestrictionsUseMain": false,
-  "http20Enabled": false,
-  "minTlsVersion": "1.2",
-  "scmMinTlsVersion": "1.0",
-  "ftpsState": "Disabled",
-  "preWarmedInstanceCount": 0,
-  "functionAppScaleLimit": 0,
-  "healthCheckPath": null,
-  "functionsRuntimeScaleMonitoringEnabled": false,
-  "websiteTimeZone": null,
-  "minimumElasticInstanceCount": 0,
-  "azureStorageAccounts": {
-    "logmount": {
-      "type": "AzureFiles",
-      "accountName": "storageaccountname",
-      "shareName": "sharename",
-      "accessKey": null,
-      "mountPath": "/usr/local/tomcat/logs",
-      "state": "Ok"
-    }
-  },
-  "publicNetworkAccess": null,
-  "location": "Australia East",
-  "tags": {}
-}
+    'CVE-2022-30131': {
+    ...
 ```
 
+## `azgoc commands`
 
-<!--
+list all the commands
 
-#### Examples
-
-
-### Delete an app in Azure DevOps
 ```
-ado delete -n APPNAME
-```
-Output:
-```json
-{
-  "runTime": "15/7/2021 16:22:55 AEST",
-  "repo": {
-    "type": "repository",
-    "name": "APPNAME",
-    "exists": true,
-    "status": 200,
-    "statusText": "OK",
-    "id": "",
-    "projectName": "PROJECT_NAME",
-    "webUrl": {
-      "href": "https://dev.azure.com/ORG_NAME/PROJECT_NAME/_git/APPNAME"
-    }
-  },
-  "groups": {
-    "allGroups": 10,
-    "appGroups": 4,
-    "deletedGroups": [
-      "APPNAME Admins",
-      "APPNAME Contributors",
-      "APPNAME Team",
-      "APPNAME Readers"
-    ],
-    "postDeleteAllGroups": 6,
-    "postDeleteAppGroups": 0
-  }
-}
-```
-#### Examples
- -->
+USAGE
+  $ azgoc commands [--json] [-h] [--hidden] [--tree] [--columns <value> | -x] [--sort <value>] [--filter
+    <value>] [--output csv|json|yaml |  | [--csv | --no-truncate]] [--no-header | ]
 
-## Build Package
-**Node: NodeJS is required to package app**
+FLAGS
+  -h, --help         Show CLI help.
+  -x, --extended     show extra columns
+  --columns=<value>  only show provided columns (comma-separated)
+  --csv              output is csv format [alias: --output=csv]
+  --filter=<value>   filter property by partial string matching, ex: name=foo
+  --hidden           show hidden commands
+  --no-header        hide table header from output
+  --no-truncate      do not truncate output to fit screen
+  --output=<option>  output in a more machine friendly format
+                     <options: csv|json|yaml>
+  --sort=<value>     property to sort by (prepend '-' for descending)
+  --tree             show tree of commands
 
-Install the following package `pkg` globally
-```bash
-npm install -g pkg
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  list all the commands
 ```
-`pkg` is created by Vercel - doco available at https://github.com/vercel/pkg
 
-While in the root of the project, run the following:
-```bash
-pkg .
+_See code: [@oclif/plugin-commands](https://github.com/oclif/plugin-commands/blob/v2.2.0/src/commands/commands.ts)_
+
+## `azgoc generate azure app`
+
+Create Azure pipeline and armconfig files from template
+
 ```
-This will use the default configuration and output binaries for Windows, Linux, and macOS
+USAGE
+  $ azgoc generate azure app [-n <value>]
 
-### Running the binary
-`./[app-name] create` is identical to running `node .` from root of source
+FLAGS
+  -n, --name=<value>  Name of Application
+
+DESCRIPTION
+  Create Azure pipeline and armconfig files from template
+
+EXAMPLES
+  $ azgoc generate azure app
+```
+
+## `azgoc generate azure platform`
+
+Create Azure pipeline and armconfig files from template
+
+```
+USAGE
+  $ azgoc generate azure platform -n <value> -e <value> [-s <value>] [-b <value>] [-d <value>] [-i]
+
+FLAGS
+  -b, --baseName=<value>
+      Base name of the application.
+      Eg: "DMZ" or "PROD".
+      Creates naming convention of <baseName>-<envName>-<subEnv>-<appName>
+      If not specified, will be left out of the resource names
+
+  -d, --subEnvironments=<value>
+      Sub Environment of the application.
+      Eg: "NonProd" or "Prod".
+      Can be used for creating names such as:
+      Web-NonProd-Dev-AppName
+      Web-NonProd-Test-AppName
+      Web-Prod-Prod-AppName
+      Creates naming convention of <baseName>-<envName>-<subEnv>-<appName>
+      If not specified, will be left out of the resource names
+
+  -e, --appEnvironemnts=<value>
+      (required) Comma separated list of application environments to build.
+      Eg: dev,prod
+      At least one is required as this creates the pipeline and
+      variable files per environment provided
+
+  -i, --ignoreDuplicates
+      Ignore duplicate names
+      Eg: 'Web-Prod-Prod-AppName' would become 'Web-Prod-AppName'
+
+  -n, --name=<value>
+      (required) Name of application
+
+  -s, --subscriptionId=<value>
+      [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
+      Subscription ID to use.
+      If not supplied, will use current active Azure CLI subscription.
+
+DESCRIPTION
+  Create Azure pipeline and armconfig files from template
+
+EXAMPLES
+  $ azgoc generate azure platform
+```
+
+## `azgoc help [COMMAND]`
+
+Display help for azgoc.
+
+```
+USAGE
+  $ azgoc help [COMMAND] [-n]
+
+ARGUMENTS
+  COMMAND  Command to show help for.
+
+FLAGS
+  -n, --nested-commands  Include all nested commands in the output.
+
+DESCRIPTION
+  Display help for azgoc.
+```
+
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.12/src/commands/help.ts)_
+
+## `azgoc subs`
+
+Display current configured Azure CLI subscriptions
+
+```
+USAGE
+  $ azgoc subs [-s]
+
+FLAGS
+  -s, --setActive  Set active subscription for Azure CLI
+
+DESCRIPTION
+  Display current configured Azure CLI subscriptions
+
+EXAMPLES
+  $ azgoc subs
+
+  $ azgoc subs --setActive
+```
+
+_See code: [dist/commands/subs.ts](https://github.com/jercle/azgo/blob/v0.0.5/dist/commands/subs.ts)_
+<!-- commandsstop -->
