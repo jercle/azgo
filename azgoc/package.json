@@ -1,6 +1,6 @@
 {
   "name": "azgo",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "oclif rebuild of azgo cli, previously using yargs",
   "author": "Evan Colwell @jercle",
   "bin": {
