@@ -55,62 +55,63 @@ export default async function getAllContainerRepositories(
   //   return data
   // }
 
-  // const acrUri = `https://${acrRegistry}.azurecr.io`
-  // const client = new ContainerRegistryClient(acrUri, azCliCredential, {
-  //   audience: KnownContainerRegistryAudience.AzureResourceManagerPublicCloud,
-  // })
+  const acrUri = `https://${acrRegistry}.azurecr.io`
+  const client = new ContainerRegistryClient(acrUri, azCliCredential, {
+    audience: KnownContainerRegistryAudience.AzureResourceManagerPublicCloud,
+  })
 
-  // let repoNames = []
-  // for await (let repoName of client.listRepositoryNames()) {
-  //   repoNames = [...repoNames, repoName]
-  // }
-  // let repositories = []
+  let repoNames = []
+  for await (let repoName of client.listRepositoryNames()) {
+    repoNames = [...repoNames, repoName]
+  }
+  let repositories = []
 
-  // for (let repoName of repoNames) {
-  //   let repoManifests = []
-  //   if (includeManifests) {
-  //     for await (let manifest of await client
-  //       .getRepository(repoName)
-  //       .listManifestProperties()) {
-  //       repoManifests = [
-  //         ...repoManifests,
-  //         {
-  //           digest: manifest.digest,
-  //           tags: manifest.tags,
-  //         },
-  //       ]
-  //     }
-  //   }
+  for (let repoName of repoNames) {
+    let repoManifests = []
+    if (includeManifests) {
+      for await (let manifest of await client
+        .getRepository(repoName)
+        .listManifestProperties()) {
+        repoManifests = [
+          ...repoManifests,
+          {
+            digest: manifest.digest,
+            tags: manifest.tags,
+          },
+        ]
+      }
+    }
 
-  //   let repoProps = await client.getRepository(repoName).getProperties()
+    let repoProps = await client.getRepository(repoName).getProperties()
 
-  //   let repository: {
-  //     name: string,
-  //     registryLoginServer: string,
-  //     createdOn: Date,
-  //     lastUpdatedOn: Date,
-  //     manifests?: any
-  //   } = {
-  //     name: repoProps.name,
-  //     registryLoginServer: repoProps.registryLoginServer,
-  //     createdOn: repoProps.createdOn,
-  //     lastUpdatedOn: repoProps.lastUpdatedOn
-  //   }
+    let repository: {
+      name: string,
+      registryLoginServer: string,
+      createdOn: Date,
+      lastUpdatedOn: Date,
+      manifests?: any
+    } = {
+      name: repoProps.name,
+      registryLoginServer: repoProps.registryLoginServer,
+      createdOn: repoProps.createdOn,
+      lastUpdatedOn: repoProps.lastUpdatedOn
+    }
 
-  //   if (includeManifests) {
-  //     repository.manifests = repoManifests
-  //   }
+    if (includeManifests) {
+      repository.manifests = repoManifests
+    }
 
-  //   repositories = [...repositories, repository]
+    repositories = [...repositories, repository]
 
-  // }
-  // const response = {
-  //   azgoSyncDate: formatISO(new Date()),
-  //   repositories,
-  // }
-  // if (outfile) {
-  //   writeFileSync(outfile, JSON.stringify(response))
-  // }
+  }
+  const response = {
+    azgoSyncDate: formatISO(new Date()),
+    repositories,
+  }
+  if (outfile) {
+    writeFileSync(outfile, JSON.stringify(response))
+  }
   // console.log(repositories)
-  return JSON.parse(readFileSync('/Users/jercle/git/azgo/testData/20220616/getAllContainerRepositories.json').toString().trim())
+  return response
+  // return JSON.parse(readFileSync('/Users/jercle/git/azgo/testData/20220616/getAllContainerRepositories.json').toString().trim())
 }

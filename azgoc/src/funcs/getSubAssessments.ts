@@ -45,29 +45,30 @@ export default async function getsubAssessments(
   // }
 
 
-  // const client = new SecurityCenter(credentials, subscriptionId)
+  const client = new SecurityCenter(credentials, subscriptionId)
 
-  // const subAssessmentsList = await client.subAssessments.list(
-  //   `/subscriptions/${subscriptionId}/resourceGroups/${resourceGroup}/providers/Microsoft.ContainerRegistry/registries/${acrRegistry}`,
-  //   assessmentId
-  // )
+  const subAssessmentsList = await client.subAssessments.list(
+    `/subscriptions/${subscriptionId}/resourceGroups/${resourceGroup}/providers/Microsoft.ContainerRegistry/registries/${acrRegistry}`,
+    assessmentId
+  )
 
-  // let subAssessments = []
-  // for await (sub of subAssessmentsList) {
-  //   subAssessments = [...subAssessments, sub]
-  // }
+  let subAssessments = []
 
-  // const data = {
-  //   azgoSyncDate: formatISO(new Date()),
-  //   subAssessments,
-  // }
+  for await (const sub of subAssessmentsList) {
+    subAssessments = [...subAssessments, sub]
+  }
 
-  // if (outfile) {
-  //   writeFileSync(outfile, JSON.stringify(data))
-  // }
+  const data = {
+    azgoSyncDate: formatISO(new Date()),
+    subAssessments,
+  }
+
+  if (outfile) {
+    writeFileSync(outfile, JSON.stringify(data))
+  }
 
   // const cacheData = JSON.parse(readFileSync('/Users/jercle/git/azgo/testData/20220616/getSubAssessments.json').toString().trim())
 
-  return JSON.parse(readFileSync('/Users/jercle/git/azgo/testData/20220616/getSubAssessments.json').toString().trim())
-  // return data
+  // return JSON.parse(readFileSync('/Users/jercle/git/azgo/testData/20220616/getSubAssessments.json').toString().trim())
+  return data
 }
