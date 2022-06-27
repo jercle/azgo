@@ -36,7 +36,7 @@ const opts = {
 // }
 
 
-getContainerRespository(opts).then(res => console.log(res))
+// getContainerRespository(opts).then(res => console.log(res))
 
 async function getContainerRespository(
   { appName, acrRegistry },
@@ -52,7 +52,7 @@ async function getContainerRespository(
 
   let manifests = []
 
-  console.log(appName)
+  // console.log(appName)
   const repo = client.getRepository(appName)
   // console.log(await repo.getProperties())
   for await (manifest of repo.listManifestProperties()) {
