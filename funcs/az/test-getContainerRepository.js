@@ -52,7 +52,6 @@ async function getContainerRespository(
 
   let manifests = []
 
-  // console.log(appName)
   const repo = client.getRepository(appName)
   // console.log(await repo.getProperties())
   for await (manifest of repo.listManifestProperties()) {
