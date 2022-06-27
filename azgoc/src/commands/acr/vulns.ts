@@ -5,6 +5,7 @@ import { cli } from 'cli-ux'
 import { Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 
+
 // import getAllContainerRepositories from "../../funcs/getAllContainerRepositories.js"
 
 import { DefaultAzureCredential } from '@azure/identity'
@@ -14,7 +15,7 @@ import inquirer from 'inquirer'
 import getAllContainerRepositories from '../../funcs/getAllContainerRepositories.js'
 import getAllContainerRegistries from '../../funcs/dev-getAllContainerRegistries.js'
 import getSubAssessments from '../../funcs/getSubAssessments.js'
-import { vulnerabilityFilter } from '../../funcs/azgoUtils.js'
+import { vulnerabilityFilter, uploadToMongoDatabase } from '../../funcs/azgoUtils.js'
 
 import {
   transformVulnerabilityData,
@@ -110,7 +111,6 @@ export default class AcrVulns extends Command {
       Note: Detailed information will still be output to file if the --detailedOutput -d flag is used
 
       ${chalk.underline(chalk.yellow("Note: This flag does not currently function when grouping 'byRepoUnderCve'"))}`,
-      dependsOn: ['groupBy'],
     }),
     detailedOutput: Flags.boolean({
       char: 'd',
@@ -133,7 +133,20 @@ export default class AcrVulns extends Command {
       char: 'l',
       description: "List all CVEs found in assessed ACR",
       exclusive: ['showCounts', 'groupBy', 'detailedOutput']
-    })
+    }),
+    uploadToDb: Flags.boolean({
+      char: "U",
+      description: "Upload to MongoDB Database"
+      // dependsOn: ['showCounts'],
+      // exclusive: ['detailedOutput']
+    }),
+    dbConnectionString: Flags.string({
+      char: "S",
+      description: "Connection string for Database",
+      env: 'AZGO_DB_CONNECTION_STRING'
+      // dependsOn: ['uploadToDb'],
+      // exclusive: ['uploadToDb']
+    }),
   }
   // { acrRegistry, outfile, includeManifests, resyncData },
   // { assessmentId, subscriptionId, resourceGroup, acrRegistry, outfile, resyncData},
@@ -151,7 +164,9 @@ export default class AcrVulns extends Command {
     }
     // console.log(opts)
 
-    if (flags.showCounts && ((flags.groupBy && flags.groupBy.toLowerCase() === 'byrepoundercve') || flags.listAllCves)) {
+    if (flags.showCounts && ((flags.groupBy &&
+      flags.groupBy.toLowerCase() === 'byrepoundercve') ||
+      flags.listAllCves)) {
       console.log(chalk.red('Currently unable to perform count on byRepoUnderCve or --listAllCves'))
       process.exit(1)
     }
@@ -201,8 +216,13 @@ export default class AcrVulns extends Command {
     // console.log(repos)
 
     const formattedData = transformVulnerabilityData(assessments.subAssessments, repos.repositories)
-    const filteredData = vulnerabilityFilter(formattedData, opts.filter)
+    const filteredData = opts.filter.length > 0 ? vulnerabilityFilter(formattedData, opts.filter) : formattedData
 
+
+    // console.log(opts)
+    // if (opts.uploadToDb) {
+    //   opts.uploadToDb && uploadToMongoDatabase(formattedData, opts)
+    // }
 
     if (opts.groupBy && opts.showCounts) {
       const result = countByAttribute(filteredData, opts.groupBy, "array")
@@ -221,19 +241,37 @@ export default class AcrVulns extends Command {
         console.log(result)
       }
       opts.outfile && writeFileSync(opts.outfile, JSON.stringify(result, null, 2))
-
+      opts.uploadToDb && uploadToMongoDatabase(formattedData, opts)
       process.exit()
+
+    } else if (opts.showCounts) {
+      console.log(`${chalk.yellow(filteredData.length)} total vulnerabilities`)
+      opts.outfile && writeFileSync(opts.outfile, JSON.stringify(formattedData, null, 2))
+      opts.uploadToDb && uploadToMongoDatabase(formattedData, opts)
+      process.exit()
+
     } else if (opts.groupBy) {
       const result = groupByAttribute(filteredData, opts.groupBy)
       console.log(result)
       opts.outfile && writeFileSync(opts.outfile, JSON.stringify(result, null, 2))
+      opts.uploadToDb && uploadToMongoDatabase(formattedData, opts)
       process.exit()
+
     } else if (opts.listAllCves) {
       const result = getAllUniqueCves(filteredData)
       console.log(result)
       opts.outfile && writeFileSync(opts.outfile, JSON.stringify(result, null, 2))
+      opts.uploadToDb && uploadToMongoDatabase(formattedData, opts)
+      process.exit()
+
+    } else {
+      // console.log(formattedData)
+      opts.outfile && writeFileSync(opts.outfile, JSON.stringify(formattedData, null, 2))
+      opts.uploadToDb && uploadToMongoDatabase(formattedData, opts)
       process.exit()
     }
+
+
 
     // console.log(opts)
 

@@ -1,6 +1,10 @@
 // TODO: Filter array from array of conditions.
 import { readFileSync, utimes, writeFileSync } from "fs";
+
 import chalk from 'chalk'
+import { MongoClient } from "mongodb";
+
+
 import {
   transformVulnerabilityData,
   groupByAttribute,
@@ -29,7 +33,7 @@ export function vulnerabilityFilter(data, filter) {
       } else if (v.toLowerCase() === 'false') {
         return false
       } else {
-        return v.toLowerCase().charAt(0).toUpperCase() + v.slice(1).toLowerCase()
+        return v.toLowerCase()
       }
     })
     return all
@@ -46,4 +50,31 @@ export function vulnerabilityFilter(data, filter) {
   });
   // console.log(filtered)
   return filtered
+}
+
+
+export async function uploadToMongoDatabase(data, { dbConnectionString }) {
+  const client = new MongoClient(dbConnectionString);
+  try {
+    console.log(`Uploading ${chalk.yellow(data.length)} vulnerabilities to database`)
+
+    await client.connect();
+    const database = client.db("client-dawe-azgo-db")
+    const vulns = database.collection("client-dawe-azgo-vulnerabilities")
+
+    let bulk = vulns.initializeUnorderedBulkOp()
+    data.forEach(async (vuln) => {
+
+      await bulk.find({ _id: vuln._id }).upsert().replaceOne(vuln)
+    })
+    const bulkExecution = await bulk.execute()
+    console.log(bulkExecution)
+
+  } catch (err) {
+    console.log(err)
+
+  } finally {
+
+    await client.close();
+  }
 }

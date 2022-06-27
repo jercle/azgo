@@ -15,19 +15,20 @@ export function transformVulnerabilityData(data, repos = null) {
     // console.log(taggedManifests[item.additionalData.imageDigest])
     return {
       _id: item.name,
-      repository: item.additionalData.repositoryName,
+      repository: item.additionalData.repositoryName.toLowerCase(),
       displayName: item.displayName,
       remediation: item.remediation,
       impact: item.impact,
-      category: item.category,
+      category: item.category && item.category.toLowerCase() || null,
       cves: item.additionalData.cve || [],
+      cvss: item.additionalData.cvss || [],
       vendorReferences: item.additionalData.vendorReferences || [],
       description: item.description,
       resourceId: item.id,
-      severity: item.status.severity,
+      severity: item.status.severity.toLowerCase(),
       patchable: item.additionalData.patchable,
-      os: item.additionalData.imageDetails && item.additionalData.imageDetails.os || null,
-      osDetails: item.additionalData.imageDetails && item.additionalData.imageDetails.osDetails || null,
+      os: item.additionalData.imageDetails && item.additionalData.imageDetails.os.toLowerCase() || null,
+      osDetails: item.additionalData.imageDetails && item.additionalData.imageDetails.osDetails.toLowerCase() || null,
       imageDigest: item.additionalData.imageDigest,
       imageTags: taggedManifests[item.additionalData.imageDigest] && taggedManifests[item.additionalData.imageDigest].tags || []
     }

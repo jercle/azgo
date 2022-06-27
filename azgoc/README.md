@@ -15,11 +15,11 @@ Extends the functionality, UX, and data aggregation of the Azure CLI.
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g azgoc
+$ npm install -g azgo
 $ azgoc COMMAND
 running command...
 $ azgoc (--version)
-azgoc/0.0.0 darwin-arm64 node-v18.4.0
+azgo/0.0.4 darwin-arm64 node-v18.4.0
 $ azgoc --help [COMMAND]
 USAGE
   $ azgoc COMMAND
@@ -79,30 +79,34 @@ Get all vulnerabilities related to container images
 
 ```
 USAGE
-  $ azgoc acr vulns [-s <value>] [-r <value>] [-a <value>] [--resyncData] [-f <value>] [-T ] [-C ] [-l |  |  |
-    [-d [-c -g repository|category|severity|patchable|os|osDetails|imageDigest|cve|byRepoUnderCve] -o <value>]]
+  $ azgoc acr vulns [-s <value>] [-r <value>] [-a <value>] [--resyncData] [-f <value>] [-T ] [-C ] [-l |  | -g
+    repository|category|severity|patchable|os|osDetails|imageDigest|cve|byRepoUnderCve | [-d -c -o <value>]] [-U] [-S
+    <value>]
 
 FLAGS
-  -C, --formatCsv               Show output as CSV
-  -T, --formatTable             Format output as a table
-  -a, --acrRegistry=<value>     Name of the ACR.
-                                If not supplied, will select ACR in the subscription, or list them if there are multiple
-  -c, --showCounts              Show counts of vulnerabilities only, no detailed information.
-  -d, --detailedOutput          When used with the --showCounts -c flag, saves detailed information to output file
-                                instead of just counts
-  -f, --filter=<value>...       [default: ] Fiter results to specific attribute values
-                                Example: 'severity:high,medium', 'os:linux', patchable:true
-  -g, --groupBy=<option>        Group CVEs by provided attribute
-                                <options:
-                                repository|category|severity|patchable|os|osDetails|imageDigest|cve|byRepoUnderCve>
-  -l, --listAllCves             List all CVEs found in assessed ACR
-  -o, --outfile=<value>         Save output to file
-  -r, --resourceGroup=<value>   Resource Group associate with the ACR
-                                If not supplied, will attempt to acquire from ACR's ID string
-  -s, --subscriptionId=<value>  [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
-                                Subscription ID to use.
-                                If not supplied, will use current active Azure CLI subscription.
-  --resyncData                  Resync data from Azure
+  -C, --formatCsv                   Show output as CSV
+  -S, --dbConnectionString=<value>  Connection string for Database
+  -T, --formatTable                 Format output as a table
+  -U, --uploadToDb                  Upload to MongoDB Database
+  -a, --acrRegistry=<value>         Name of the ACR.
+                                    If not supplied, will select ACR in the subscription, or list them if there are
+                                    multiple
+  -c, --showCounts                  Show counts of vulnerabilities only, no detailed information.
+  -d, --detailedOutput              When used with the --showCounts -c flag, saves detailed information to output file
+                                    instead of just counts
+  -f, --filter=<value>...           [default: ] Fiter results to specific attribute values
+                                    Example: 'severity:high,medium', 'os:linux', patchable:true
+  -g, --groupBy=<option>            Group CVEs by provided attribute
+                                    <options:
+                                    repository|category|severity|patchable|os|osDetails|imageDigest|cve|byRepoUnderCve>
+  -l, --listAllCves                 List all CVEs found in assessed ACR
+  -o, --outfile=<value>             Save output to file
+  -r, --resourceGroup=<value>       Resource Group associate with the ACR
+                                    If not supplied, will attempt to acquire from ACR's ID string
+  -s, --subscriptionId=<value>      [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
+                                    Subscription ID to use.
+                                    If not supplied, will use current active Azure CLI subscription.
+  --resyncData                      Resync data from Azure
 
 DESCRIPTION
   Get all vulnerabilities related to container images
@@ -284,5 +288,5 @@ EXAMPLES
   $ azgoc subs --setActive
 ```
 
-_See code: [dist/commands/subs.ts](https://github.com/jercle/azgo/blob/v0.0.0/dist/commands/subs.ts)_
+_See code: [dist/commands/subs.ts](https://github.com/jercle/azgo/blob/v0.0.4/dist/commands/subs.ts)_
 <!-- commandsstop -->
