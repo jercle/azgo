@@ -8,6 +8,69 @@ Extends the functionality, UX, and data aggregation of the Azure CLI.
 [![Downloads/week](https://img.shields.io/npm/dw/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
 [![License](https://img.shields.io/npm/l/oclif-hello-world.svg)](https://github.com/oclif/hello-world/blob/main/package.json) -->
 
+
+## Function of this CLI
+This CLI has been created to add additional functionality to [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/) such as data aggregation from multiple `az` commands, reporting, and pulling data from both Azure DevOps and Azure.
+
+Some of the reporting functionality is around container vulnerability scanning with the ability to install a web portal as an Azure Web App in development
+
+This CLI is still very much under development, and functions with the `test-` or `dev-` prefixes are considered mid-development
+
+This is my first public project, so any advice is appreciated and taken onboard. Also, having never REALLY done unit testing in NodeJS before, I have finally begun. I know, I know...
+
+
+## Prerequisites
+[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) must be installed and logged in.
+For any Azure DevOps functions, a Personal Access Token must be set at AZURE_DEVOPS_EXT_PAT environment variable
+
+You can obtain a Personal Access Token from https://dev.azure.com/YOUR_ORGANIZATION/_usersSettings/tokens
+
+Then set the token as your environment variable using the following:
+Linux/macOS:
+```bash
+export AZURE_DEVOPS_EXT_PAT=TOKEN
+```
+Windows CMD:
+```cmd
+set AZURE_DEVOPS_EXT_PAT=TOKEN
+```
+Winows Powershell:
+```powershell
+$env:AZURE_DEVOPS_EXT_PAT=TOKEN"
+```
+
+## Installation
+
+First clone the repo
+```bash
+git clone git@github.com:jERCle/azgo.git
+```
+
+CD to repositoriy then install dependencies
+```bash
+cd azgo && npm install
+```
+
+Use npm link `azgo` to link to newmain.js
+```bash
+npm link
+```
+
+## Authentication
+You must be logged in with `azure cli` as this uses the authentication provided by the user currently logged into Azure CLI
+
+For Azure DevOps functionality, you must have a Personal Access Token saved to AZURE_DEVOPS_EXT_PAT environment variable as per [Function of this CLI](#function-of-this-cli)
+
+
+## Simple example
+### Set current active subscription
+Provides a UI wrapper over `az account set --subscription` to select current active subscription. Gives a list of available subscriptions without the need to find the required ID and paste into a flag
+
+```bash
+azgo subs -s
+```
+
+
 <!-- toc -->
 * [Usage](#usage)
 * [Commands](#commands)
@@ -28,14 +91,23 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`azgo acr list`](#azgo-acr-list)
-* [`azgo acr repos list`](#azgo-acr-repos-list)
-* [`azgo acr vulns`](#azgo-acr-vulns)
-* [`azgo commands`](#azgo-commands)
-* [`azgo generate azure app`](#azgo-generate-azure-app)
-* [`azgo generate azure platform`](#azgo-generate-azure-platform)
-* [`azgo help [COMMAND]`](#azgo-help-command)
-* [`azgo subs`](#azgo-subs)
+- [AZGO](#azgo)
+  - [Function of this CLI](#function-of-this-cli)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Authentication](#authentication)
+  - [Simple example](#simple-example)
+    - [Set current active subscription](#set-current-active-subscription)
+- [Usage](#usage)
+- [Commands](#commands)
+  - [`azgo acr list`](#azgo-acr-list)
+  - [`azgo acr repos list`](#azgo-acr-repos-list)
+  - [`azgo acr vulns`](#azgo-acr-vulns)
+  - [`azgo commands`](#azgo-commands)
+  - [`azgo generate azure app`](#azgo-generate-azure-app)
+  - [`azgo generate azure platform`](#azgo-generate-azure-platform)
+  - [`azgo help [COMMAND]`](#azgo-help-command)
+  - [`azgo subs`](#azgo-subs)
 
 ## `azgo acr list`
 
