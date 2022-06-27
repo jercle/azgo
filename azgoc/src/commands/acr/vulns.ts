@@ -219,7 +219,7 @@ export default class AcrVulns extends Command {
     const filteredData = opts.filter.length > 0 ? vulnerabilityFilter(formattedData, opts.filter) : formattedData
 
 
-    // console.log(opts)
+    // // console.log(opts)
     // if (opts.uploadToDb) {
     //   opts.uploadToDb && uploadToMongoDatabase(formattedData, opts)
     // }
@@ -267,7 +267,7 @@ export default class AcrVulns extends Command {
     } else {
       // console.log(formattedData)
       opts.outfile && writeFileSync(opts.outfile, JSON.stringify(formattedData, null, 2))
-      opts.uploadToDb && uploadToMongoDatabase(formattedData, opts)
+      opts.uploadToDb && await uploadToMongoDatabase(formattedData, opts)
       process.exit()
     }
 
