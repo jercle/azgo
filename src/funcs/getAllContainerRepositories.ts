@@ -15,7 +15,7 @@ import {
 // import moment = require("momment")
 
 // import * as moment from 'moment'
-import moment = require('moment')
+// import moment = require('moment')
 import { formatDistance, formatISO, differenceInHours, differenceInDays, parseISO } from 'date-fns'
 
 

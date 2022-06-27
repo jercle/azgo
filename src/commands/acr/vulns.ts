@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from 'fs'
 import { homedir } from 'os';
-import { cli } from 'cli-ux'
+import { CliUx } from '@oclif/core'
 
 import { Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
@@ -227,7 +227,7 @@ export default class AcrVulns extends Command {
     if (opts.groupBy && opts.showCounts) {
       const result = countByAttribute(filteredData, opts.groupBy, "array")
       if (opts.formatTable || opts.formatCsv) {
-        cli.table(<any>result, {
+        CliUx.ux.table(<any>result, {
           attr: {
             header: "Attribute"
           },
@@ -276,7 +276,7 @@ export default class AcrVulns extends Command {
     // console.log(opts)
 
 
-    // cli.table(users, {
+    // CliUx.ux.table(users, {
     //   name: {
     //     minWidth: 7,
     //   },
@@ -294,7 +294,7 @@ export default class AcrVulns extends Command {
 
 
 
-    // cli.table(users, {
+    // CliUx.ux.table(users, {
     //   name: {
     //     minWidth: 7,
     //   },
