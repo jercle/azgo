@@ -49,7 +49,7 @@ export default async function getAllContainerRepositories(
   // existsSync(`${this.config.cacheDir}/assessments.json`)
 
 
-  return {repositories: []}
+  return {data: []}
   if (existsSync(outfile) && !resyncData) {
     console.log(chalk.bold(chalk.green("Loading cached data from file...")))
     const data = JSON.parse(readFileSync(outfile).toString())

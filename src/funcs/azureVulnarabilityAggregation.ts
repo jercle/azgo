@@ -6,16 +6,16 @@ import chalk from 'chalk'
 // console.log(data)
 
 
-export function transformVulnerabilityData(data, repos = null) {
-  // console.log(data)
+export function transformVulnerabilityData(vulns, repos = null) {
+  // console.log(vulns)
   const taggedManifests = repos ? getAllManifests(repos, 'tagged') : null
   // console.log(taggedManifests)
 
-  if (data.length === 0) {
+  if (vulns.length === 0) {
     console.log(chalk.greenBright('No vulnerabilities found'))
     process.exit()
   }
-  return data.map(item => {
+  return vulns.map(item => {
     // console.log(taggedManifests[item.additionalData.imageDigest])
     return {
       _id: item.name,

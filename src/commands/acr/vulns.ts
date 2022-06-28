@@ -10,6 +10,8 @@ import { DefaultAzureCredential } from '@azure/identity'
 import { formatISO, differenceInHours, differenceInDays, parseISO } from 'date-fns'
 import inquirer from 'inquirer'
 
+import getAllContainerRegistries from '../../funcs/dev-getAllContainerRegistries.js'
+
 import { vulnerabilityFilter, uploadToMongoDatabase, showDebug, checkCache } from '../../funcs/azgoUtils.js'
 
 import {
@@ -159,8 +161,6 @@ export default class AcrVulns extends Command {
       acrRegistry: null,
       acrRegistryId: null,
       resourceGroup: null,
-      assessmentsCache: existsSync(`${this.config.cacheDir}/assessments.json`),
-      repositoriesCache: existsSync(`${this.config.cacheDir}/repositories.json`),
       ...flags
     }
     // console.log(opts)
@@ -168,6 +168,7 @@ export default class AcrVulns extends Command {
     // const repositoriesCache = existsSync(`${this.config.cacheDir}/repositories.json`)
 
     if (flags.debug) {
+      console.log('debug')
       showDebug(opts, this.config)
     }
 
@@ -178,19 +179,20 @@ export default class AcrVulns extends Command {
       process.exit(1)
     }
 
-    const registries = await getAllContainerRegistries(opts, azCliCredential)
+    // const registries = await getAllContainerRegistries(opts, azCliCredential)
+    const { containerRegsitries } = await checkCache(opts, azCliCredential, this.config, 'containerRegsitries')
 
     if (!opts.acrRegistry) {
-      if (registries.length === 1) {
-        opts.acrRegistry = registries[0].name
-        opts.acrRegistryId = registries[0].id as string
-        console.log(chalk.blue('1 ACR available on this subscription, which has been selected:', registries[0].name))
-      } else if (registries.length > 1) {
+      if (containerRegsitries.length === 1) {
+        opts.acrRegistry = containerRegsitries[0].name
+        opts.acrRegistryId = containerRegsitries[0].id as string
+        console.log(chalk.blue('1 ACR available on this subscription, which has been selected:', containerRegsitries[0].name))
+      } else if (containerRegsitries.length > 1) {
         const acrRegistry = await inquirer.prompt({
           type: "list",
           name: "name",
           message: "Choose ACR Registry to use for this command",
-          choices: registries,
+          choices: containerRegsitries,
         })
         opts.acrRegistry = acrRegistry.name
         opts.acrRegistryId = acrRegistry['id']
@@ -221,10 +223,11 @@ Is "${opts.acrRegistryId.split('/')[4]}" correct?`,
     // console.log(opts)
 
 
-    const { assessments, repos } = checkCache(opts, azCliCredential)
+    const { assessments, repos } = await checkCache(opts, azCliCredential, this.config)
+
     // console.log(repos)
 
-    const formattedData = transformVulnerabilityData(assessments.subAssessments, repos.repositories)
+    const formattedData = transformVulnerabilityData(assessments.data, repos.data)
     const filteredData = opts.filter.length > 0 ? vulnerabilityFilter(formattedData, opts.filter) : formattedData
 
 

@@ -35,7 +35,7 @@ export default async function getsubAssessments(
   credentials
 ) {
 
-  return {subAssessments: []}
+  return {data: []}
 
   if (existsSync(outfile) && !resyncData) {
     console.log(chalk.bold(chalk.green("Loading cached data from file...")))
@@ -54,19 +54,19 @@ export default async function getsubAssessments(
     assessmentId
   )
 
-  let subAssessments = []
+  let data = []
 
   for await (const sub of subAssessmentsList) {
-    subAssessments = [...subAssessments, sub]
+    data = [...data, sub]
   }
 
-  const data = {
+  const outData = {
     azgoSyncDate: formatISO(new Date()),
-    subAssessments,
+    data,
   }
 
   if (outfile) {
-    writeFileSync(outfile, JSON.stringify(data))
+    writeFileSync(outfile, JSON.stringify(outData))
   }
 
   // const cacheData = JSON.parse(readFileSync('/Users/jercle/git/azgo/testData/20220616/getSubAssessments.json').toString().trim())
