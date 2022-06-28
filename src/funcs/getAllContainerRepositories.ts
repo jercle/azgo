@@ -46,14 +46,18 @@ export default async function getAllContainerRepositories(
   azCliCredential
 ) {
 
-  // if (existsSync(outfile) && !resyncData) {
-  //   console.log(chalk.bold(chalk.green("Loading cached data from file...")))
-  //   const data = JSON.parse(readFileSync(outfile).toString())
-  //   // console.log(`Last synced ${differenceInHours(new Date(), parseISO(data.azgoSyncDate))} hours ago`)
-  //   console.log(`Last synced ${formatDistance(parseISO(data.azgoSyncDate), new Date(), { addSuffix: true })}`)
-  //   // console.log(data)
-  //   return data
-  // }
+  // existsSync(`${this.config.cacheDir}/assessments.json`)
+
+
+  return {repositories: []}
+  if (existsSync(outfile) && !resyncData) {
+    console.log(chalk.bold(chalk.green("Loading cached data from file...")))
+    const data = JSON.parse(readFileSync(outfile).toString())
+    // console.log(`Last synced ${differenceInHours(new Date(), parseISO(data.azgoSyncDate))} hours ago`)
+    console.log(`Last synced ${formatDistance(parseISO(data.azgoSyncDate), new Date(), { addSuffix: true })}`)
+    // console.log(data)
+    return data
+  }
 
   const acrUri = `https://${acrRegistry}.azurecr.io`
   const client = new ContainerRegistryClient(acrUri, azCliCredential, {

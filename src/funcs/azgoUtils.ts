@@ -1,10 +1,14 @@
 // TODO: Filter array from array of conditions.
-import { readFileSync, utimes, writeFileSync } from "fs";
+import { readFileSync, writeFileSync, readdirSync } from "fs";
 import { arch, platform } from 'os'
 
 import chalk from 'chalk'
 import { MongoClient } from "mongodb";
 import commandExists from 'command-exists'
+
+import getAllContainerRepositories from './getAllContainerRepositories.js'
+import getAllContainerRegistries from './dev-getAllContainerRegistries.js'
+import getSubAssessments from './getSubAssessments.js'
 
 
 import {
@@ -22,6 +26,33 @@ import {
 
 
 // vulnerabilityFilter(transformVulnerabilityData(data, repos), ["os:windows", "patchable:false", "severity:medium"])
+
+
+export function showDebug(opts, config) {
+  // console.log(config)
+  console.debug({
+    cacheDir: config.cacheDir,
+    cacheFiles: readdirSync(config.cacheDir)
+  })
+  console.debug(opts)
+  console.debug(`Assessments cache exists: ${opts.assessmentsCache ? chalk.yellow(opts.assessmentsCache) : chalk.redBright(opts.assessmentsCache)}`)
+  console.debug(`Repositories cache exists: ${opts.repositoriesCache ? chalk.yellow(opts.repositoriesCache) : chalk.redBright(opts.repositoriesCache)}`)
+  process.exit()
+}
+
+
+export async function checkCache(opts, azCliCredential) {
+  const assessments = opts.assessmentsCache && !opts.resyncData ?
+    JSON.parse(readFileSync(`${this.config.cacheDir}/assessments.json`).toString().trim()) :
+    await getSubAssessments(opts, azCliCredential)
+
+  const repos = opts.repositoriesCache && !opts.resyncData ?
+    JSON.parse(readFileSync(`${this.config.cacheDir}/repositories.json`).toString().trim()) :
+    await getAllContainerRepositories(opts, azCliCredential)
+
+  return { assessments, repos }
+}
+
 
 export function vulnerabilityFilter(data, filter) {
   const filters = filter.reduce((all, item, index) => {
@@ -103,8 +134,8 @@ ${chalk.dim('curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main
 ${chalk.underline('3. Download the appropriate binary and add it to your path:')}
 ${chalk.dim(url.join('').trim())}
 3. Or build from source - see https://aquasecurity.github.io/trivy/v0.18.3/installation/ for more information`)
-} else {
-  console.log(`${chalk.bold(chalk.underline('There are multiple ways in which you can install trivy'))}
+  } else {
+    console.log(`${chalk.bold(chalk.underline('There are multiple ways in which you can install trivy'))}
   ${chalk.underline("1. Using AquaSec's install script:")}
   ${chalk.dim('curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.18.3')}
   ${chalk.underline('2. Download the appropriate binary and add it to your path:')}

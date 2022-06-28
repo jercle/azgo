@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'fs'
+import { readFileSync, writeFileSync, existsSync } from 'fs'
 import { homedir } from 'os';
 import { CliUx } from '@oclif/core'
 
@@ -6,16 +6,11 @@ import { Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 
 
-// import getAllContainerRepositories from "../../funcs/getAllContainerRepositories.js"
-
 import { DefaultAzureCredential } from '@azure/identity'
 import { formatISO, differenceInHours, differenceInDays, parseISO } from 'date-fns'
 import inquirer from 'inquirer'
 
-import getAllContainerRepositories from '../../funcs/getAllContainerRepositories.js'
-import getAllContainerRegistries from '../../funcs/dev-getAllContainerRegistries.js'
-import getSubAssessments from '../../funcs/getSubAssessments.js'
-import { vulnerabilityFilter, uploadToMongoDatabase } from '../../funcs/azgoUtils.js'
+import { vulnerabilityFilter, uploadToMongoDatabase, showDebug, checkCache } from '../../funcs/azgoUtils.js'
 
 import {
   transformVulnerabilityData,
@@ -67,7 +62,7 @@ export default class AcrVulns extends Command {
       env: 'AZGO_SAVE_FILE',
     }),
     resyncData: Flags.boolean({
-      description: 'Resync data from Azure',
+      description: 'Resync data from Azure to cache, and optionally (with -U) upload to MongoDB',
     }),
     groupBy: Flags.string({
       char: 'g',
@@ -147,6 +142,10 @@ export default class AcrVulns extends Command {
       // dependsOn: ['uploadToDb'],
       // exclusive: ['uploadToDb']
     }),
+    debug: Flags.boolean({
+      description: "Testing only",
+      hidden: true
+    }),
   }
   // { acrRegistry, outfile, includeManifests, resyncData },
   // { assessmentId, subscriptionId, resourceGroup, acrRegistry, outfile, resyncData},
@@ -160,9 +159,17 @@ export default class AcrVulns extends Command {
       acrRegistry: null,
       acrRegistryId: null,
       resourceGroup: null,
+      assessmentsCache: existsSync(`${this.config.cacheDir}/assessments.json`),
+      repositoriesCache: existsSync(`${this.config.cacheDir}/repositories.json`),
       ...flags
     }
     // console.log(opts)
+    // const assessmentsCache = existsSync(`${this.config.cacheDir}/assessments.json`)
+    // const repositoriesCache = existsSync(`${this.config.cacheDir}/repositories.json`)
+
+    if (flags.debug) {
+      showDebug(opts, this.config)
+    }
 
     if (flags.showCounts && ((flags.groupBy &&
       flags.groupBy.toLowerCase() === 'byrepoundercve') ||
@@ -189,30 +196,32 @@ export default class AcrVulns extends Command {
         opts.acrRegistryId = acrRegistry['id']
       }
 
-      const resourceGroup = await inquirer.prompt({
-        type: "confirm",
-        name: "isCorrect",
-        message: `${chalk.dim(`Attemmpted to automatically find resource group for selected ACR, ${opts.acrRegistry}.`)}
-  Is "${opts.acrRegistryId.split('/')[4]}" correct?`,
-        default: true
-      })
-
-      if (resourceGroup.isCorrect) {
-        opts.resourceGroup = opts.acrRegistryId.split('/')[4]
-      } else {
-        const response = await inquirer.prompt({
-          type: "input",
-          name: "rgName",
-          message: "Enter resource group name",
+      if (!opts.resourceGroup) {
+        const resourceGroup = await inquirer.prompt({
+          type: "confirm",
+          name: "isCorrect",
+          message: `${chalk.dim(`Attempted to automatically find resource group for selected ACR, ${opts.acrRegistry}.`)}
+Is "${opts.acrRegistryId.split('/')[4]}" correct?`,
+          default: true
         })
-        opts.resourceGroup = response.rgName
+
+        if (resourceGroup.isCorrect) {
+          opts.resourceGroup = opts.acrRegistryId.split('/')[4]
+        } else {
+          const response = await inquirer.prompt({
+            type: "input",
+            name: "rgName",
+            message: "Enter resource group name",
+          })
+          opts.resourceGroup = response.rgName
+        }
       }
     }
 
     // console.log(opts)
-    let assessments = await getSubAssessments(opts, azCliCredential)
-    // console.log(assessments)
-    let repos = await getAllContainerRepositories(opts, azCliCredential)
+
+
+    const { assessments, repos } = checkCache(opts, azCliCredential)
     // console.log(repos)
 
     const formattedData = transformVulnerabilityData(assessments.subAssessments, repos.repositories)

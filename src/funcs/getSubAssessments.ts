@@ -35,14 +35,16 @@ export default async function getsubAssessments(
   credentials
 ) {
 
-  // if (existsSync(outfile) && !resyncData) {
-  //   console.log(chalk.bold(chalk.green("Loading cached data from file...")))
-  //   const data = JSON.parse(readFileSync(outfile).toString())
-  //   // console.log(`Last synced ${differenceInHours(new Date(), parseISO(data.azgoSyncDate))} hours ago`)
-  //   console.log(`Last synced ${formatDistance(parseISO(data.azgoSyncDate), new Date(), { addSuffix: true })}`)
-  //   // console.log(data)
-  //   return data
-  // }
+  return {subAssessments: []}
+
+  if (existsSync(outfile) && !resyncData) {
+    console.log(chalk.bold(chalk.green("Loading cached data from file...")))
+    const data = JSON.parse(readFileSync(outfile).toString())
+    // console.log(`Last synced ${differenceInHours(new Date(), parseISO(data.azgoSyncDate))} hours ago`)
+    console.log(`Last synced ${formatDistance(parseISO(data.azgoSyncDate), new Date(), { addSuffix: true })}`)
+    // console.log(data)
+    return data
+  }
 
 
   const client = new SecurityCenter(credentials, subscriptionId)

@@ -11,6 +11,10 @@ export function transformVulnerabilityData(data, repos = null) {
   const taggedManifests = repos ? getAllManifests(repos, 'tagged') : null
   // console.log(taggedManifests)
 
+  if (data.length === 0) {
+    console.log(chalk.greenBright('No vulnerabilities found'))
+    process.exit()
+  }
   return data.map(item => {
     // console.log(taggedManifests[item.additionalData.imageDigest])
     return {

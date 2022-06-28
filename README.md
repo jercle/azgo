@@ -91,23 +91,14 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-- [AZGO](#azgo)
-  - [Function of this CLI](#function-of-this-cli)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Authentication](#authentication)
-  - [Simple example](#simple-example)
-    - [Set current active subscription](#set-current-active-subscription)
-- [Usage](#usage)
-- [Commands](#commands)
-  - [`azgo acr list`](#azgo-acr-list)
-  - [`azgo acr repos list`](#azgo-acr-repos-list)
-  - [`azgo acr vulns`](#azgo-acr-vulns)
-  - [`azgo commands`](#azgo-commands)
-  - [`azgo generate azure app`](#azgo-generate-azure-app)
-  - [`azgo generate azure platform`](#azgo-generate-azure-platform)
-  - [`azgo help [COMMAND]`](#azgo-help-command)
-  - [`azgo subs`](#azgo-subs)
+* [`azgo acr list`](#azgo-acr-list)
+* [`azgo acr repos list`](#azgo-acr-repos-list)
+* [`azgo acr vulns`](#azgo-acr-vulns)
+* [`azgo commands`](#azgo-commands)
+* [`azgo generate azure app`](#azgo-generate-azure-app)
+* [`azgo generate azure platform`](#azgo-generate-azure-platform)
+* [`azgo help [COMMAND]`](#azgo-help-command)
+* [`azgo subs`](#azgo-subs)
 
 ## `azgo acr list`
 
@@ -178,7 +169,7 @@ FLAGS
   -s, --subscriptionId=<value>      [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
                                     Subscription ID to use.
                                     If not supplied, will use current active Azure CLI subscription.
-  --resyncData                      Resync data from Azure
+  --resyncData                      Resync data from Azure to cache, and optionally (with -U) upload to MongoDB
 
 DESCRIPTION
   Get all vulnerabilities related to container images
