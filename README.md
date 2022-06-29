@@ -18,6 +18,15 @@ This CLI is still very much under development, and functions with the `test-` or
 
 This is my first public project, so any advice is appreciated and taken onboard. Also, having never REALLY done unit testing in NodeJS before, I have finally begun. I know, I know...
 
+## Simple example
+### Set current active subscription
+Provides a UI wrapper over `az account set --subscription` to select current active subscription. Gives a list of available subscriptions without the need to find the required ID and paste into a flag. This does change the active subscription for Azure CLI
+
+```bash
+azgo subs -s
+```
+![package](https://user-images.githubusercontent.com/10472533/176458369-1ce98ace-7cb8-45ca-a40a-5ecbde21f7dd.gif)
+
 
 ## Prerequisites
 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) must be installed and logged in.
@@ -61,14 +70,6 @@ You must be logged in with `azure cli` as this uses the authentication provided 
 
 For Azure DevOps functionality, you must have a Personal Access Token saved to AZURE_DEVOPS_EXT_PAT environment variable as per [Function of this CLI](#function-of-this-cli)
 
-
-## Simple example
-### Set current active subscription
-Provides a UI wrapper over `az account set --subscription` to select current active subscription. Gives a list of available subscriptions without the need to find the required ID and paste into a flag
-
-```bash
-azgo subs -s
-```
 
 
 <!-- toc -->
