@@ -47,6 +47,18 @@ export default async function selectActiveSubscription() {
     Are you sure you want to change active subscription?`,
     default: false,
   })
+  // const answer = await inquirer.prompt({
+  //   type: "confirm",
+  //   name: "changeActiveSub",
+  //   message: `${chalk.dim(
+  //     `${chalk.bold('Current active subscription')}
+  //     ID: ${currentActive.id}
+  //     Name: ${currentActive.name}
+  //     Username: ${currentActive.user.name}`
+  //   )}
+  //   Are you sure you want to change active subscription?`,
+  //   default: false,
+  // })
 
   if (answer.changeActiveSub) {
     const newSubAnswer = await inquirer.prompt({

@@ -3,11 +3,14 @@ AZGO
 
 Extends the functionality, UX, and data aggregation of the Azure CLI.
 
-<!-- [![Version](https://img.shields.io/npm/v/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
-[![CircleCI](https://circleci.com/gh/oclif/hello-world/tree/main.svg?style=shield)](https://circleci.com/gh/oclif/hello-world/tree/main)
-[![Downloads/week](https://img.shields.io/npm/dw/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
-[![License](https://img.shields.io/npm/l/oclif-hello-world.svg)](https://github.com/oclif/hello-world/blob/main/package.json) -->
-
+- [AZGO](#azgo)
+  - [Function of this CLI](#function-of-this-cli)
+  - [Simple example](#simple-example)
+    - [Set current active subscription](#set-current-active-subscription)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Authentication](#authentication)
+- [Usage](#usage)
 
 ## Function of this CLI
 This CLI has been created to add additional functionality to [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/) such as data aggregation from multiple `az` commands, reporting, and pulling data from both Azure DevOps and Azure.
@@ -17,6 +20,15 @@ Some of the reporting functionality is around container vulnerability scanning w
 This CLI is still very much under development, and functions with the `test-` or `dev-` prefixes are considered mid-development
 
 This is my first public project, so any advice is appreciated and taken onboard. Also, having never REALLY done unit testing in NodeJS before, I have finally begun. I know, I know...
+
+## Simple example
+### Set current active subscription
+Provides a UI wrapper over `az account set --subscription` to select current active subscription. Gives a list of available subscriptions without the need to find the required ID and paste into a flag. This does change the active subscription for Azure CLI
+
+```bash
+azgo subs -s
+```
+![package](https://user-images.githubusercontent.com/10472533/176458369-1ce98ace-7cb8-45ca-a40a-5ecbde21f7dd.gif)
 
 
 ## Prerequisites
@@ -62,19 +74,6 @@ You must be logged in with `azure cli` as this uses the authentication provided 
 For Azure DevOps functionality, you must have a Personal Access Token saved to AZURE_DEVOPS_EXT_PAT environment variable as per [Function of this CLI](#function-of-this-cli)
 
 
-## Simple example
-### Set current active subscription
-Provides a UI wrapper over `az account set --subscription` to select current active subscription. Gives a list of available subscriptions without the need to find the required ID and paste into a flag
-
-```bash
-azgo subs -s
-```
-
-
-<!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
 # Usage
 <!-- usage -->
 ```sh-session
@@ -91,7 +90,7 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`azgo acr list`](#azgo-acr-list)
+* [`azgo acr [FILE]`](#azgo-acr-file)
 * [`azgo acr repos list`](#azgo-acr-repos-list)
 * [`azgo acr vulns`](#azgo-acr-vulns)
 * [`azgo commands`](#azgo-commands)
@@ -100,20 +99,25 @@ USAGE
 * [`azgo help [COMMAND]`](#azgo-help-command)
 * [`azgo subs`](#azgo-subs)
 
-## `azgo acr list`
+## `azgo acr [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ azgo acr list
+  $ azgo acr [FILE] [-n <value>]
+
+GLOBAL FLAGS
+  -n, --name=<value>  name to print
 
 DESCRIPTION
   describe the command here
 
 EXAMPLES
-  $ azgo acr list
+  $ azgo acr
 ```
+
+_See code: [dist/commands/acr/index.ts](https://github.com/jercle/azgo/blob/v0.0.5/dist/commands/acr/index.ts)_
 
 ## `azgo acr repos list`
 
@@ -166,7 +170,7 @@ FLAGS
   -o, --outfile=<value>             Save output to file
   -r, --resourceGroup=<value>       Resource Group associate with the ACR
                                     If not supplied, will attempt to acquire from ACR's ID string
-  -s, --subscriptionId=<value>      [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
+  -s, --subscriptionId=<value>      [default: 6a97e485-79ae-4e74-9924-7b3a1260d08b]
                                     Subscription ID to use.
                                     If not supplied, will use current active Azure CLI subscription.
   --resyncData                      Resync data from Azure to cache, and optionally (with -U) upload to MongoDB
@@ -300,7 +304,7 @@ FLAGS
       (required) Name of application
 
   -s, --subscriptionId=<value>
-      [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
+      [default: 6a97e485-79ae-4e74-9924-7b3a1260d08b]
       Subscription ID to use.
       If not supplied, will use current active Azure CLI subscription.
 
