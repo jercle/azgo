@@ -15,7 +15,7 @@
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif readme && git add README.md"
   },
-  "homepage": "https://github.com/jercle/azgo",
+  "homepage": "https://github.com/jercle/azgo/blob/main/README.md",
   "license": "MIT",
   "main": "dist/index.js",
   "type": "module",
