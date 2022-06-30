@@ -7,8 +7,15 @@ const hook: Hook<'init'> = async function (opts) {
 
   // const
 
-  const response = "test"
+  // const response = "test"
 }
+
+// global.azCliCredential = new DefaultAzureCredential()
+
+// declare global {
+//   const azCliCredential: new DefaultAzureCredential()
+// }
+
 
 export default hook
 

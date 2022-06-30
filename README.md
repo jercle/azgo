@@ -90,7 +90,6 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`azgo acr [FILE]`](#azgo-acr-file)
 * [`azgo acr repos list`](#azgo-acr-repos-list)
 * [`azgo acr vulns`](#azgo-acr-vulns)
 * [`azgo commands`](#azgo-commands)
@@ -98,26 +97,6 @@ USAGE
 * [`azgo generate azure platform`](#azgo-generate-azure-platform)
 * [`azgo help [COMMAND]`](#azgo-help-command)
 * [`azgo subs`](#azgo-subs)
-
-## `azgo acr [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ azgo acr [FILE] [-n <value>]
-
-GLOBAL FLAGS
-  -n, --name=<value>  name to print
-
-DESCRIPTION
-  describe the command here
-
-EXAMPLES
-  $ azgo acr
-```
-
-_See code: [dist/commands/acr/index.ts](https://github.com/jercle/azgo/blob/v0.0.5/dist/commands/acr/index.ts)_
 
 ## `azgo acr repos list`
 
@@ -146,9 +125,9 @@ Get all vulnerabilities related to container images
 
 ```
 USAGE
-  $ azgo acr vulns [-s <value>] [-r <value>] [-a <value>] [--resyncData] [-f <value>] [-T ] [-C ] [-l |  | -g
-    repository|category|severity|patchable|os|osDetails|imageDigest|cve|byRepoUnderCve | [-d -c -o <value>]] [-U] [-S
-    <value>]
+  $ azgo acr vulns [--debug] [-s <value>] [-r <value>] [-a <value>] [--resyncData] [-f <value>] [-T ] [-C ] [-l
+    |  | -g repository|category|severity|patchable|os|osDetails|imageDigest|cve|byRepoUnderCve | [-d -c -o <value>]]
+    [-U] [-S <value>]
 
 FLAGS
   -C, --formatCsv                   Show output as CSV
@@ -170,10 +149,14 @@ FLAGS
   -o, --outfile=<value>             Save output to file
   -r, --resourceGroup=<value>       Resource Group associate with the ACR
                                     If not supplied, will attempt to acquire from ACR's ID string
-  -s, --subscriptionId=<value>      [default: 6a97e485-79ae-4e74-9924-7b3a1260d08b]
-                                    Subscription ID to use.
-                                    If not supplied, will use current active Azure CLI subscription.
   --resyncData                      Resync data from Azure to cache, and optionally (with -U) upload to MongoDB
+
+GLOBAL AZURE FLAGS
+  -s, --subscriptionId=<value>  Subscription ID to use.
+                                If not supplied, will use current active Azure CLI subscription.
+
+GLOBAL FLAGS
+  --debug  Testing only. Returns CLI config and, and some other debug info
 
 DESCRIPTION
   Get all vulnerabilities related to container images
@@ -304,7 +287,7 @@ FLAGS
       (required) Name of application
 
   -s, --subscriptionId=<value>
-      [default: 6a97e485-79ae-4e74-9924-7b3a1260d08b]
+      [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
       Subscription ID to use.
       If not supplied, will use current active Azure CLI subscription.
 
@@ -337,22 +320,27 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.1
 
 ## `azgo subs`
 
-Display current configured Azure CLI subscriptions
+Display current configured Azure CLI subscriptions.
 
 ```
 USAGE
-  $ azgo subs [-s]
+  $ azgo subs [--debug] [-s <value>] [-a | -s]
 
 FLAGS
-  -s, --setActive  Set active subscription for Azure CLI
+  -a, --showActive  Show current active subscription for Azure CLI
+  -s, --setActive   Set active subscription for Azure CLI
+
+GLOBAL AZURE FLAGS
+  -s, --subscriptionId=<value>  Subscription ID to use.
+                                If not supplied, will use current active Azure CLI subscription.
+
+GLOBAL FLAGS
+  --debug  Testing only. Returns CLI config and, and some other debug info
 
 DESCRIPTION
-  Display current configured Azure CLI subscriptions
+  Display current configured Azure CLI subscriptions.
 
-EXAMPLES
-  $ azgoc subs
-
-  $ azgoc subs --setActive
+  Lists subscriptinos, grouped by Tenant ID
 ```
 
 _See code: [dist/commands/subs.ts](https://github.com/jercle/azgo/blob/v0.0.5/dist/commands/subs.ts)_

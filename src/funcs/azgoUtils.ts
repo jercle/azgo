@@ -31,17 +31,31 @@ import {
 
 export async function showDebug(opts, config) {
   // console.log(config)
+  // console.log(opts)
   const { cacheDir, subscriptionCacheFiles } = await checkCache(opts, null, config, 'checkOnly')
+  // Console logging twice for troubleshooting.
+  const result = {
+    cache: {
+      cacheDir,
+      subscriptionCacheFiles
+    }, opts
+  }
+  // This prints json to stdout, which can be piped out to a file
+  console.log(JSON.stringify(result, null, 2))
 
-  console.debug({
+  // This prints to stderr, which does not pipe. But is coloured and parsed by
+  // the terminal for readability
+  console.error({
     cacheDir,
     subscriptionCacheFiles
   })
   console.debug(opts)
-  console.debug(`Assessments cache exists: ${!!subscriptionCacheFiles['assessments.json'] ?
+  // 'azgo subs --debug > file.json' would only write the first output to the file
+
+  console.error(`Assessments cache exists: ${!!subscriptionCacheFiles['assessments.json'] ?
     chalk.yellow(!!subscriptionCacheFiles['assessments.json']) :
     chalk.redBright(!!subscriptionCacheFiles['assessments.json'])}`)
-  console.debug(`Repositories cache exists: ${!!subscriptionCacheFiles['repositories.json'] ?
+  console.error(`Repositories cache exists: ${!!subscriptionCacheFiles['repositories.json'] ?
     chalk.yellow(!!subscriptionCacheFiles['repositories.json']) :
     chalk.redBright(!!subscriptionCacheFiles['repositories.json'])}`)
   process.exit()
@@ -55,6 +69,9 @@ export async function showDebug(opts, config) {
 // return requested data
 
 export async function checkCache(opts, azCliCredential, config, filter = null) {
+  // console.log(config.cacheDir)
+  // console.log(opts.subscriptionId)
+  // process.exit()
   const subCacheDir = `${config.cacheDir}/${opts.subscriptionId}`
   const subscriptionCacheFiles = readdirSync(subCacheDir)
     .filter(filename => !filename.includes('.DS_Store'))
