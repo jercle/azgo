@@ -3,11 +3,14 @@ AZGO
 
 Extends the functionality, UX, and data aggregation of the Azure CLI.
 
-<!-- [![Version](https://img.shields.io/npm/v/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
-[![CircleCI](https://circleci.com/gh/oclif/hello-world/tree/main.svg?style=shield)](https://circleci.com/gh/oclif/hello-world/tree/main)
-[![Downloads/week](https://img.shields.io/npm/dw/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
-[![License](https://img.shields.io/npm/l/oclif-hello-world.svg)](https://github.com/oclif/hello-world/blob/main/package.json) -->
-
+- [AZGO](#azgo)
+  - [Function of this CLI](#function-of-this-cli)
+  - [Simple example](#simple-example)
+    - [Set current active subscription](#set-current-active-subscription)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Authentication](#authentication)
+- [Usage](#usage)
 
 ## Function of this CLI
 This CLI has been created to add additional functionality to [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/) such as data aggregation from multiple `az` commands, reporting, and pulling data from both Azure DevOps and Azure.
@@ -71,11 +74,6 @@ You must be logged in with `azure cli` as this uses the authentication provided 
 For Azure DevOps functionality, you must have a Personal Access Token saved to AZURE_DEVOPS_EXT_PAT environment variable as per [Function of this CLI](#function-of-this-cli)
 
 
-
-<!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
 # Usage
 <!-- usage -->
 ```sh-session
@@ -92,38 +90,14 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-- [AZGO](#azgo)
-  - [Function of this CLI](#function-of-this-cli)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Authentication](#authentication)
-  - [Simple example](#simple-example)
-    - [Set current active subscription](#set-current-active-subscription)
-- [Usage](#usage)
-- [Commands](#commands)
-  - [`azgo acr list`](#azgo-acr-list)
-  - [`azgo acr repos list`](#azgo-acr-repos-list)
-  - [`azgo acr vulns`](#azgo-acr-vulns)
-  - [`azgo commands`](#azgo-commands)
-  - [`azgo generate azure app`](#azgo-generate-azure-app)
-  - [`azgo generate azure platform`](#azgo-generate-azure-platform)
-  - [`azgo help [COMMAND]`](#azgo-help-command)
-  - [`azgo subs`](#azgo-subs)
-
-## `azgo acr list`
-
-describe the command here
-
-```
-USAGE
-  $ azgo acr list
-
-DESCRIPTION
-  describe the command here
-
-EXAMPLES
-  $ azgo acr list
-```
+* [`azgo acr repos list`](#azgo-acr-repos-list)
+* [`azgo acr vulns`](#azgo-acr-vulns)
+* [`azgo boards [FILE]`](#azgo-boards-file)
+* [`azgo commands`](#azgo-commands)
+* [`azgo generate azure app`](#azgo-generate-azure-app)
+* [`azgo generate azure platform`](#azgo-generate-azure-platform)
+* [`azgo help [COMMAND]`](#azgo-help-command)
+* [`azgo subs`](#azgo-subs)
 
 ## `azgo acr repos list`
 
@@ -152,9 +126,9 @@ Get all vulnerabilities related to container images
 
 ```
 USAGE
-  $ azgo acr vulns [-s <value>] [-r <value>] [-a <value>] [--resyncData] [-f <value>] [-T ] [-C ] [-l |  | -g
-    repository|category|severity|patchable|os|osDetails|imageDigest|cve|byRepoUnderCve | [-d -c -o <value>]] [-U] [-S
-    <value>]
+  $ azgo acr vulns [--debug] [-s <value>] [-r <value>] [-a <value>] [--resyncData] [-f <value>] [-T ] [-C ] [-l
+    |  | -g repository|category|severity|patchable|os|osDetails|imageDigest|cve|byRepoUnderCve | [-d -c -o <value>]]
+    [-U] [-S <value>]
 
 FLAGS
   -C, --formatCsv                   Show output as CSV
@@ -176,10 +150,14 @@ FLAGS
   -o, --outfile=<value>             Save output to file
   -r, --resourceGroup=<value>       Resource Group associate with the ACR
                                     If not supplied, will attempt to acquire from ACR's ID string
-  -s, --subscriptionId=<value>      [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
-                                    Subscription ID to use.
-                                    If not supplied, will use current active Azure CLI subscription.
-  --resyncData                      Resync data from Azure
+  --resyncData                      Resync data from Azure to cache, and optionally (with -U) upload to MongoDB
+
+GLOBAL AZURE FLAGS
+  -s, --subscriptionId=<value>  Subscription ID to use.
+                                If not supplied, will use current active Azure CLI subscription.
+
+GLOBAL FLAGS
+  --debug  Testing only. Returns CLI config and, and some other debug info
 
 DESCRIPTION
   Get all vulnerabilities related to container images
@@ -220,6 +198,44 @@ FLAG DESCRIPTIONS
     'CVE-2022-30131': {
     ...
 ```
+
+## `azgo boards [FILE]`
+
+Azure DevOps Boards related commands
+
+```
+USAGE
+  $ azgo boards [FILE] -o <value> [--debug] [-u <value>] [-a -l] [-p ] [-f Bug|Task ]
+
+FLAGS
+  -a, --includeClosed        Include closed work items
+  -f, --filterType=<option>  Filter on type
+                             <options: Bug|Task>
+  -l, --list                 List all work items assigned to given user
+  -p, --includePending       Include pending work items
+  -u, --user=<value>         User's full name or Email address used for Azure DevOps login
+                             "John Smith" or "john.smith@org.com.au"
+
+                             NOTE: If not provided, email address used with current active subscription will be used.
+                             This can be found or changed with the "azgo subs" command.
+
+GLOBAL AZURE DEVOPS FLAGS
+  -o, --organization=<value>  (required) Organization to use for Azure DevOps related commands
+                              NOTE: Can also be set using AZGO_DEVOPS_ORG environment variable
+
+GLOBAL FLAGS
+  --debug  Testing only. Returns CLI config and, and some other debug info
+
+DESCRIPTION
+  Azure DevOps Boards related commands
+
+  Current functionality is listing all items
+
+EXAMPLES
+  $ azgo boards
+```
+
+_See code: [dist/commands/boards.ts](https://github.com/jercle/azgo/blob/v0.0.5/dist/commands/boards.ts)_
 
 ## `azgo commands`
 
@@ -343,22 +359,27 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.1
 
 ## `azgo subs`
 
-Display current configured Azure CLI subscriptions
+Display current configured Azure CLI subscriptions.
 
 ```
 USAGE
-  $ azgo subs [-s]
+  $ azgo subs [--debug] [-s <value>] [-a | -x]
 
 FLAGS
-  -s, --setActive  Set active subscription for Azure CLI
+  -a, --showActive  Show current active subscription for Azure CLI
+  -x, --setActive   Set active subscription for Azure CLI
+
+GLOBAL AZURE FLAGS
+  -s, --subscriptionId=<value>  Subscription ID to use.
+                                If not supplied, will use current active Azure CLI subscription.
+
+GLOBAL FLAGS
+  --debug  Testing only. Returns CLI config and, and some other debug info
 
 DESCRIPTION
-  Display current configured Azure CLI subscriptions
+  Display current configured Azure CLI subscriptions.
 
-EXAMPLES
-  $ azgoc subs
-
-  $ azgoc subs --setActive
+  Lists subscriptinos, grouped by Tenant ID
 ```
 
 _See code: [dist/commands/subs.ts](https://github.com/jercle/azgo/blob/v0.0.5/dist/commands/subs.ts)_

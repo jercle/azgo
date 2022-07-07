@@ -4,18 +4,10 @@
  * @return {array} List of Tenants and their associated subscriptions in current state of AZ CLI
  */
 
-// const os = require('os')
 import { homedir } from 'os'
-
-// const inquirer = require('inquirer');
-import inquirer from 'inquirer'
-// const inquirer = await import('inquirer')
-// const differenceInDays = require('date-fns/differenceInDays')
-
-// const { readFileSync, writeFileSync } = require('fs')
 import { readFileSync, writeFileSync } from 'fs'
 
-// const { dim, green } = require('chalk')
+import inquirer from 'inquirer'
 import chalk from 'chalk'
 
 const azureProfilePath = `${homedir()}/.azure/azureProfile.json`

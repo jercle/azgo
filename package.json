@@ -15,7 +15,7 @@
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif readme && git add README.md"
   },
-  "homepage": "https://github.com/jercle/azgo",
+  "homepage": "https://github.com/jercle/azgo/blob/main/README.md",
   "license": "MIT",
   "main": "dist/index.js",
   "type": "module",
@@ -37,12 +37,12 @@
     "@oclif/core": "^1",
     "@oclif/plugin-commands": "^2.2.0",
     "@oclif/plugin-help": "^5",
+    "axios": "^0.27.2",
     "chalk": "^5.0.1",
     "command-exists": "^1.2.9",
     "date-fns": "^2.28.0",
     "esm": "^3.2.25",
     "inquirer": "^9.0.0",
-    "moment": "^2.29.3",
     "mongodb": "^4.7.0",
     "yaml": "^2.1.1",
     "yeoman-environment": "^3.9.1"
@@ -79,7 +79,11 @@
     "topicSeparator": " ",
     "topics": {},
     "hooks": {
-      "init": "./dist/hooks/init/auth"
+      "init": [
+        "./dist/hooks/init/auth",
+        "./dist/hooks/init/initializeApp"
+      ],
+      "prerun": "./dist/hooks/prerun/prerun"
     }
   },
   "engines": {
