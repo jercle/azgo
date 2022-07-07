@@ -13,7 +13,11 @@ import {
   showDebug,
 } from '../../funcs/azgoUtils.js'
 
-import { checkCache } from '../../funcs/azgoCaching.js'
+import getAllContainerRegistries from '../../funcs/dev-getAllContainerRegistries.js'
+import getAllContainerRepositories from '../../funcs/getAllContainerRepositories.js'
+import getSubAssessments from '../../funcs/getSubAssessments.js'
+
+import { checkCache, cacheExists, getCache } from '../../funcs/azgoCaching.js'
 
 import {
   transformVulnerabilityData,
@@ -173,7 +177,13 @@ export default class AcrVulns extends AzureCommand {
       process.exit(1)
     }
 
-    const { containerRegsitries } = await checkCache(opts, global.azCliCredential, this.config, 'containerRegsitries')
+    const containerRegsitries = cacheExists('containerRegistries', opts.subscriptionId, this.config.cacheDir) ?
+      getCache('containerRegistries', opts.subscriptionId, this.config.cacheDir)
+      : await getAllContainerRegistries(opts, global.azCliCredential)
+    // console.log(testing)
+    // process.exit()
+    // checkCache(opts, global.azCliCredential, this.config, 'containerRegsitries')
+    // const containerRegsitries = checkCache(opts, global.azCliCredential, this.config, 'containerRegsitries')
 
     if (!opts.acrRegistry) {
       if (containerRegsitries.length === 1) {
@@ -215,13 +225,25 @@ Is "${opts.acrRegistryId.split('/')[4]}" correct?`,
 
     // console.log(opts)
 
+    const assessments = cacheExists('assessments', opts.subscriptionId, this.config.cacheDir) ?
+      getCache('assessments', opts.subscriptionId, this.config.cacheDir)
+      : await getSubAssessments(opts, global.azCliCredential)
 
-    const { assessments, repos } = await checkCache(opts, global.azCliCredential, this.config)
+    const repositories = cacheExists('repositories', opts.subscriptionId, this.config.cacheDir) ?
+      getCache('repositories', opts.subscriptionId, this.config.cacheDir)
+      : await getAllContainerRepositories(opts, global.azCliCredential)
 
-    // console.log(repos)
+    // const { assessments, repos } = await checkCache(opts, global.azCliCredential, this.config)
 
-    const formattedData = transformVulnerabilityData(assessments.data, repos.data)
-    const filteredData = opts.filter.length > 0 ? vulnerabilityFilter(formattedData, opts.filter) : formattedData
+    // console.log(assessments.data.length)
+    // console.log(repositories.data.length)
+
+    const formattedData = transformVulnerabilityData(assessments.data, repositories.data)
+    const filteredData = opts.filter.length > 0 ?
+      vulnerabilityFilter(formattedData, opts.filter) :
+      formattedData
+
+      // console.log(formattedData.length)
 
 
     // // console.log(opts)

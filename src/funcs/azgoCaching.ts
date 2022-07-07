@@ -54,7 +54,7 @@ export function setCache(
 export function getCache(
   cacheFileName: string,
   subscriptionId: string,
-  cacheDir: string): object {
+  cacheDir: string) {
   const cache = JSON.parse(readFileSync(`${cacheDir}/${subscriptionId}/${cacheFileName}.json`)
     .toString()
     .trim())
@@ -117,7 +117,7 @@ export function initCache(cacheDir: string, subscriptionId: string): void {
 
 
 // checkCache(opts, null, opts)
-export async function checkCache(opts, azCliCredential, config, filter = null) {
+export function checkCache(opts, azCliCredential, config, filter = null) {
   const subCacheDir = `${config.cacheDir}/${opts.subscriptionId}`
   // const subCacheDir = `/Users/jercle/git/azgo/cache/${opts.subscriptionId}`
   // console.log(config.cacheDir)
@@ -127,11 +127,11 @@ export async function checkCache(opts, azCliCredential, config, filter = null) {
   // console.log(subCacheDir)
 
   if (!existsSync(subCacheDir)) {
-    console.log(`cache doesn't exist, creating cache for subscriptioon ${opts.subscriptionId}`)
+    // console.log(`cache doesn't exist, creating cache for subscriptioon ${opts.subscriptionId}`)
     mkdirSync(subCacheDir)
-    console.log(existsSync(subCacheDir))
+    // console.log(existsSync(subCacheDir))
   } else {
-    console.log(`cache exists for subscription ${opts.subscriptionId}`)
+    // console.log(`cache exists for subscription ${opts.subscriptionId}`)
   }
 
   const subscriptionCacheFiles = readdirSync(subCacheDir)
@@ -149,7 +149,7 @@ export async function checkCache(opts, azCliCredential, config, filter = null) {
       return all
     }, {})
 
-  console.log(subscriptionCacheFiles)
+  // console.log(subscriptionCacheFiles)
 
   if (filter === 'checkOnly') {
     return { subscriptionCacheFiles, cacheDir: config.cacheDir }
@@ -161,9 +161,9 @@ export async function checkCache(opts, azCliCredential, config, filter = null) {
   if (filter === 'containerRegsitries') {
     console.log('in if')
     const containerRegsitries = Object.keys(subscriptionCacheFiles).includes('containerRegsitries.json') && !opts.resyncData ?
-      JSON.parse(readFileSync(`${config.cacheDir}/containerRegsitries.json`).toString().trim()) :
-      await getAllContainerRegistries(opts, azCliCredential)
-    return { containerRegsitries }
+      JSON.parse(readFileSync(`${config.cacheDir}/containerRegsitries.json`).toString().trim()) : []
+      // await getAllContainerRegistries(opts, azCliCredential)
+    return containerRegsitries
   }
   // console.log('post if')
 

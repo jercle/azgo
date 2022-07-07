@@ -33,8 +33,9 @@ export async function showDebug(opts, config) {
   const result = {
     cache: {
       cacheDir,
-      subscriptionCacheFiles
-    }, opts
+      subscriptionCacheFiles,
+      opts
+    }
   }
   // This prints json to stdout, which can be piped out to a file
   console.log(JSON.stringify(result, null, 2))
@@ -43,9 +44,10 @@ export async function showDebug(opts, config) {
   // the terminal for readability
   console.error({
     cacheDir,
-    subscriptionCacheFiles
+    subscriptionCacheFiles,
+    opts
   })
-  console.debug(opts)
+  // console.debug(opts)
   // 'azgo subs --debug > file.json' would only write the first output to the file
 
   console.error(`Assessments cache exists: ${!!subscriptionCacheFiles['assessments.json'] ?
@@ -54,6 +56,9 @@ export async function showDebug(opts, config) {
   console.error(`Repositories cache exists: ${!!subscriptionCacheFiles['repositories.json'] ?
     chalk.yellow(!!subscriptionCacheFiles['repositories.json']) :
     chalk.redBright(!!subscriptionCacheFiles['repositories.json'])}`)
+  console.error(`containerRegistries cache exists: ${!!subscriptionCacheFiles['containerRegistries.json'] ?
+    chalk.yellow(!!subscriptionCacheFiles['containerRegistries.json']) :
+    chalk.redBright(!!subscriptionCacheFiles['containerRegistries.json'])}`)
   process.exit()
 }
 
