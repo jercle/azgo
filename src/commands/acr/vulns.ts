@@ -1,21 +1,23 @@
 import { readFileSync, writeFileSync } from 'fs'
 import { homedir } from 'os';
-import { CliUx } from '@oclif/core'
 
-import { Command, Flags } from '@oclif/core'
+import { CliUx, Flags } from '@oclif/core'
+import AzureCommand from "../../baseAzure.js"
+
 import chalk from 'chalk'
-
-
-// import getAllContainerRepositories from "../../funcs/getAllContainerRepositories.js"
-
-import { DefaultAzureCredential } from '@azure/identity'
-import { formatISO, differenceInHours, differenceInDays, parseISO } from 'date-fns'
 import inquirer from 'inquirer'
 
-import getAllContainerRepositories from '../../funcs/getAllContainerRepositories.js'
+import {
+  vulnerabilityFilter,
+  uploadToMongoDatabase,
+  showDebug,
+} from '../../funcs/azgoUtils.js'
+
 import getAllContainerRegistries from '../../funcs/dev-getAllContainerRegistries.js'
+import getAllContainerRepositories from '../../funcs/getAllContainerRepositories.js'
 import getSubAssessments from '../../funcs/getSubAssessments.js'
-import { vulnerabilityFilter, uploadToMongoDatabase } from '../../funcs/azgoUtils.js'
+
+import { checkCache, cacheExists, getCache } from '../../funcs/azgoCaching.js'
 
 import {
   transformVulnerabilityData,
@@ -24,15 +26,14 @@ import {
   countByAttribute
 } from '../../funcs/azureVulnarabilityAggregation.js'
 
-const azCliCredential = new DefaultAzureCredential()
 
-const activeSubscription = JSON.parse(readFileSync(`${homedir()}/.azure/azureProfile.json`)
-  .toString()
-  .trim())
-  .subscriptions
-  .filter(sub => sub.isDefault)[0]
+// const activeSubscription = JSON.parse(readFileSync(`${homedir()}/.azure/azureProfile.json`)
+//   .toString()
+//   .trim())
+//   .subscriptions
+//   .filter(sub => sub.isDefault)[0]
 
-export default class AcrVulns extends Command {
+export default class AcrVulns extends AzureCommand {
   static description = 'Get all vulnerabilities related to container images'
 
   static examples = [
@@ -40,13 +41,6 @@ export default class AcrVulns extends Command {
   ]
 
   static flags = {
-    subscriptionId: Flags.string({
-      char: 's',
-      description: `
-      Subscription ID to use.
-      If not supplied, will use current active Azure CLI subscription.`,
-      default: activeSubscription.id
-    }),
     resourceGroup: Flags.string({
       char: 'r',
       description: `
@@ -67,7 +61,7 @@ export default class AcrVulns extends Command {
       env: 'AZGO_SAVE_FILE',
     }),
     resyncData: Flags.boolean({
-      description: 'Resync data from Azure',
+      description: 'Resync data from Azure to cache, and optionally (with -U) upload to MongoDB',
     }),
     groupBy: Flags.string({
       char: 'g',
@@ -147,6 +141,10 @@ export default class AcrVulns extends Command {
       // dependsOn: ['uploadToDb'],
       // exclusive: ['uploadToDb']
     }),
+    // debug: Flags.boolean({
+    //   description: "Testing only",
+    //   hidden: true
+    // }),
   }
   // { acrRegistry, outfile, includeManifests, resyncData },
   // { assessmentId, subscriptionId, resourceGroup, acrRegistry, outfile, resyncData},
@@ -155,14 +153,22 @@ export default class AcrVulns extends Command {
   public async run(): Promise<void> {
     const { flags } = await this.parse(AcrVulns)
     let opts = {
+      subscriptionId: this.activeSubscription,
       includeManifests: true,
       assessmentId: "dbd0cb49-b563-45e7-9724-889e799fa648",
       acrRegistry: null,
+      debug: null,
       acrRegistryId: null,
       resourceGroup: null,
       ...flags
     }
-    // console.log(opts)
+
+    // if (opts.debug) {
+    //   console.log('debug')
+    //   // await showDebug(opts, this.config)
+    //   await showDebug(opts, this.config)
+    //   process.exit()
+    // }
 
     if (flags.showCounts && ((flags.groupBy &&
       flags.groupBy.toLowerCase() === 'byrepoundercve') ||
@@ -171,52 +177,73 @@ export default class AcrVulns extends Command {
       process.exit(1)
     }
 
-    const registries = await getAllContainerRegistries(opts, azCliCredential)
+    const containerRegsitries = cacheExists('containerRegistries', opts.subscriptionId, this.config.cacheDir) ?
+      getCache('containerRegistries', opts.subscriptionId, this.config.cacheDir)
+      : await getAllContainerRegistries(opts, global.azCliCredential)
+    // console.log(testing)
+    // process.exit()
+    // checkCache(opts, global.azCliCredential, this.config, 'containerRegsitries')
+    // const containerRegsitries = checkCache(opts, global.azCliCredential, this.config, 'containerRegsitries')
 
     if (!opts.acrRegistry) {
-      if (registries.length === 1) {
-        opts.acrRegistry = registries[0].name
-        opts.acrRegistryId = registries[0].id as string
-        console.log(chalk.blue('1 ACR available on this subscription, which has been selected:', registries[0].name))
-      } else if (registries.length > 1) {
+      if (containerRegsitries.length === 1) {
+        opts.acrRegistry = containerRegsitries[0].name
+        opts.acrRegistryId = containerRegsitries[0].id as string
+        console.log(chalk.blue('1 ACR available on this subscription, which has been selected:', containerRegsitries[0].name))
+      } else if (containerRegsitries.length > 1) {
         const acrRegistry = await inquirer.prompt({
           type: "list",
           name: "name",
           message: "Choose ACR Registry to use for this command",
-          choices: registries,
+          choices: containerRegsitries,
         })
         opts.acrRegistry = acrRegistry.name
         opts.acrRegistryId = acrRegistry['id']
       }
 
-      const resourceGroup = await inquirer.prompt({
-        type: "confirm",
-        name: "isCorrect",
-        message: `${chalk.dim(`Attemmpted to automatically find resource group for selected ACR, ${opts.acrRegistry}.`)}
-  Is "${opts.acrRegistryId.split('/')[4]}" correct?`,
-        default: true
-      })
-
-      if (resourceGroup.isCorrect) {
-        opts.resourceGroup = opts.acrRegistryId.split('/')[4]
-      } else {
-        const response = await inquirer.prompt({
-          type: "input",
-          name: "rgName",
-          message: "Enter resource group name",
+      if (!opts.resourceGroup) {
+        const resourceGroup = await inquirer.prompt({
+          type: "confirm",
+          name: "isCorrect",
+          message: `${chalk.dim(`Attempted to automatically find resource group for selected ACR, ${opts.acrRegistry}.`)}
+Is "${opts.acrRegistryId.split('/')[4]}" correct?`,
+          default: true
         })
-        opts.resourceGroup = response.rgName
+
+        if (resourceGroup.isCorrect) {
+          opts.resourceGroup = opts.acrRegistryId.split('/')[4]
+        } else {
+          const response = await inquirer.prompt({
+            type: "input",
+            name: "rgName",
+            message: "Enter resource group name",
+          })
+          opts.resourceGroup = response.rgName
+        }
       }
     }
 
     // console.log(opts)
-    let assessments = await getSubAssessments(opts, azCliCredential)
-    // console.log(assessments)
-    let repos = await getAllContainerRepositories(opts, azCliCredential)
-    // console.log(repos)
 
-    const formattedData = transformVulnerabilityData(assessments.subAssessments, repos.repositories)
-    const filteredData = opts.filter.length > 0 ? vulnerabilityFilter(formattedData, opts.filter) : formattedData
+    const assessments = cacheExists('assessments', opts.subscriptionId, this.config.cacheDir) ?
+      getCache('assessments', opts.subscriptionId, this.config.cacheDir)
+      : await getSubAssessments(opts, global.azCliCredential)
+
+    const repositories = cacheExists('repositories', opts.subscriptionId, this.config.cacheDir) ?
+      getCache('repositories', opts.subscriptionId, this.config.cacheDir)
+      : await getAllContainerRepositories(opts, global.azCliCredential)
+
+    // const { assessments, repos } = await checkCache(opts, global.azCliCredential, this.config)
+
+    // console.log(assessments.data.length)
+    // console.log(repositories.data.length)
+
+    const formattedData = transformVulnerabilityData(assessments.data, repositories.data)
+    const filteredData = opts.filter.length > 0 ?
+      vulnerabilityFilter(formattedData, opts.filter) :
+      formattedData
+
+      // console.log(formattedData.length)
 
 
     // // console.log(opts)
@@ -270,78 +297,5 @@ export default class AcrVulns extends Command {
       opts.uploadToDb && await uploadToMongoDatabase(formattedData, opts)
       process.exit()
     }
-
-
-
-    // console.log(opts)
-
-
-    // CliUx.ux.table(users, {
-    //   name: {
-    //     minWidth: 7,
-    //   },
-    //   company: {
-    //     get: row => row.company && row.company.name
-    //   },
-    //   id: {
-    //     header: 'ID',
-    //     extended: true
-    //   }
-    // }, {
-    // printLine: this.log,
-    // ...flags, // parsed flags
-    // })
-
-
-
-    // CliUx.ux.table(users, {
-    //   name: {
-    //     minWidth: 7,
-    //   },
-    //   company: {
-    //     get: row => row.company && row.company.name
-    //   },
-    //   id: {
-    //     header: 'ID',
-    //     extended: true
-    //   }
-    // }, {
-    //   printLine: this.log,
-    //   ...flags, // parsed flags
-    // })
-
-
-    // console.log(opts.outfile)
-    // console.log(opts.outfile.replace('.', process.cwd()))
-    // console.log(process.cwd())
-
-    // console.log(opts)
-    // console.log(countByAttribute(transformVulnerabilityData(data, repos), "osDetails", "object"))
-
-    // console.log(result)
-
-    // const transformedData = transformVulnerabilityData(assessments.subAssessments, repos.repositories)
-    // console.log(transformedData)
-    // const groupedByCve = groupByCve(transformedData)
-    // console.log(groupedByCve)
-    // console.log(Object.keys(groupedByCve))
-    // transformedData.map(i => {
-    //   console.log(i.imageTags)
-    // })
-    // const groupedByRepoUnderCve = groupByRepoUnderCve(transformedData)
-    // console.log(groupedByRepoUnderCve)
-    // console.log(JSON.stringify(groupedByRepoUnderCve, null, 2))
-    // const groupedByTag
   }
 }
-
-
-// import {
-//   transformVulnerabilityData,
-//   getAllManifests,
-//   groupByAttribute,
-//   getAllUniqueCves,
-//   groupByCve,
-//   groupByRepoUnderCve,
-//   countByAttribute
-// } from '../../funcs/azureVulnarabilityAggregation.js'

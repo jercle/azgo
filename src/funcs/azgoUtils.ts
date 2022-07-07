@@ -1,11 +1,12 @@
 // TODO: Filter array from array of conditions.
-import { readFileSync, utimes, writeFileSync } from "fs";
+
 import { arch, platform } from 'os'
 
 import chalk from 'chalk'
 import { MongoClient } from "mongodb";
 import commandExists from 'command-exists'
 
+import { checkCache } from './azgoCaching.js'
 
 import {
   transformVulnerabilityData,
@@ -17,11 +18,59 @@ import {
 
 // const repos = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getAllContainerRepositories.json").toString().trim()).repositories
 // console.log(repos[5])
-// const data = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getsubAssessments.json").toString().trim()).subAssessments
+// const data = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getsubAssessments.json").toString().trim()).data
 // console.log(data)
 
 
 // vulnerabilityFilter(transformVulnerabilityData(data, repos), ["os:windows", "patchable:false", "severity:medium"])
+
+
+export async function showDebug(opts, config) {
+  // console.log(config)
+  // console.log(opts)
+  const { cacheDir, subscriptionCacheFiles } = await checkCache(opts, null, config, 'checkOnly')
+  // Console logging twice for troubleshooting and piping out.
+  const result = {
+    cache: {
+      cacheDir,
+      subscriptionCacheFiles,
+      opts
+    }
+  }
+  // This prints json to stdout, which can be piped out to a file
+  console.log(JSON.stringify(result, null, 2))
+
+  // This prints to stderr, which does not pipe. But is coloured and parsed by
+  // the terminal for readability
+  console.error({
+    cacheDir,
+    subscriptionCacheFiles,
+    opts
+  })
+  // console.debug(opts)
+  // 'azgo subs --debug > file.json' would only write the first output to the file
+
+  console.error(`Assessments cache exists: ${!!subscriptionCacheFiles['assessments.json'] ?
+    chalk.yellow(!!subscriptionCacheFiles['assessments.json']) :
+    chalk.redBright(!!subscriptionCacheFiles['assessments.json'])}`)
+  console.error(`Repositories cache exists: ${!!subscriptionCacheFiles['repositories.json'] ?
+    chalk.yellow(!!subscriptionCacheFiles['repositories.json']) :
+    chalk.redBright(!!subscriptionCacheFiles['repositories.json'])}`)
+  console.error(`containerRegistries cache exists: ${!!subscriptionCacheFiles['containerRegistries.json'] ?
+    chalk.yellow(!!subscriptionCacheFiles['containerRegistries.json']) :
+    chalk.redBright(!!subscriptionCacheFiles['containerRegistries.json'])}`)
+  process.exit()
+}
+
+// console.log(`Last synced ${formatDistance(parseISO(data.azgoSyncDate), new Date(), { addSuffix: true })}`)
+
+// check if cache exists
+// check if resyncData option is selected
+// fetch new data appropriately
+// return requested data
+
+
+
 
 export function vulnerabilityFilter(data, filter) {
   const filters = filter.reduce((all, item, index) => {
@@ -103,8 +152,8 @@ ${chalk.dim('curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main
 ${chalk.underline('3. Download the appropriate binary and add it to your path:')}
 ${chalk.dim(url.join('').trim())}
 3. Or build from source - see https://aquasecurity.github.io/trivy/v0.18.3/installation/ for more information`)
-} else {
-  console.log(`${chalk.bold(chalk.underline('There are multiple ways in which you can install trivy'))}
+  } else {
+    console.log(`${chalk.bold(chalk.underline('There are multiple ways in which you can install trivy'))}
   ${chalk.underline("1. Using AquaSec's install script:")}
   ${chalk.dim('curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.18.3')}
   ${chalk.underline('2. Download the appropriate binary and add it to your path:')}

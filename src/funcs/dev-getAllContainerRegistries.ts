@@ -12,8 +12,8 @@ const activeSubscription = subscriptions.filter(sub => sub.isDefault)[0]
 
 
 export default async function getAllContainerRegistries({subscriptionId}, azCliCredential) {
-  const registries = JSON.parse(readFileSync('/Users/jercle/git/azgo/testData/20220622/getAllContainerRegistries-NonProd.json').toString().trim())
-  // const client = new ContainerRegistryManagementClient(azCliCredential, subscriptionId);
+  const registries = JSON.parse(readFileSync('/Users/jercle/git/azgo/testData/20220629/getAllContainerRegistries.json').toString().trim())
+  // /const client = new ContainerRegistryManagementClient(azCliCredential, subscriptionId);
   // const regFetch = await client.registries.list()
   // let registries = []
 

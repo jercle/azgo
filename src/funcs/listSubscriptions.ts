@@ -6,26 +6,42 @@
 
 // const os = require("os")
 import { homedir } from 'os'
-
 import { readFileSync } from "fs"
+
+import chalk from 'chalk'
+
 
 const azureProfile = readFileSync(`${homedir()}/.azure/azureProfile.json`).toString().trim()
 const { subscriptions } = JSON.parse(azureProfile)
 
 export default function listSubscriptions() {
+  // const chalk = await import('chalk')
   const formattedProfile = subscriptions.reduce(
     (all, item, index) => {
-      if (!all[item.tenantId]) {
-        all[item.tenantId] = []
-      }
-      all[item.tenantId] = [
-        ...all[item.tenantId],
-        {
+      if (item.isDefault) {
+        all.default = {
+          tenantId: item.tenantId,
           subscriptionId: item.id,
           subscriptionName: item.name,
-          username: item.user.name,
-          isDefault: item.isDefault,
-        },
+          username: item.user.name
+        }
+      }
+      if (!all.all) {
+        all.all = []
+      }
+      if (!all.all[item.tenantId]) {
+        all.all[item.tenantId] = []
+      }
+      all.all[item.tenantId] = [
+        ...all.all[item.tenantId],
+        // `${} `
+        `${item.id} - ${item.name} - ${item.user.name}`
+        // {
+        //   subscriptionId: item.id,
+        //   subscriptionName: item.name,
+        //   username: item.user.name,
+        //   isDefault: item.isDefault,
+        // },
       ]
       return all
     },
