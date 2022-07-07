@@ -1,4 +1,4 @@
-import {Hook} from '@oclif/core'
+import { Hook } from '@oclif/core'
 import { DefaultAzureCredential } from '@azure/identity';
 
 const hook: Hook<'init'> = async function (opts) {

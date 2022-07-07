@@ -1,16 +1,12 @@
 // TODO: Filter array from array of conditions.
-import { existsSync, readFileSync, writeFileSync, readdirSync } from "fs";
+
 import { arch, platform } from 'os'
 
 import chalk from 'chalk'
 import { MongoClient } from "mongodb";
 import commandExists from 'command-exists'
-import { formatDistance, formatISO, differenceInHours, differenceInDays, parseISO } from 'date-fns'
 
-import getAllContainerRepositories from './getAllContainerRepositories.js'
-import getAllContainerRegistries from './dev-getAllContainerRegistries.js'
-import getSubAssessments from './getSubAssessments.js'
-
+import { checkCache } from './azgoCaching.js'
 
 import {
   transformVulnerabilityData,
@@ -33,7 +29,7 @@ export async function showDebug(opts, config) {
   // console.log(config)
   // console.log(opts)
   const { cacheDir, subscriptionCacheFiles } = await checkCache(opts, null, config, 'checkOnly')
-  // Console logging twice for troubleshooting.
+  // Console logging twice for troubleshooting and piping out.
   const result = {
     cache: {
       cacheDir,
@@ -68,59 +64,7 @@ export async function showDebug(opts, config) {
 // fetch new data appropriately
 // return requested data
 
-export async function checkCache(opts, azCliCredential, config, filter = null) {
-  // console.log(config.cacheDir)
-  // console.log(opts.subscriptionId)
-  // process.exit()
-  const subCacheDir = `${config.cacheDir}/${opts.subscriptionId}`
-  const subscriptionCacheFiles = readdirSync(subCacheDir)
-    .filter(filename => !filename.includes('.DS_Store'))
-    .reduce((all, item, index) => {
-      const { azgoSyncDate, data } = JSON.parse(readFileSync(`${subCacheDir}/${item}`)
-        .toString()
-        .trim())
-      all[item] = {
-        azgoSyncDate,
-        timeSinceSync: formatDistance(parseISO(azgoSyncDate), new Date(), { addSuffix: true }),
-        hoursSinceSync: differenceInHours(new Date(), parseISO(azgoSyncDate)),
-        objects: data.length
-      }
-      return all
-    }, {})
 
-  if (filter === 'checkOnly') {
-    return { subscriptionCacheFiles, cacheDir: config.cacheDir }
-  }
-
-
-
-  console.log('pre if')
-  if (filter === 'containerRegsitries') {
-    console.log('in if')
-    const containerRegsitries = Object.keys(subscriptionCacheFiles).includes('containerRegsitries.json') && !opts.resyncData ?
-      JSON.parse(readFileSync(`${config.cacheDir}/containerRegsitries.json`).toString().trim()) :
-      await getAllContainerRegistries(opts, azCliCredential)
-    return { containerRegsitries }
-  }
-  console.log('post if')
-
-
-
-  // console.log(subCacheDir)
-  // conso
-  // const assessmentsCache = existsSync(`${config.cacheDir}/assessments.json`)
-  // const repositoriesCache = existsSync(`${config.cacheDir}/repositories.json`)
-
-  const assessments = opts.assessmentsCache && !opts.resyncData ?
-    JSON.parse(readFileSync(`${config.cacheDir}/assessments.json`).toString().trim()) :
-    await getSubAssessments(opts, azCliCredential)
-
-  const repos = opts.repositoriesCache && !opts.resyncData ?
-    JSON.parse(readFileSync(`${config.cacheDir}/repositories.json`).toString().trim()) :
-    await getAllContainerRepositories(opts, azCliCredential)
-
-  return { assessments, repos }
-}
 
 
 export function vulnerabilityFilter(data, filter) {

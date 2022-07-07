@@ -11,8 +11,10 @@ import {
   vulnerabilityFilter,
   uploadToMongoDatabase,
   showDebug,
-  checkCache
 } from '../../funcs/azgoUtils.js'
+
+import { checkCache } from '../../funcs/azgoCaching.js'
+
 import {
   transformVulnerabilityData,
   groupByAttribute,

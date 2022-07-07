@@ -3,6 +3,7 @@ import { Flags } from '@oclif/core'
 import AzureCommand from "../baseAzure.js"
 
 import selectActiveSubscription from "../funcs/selectActiveSubscription.js"
+import { checkCache } from '../funcs/azgoCaching.js'
 
 export default class Subs extends AzureCommand {
   static description = `Display current configured Azure CLI subscriptions.
@@ -17,13 +18,14 @@ export default class Subs extends AzureCommand {
   ]
 
   static flags = {
+    ...AzureCommand.flags,
     "showActive": Flags.boolean({
       char: 'a',
       exclusive: ['setActive'],
       description: "Show current active subscription for Azure CLI"
     }),
     "setActive": Flags.boolean({
-      char: 's',
+      char: 'x',
       description: "Set active subscription for Azure CLI",
       exclusive: ['showActive']
     }),
@@ -33,6 +35,8 @@ export default class Subs extends AzureCommand {
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(Subs)
+    // console.log(flags)
+    // checkCache(flags, null, this.config)
     // console.log(this.azCliCredential)
     const subs = await Subs.subscriptions
     if (flags.showActive) {

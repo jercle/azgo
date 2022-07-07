@@ -92,6 +92,7 @@ USAGE
 <!-- commands -->
 * [`azgo acr repos list`](#azgo-acr-repos-list)
 * [`azgo acr vulns`](#azgo-acr-vulns)
+* [`azgo boards [FILE]`](#azgo-boards-file)
 * [`azgo commands`](#azgo-commands)
 * [`azgo generate azure app`](#azgo-generate-azure-app)
 * [`azgo generate azure platform`](#azgo-generate-azure-platform)
@@ -198,6 +199,41 @@ FLAG DESCRIPTIONS
     ...
 ```
 
+## `azgo boards [FILE]`
+
+Azure DevOps Boards related commands
+
+```
+USAGE
+  $ azgo boards [FILE] -o <value> [--debug] [-u <value>] [-a -l]
+
+FLAGS
+  -a, --includeClosed     Include closed work items
+  -l, --list              List all work items assigned to given user
+  -u, --username=<value>  User's full name or Email address used for Azure DevOps login
+                          "John Smith" or "john.smith@org.com.au"
+
+                          NOTE: If not provided, email address used with current active subscription will be used.
+                          This can be found or changed with the "azgo subs" command.
+
+GLOBAL AZURE DEVOPS FLAGS
+  -o, --organization=<value>  (required) Organization to use for Azure DevOps related commands
+                              NOTE: Can also be set using AZGO_DEVOPS_ORG environment variable
+
+GLOBAL FLAGS
+  --debug  Testing only. Returns CLI config and, and some other debug info
+
+DESCRIPTION
+  Azure DevOps Boards related commands
+
+  Current functionality is listing all items
+
+EXAMPLES
+  $ azgo boards
+```
+
+_See code: [dist/commands/boards.ts](https://github.com/jercle/azgo/blob/v0.0.5/dist/commands/boards.ts)_
+
 ## `azgo commands`
 
 list all the commands
@@ -287,7 +323,7 @@ FLAGS
       (required) Name of application
 
   -s, --subscriptionId=<value>
-      [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
+      [default: 96d11f16-065a-4609-80a6-6b74e4fbf456]
       Subscription ID to use.
       If not supplied, will use current active Azure CLI subscription.
 
@@ -324,11 +360,11 @@ Display current configured Azure CLI subscriptions.
 
 ```
 USAGE
-  $ azgo subs [--debug] [-s <value>] [-a | -s]
+  $ azgo subs [--debug] [-s <value>] [-a | -x]
 
 FLAGS
   -a, --showActive  Show current active subscription for Azure CLI
-  -s, --setActive   Set active subscription for Azure CLI
+  -x, --setActive   Set active subscription for Azure CLI
 
 GLOBAL AZURE FLAGS
   -s, --subscriptionId=<value>  Subscription ID to use.

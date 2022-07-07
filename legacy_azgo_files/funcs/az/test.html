@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <table id="tableConverter"></table>
+  <div class="form-group shadow-textarea">
+    <textarea class="form-control z-depth-1" id="tableConverterInput" rows="14" placeholder="Paste spreadsheet data here to convert to Markdown table"></textarea>
+  </div>
+
+
+  <div class="form-group shadow-textarea">
+    <textarea class="form-control z-depth-1" id="tableConverterHtmlOut" rows="14" placeholder="Paste spreadsheet data here to convert to Markdown table"></textarea>
+  </div>
+
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+  <script src="csvToHtml.js"></script>
+</body>
+
+</html>
