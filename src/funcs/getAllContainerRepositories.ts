@@ -12,6 +12,8 @@ import {
   KnownContainerRegistryAudience,
 } from "@azure/container-registry"
 
+import { cacheExists, getCache, setCache } from '../funcs/azgoCaching.js'
+
 // import moment = require("momment")
 
 // import * as moment from 'moment'
@@ -24,16 +26,21 @@ import chalk from "chalk"
 import { existsSync, readFileSync, writeFileSync } from "fs"
 
 
-// import { DefaultAzureCredential } from '@azure/identity'
+import { DefaultAzureCredential } from '@azure/identity'
 
-// const opts = {
-//   acrRegistry: process.env.AZGO_ACR_REGISTRY,
-//   outfile: process.env.AZGO_SAVE_FILE,
-//   includeManifests: process.env.AZGO_INCLUDE_MANIFESTS,
-// }
+const opts = {
+  acrRegistry: process.env.AZGO_ACR_REGISTRY,
+  outfile: process.env.AZGO_SAVE_FILE,
+  includeManifests: process.env.AZGO_INCLUDE_MANIFESTS,
+  // resyncData: true,
+  resyncData: process.env.AZGO_RESYNC_DATA,
+  subscriptionId: process.env.AZGO_SUBSCRIPTION_ID,
+  cacheDir: '/Users/jercle/Library/Caches/azgo'
+}
+
 // getAllContainerRepositories(
 //   opts,
-//   new (require("@azure/identity").DefaultAzureCredential)()
+//   new DefaultAzureCredential()
 // ).then((repositories) => console.log(repositories))
 
 
@@ -42,21 +49,13 @@ import { existsSync, readFileSync, writeFileSync } from "fs"
 // }
 
 export default async function getAllContainerRepositories(
-  { acrRegistry, outfile, includeManifests, resyncData },
+  { acrRegistry, outfile, includeManifests, resyncData, subscriptionId, cacheDir },
   azCliCredential
 ) {
 
-  // existsSync(`${this.config.cacheDir}/assessments.json`)
-
-
-  return {data: []}
-  if (existsSync(outfile) && !resyncData) {
+  if (cacheExists('repositories', subscriptionId, cacheDir) && !resyncData) {
     console.log(chalk.bold(chalk.green("Loading cached data from file...")))
-    const data = JSON.parse(readFileSync(outfile).toString())
-    // console.log(`Last synced ${differenceInHours(new Date(), parseISO(data.azgoSyncDate))} hours ago`)
-    console.log(`Last synced ${formatDistance(parseISO(data.azgoSyncDate), new Date(), { addSuffix: true })}`)
-    // console.log(data)
-    return data
+    return getCache('repositories', subscriptionId, cacheDir)
   }
 
   const acrUri = `https://${acrRegistry}.azurecr.io`
@@ -116,6 +115,7 @@ export default async function getAllContainerRepositories(
     writeFileSync(outfile, JSON.stringify(response))
   }
   // console.log(repositories)
+  setCache('repositories', response, subscriptionId, cacheDir)
   return response
   // return JSON.parse(readFileSync('/Users/jercle/git/azgo/testData/20220616/getAllContainerRepositories.json').toString().trim())
 }

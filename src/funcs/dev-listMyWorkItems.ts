@@ -28,12 +28,6 @@ export default async function listMyWorkItems({
   const pat = process.env.AZURE_DEVOPS_EXT_PAT
   // let pat = undefined
 
-  console.log("user", user)
-  console.log("organization", organization)
-  console.log("includeClosed", includeClosed)
-  console.log("includePending", includePending)
-  console.log("filterType", filterType)
-
   try {
     if (!pat) {
       throw new Error(`
@@ -74,9 +68,7 @@ export default async function listMyWorkItems({
       query = `Select [System.Id], [System.CreatedDate] From WorkItems Where [System.AssignedTo] = '${user}' AND [State] NOT IN ${filter} order by [Microsoft.VSTS.Common.Priority] asc, [System.CreatedDate] desc`
     }
 
-    console.log(query)
-
-    // const query = includeClosed ?  :
+    // console.log(query)
 
     const resp = await axios.default({
       method: "POST",

@@ -59,12 +59,15 @@ export default class Boards extends AzureDevOpsCommand {
       organization: flags['organization']
     }
 
-    console.log(flags)
+    // console.log(flags)
     // console.log(user)
 
     if (flags.list) {
       const workItems = await listMyWorkItems(options)
-      console.log(workItems.length)
+      workItems.length != 0 && workItems.length > 1 ?
+        console.log(`${workItems.length} items`) :
+        console.log(`${workItems.length} item`)
+
       process.exit()
     }
 

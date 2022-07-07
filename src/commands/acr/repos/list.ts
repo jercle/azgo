@@ -45,15 +45,15 @@ export default class AcrReposList extends Command {
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(AcrReposList)
-    const repos = await getAllContainerRepositories(flags, azCliCredential)
+    // const repos = await getAllContainerRepositories(flags, azCliCredential)
     // console.log(repos)
-    repos.repositories.map(repo => {
-      const manifests = repo.manifests ? repo.manifests.length : 0
-      console.log({
-        name: repo.name,
-        manifests
-      })
-    })
+    // repos.repositories.map(repo => {
+    //   const manifests = repo.manifests ? repo.manifests.length : 0
+    //   console.log({
+    //     name: repo.name,
+    //     manifests
+    //   })
+    // })
     // TODO: Print table view: https://oclif.io/docs/table
   }
 }

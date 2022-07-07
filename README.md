@@ -205,16 +205,19 @@ Azure DevOps Boards related commands
 
 ```
 USAGE
-  $ azgo boards [FILE] -o <value> [--debug] [-u <value>] [-a -l]
+  $ azgo boards [FILE] -o <value> [--debug] [-u <value>] [-a -l] [-p ] [-f Bug|Task ]
 
 FLAGS
-  -a, --includeClosed     Include closed work items
-  -l, --list              List all work items assigned to given user
-  -u, --username=<value>  User's full name or Email address used for Azure DevOps login
-                          "John Smith" or "john.smith@org.com.au"
+  -a, --includeClosed        Include closed work items
+  -f, --filterType=<option>  Filter on type
+                             <options: Bug|Task>
+  -l, --list                 List all work items assigned to given user
+  -p, --includePending       Include pending work items
+  -u, --user=<value>         User's full name or Email address used for Azure DevOps login
+                             "John Smith" or "john.smith@org.com.au"
 
-                          NOTE: If not provided, email address used with current active subscription will be used.
-                          This can be found or changed with the "azgo subs" command.
+                             NOTE: If not provided, email address used with current active subscription will be used.
+                             This can be found or changed with the "azgo subs" command.
 
 GLOBAL AZURE DEVOPS FLAGS
   -o, --organization=<value>  (required) Organization to use for Azure DevOps related commands
@@ -323,7 +326,7 @@ FLAGS
       (required) Name of application
 
   -s, --subscriptionId=<value>
-      [default: 96d11f16-065a-4609-80a6-6b74e4fbf456]
+      [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
       Subscription ID to use.
       If not supplied, will use current active Azure CLI subscription.
 

@@ -14,7 +14,7 @@ const { bold, red, italic, dim } = require("chalk")
 //  listMyWorkItems(require("../vars.json").env).then((data) => console.log(data))
 // https://dev.azure.com/{{organization}}/_apis/wit/wiql?api-version=7.1-preview.2
 
-listMyWorkItems()
+// listMyWorkItems()
 
 async function listMyWorkItems(username, org) {
   const pat = process.env.AZURE_DEVOPS_EXT_PAT
@@ -46,8 +46,7 @@ async function listMyWorkItems(username, org) {
         password: pat,
       },
       data: {
-        query:
-          `Select [System.Id], [System.CreatedDate] From WorkItems Where [System.AssignedTo] = '${username}' order by [Microsoft.VSTS.Common.Priority] asc, [System.CreatedDate] desc`,
+        query: `Select [System.Id], [System.CreatedDate] From WorkItems Where [System.AssignedTo] = '${username}' order by [Microsoft.VSTS.Common.Priority] asc, [System.CreatedDate] desc`,
       },
     })
 
@@ -80,7 +79,6 @@ async function listMyWorkItems(username, org) {
     console.log(formattedWorkItems)
 
     return formattedWorkItems
-
   } catch (err) {
     console.log(err)
     return err.message
