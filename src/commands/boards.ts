@@ -1,22 +1,8 @@
 import { Flags } from '@oclif/core'
-import chalk from 'chalk'
-
 
 import AzureDevOpsCommand from "../baseAzureDevOps.js"
-import listMyWorkItems from '../funcs/dev-listMyWorkItems.js'
-
-
-
-type multiOptions = {
-  user: any;
-  organization: any;
-  id: string;
-  list: boolean;
-  onlyCount: boolean;
-  groupBy: string;
-  filterType: any[];
-  filterState: any[];
-}
+import { formatWorkItems, printWorkItems } from '../funcs/azgoUtils.js'
+import listMyWorkItems, { buildFilterQuery, getWorkItem } from '../funcs/dev-listMyWorkItems.js'
 
 
 export default class Boards extends AzureDevOpsCommand {
@@ -29,7 +15,6 @@ export default class Boards extends AzureDevOpsCommand {
   ]
 
   static flags = {
-    // flag with a value (-n, --name=VALUE)
     id: Flags.string({
       char: 'i',
       description: 'ID of the work item to display',
@@ -41,8 +26,6 @@ export default class Boards extends AzureDevOpsCommand {
 
     NOTE: If not provided, email address used with current active subscription will be used.
     This can be found or changed with the "azgo subs" command.`}),
-    // flag with no value (-f, --force)
-    // force: Flags.boolean({char: 'f'}),
     list: Flags.boolean({
       char: 'l',
       description: "List all work items assigned to given user"
@@ -127,112 +110,39 @@ export default class Boards extends AzureDevOpsCommand {
     }),
   }
 
-
-
-
-
-
   static args = [{ name: 'file' }]
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(Boards)
     const user = flags.user || Boards.subscriptions.default.username
-    // const { includeClosed, includePending, onlyBugs } = flags
     let options: any = {
       ...flags,
       user,
       organization: flags['organization']
     }
 
-    // console.log(flags)
-    // console.log(options)
-    // console.log(user)
-
-    // if (flags.id) {
-    //   workItem = getWorkItem(options.id)
-    //   console.log(workItem)
-    //   process.exit()
-    // }
-
-    if (flags.all || flags.closed || flags.open) {
-      const workItems = listMyWorkItems(options)
-      console.log(workItems)
+    if (flags.id) {
+      const workItem = await getWorkItem(options.id, options.organization)
+      printWorkItems(formatWorkItems([workItem]))
       process.exit()
     }
 
-    if (flags.filterState) {
-      // console.log(flags)
-      // console.log(options.filterState.join(','))
-      options.filterState = options.filterState.reduce((all, item, index, array) => {
-        // console.log(index, array.length - 1)
-        // return index === 0 ? all + "'item'" : all + ", item'"
-        if (index === 0) {
-          if (index === array.length - 1) {
-            return all + `'${item}')`
-          } else {
-            return all + `'${item}'`
-          }
-        } else if (index === array.length - 1) {
-          return all + `, '${item}')`
-        } else {
-          return all + `, '${item}'`
-        }
-      }, "(")
-      // console.log(filterByState)
-      // process.exit()
-    }
-    if (flags.filterType) {
-      // console.log(flags)
-      // console.log(options.filterType.join(','))
-      options.filterType = options.filterType.reduce((all, item, index, array) => {
-        // console.log(index, array.length - 1)
-        // return index === 0 ? all + "'item'" : all + ", item'"
-        if (index === 0) {
-          if (index === array.length - 1) {
-            return all + `'${item}')`
-          } else {
-            return all + `'${item}'`
-          }
-        } else if (index === array.length - 1) {
-          return all + `, '${item}')`
-        } else {
-          return all + `, '${item}'`
-        }
-      }, "(")
-      // console.log(filterByType)
-      // process.exit()
-    }
-
-    // console.log(options)
-    // process.exit()
-    // let thing = 'this thing'
-
-    // thing.
-
-    if (flags.onlyCount) {
-      const workItems = await listMyWorkItems(options)
-      workItems.length != 0 && workItems.length > 1 ?
-        console.log(`${workItems.length} items`) :
-        console.log(`${workItems.length} item`)
-
-      process.exit()
-    }
+    options.filterState = flags.filterState && buildFilterQuery(options.filterState)
+    options.filterType = flags.filterType && buildFilterQuery(options.filterType)
 
     if (flags.list) {
       const workItems = await listMyWorkItems(options)
-      // console.log(workItems)
-      workItems.map(wi => {
-        console.log({
-          id: wi.id,
-          areaPath: wi.areaPath,
-          state: wi.state,
-          title: wi.title
-        })
-      })
 
+      if (flags.onlyCount) {
+        workItems.length != 0 && workItems.length > 1 ?
+          console.log(`${workItems.length} items`) :
+          console.log(`${workItems.length} item`)
+        process.exit()
+      }
+
+      printWorkItems(formatWorkItems(workItems))
       process.exit()
     }
 
-    // this.config.runCommand('help', ['boards'])
   }
 }

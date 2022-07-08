@@ -206,8 +206,8 @@ Azure DevOps Boards related commands
 ```
 USAGE
   $ azgo boards [FILE] -o <value> [--debug] [-i <value> | -l] [-u <value>] [-c ] [-g state|type ] [-t
-    bug|task|decision|epic|feature|impediment|pbi|risk ] [--open | [-s todo|inprogress|done|removed|new|approved|committ
-    ed|considered|identify|analyse|evaluate|treat|monitor|open|closed|all ] | --closed | --all]
+    bug|task|decision|epic|feature|impediment|pbi|risk ] [--closed | [-s todo|inprogress|done|removed|new|approved|commi
+    tted|considered|identify|analyse|evaluate|treat|monitor|open|closed|all ] |  | --all]
 
 FLAGS
   -c, --onlyCount
@@ -225,9 +225,9 @@ FLAGS
 
   -s, --filterState=<option>...
       Filter on state.
-      'open', 'closed', and 'all' are generic states and do not map to actual work item states.
-      They simply return all items with open states, closed/removed states, or any state.
-      Note: These override any other states passed.
+      By default, returns work items in all open states
+
+      Can optionally use --closed (Only closed) or --all (all states)
       <options: todo|inprogress|done|removed|new|approved|committed|considered|identify|analyse|evaluate|treat|monitor|ope
       n|closed|all>
 
@@ -247,9 +247,6 @@ FLAGS
 
   --closed
       Return all work items in any CLOSED state
-
-  --open
-      Return all work items in any OPEN state
 
 GLOBAL AZURE DEVOPS FLAGS
   -o, --organization=<value>  (required) Organization to use for Azure DevOps related commands
