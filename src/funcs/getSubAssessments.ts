@@ -22,7 +22,7 @@ import chalk from "chalk"
 //   resyncData: false
 // }
 
-import { DefaultAzureCredential } from '@azure/identity'
+// import { DefaultAzureCredential } from '@azure/identity'
 
 // getsubAssessments(
 //   opts,
@@ -35,17 +35,16 @@ export default async function getsubAssessments(
   credentials
 ) {
 
-  return {data: []}
+  // return {data: []}
 
-  if (existsSync(outfile) && !resyncData) {
-    console.log(chalk.bold(chalk.green("Loading cached data from file...")))
-    const data = JSON.parse(readFileSync(outfile).toString())
-    // console.log(`Last synced ${differenceInHours(new Date(), parseISO(data.azgoSyncDate))} hours ago`)
-    console.log(`Last synced ${formatDistance(parseISO(data.azgoSyncDate), new Date(), { addSuffix: true })}`)
-    // console.log(data)
-    return data
-  }
-
+  // if (existsSync(outfile) && !resyncData) {
+  //   console.log(chalk.bold(chalk.green("Loading cached data from file...")))
+  //   const data = JSON.parse(readFileSync(outfile).toString())
+  //   // console.log(`Last synced ${differenceInHours(new Date(), parseISO(data.azgoSyncDate))} hours ago`)
+  //   console.log(`Last synced ${formatDistance(parseISO(data.azgoSyncDate), new Date(), { addSuffix: true })}`)
+  //   // console.log(data)
+  //   return data
+  // }
 
   const client = new SecurityCenter(credentials, subscriptionId)
 
@@ -72,5 +71,5 @@ export default async function getsubAssessments(
   // const cacheData = JSON.parse(readFileSync('/Users/jercle/git/azgo/testData/20220616/getSubAssessments.json').toString().trim())
 
   // return JSON.parse(readFileSync('/Users/jercle/git/azgo/testData/20220616/getSubAssessments.json').toString().trim())
-  return data
+  return outData
 }
