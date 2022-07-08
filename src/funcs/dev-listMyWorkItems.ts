@@ -11,6 +11,8 @@ import axios from 'axios'
 // const { bold, red, italic, dim } = require("chalk")
 import chalk from 'chalk'
 
+const pat = process.env.AZURE_DEVOPS_EXT_PAT
+
 // const { writeFileSync } = require("fs")
 
 // https://dev.azure.com/{{organization}}/_apis/wit/wiql?api-version=7.1-preview.2
@@ -24,8 +26,8 @@ type multiOptions = {
   list: boolean;
   onlyCount: boolean;
   groupBy: string;
-  filterType: string | any[];
-  filterState: string | any[];
+  filterType: any[];
+  filterState: any[];
 }
 
 // export default async function listMyWorkItems({
@@ -36,6 +38,27 @@ type multiOptions = {
 //   groupBy = '',
 //   id = ''
 // }) {
+
+
+
+getWorkItem('256824', 'agriculturegovau')
+
+export async function getWorkItem(id, organization) {
+  // const workItem = await listMyWorkItems(options)
+  // return workItem.find(wi => wi.id === id)
+  const { data } = await axios.default({
+    method: "GET",
+    url: `https://dev.azure.com/${organization}/_apis/wit/workitems/${id}?api-version=7.1-preview.3`,
+    auth: {
+      username: "",
+      password: pat,
+    },
+  })
+  console.log(data)
+
+}
+
+
 export default async function listMyWorkItems({
   user = '',
   organization = '',
@@ -44,9 +67,6 @@ export default async function listMyWorkItems({
   groupBy = '',
   id = ''
 }: multiOptions) {
-
-  const pat = process.env.AZURE_DEVOPS_EXT_PAT
-  // let pat = undefined
 
   try {
     if (!pat) {
@@ -107,7 +127,8 @@ export default async function listMyWorkItems({
       })
       const formattedWorkItem = {
         id: res.data.id,
-        project: res.data.fields["System.TeamProject"],
+        areaPath: res.data.fields["System.AreaPath"],
+        // project: res.data.fields["System.TeamProject"],
         state: res.data.fields["System.State"],
         workItemType: res.data.fields["System.WorkItemType"],
         assignedTo: res.data.fields["System.AssignedTo"].displayName,

@@ -13,8 +13,8 @@ type multiOptions = {
   list: boolean;
   onlyCount: boolean;
   groupBy: string;
-  filterType: string | any[];
-  filterState: string | any[];
+  filterType: any[];
+  filterState: any[];
 }
 
 
@@ -128,7 +128,7 @@ export default class Boards extends AzureDevOpsCommand {
     const { args, flags } = await this.parse(Boards)
     const user = flags.user || Boards.subscriptions.default.username
     // const { includeClosed, includePending, onlyBugs } = flags
-    const options: multiOptions = {
+    const options: any = {
       ...flags,
       user,
       organization: flags['organization']
@@ -137,10 +137,50 @@ export default class Boards extends AzureDevOpsCommand {
     // console.log(flags)
     // console.log(user)
 
+    // if (flags.id) {
+    //   workItem = getWorkItem(options.id)
+    //   console.log(workItem)
+    //   process.exit()
+    // }
+
     if (flags.filterState) {
       console.log(flags)
+      // console.log(options.filterState.join(','))
+      const out = options.filterState.reduce((all, item, index, array) => {
+        // console.log(index, array.length - 1)
+        // return index === 0 ? all + "'item'" : all + ", item'"
+        if (index === 0) {
+          return all + `'${item}'`
+        } else if (index === array.length - 1) {
+          return all + `, '${item}')`
+        } else {
+          return all + `, '${item}'`
+        }
+      }, "(")
+      console.log(out)
       process.exit()
     }
+    if (flags.filterType) {
+      console.log(flags)
+      // console.log(options.filterType.join(','))
+      const out = options.filterType.reduce((all, item, index, array) => {
+        // console.log(index, array.length - 1)
+        // return index === 0 ? all + "'item'" : all + ", item'"
+        if (index === 0) {
+          return all + `'${item}'`
+        } else if (index === array.length - 1) {
+          return all + `, '${item}')`
+        } else {
+          return all + `, '${item}'`
+        }
+      }, "(")
+      console.log(out)
+      process.exit()
+    }
+
+    // let thing = 'this thing'
+
+    // thing.
 
     if (flags.onlyCount) {
       const workItems = await listMyWorkItems(options)
