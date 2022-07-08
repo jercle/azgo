@@ -248,6 +248,7 @@ FLAGS
   --closed
       Return all work items in any CLOSED state
 
+
 GLOBAL AZURE DEVOPS FLAGS
   -o, --organization=<value>  (required) Organization to use for Azure DevOps related commands
                               NOTE: Can also be set using AZGO_DEVOPS_ORG environment variable
@@ -258,7 +259,9 @@ GLOBAL FLAGS
 DESCRIPTION
   Azure DevOps Boards related commands
 
+
   Current functionality is listing all items, with some filtering
+
 
 EXAMPLES
   $ azgo boards

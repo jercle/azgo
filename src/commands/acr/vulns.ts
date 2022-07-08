@@ -1,9 +1,11 @@
 import { readFileSync, writeFileSync } from 'fs'
 import { homedir } from 'os';
+
 import { DefaultAzureCredential } from '@azure/identity'
 
 import { CliUx, Flags } from '@oclif/core'
 import AzureCommand from "../../baseAzure.js"
+
 
 import chalk from 'chalk'
 import inquirer from 'inquirer'
