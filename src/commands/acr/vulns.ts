@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from 'fs'
 import { homedir } from 'os';
+import { DefaultAzureCredential } from '@azure/identity'
 
 import { CliUx, Flags } from '@oclif/core'
 import AzureCommand from "../../baseAzure.js"
@@ -10,14 +11,13 @@ import inquirer from 'inquirer'
 import {
   vulnerabilityFilter,
   uploadToMongoDatabase,
-  showDebug,
 } from '../../funcs/azgoUtils.js'
 
 import getAllContainerRegistries from '../../funcs/dev-getAllContainerRegistries.js'
 import getAllContainerRepositories from '../../funcs/getAllContainerRepositories.js'
 import getSubAssessments from '../../funcs/getSubAssessments.js'
 
-import { checkCache, cacheExists, getCache } from '../../funcs/azgoCaching.js'
+import { checkCache, cacheExists, getCache, setCache } from '../../funcs/azgoCaching.js'
 
 import {
   transformVulnerabilityData,
@@ -152,6 +152,7 @@ export default class AcrVulns extends AzureCommand {
 
   public async run(): Promise<void> {
     const { flags } = await this.parse(AcrVulns)
+    const azCliCredential = new DefaultAzureCredential()
     let opts = {
       subscriptionId: this.activeSubscription,
       includeManifests: true,
@@ -179,11 +180,11 @@ export default class AcrVulns extends AzureCommand {
 
     const containerRegsitries = cacheExists('containerRegistries', opts.subscriptionId, this.config.cacheDir) ?
       getCache('containerRegistries', opts.subscriptionId, this.config.cacheDir)
-      : await getAllContainerRegistries(opts, global.azCliCredential)
+      : await getAllContainerRegistries(opts, azCliCredential)
     // console.log(testing)
     // process.exit()
-    // checkCache(opts, global.azCliCredential, this.config, 'containerRegsitries')
-    // const containerRegsitries = checkCache(opts, global.azCliCredential, this.config, 'containerRegsitries')
+    // checkCache(opts, azCliCredential, this.config, 'containerRegsitries')
+    // const containerRegsitries = checkCache(opts, azCliCredential, this.config, 'containerRegsitries')
 
     if (!opts.acrRegistry) {
       if (containerRegsitries.length === 1) {
@@ -227,16 +228,20 @@ Is "${opts.acrRegistryId.split('/')[4]}" correct?`,
 
     const assessments = cacheExists('assessments', opts.subscriptionId, this.config.cacheDir) ?
       getCache('assessments', opts.subscriptionId, this.config.cacheDir)
-      : await getSubAssessments(opts, global.azCliCredential)
+      : await getSubAssessments(opts, azCliCredential)
 
     const repositories = cacheExists('repositories', opts.subscriptionId, this.config.cacheDir) ?
       getCache('repositories', opts.subscriptionId, this.config.cacheDir)
-      : await getAllContainerRepositories(opts, global.azCliCredential)
+      : await getAllContainerRepositories(opts, azCliCredential)
 
-    // const { assessments, repos } = await checkCache(opts, global.azCliCredential, this.config)
+      setCache('assessments', assessments, opts.subscriptionId, this.config.cacheDir)
+      // setCache('repositories', repositories, opts.subscriptionId, this.config.cacheDir)
 
-    // console.log(assessments.data.length)
-    // console.log(repositories.data.length)
+      // console.log(assessments.data.length)
+      // console.log(repositories.data.length)
+      // process.exit()
+    // const { assessments, repos } = await checkCache(opts, azCliCredential, this.config)
+
 
     const formattedData = transformVulnerabilityData(assessments.data, repositories.data)
     const filteredData = opts.filter.length > 0 ?
@@ -292,7 +297,7 @@ Is "${opts.acrRegistryId.split('/')[4]}" correct?`,
       process.exit()
 
     } else {
-      // console.log(formattedData)
+      console.log(formattedData)
       opts.outfile && writeFileSync(opts.outfile, JSON.stringify(formattedData, null, 2))
       opts.uploadToDb && await uploadToMongoDatabase(formattedData, opts)
       process.exit()

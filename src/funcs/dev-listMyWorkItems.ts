@@ -17,13 +17,33 @@ import chalk from 'chalk'
 
 // listMyWorkItems('')
 
+type multiOptions = {
+  user: any;
+  organization: any;
+  id: string;
+  list: boolean;
+  onlyCount: boolean;
+  groupBy: string;
+  filterType: string | any[];
+  filterState: string | any[];
+}
+
+// export default async function listMyWorkItems({
+//   user = '',
+//   organization = '',
+//   filterType = [],
+//   filterState = [],
+//   groupBy = '',
+//   id = ''
+// }) {
 export default async function listMyWorkItems({
-  user,
-  organization,
-  includeClosed = false,
-  includePending = false,
-  filterType = '',
-}) {
+  user = '',
+  organization = '',
+  filterType = [],
+  filterState = [],
+  groupBy = '',
+  id = ''
+}: multiOptions) {
 
   const pat = process.env.AZURE_DEVOPS_EXT_PAT
   // let pat = undefined
@@ -46,19 +66,12 @@ export default async function listMyWorkItems({
          `)
     }
 
+    // const filterByState = filterSate.map(state => {
+
+    // })
+
     // let query = ''
     let filter = ''
-
-
-
-    if (includeClosed) {
-      filter = "('')"
-    } else if (includePending) {
-      filter = "('Removed', 'Closed', 'Done')"
-    } else {
-      filter = "('Removed', 'Closed', 'Done', 'Pending')"
-    }
-
 
     let query = ''
 

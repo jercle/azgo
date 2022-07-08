@@ -205,19 +205,41 @@ Azure DevOps Boards related commands
 
 ```
 USAGE
-  $ azgo boards [FILE] -o <value> [--debug] [-u <value>] [-a -l] [-p ] [-f Bug|Task ]
+  $ azgo boards [FILE] -o <value> [--debug] [-i <value> | -l] [-u <value>] [-c ] [-g state|type ] [-t
+    bug|task|decision|epic|feature|impediment|pbi|risk ] [-s todo|inprogress|done|removed|open|closed|new|approved|commi
+    tted|considered|identify|analyse|evaluate|treat|monitor|all ]
 
 FLAGS
-  -a, --includeClosed        Include closed work items
-  -f, --filterType=<option>  Filter on type
-                             <options: Bug|Task>
-  -l, --list                 List all work items assigned to given user
-  -p, --includePending       Include pending work items
-  -u, --user=<value>         User's full name or Email address used for Azure DevOps login
-                             "John Smith" or "john.smith@org.com.au"
+  -c, --onlyCount
+      Only show count of items
 
-                             NOTE: If not provided, email address used with current active subscription will be used.
-                             This can be found or changed with the "azgo subs" command.
+  -g, --groupBy=<option>
+      Group by state or type
+      <options: state|type>
+
+  -i, --id=<value>
+      ID of the work item to display
+
+  -l, --list
+      List all work items assigned to given user
+
+  -s, --filterState=<option>...
+      Filter on state.
+      'open', 'closed', and 'all' are generic states and do not map to actual work item states.
+      They simply return all items with open states, closed/removed states, or any state.
+      <options: todo|inprogress|done|removed|open|closed|new|approved|committed|considered|identify|analyse|evaluate|treat
+      |monitor|all>
+
+  -t, --filterType=<option>...
+      Filter on type
+      <options: bug|task|decision|epic|feature|impediment|pbi|risk>
+
+  -u, --user=<value>
+      User's full name or Email address used for Azure DevOps login
+      "John Smith" or "john.smith@org.com.au" to filter by assignment
+
+      NOTE: If not provided, email address used with current active subscription will be used.
+      This can be found or changed with the "azgo subs" command.
 
 GLOBAL AZURE DEVOPS FLAGS
   -o, --organization=<value>  (required) Organization to use for Azure DevOps related commands
@@ -326,7 +348,7 @@ FLAGS
       (required) Name of application
 
   -s, --subscriptionId=<value>
-      [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
+      [default: 22f5c952-555d-47ba-8029-cc20266044bc]
       Subscription ID to use.
       If not supplied, will use current active Azure CLI subscription.
 
