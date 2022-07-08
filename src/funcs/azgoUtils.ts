@@ -25,6 +25,40 @@ import {
 // vulnerabilityFilter(transformVulnerabilityData(data, repos), ["os:windows", "patchable:false", "severity:medium"])
 
 
+export function printWorkItems(workItemArray: any[]) {
+  workItemArray.map(wi => {
+    for (const key in wi) {
+      if (wi.hasOwnProperty(key)) {
+        const element = wi[key];
+        element && console.log(chalk.blue(`${key}: ${chalk.reset(element)}`))
+      }
+    }
+    console.log()
+  })
+}
+
+export function formatWorkItems(workItemArray: any[]) {
+  return workItemArray.map(workItem => ({
+    id: workItem.id,
+    title: workItem.fields['System.Title'],
+    state: workItem.fields['System.State'],
+    areaPath: workItem.fields['System.AreaPath'],
+    iterationPath: workItem.fields['System.IterationPath'].split('\\').slice(1).join('\\'),
+    type: workItem.fields['System.WorkItemType'],
+    assigneeName: workItem.fields['System.AssignedTo'].displayName,
+    assigneeEmail: workItem.fields['System.AssignedTo'].uniqueName,
+    created: workItem.fields['System.CreatedDate'],
+    updated: workItem.fields['System.ChangedDate'],
+    htmlLink: workItem["_links"].html.href,
+    descrption: stripHtml(workItem.fields['System.Description']),
+    latestComment: stripHtml(workItem.fields["System.History"])
+  }))
+}
+
+export function stripHtml(str: string): string {
+  return str && str.replace(/<[^>]*>/g, '').replace('&nbsp;', '') || ''
+}
+
 export async function showDebug(opts, config) {
   // console.log(config)
   // console.log(opts)

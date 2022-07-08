@@ -1,49 +1,112 @@
 import { Flags } from '@oclif/core'
 
 import AzureDevOpsCommand from "../baseAzureDevOps.js"
-import listMyWorkItems from '../funcs/dev-listMyWorkItems.js'
+import { formatWorkItems, printWorkItems } from '../funcs/azgoUtils.js'
+import listMyWorkItems, { buildFilterQuery, getWorkItem } from '../funcs/dev-listMyWorkItems.js'
+
 
 export default class Boards extends AzureDevOpsCommand {
   static description = `Azure DevOps Boards related commands
 
-  Current functionality is listing all items`
+  Current functionality is listing all items, with some filtering`
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',
   ]
 
   static flags = {
-    // flag with a value (-n, --name=VALUE)
+    id: Flags.string({
+      char: 'i',
+      description: 'ID of the work item to display',
+      exclusive: ['list'],
+    }),
     user: Flags.string({
       char: 'u', description: `User's full name or Email address used for Azure DevOps login
-    "John Smith" or "john.smith@org.com.au"
+    "John Smith" or "john.smith@org.com.au" to filter by assignment
 
     NOTE: If not provided, email address used with current active subscription will be used.
     This can be found or changed with the "azgo subs" command.`}),
-    // flag with no value (-f, --force)
-    // force: Flags.boolean({char: 'f'}),
     list: Flags.boolean({
       char: 'l',
       description: "List all work items assigned to given user"
     }),
-    includeClosed: Flags.boolean({
-      char: 'a',
-      description: "Include closed work items",
-      dependsOn: ['list'],
-      exclusive: ['includePending']
+    onlyCount: Flags.boolean({
+      char: 'c',
+      description: "Only show count of items",
+      dependsOn: ['list']
     }),
-    includePending: Flags.boolean({
-      char: 'p',
-      description: "Include pending work items",
-      dependsOn: ['list'],
-      exclusive: ['includeClosed']
+    groupBy: Flags.string({
+      char: 'g',
+      description: 'Group by state or type',
+      options: ['state', 'type'],
+      dependsOn: ['list']
     }),
     filterType: Flags.string({
-      char: 'f',
+      char: 't',
       description: "Filter on type",
+      multiple: true,
       dependsOn: ['list'],
-      options: ['Bug', 'Task']
-      // options: ['Bug', 'Task', 'Feature', 'Epic', 'User Story', 'Test']
+      options: [
+        'bug',
+        'task',
+        'decision',
+        'epic',
+        'feature',
+        'impediment',
+        'pbi',
+        'risk'
+      ],
+      parse: async input => {
+        if (input === 'pbi') {
+          return 'product backlog item'
+        } else {
+          return input
+        }
+      }
+    }),
+    filterState: Flags.string({
+      char: 's',
+      description: `Filter on state.
+      By default, returns work items in all open states
+
+      Can optionally use --closed (Only closed) or --all (all states)`,
+      multiple: true,
+      dependsOn: ['list'],
+      options: [
+        'todo',
+        'inprogress',
+        'done',
+        'removed',
+        'new',
+        'approved',
+        'committed',
+        'considered',
+        'identify',
+        'analyse',
+        'evaluate',
+        'treat',
+        'monitor',
+        'open',
+        'closed',
+        'all'
+      ],
+      parse: async input => {
+        if (input === 'todo') {
+          return 'To Do'
+        } else if (input === 'inprogress') {
+          return 'In Progress'
+        } else {
+          return input
+        }
+      }
+    }),
+    closed: Flags.boolean({
+      description: 'Return all work items in any CLOSED state',
+      exclusive: ['filterState', 'open', 'all']
+    }),
+    all: Flags.boolean({
+      description: 'Return all work items in ANY state',
+      exclusive: ['filterState', 'closed', 'open']
     }),
   }
 
@@ -52,25 +115,34 @@ export default class Boards extends AzureDevOpsCommand {
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(Boards)
     const user = flags.user || Boards.subscriptions.default.username
-    // const { includeClosed, includePending, onlyBugs } = flags
-    const options = {
+    let options: any = {
       ...flags,
       user,
       organization: flags['organization']
     }
 
-    // console.log(flags)
-    // console.log(user)
-
-    if (flags.list) {
-      const workItems = await listMyWorkItems(options)
-      workItems.length != 0 && workItems.length > 1 ?
-        console.log(`${workItems.length} items`) :
-        console.log(`${workItems.length} item`)
-
+    if (flags.id) {
+      const workItem = await getWorkItem(options.id, options.organization)
+      printWorkItems(formatWorkItems([workItem]))
       process.exit()
     }
 
-    // this.config.runCommand('help', ['boards'])
+    options.filterState = flags.filterState && buildFilterQuery(options.filterState)
+    options.filterType = flags.filterType && buildFilterQuery(options.filterType)
+
+    if (flags.list) {
+      const workItems = await listMyWorkItems(options)
+
+      if (flags.onlyCount) {
+        workItems.length != 0 && workItems.length > 1 ?
+          console.log(`${workItems.length} items`) :
+          console.log(`${workItems.length} item`)
+        process.exit()
+      }
+
+      printWorkItems(formatWorkItems(workItems))
+      process.exit()
+    }
+
   }
 }
