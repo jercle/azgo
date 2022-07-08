@@ -206,8 +206,8 @@ Azure DevOps Boards related commands
 ```
 USAGE
   $ azgo boards [FILE] -o <value> [--debug] [-i <value> | -l] [-u <value>] [-c ] [-g state|type ] [-t
-    bug|task|decision|epic|feature|impediment|pbi|risk ] [-s todo|inprogress|done|removed|open|closed|new|approved|commi
-    tted|considered|identify|analyse|evaluate|treat|monitor|all ]
+    bug|task|decision|epic|feature|impediment|pbi|risk ] [--open | [-s todo|inprogress|done|removed|new|approved|committ
+    ed|considered|identify|analyse|evaluate|treat|monitor|open|closed|all ] | --closed | --all]
 
 FLAGS
   -c, --onlyCount
@@ -227,8 +227,9 @@ FLAGS
       Filter on state.
       'open', 'closed', and 'all' are generic states and do not map to actual work item states.
       They simply return all items with open states, closed/removed states, or any state.
-      <options: todo|inprogress|done|removed|open|closed|new|approved|committed|considered|identify|analyse|evaluate|treat
-      |monitor|all>
+      Note: These override any other states passed.
+      <options: todo|inprogress|done|removed|new|approved|committed|considered|identify|analyse|evaluate|treat|monitor|ope
+      n|closed|all>
 
   -t, --filterType=<option>...
       Filter on type
@@ -241,6 +242,15 @@ FLAGS
       NOTE: If not provided, email address used with current active subscription will be used.
       This can be found or changed with the "azgo subs" command.
 
+  --all
+      Return all work items in ANY state
+
+  --closed
+      Return all work items in any CLOSED state
+
+  --open
+      Return all work items in any OPEN state
+
 GLOBAL AZURE DEVOPS FLAGS
   -o, --organization=<value>  (required) Organization to use for Azure DevOps related commands
                               NOTE: Can also be set using AZGO_DEVOPS_ORG environment variable
@@ -251,7 +261,7 @@ GLOBAL FLAGS
 DESCRIPTION
   Azure DevOps Boards related commands
 
-  Current functionality is listing all items
+  Current functionality is listing all items, with some filtering
 
 EXAMPLES
   $ azgo boards

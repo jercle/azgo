@@ -26,8 +26,11 @@ type multiOptions = {
   list: boolean;
   onlyCount: boolean;
   groupBy: string;
-  filterType: any[];
-  filterState: any[];
+  filterType: string;
+  filterState: string;
+  open: boolean;
+  closed: boolean;
+  all: boolean;
 }
 
 // export default async function listMyWorkItems({
@@ -41,9 +44,9 @@ type multiOptions = {
 
 
 
-getWorkItem('256824', 'agriculturegovau')
+// getWorkItem('256824', 'agriculturegovau')
 
-export async function getWorkItem(id, organization) {
+export async function getWorkItem(id: string, organization: string) {
   // const workItem = await listMyWorkItems(options)
   // return workItem.find(wi => wi.id === id)
   const { data } = await axios.default({
@@ -62,11 +65,48 @@ export async function getWorkItem(id, organization) {
 export default async function listMyWorkItems({
   user = '',
   organization = '',
-  filterType = [],
-  filterState = [],
+  filterType = "",
+  filterState = "",
   groupBy = '',
-  id = ''
+  all,
+  closed,
 }: multiOptions) {
+
+  let postUserSeparator = ''
+  let filterSeparator = ''
+
+
+  if (filterState === '') {
+    filterState = "[State] NOT IN ('Removed', 'Closed','Done')"
+  } else if (closed) {
+    filterState = "[State] IN ('Removed', 'Closed','Done')"
+  } else if (all) {
+    filterState = ""
+  } else if (filterState !== '') {
+    filterState = `[State] IN ${filterState}`
+  }
+
+  // [System.WorkItemType]
+
+  if (filterType) {
+    filterType = `[System.WorkItemType] IN ${filterType}`
+  }
+
+  if (filterType && filterState) {
+    filterSeparator = "AND"
+  }
+
+  if (filterType || filterState) {
+    postUserSeparator = "AND"
+  }
+
+
+  const query = `Select [System.Id], [System.CreatedDate] From WorkItems Where [System.AssignedTo] = '${user}' ${postUserSeparator} ${filterType} ${filterSeparator} ${filterState} order by [Microsoft.VSTS.Common.Priority] asc, [System.CreatedDate] desc`
+  // console.log('filterState', filterState)
+  // console.log('filterType', filterType)
+  // console.log(query)
+
+  // process.exit()
 
   try {
     if (!pat) {
@@ -91,15 +131,15 @@ export default async function listMyWorkItems({
     // })
 
     // let query = ''
-    let filter = ''
+    // const query = `Select [System.Id], [System.CreatedDate] From WorkItems Where [System.AssignedTo] = '${user}' AND ${filterType} ${and} ${filterState} order by [Microsoft.VSTS.Common.Priority] asc, [System.CreatedDate] desc`
+    // let filter = ''
 
-    let query = ''
+    // let query = ''
 
-    if (filterType) {
-      query = `Select [System.Id], [System.CreatedDate] From WorkItems Where [System.WorkItemType] = '${filterType}' AND [System.AssignedTo] = '${user}' AND [State] NOT IN ${filter} order by [Microsoft.VSTS.Common.Priority] asc, [System.CreatedDate] desc`
-    } else {
-      query = `Select [System.Id], [System.CreatedDate] From WorkItems Where [System.AssignedTo] = '${user}' AND [State] NOT IN ${filter} order by [Microsoft.VSTS.Common.Priority] asc, [System.CreatedDate] desc`
-    }
+    // if (filterType) {
+    //   query = `Select [System.Id], [System.CreatedDate] From WorkItems Where [System.WorkItemType] = '${filterType}' AND [System.AssignedTo] = '${user}' AND [State] NOT IN ${filter} order by [Microsoft.VSTS.Common.Priority] asc, [System.CreatedDate] desc`
+    // } else {
+    // }
 
     // console.log(query)
 

@@ -1,5 +1,6 @@
 import { Flags } from '@oclif/core'
-import { mapTag } from 'yaml/util'
+import chalk from 'chalk'
+
 
 import AzureDevOpsCommand from "../baseAzureDevOps.js"
 import listMyWorkItems from '../funcs/dev-listMyWorkItems.js'
@@ -83,8 +84,9 @@ export default class Boards extends AzureDevOpsCommand {
     filterState: Flags.string({
       char: 's',
       description: `Filter on state.
-      'open', 'closed', and 'all' are generic states and do not map to actual work item states.
-      They simply return all items with open states, closed/removed states, or any state.`,
+      By default, returns work items in all open states
+
+      Can optionally use --closed (Only closed) or --all (all states)`,
       multiple: true,
       dependsOn: ['list'],
       options: [
@@ -92,8 +94,6 @@ export default class Boards extends AzureDevOpsCommand {
         'inprogress',
         'done',
         'removed',
-        'open',
-        'closed',
         'new',
         'approved',
         'committed',
@@ -103,6 +103,8 @@ export default class Boards extends AzureDevOpsCommand {
         'evaluate',
         'treat',
         'monitor',
+        'open',
+        'closed',
         'all'
       ],
       parse: async input => {
@@ -114,6 +116,14 @@ export default class Boards extends AzureDevOpsCommand {
           return input
         }
       }
+    }),
+    closed: Flags.boolean({
+      description: 'Return all work items in any CLOSED state',
+      exclusive: ['filterState', 'open', 'all']
+    }),
+    all: Flags.boolean({
+      description: 'Return all work items in ANY state',
+      exclusive: ['filterState', 'closed', 'open']
     }),
   }
 
@@ -128,13 +138,14 @@ export default class Boards extends AzureDevOpsCommand {
     const { args, flags } = await this.parse(Boards)
     const user = flags.user || Boards.subscriptions.default.username
     // const { includeClosed, includePending, onlyBugs } = flags
-    const options: any = {
+    let options: any = {
       ...flags,
       user,
       organization: flags['organization']
     }
 
     // console.log(flags)
+    // console.log(options)
     // console.log(user)
 
     // if (flags.id) {
@@ -143,41 +154,57 @@ export default class Boards extends AzureDevOpsCommand {
     //   process.exit()
     // }
 
-    if (flags.filterState) {
-      console.log(flags)
-      // console.log(options.filterState.join(','))
-      const out = options.filterState.reduce((all, item, index, array) => {
-        // console.log(index, array.length - 1)
-        // return index === 0 ? all + "'item'" : all + ", item'"
-        if (index === 0) {
-          return all + `'${item}'`
-        } else if (index === array.length - 1) {
-          return all + `, '${item}')`
-        } else {
-          return all + `, '${item}'`
-        }
-      }, "(")
-      console.log(out)
-      process.exit()
-    }
-    if (flags.filterType) {
-      console.log(flags)
-      // console.log(options.filterType.join(','))
-      const out = options.filterType.reduce((all, item, index, array) => {
-        // console.log(index, array.length - 1)
-        // return index === 0 ? all + "'item'" : all + ", item'"
-        if (index === 0) {
-          return all + `'${item}'`
-        } else if (index === array.length - 1) {
-          return all + `, '${item}')`
-        } else {
-          return all + `, '${item}'`
-        }
-      }, "(")
-      console.log(out)
+    if (flags.all || flags.closed || flags.open) {
+      const workItems = listMyWorkItems(options)
+      console.log(workItems)
       process.exit()
     }
 
+    if (flags.filterState) {
+      // console.log(flags)
+      // console.log(options.filterState.join(','))
+      options.filterState = options.filterState.reduce((all, item, index, array) => {
+        // console.log(index, array.length - 1)
+        // return index === 0 ? all + "'item'" : all + ", item'"
+        if (index === 0) {
+          if (index === array.length - 1) {
+            return all + `'${item}')`
+          } else {
+            return all + `'${item}'`
+          }
+        } else if (index === array.length - 1) {
+          return all + `, '${item}')`
+        } else {
+          return all + `, '${item}'`
+        }
+      }, "(")
+      // console.log(filterByState)
+      // process.exit()
+    }
+    if (flags.filterType) {
+      // console.log(flags)
+      // console.log(options.filterType.join(','))
+      options.filterType = options.filterType.reduce((all, item, index, array) => {
+        // console.log(index, array.length - 1)
+        // return index === 0 ? all + "'item'" : all + ", item'"
+        if (index === 0) {
+          if (index === array.length - 1) {
+            return all + `'${item}')`
+          } else {
+            return all + `'${item}'`
+          }
+        } else if (index === array.length - 1) {
+          return all + `, '${item}')`
+        } else {
+          return all + `, '${item}'`
+        }
+      }, "(")
+      // console.log(filterByType)
+      // process.exit()
+    }
+
+    // console.log(options)
+    // process.exit()
     // let thing = 'this thing'
 
     // thing.
@@ -197,7 +224,7 @@ export default class Boards extends AzureDevOpsCommand {
       workItems.map(wi => {
         console.log({
           id: wi.id,
-          project: wi.project,
+          areaPath: wi.areaPath,
           state: wi.state,
           title: wi.title
         })
