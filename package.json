@@ -4,7 +4,7 @@
   "description": "Azure Tooling with enhanced reporting, data aggregation, and UX",
   "author": "Evan Colwell @jercle",
   "bin": {
-    "azgo": "./bin/run"
+    "azgo": "./bin/run.cjs"
   },
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",

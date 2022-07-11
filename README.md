@@ -81,7 +81,7 @@ $ npm install -g azgo
 $ azgo COMMAND
 running command...
 $ azgo (--version)
-azgo/0.0.5 darwin-arm64 node-v18.4.0
+azgo/0.0.6 darwin-arm64 node-v18.4.0
 $ azgo --help [COMMAND]
 USAGE
   $ azgo COMMAND
@@ -92,7 +92,7 @@ USAGE
 <!-- commands -->
 * [`azgo acr repos list`](#azgo-acr-repos-list)
 * [`azgo acr vulns`](#azgo-acr-vulns)
-* [`azgo boards [FILE]`](#azgo-boards-file)
+* [`azgo boards`](#azgo-boards)
 * [`azgo commands`](#azgo-commands)
 * [`azgo generate azure app`](#azgo-generate-azure-app)
 * [`azgo generate azure platform`](#azgo-generate-azure-platform)
@@ -199,13 +199,13 @@ FLAG DESCRIPTIONS
     ...
 ```
 
-## `azgo boards [FILE]`
+## `azgo boards`
 
 Azure DevOps Boards related commands
 
 ```
 USAGE
-  $ azgo boards [FILE] -o <value> [--debug] [-i <value> | -l] [-u <value>] [-c ] [-g state|type ] [-t
+  $ azgo boards -o <value> [--debug] [-i <value> | -l] [-u <value>] [-c ] [-g state|type ] [-t
     bug|task|decision|epic|feature|impediment|pbi|risk ] [--closed | [-s todo|inprogress|done|removed|new|approved|commi
     tted|considered|identify|analyse|evaluate|treat|monitor|open|closed|all ] |  | --all]
 
@@ -248,7 +248,6 @@ FLAGS
   --closed
       Return all work items in any CLOSED state
 
-
 GLOBAL AZURE DEVOPS FLAGS
   -o, --organization=<value>  (required) Organization to use for Azure DevOps related commands
                               NOTE: Can also be set using AZGO_DEVOPS_ORG environment variable
@@ -259,15 +258,13 @@ GLOBAL FLAGS
 DESCRIPTION
   Azure DevOps Boards related commands
 
-
   Current functionality is listing all items, with some filtering
-
 
 EXAMPLES
   $ azgo boards
 ```
 
-_See code: [dist/commands/boards.ts](https://github.com/jercle/azgo/blob/v0.0.5/dist/commands/boards.ts)_
+_See code: [dist/commands/boards.ts](https://github.com/jercle/azgo/blob/v0.0.6/dist/commands/boards.ts)_
 
 ## `azgo commands`
 
@@ -358,7 +355,7 @@ FLAGS
       (required) Name of application
 
   -s, --subscriptionId=<value>
-      [default: 22f5c952-555d-47ba-8029-cc20266044bc]
+      [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
       Subscription ID to use.
       If not supplied, will use current active Azure CLI subscription.
 
@@ -414,5 +411,5 @@ DESCRIPTION
   Lists subscriptinos, grouped by Tenant ID
 ```
 
-_See code: [dist/commands/subs.ts](https://github.com/jercle/azgo/blob/v0.0.5/dist/commands/subs.ts)_
+_See code: [dist/commands/subs.ts](https://github.com/jercle/azgo/blob/v0.0.6/dist/commands/subs.ts)_
 <!-- commandsstop -->

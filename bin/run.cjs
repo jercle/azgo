@@ -1,4 +1,4 @@
-#!/usr/bin/env node --no-warnings --loader ts-node/esm
+#!/usr/bin/env node
 
 const oclif = require('@oclif/core')
 require = require('esm')(module /*, options*/);
