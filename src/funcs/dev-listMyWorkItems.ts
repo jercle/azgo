@@ -53,8 +53,8 @@ export async function getWorkItem(id: string, organization: string) {
 export default async function listMyWorkItems({
   user = '',
   organization = '',
-  filterType = "",
-  filterState = "",
+  filterType = null,
+  filterState = null,
   groupBy = '',
   all,
   closed,
@@ -67,14 +67,17 @@ export default async function listMyWorkItems({
     filterState = "[State] IN ('Removed', 'Closed','Done')"
   } else if (all) {
     filterState = ""
-  } else if (filterState === '') {
+  } else if (filterState === null) {
     filterState = "[State] NOT IN ('Removed', 'Closed','Done')"
   } else if (filterState !== '') {
     filterState = `[State] IN ${filterState}`
   }
 
+
   if (filterType) {
     filterType = `[System.WorkItemType] IN ${filterType}`
+  } else {
+    filterType = ''
   }
 
   if (filterType && filterState) {
@@ -87,6 +90,8 @@ export default async function listMyWorkItems({
 
   const query = `Select [System.Id], [System.CreatedDate] From WorkItems Where [System.AssignedTo] = '${user}' ${postUserSeparator} ${filterType} ${filterSeparator} ${filterState} order by [Microsoft.VSTS.Common.Priority] asc, [System.CreatedDate] desc`
 
+  // console.log(query)
+  // process.exit()
 
   try {
     if (!pat) {

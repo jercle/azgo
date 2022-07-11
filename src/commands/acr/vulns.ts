@@ -28,6 +28,11 @@ import {
   countByAttribute
 } from '../../funcs/azureVulnarabilityAggregation.js'
 
+type returnedData = {
+  azgoSyncDate: string,
+  data: any,
+}
+
 
 // const activeSubscription = JSON.parse(readFileSync(`${homedir()}/.azure/azureProfile.json`)
 //   .toString()
@@ -228,20 +233,30 @@ Is "${opts.acrRegistryId.split('/')[4]}" correct?`,
 
     // console.log(opts)
 
-    const assessments = cacheExists('assessments', opts.subscriptionId, this.config.cacheDir) ?
-      getCache('assessments', opts.subscriptionId, this.config.cacheDir)
-      : await getSubAssessments(opts, azCliCredential)
+    let assessments: returnedData
+    let repositories: returnedData
 
-    const repositories = cacheExists('repositories', opts.subscriptionId, this.config.cacheDir) ?
-      getCache('repositories', opts.subscriptionId, this.config.cacheDir)
-      : await getAllContainerRepositories(opts, azCliCredential)
-
+    if (opts.resyncData) {
+      assessments = await getSubAssessments(opts, azCliCredential)
       setCache('assessments', assessments, opts.subscriptionId, this.config.cacheDir)
-      // setCache('repositories', repositories, opts.subscriptionId, this.config.cacheDir)
+      repositories = await getAllContainerRepositories(opts, azCliCredential)
+      setCache('repositories', repositories, opts.subscriptionId, this.config.cacheDir)
+    } else {
+      assessments = cacheExists('assessments', opts.subscriptionId, this.config.cacheDir) ?
+        getCache('assessments', opts.subscriptionId, this.config.cacheDir)
+        : await getSubAssessments(opts, azCliCredential)
+      repositories = cacheExists('repositories', opts.subscriptionId, this.config.cacheDir) ?
+        getCache('repositories', opts.subscriptionId, this.config.cacheDir)
+        : await getAllContainerRepositories(opts, azCliCredential)
+    }
 
-      // console.log(assessments.data.length)
-      // console.log(repositories.data.length)
-      // process.exit()
+
+    // setCache('assessments', assessments, opts.subscriptionId, this.config.cacheDir)
+    // setCache('repositories', repositories, opts.subscriptionId, this.config.cacheDir)
+
+    // console.log(assessments.data.length)
+    // console.log(repositories.data.length)
+    // process.exit()
     // const { assessments, repos } = await checkCache(opts, azCliCredential, this.config)
 
 
@@ -250,7 +265,7 @@ Is "${opts.acrRegistryId.split('/')[4]}" correct?`,
       vulnerabilityFilter(formattedData, opts.filter) :
       formattedData
 
-      // console.log(formattedData.length)
+    // console.log(formattedData.length)
 
 
     // // console.log(opts)

@@ -110,7 +110,7 @@ export default class Boards extends AzureDevOpsCommand {
     }),
   }
 
-  static args = [{ name: 'file' }]
+  static args = []
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(Boards)
@@ -121,14 +121,17 @@ export default class Boards extends AzureDevOpsCommand {
       organization: flags['organization']
     }
 
+
     if (flags.id) {
       const workItem = await getWorkItem(options.id, options.organization)
       printWorkItems(formatWorkItems([workItem]))
       process.exit()
     }
 
-    options.filterState = flags.filterState && buildFilterQuery(options.filterState)
-    options.filterType = flags.filterType && buildFilterQuery(options.filterType)
+    options.filterState = flags.filterState && buildFilterQuery(options.filterState) || null
+    options.filterType = flags.filterType && buildFilterQuery(options.filterType) || null
+    // console.log(options)
+    // process.exit()
 
     if (flags.list) {
       const workItems = await listMyWorkItems(options)
@@ -143,6 +146,8 @@ export default class Boards extends AzureDevOpsCommand {
       printWorkItems(formatWorkItems(workItems))
       process.exit()
     }
+
+
 
   }
 }
