@@ -19,7 +19,7 @@ Some of the reporting functionality is around container vulnerability scanning w
 
 This CLI is still very much under development, and functions with the `test-` or `dev-` prefixes are considered mid-development
 
-This is my first public project, so any advice is appreciated and taken onboard. Also, having never REALLY done unit testing in NodeJS before, I have finally begun. I know, I know...
+Any help with testing would be greatly appreciated, as that area is my biggest weakness.
 
 ## Simple example
 ### Set current active subscription
