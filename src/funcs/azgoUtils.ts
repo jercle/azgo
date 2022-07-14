@@ -50,7 +50,7 @@ export function formatWorkItems(workItemArray: any[]) {
     created: workItem.fields['System.CreatedDate'],
     updated: workItem.fields['System.ChangedDate'],
     htmlLink: workItem["_links"].html.href,
-    descrption: stripHtml(workItem.fields['System.Description']),
+    description: stripHtml(workItem.fields['System.Description']),
     latestComment: stripHtml(workItem.fields["System.History"])
   }))
 }

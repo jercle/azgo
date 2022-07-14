@@ -205,7 +205,7 @@ Azure DevOps Boards related commands
 
 ```
 USAGE
-  $ azgo boards -o <value> [--debug] [-i <value> | -l] [-u <value>] [-c ] [-g state|type ] [-t
+  $ azgo boards -o <value> [--debug] [-i <value> | -l] [-u <value>] [-c ] [-f <value> ] [-t
     bug|task|decision|epic|feature|impediment|pbi|risk ] [--closed | [-s todo|inprogress|done|removed|new|approved|commi
     tted|considered|identify|analyse|evaluate|treat|monitor|open|closed|all ] |  | --all]
 
@@ -213,9 +213,8 @@ FLAGS
   -c, --onlyCount
       Only show count of items
 
-  -g, --groupBy=<option>
-      Group by state or type
-      <options: state|type>
+  -f, --filterText=<value>
+      Filter by text in Title and Description
 
   -i, --id=<value>
       ID of the work item to display
@@ -238,6 +237,7 @@ FLAGS
   -u, --user=<value>
       User's full name or Email address used for Azure DevOps login
       "John Smith" or "john.smith@org.com.au" to filter by assignment
+      Useful when Azure DevOps user is different to Azure subscription user.
 
       NOTE: If not provided, email address used with current active subscription will be used.
       This can be found or changed with the "azgo subs" command.
