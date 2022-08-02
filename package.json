@@ -33,7 +33,7 @@
     "@azure/arm-containerregistry": "^10.0.0",
     "@azure/arm-security": "^5.0.0",
     "@azure/container-registry": "^1.0.0",
-    "@azure/identity": "^2.0.5",
+    "@azure/identity": "^2.1.0",
     "@oclif/core": "^1",
     "@oclif/plugin-commands": "^2.2.0",
     "@oclif/plugin-help": "^5",
