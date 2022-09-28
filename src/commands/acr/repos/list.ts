@@ -1,4 +1,5 @@
 import { Command, Flags, CliUx } from '@oclif/core'
+import AzureCommand from "../../../baseAzure.js"
 
 // import { writeFileSync } from 'fs'
 
@@ -8,10 +9,11 @@ import { DefaultAzureCredential } from '@azure/identity'
 import { formatISO, differenceInHours, differenceInDays, parseISO } from 'date-fns'
 
 import getAllContainerRepositories from '../../../funcs/getAllContainerRepositories.js'
+import { cacheExists, checkCache, getCache, setCache } from '../../../funcs/azgoCaching.js'
 
 const azCliCredential = new DefaultAzureCredential()
 
-export default class AcrReposList extends Command {
+export default class AcrReposList extends AzureCommand {
   static description = 'Get all container vulnerabilities'
 
   static examples = [
@@ -41,12 +43,34 @@ export default class AcrReposList extends Command {
     })
   }
 
+  // { acrRegistry, outfile, includeManifests, resyncData, subscriptionId, }
+
   static args = []
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(AcrReposList)
-    // const repos = await getAllContainerRepositories(flags, azCliCredential)
-    // console.log(repos)
+    let opts = {
+      subscriptionId: this.activeSubscription,
+      includeManifests: true,
+      assessmentId: "dbd0cb49-b563-45e7-9724-889e799fa648",
+      acrRegistry: null,
+      debug: null,
+      acrRegistryId: null,
+      resourceGroup: null,
+      ...flags
+    }
+
+    let repos
+    if (cacheExists('acrRepoList', this.activeSubscription)) {
+      console.log('Loading cached data from file...')
+      repos = getCache('acrRepoList', this.activeSubscription)
+    } else {
+      console.log('Loading data from Azure...')
+      repos = await getAllContainerRepositories(opts, azCliCredential)
+      setCache('acrRepoList', repos, this.activeSubscription)
+    }
+    console.log(repos)
+
     // repos.repositories.map(repo => {
     //   const manifests = repo.manifests ? repo.manifests.length : 0
     //   console.log({

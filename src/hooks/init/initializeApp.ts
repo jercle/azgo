@@ -1,7 +1,18 @@
 import { Hook } from '@oclif/core'
 import { existsSync, mkdirSync } from 'fs'
 
+import { initCache } from '../../funcs/azgoCaching.js'
+
+import listSubscriptions from '../../funcs/listSubscriptions.js'
+
 const hook: Hook<'init'> = async function (opts) {
+
+  // initCache()
+
+  let activeSubscription = listSubscriptions().default.subscriptionId
+
+  initCache(process.env.XDG_CACHE_HOME, activeSubscription)
+
   // process.stdout.write(`example hook running ${opts.id}\n`)
   // const config = this.config
 
