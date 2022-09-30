@@ -59,16 +59,30 @@ export default async function getAllContainerRepositories(
   //   return getCache('repositories', subscriptionId, cacheDir)
   // }
 
+
+
   const acrUri = `https://${acrRegistry}.azurecr.io`
+
+  // console.log(acrUri)
+
   const client = new ContainerRegistryClient(acrUri, azCliCredential, {
     audience: KnownContainerRegistryAudience.AzureResourceManagerPublicCloud,
   })
+
+  // console.log(client)
+
+
 
   let repoNames = []
   for await (let repoName of client.listRepositoryNames()) {
     repoNames = [...repoNames, repoName]
   }
   let repositories = []
+
+
+  // console.log(repoNames)
+  // process.exit()
+
 
   for (let repoName of repoNames) {
     let repoManifests = []
@@ -85,6 +99,8 @@ export default async function getAllContainerRepositories(
         ]
       }
     }
+
+    // process.exit()
 
     let repoProps = await client.getRepository(repoName).getProperties()
 

@@ -36,7 +36,10 @@ export function setCache(
   subscriptionId: string,
   cacheDir: string = process.env.XDG_CACHE_HOME || this.config.cacheDir): void {
 
-  writeFileSync(`${cacheDir}/${subscriptionId}/${cacheFileName}.json`, JSON.stringify(data))
+  const cacheLocation = `${cacheDir}/${subscriptionId}/${cacheFileName}.json`
+  console.log(`Cache saved to ${cacheLocation}`)
+
+  writeFileSync(cacheLocation, JSON.stringify(data))
 }
 
 // console.log()
@@ -55,6 +58,9 @@ export function getCache(
   cacheFileName: string,
   subscriptionId: string,
   cacheDir: string = process.env.XDG_CACHE_HOME || this.config.cacheDir) {
+
+  // console.log(subscriptionId)
+
   const cache = JSON.parse(readFileSync(`${cacheDir}/${subscriptionId}/${cacheFileName}.json`)
     .toString()
     .trim())
@@ -65,8 +71,10 @@ export function getCache(
   const hoursSinceSync = differenceInHours(new Date(), parseISO(cache.azgoSyncDate))
 
   if (hoursSinceSync > 24) {
-    setTimeout(() => {console.log(chalk.magenta(`NOTE: ${cacheFileName[0].toUpperCase() + cacheFileName.substring(1)} cache data stale
-    Last sync'd ${hoursSinceSync} hours / ${timeSinceSync}`))}, 5000)
+    setTimeout(() => {
+      console.log(chalk.magenta(`NOTE: ${cacheFileName[0].toUpperCase() + cacheFileName.substring(1)} cache data stale
+    Last sync'd ${hoursSinceSync} hours / ${timeSinceSync}`))
+    }, 5000)
   }
   // console.log({ timeSinceSync, hoursSinceSync })
   return cache
@@ -94,6 +102,8 @@ export function cacheExists(
     return false
   }
   const subscriptionCacheFiles = readdirSync(subCacheDir).map(name => name.toLowerCase())
+
+  // console.log(subscriptionCacheFiles)
 
   return subscriptionCacheFiles.includes(`${cacheFileName.toLowerCase()}.json`)
 }

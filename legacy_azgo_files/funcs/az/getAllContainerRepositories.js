@@ -39,6 +39,7 @@ async function getAllContainerRepositories(
   }
 
   const acrUri = `https://${ACR_REGISTRY}.azurecr.io`
+
   const client = new ContainerRegistryClient(acrUri, azCliCredential, {
     audience: KnownContainerRegistryAudience.AzureResourceManagerPublicCloud,
   })

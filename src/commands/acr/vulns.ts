@@ -171,6 +171,8 @@ export default class AcrVulns extends AzureCommand {
       ...flags
     }
 
+    // console.log(opts)
+
     // if (opts.debug) {
     //   console.log('debug')
     //   // await showDebug(opts, this.config)
@@ -185,13 +187,19 @@ export default class AcrVulns extends AzureCommand {
       process.exit(1)
     }
 
-    const containerRegsitries = cacheExists('containerRegistries', opts.subscriptionId, this.config.cacheDir) ?
+    // console.log(cacheExists('containerRegistries', opts.subscriptionId, this.config.cacheDir))
+
+
+    const containerRegsitries = cacheExists('getAllContainerRegistries', opts.subscriptionId, this.config.cacheDir) ?
       getCache('containerRegistries', opts.subscriptionId, this.config.cacheDir)
       : await getAllContainerRegistries(opts, azCliCredential)
     // console.log(testing)
+    // console.log(containerRegsitries)
+    // console.log(cacheExists('getAllContainerRegistries', opts.subscriptionId, this.config.cacheDir))
     // process.exit()
     // checkCache(opts, azCliCredential, this.config, 'containerRegsitries')
     // const containerRegsitries = checkCache(opts, azCliCredential, this.config, 'containerRegsitries')
+
 
     if (!opts.acrRegistry) {
       if (containerRegsitries.length === 1) {
@@ -208,6 +216,7 @@ export default class AcrVulns extends AzureCommand {
         opts.acrRegistry = acrRegistry.name
         opts.acrRegistryId = acrRegistry['id']
       }
+
 
       if (!opts.resourceGroup) {
         const resourceGroup = await inquirer.prompt({
@@ -231,25 +240,36 @@ Is "${opts.acrRegistryId.split('/')[4]}" correct?`,
       }
     }
 
+
     // console.log(opts)
 
     let assessments: returnedData
     let repositories: returnedData
 
+    // this.exit()
+
+
+
     if (opts.resyncData) {
+      // console.log('resync - true')
       assessments = await getSubAssessments(opts, azCliCredential)
-      setCache('assessments', assessments, opts.subscriptionId, this.config.cacheDir)
+      setCache('getsubAssessments', assessments, opts.subscriptionId)
       repositories = await getAllContainerRepositories(opts, azCliCredential)
-      setCache('repositories', repositories, opts.subscriptionId, this.config.cacheDir)
+      setCache('getAllContainerRepositories', repositories, opts.subscriptionId)
     } else {
-      assessments = cacheExists('assessments', opts.subscriptionId, this.config.cacheDir) ?
-        getCache('assessments', opts.subscriptionId, this.config.cacheDir)
+      // console.log('resync - false')
+      // console.log(cacheExists('getsubAssessments', opts.subscriptionId))
+      assessments = cacheExists('getsubAssessments', opts.subscriptionId) ?
+        getCache('getsubAssessments', opts.subscriptionId)
         : await getSubAssessments(opts, azCliCredential)
-      repositories = cacheExists('repositories', opts.subscriptionId, this.config.cacheDir) ?
-        getCache('repositories', opts.subscriptionId, this.config.cacheDir)
+      repositories = cacheExists('getAllContainerRepositories', opts.subscriptionId) ?
+        getCache('getAllContainerRepositories', opts.subscriptionId)
         : await getAllContainerRepositories(opts, azCliCredential)
     }
 
+    // console.log(assessments)
+
+    // this.exit()
 
     // setCache('assessments', assessments, opts.subscriptionId, this.config.cacheDir)
     // setCache('repositories', repositories, opts.subscriptionId, this.config.cacheDir)

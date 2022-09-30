@@ -60,6 +60,8 @@ export default class AcrReposList extends AzureCommand {
       ...flags
     }
 
+    // console.log(opts)
+
     let repos
     if (cacheExists('acrRepoList', this.activeSubscription)) {
       console.log('Loading cached data from file...')
