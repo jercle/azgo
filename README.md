@@ -81,7 +81,7 @@ $ npm install -g azgo
 $ azgo COMMAND
 running command...
 $ azgo (--version)
-azgo/0.0.6 darwin-arm64 node-v18.4.0
+azgo/0.0.7 darwin-arm64 node-v18.9.1
 $ azgo --help [COMMAND]
 USAGE
   $ azgo COMMAND
@@ -91,6 +91,7 @@ USAGE
 # Commands
 <!-- commands -->
 * [`azgo acr repos list`](#azgo-acr-repos-list)
+* [`azgo acr repos purge`](#azgo-acr-repos-purge)
 * [`azgo acr vulns`](#azgo-acr-vulns)
 * [`azgo boards`](#azgo-boards)
 * [`azgo commands`](#azgo-commands)
@@ -105,13 +106,21 @@ Get all container vulnerabilities
 
 ```
 USAGE
-  $ azgo acr repos list -a <value> [-o <value>] [-m] [-r]
+  $ azgo acr repos list -a <value> [--json] [--debug] [-s <value>] [-o <value>] [-m] [-r]
 
 FLAGS
   -a, --acrRegistry=<value>  (required) ACR registry to use
   -m, --includeManifests     Include manifests in output
   -o, --outfile=<value>      Save output to file
   -r, --resyncData           Resync data from Azure
+
+GLOBAL AZURE FLAGS
+  -s, --subscriptionId=<value>  Subscription ID to use.
+                                If not supplied, will use current active Azure CLI subscription.
+
+GLOBAL FLAGS
+  --debug  Testing only. Returns CLI config and, and some other debug info
+  --json   Format output as json.
 
 DESCRIPTION
   Get all container vulnerabilities
@@ -120,15 +129,31 @@ EXAMPLES
   $ azgo acr repos list
 ```
 
+## `azgo acr repos purge`
+
+Purges old container images from ACR
+
+```
+USAGE
+  $ azgo acr repos purge [--executeDelete] [-r <value>]
+
+FLAGS
+  -r, --retentionDays=<value>  [default: 30] Only purge images older than number of days provided
+  --executeDelete              Runs the deletion of images
+
+DESCRIPTION
+  Purges old container images from ACR
+```
+
 ## `azgo acr vulns`
 
 Get all vulnerabilities related to container images
 
 ```
 USAGE
-  $ azgo acr vulns [--debug] [-s <value>] [-r <value>] [-a <value>] [--resyncData] [-f <value>] [-T ] [-C ] [-l
-    |  | -g repository|category|severity|patchable|os|osDetails|imageDigest|cve|byRepoUnderCve | [-d -c -o <value>]]
-    [-U] [-S <value>]
+  $ azgo acr vulns [--json] [--debug] [-s <value>] [-r <value>] [-a <value>] [--resyncData] [-f <value>] [-T ]
+    [-C ] [-l |  | -g repository|category|severity|patchable|os|osDetails|imageDigest|cve|byRepoUnderCve | [-d -c -o
+    <value>]] [-U] [-S <value>]
 
 FLAGS
   -C, --formatCsv                   Show output as CSV
@@ -158,6 +183,7 @@ GLOBAL AZURE FLAGS
 
 GLOBAL FLAGS
   --debug  Testing only. Returns CLI config and, and some other debug info
+  --json   Format output as json.
 
 DESCRIPTION
   Get all vulnerabilities related to container images
@@ -205,7 +231,7 @@ Azure DevOps Boards related commands
 
 ```
 USAGE
-  $ azgo boards -o <value> [--debug] [-i <value> | -l] [-u <value>] [-c ] [-g state|type ] [-t
+  $ azgo boards -o <value> [--json] [--debug] [-i <value> | -l] [-u <value>] [-c ] [-g state|type ] [-t
     bug|task|decision|epic|feature|impediment|pbi|risk ] [--closed | [-s todo|inprogress|done|removed|new|approved|commi
     tted|considered|identify|analyse|evaluate|treat|monitor|open|closed|all ] |  | --all]
 
@@ -254,6 +280,7 @@ GLOBAL AZURE DEVOPS FLAGS
 
 GLOBAL FLAGS
   --debug  Testing only. Returns CLI config and, and some other debug info
+  --json   Format output as json.
 
 DESCRIPTION
   Azure DevOps Boards related commands
@@ -264,7 +291,7 @@ EXAMPLES
   $ azgo boards
 ```
 
-_See code: [dist/commands/boards.ts](https://github.com/jercle/azgo/blob/v0.0.6/dist/commands/boards.ts)_
+_See code: [dist/commands/boards.ts](https://github.com/jercle/azgo/blob/v0.0.7/dist/commands/boards.ts)_
 
 ## `azgo commands`
 
@@ -392,7 +419,7 @@ Display current configured Azure CLI subscriptions.
 
 ```
 USAGE
-  $ azgo subs [--debug] [-s <value>] [-a | -x]
+  $ azgo subs [--json] [--debug] [-s <value>] [-a | -x]
 
 FLAGS
   -a, --showActive  Show current active subscription for Azure CLI
@@ -404,6 +431,7 @@ GLOBAL AZURE FLAGS
 
 GLOBAL FLAGS
   --debug  Testing only. Returns CLI config and, and some other debug info
+  --json   Format output as json.
 
 DESCRIPTION
   Display current configured Azure CLI subscriptions.
@@ -411,5 +439,5 @@ DESCRIPTION
   Lists subscriptinos, grouped by Tenant ID
 ```
 
-_See code: [dist/commands/subs.ts](https://github.com/jercle/azgo/blob/v0.0.6/dist/commands/subs.ts)_
+_See code: [dist/commands/subs.ts](https://github.com/jercle/azgo/blob/v0.0.7/dist/commands/subs.ts)_
 <!-- commandsstop -->
