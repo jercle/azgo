@@ -63,15 +63,16 @@ export default class AcrReposList extends AzureCommand {
     // console.log(opts)
 
     let repos
-    if (cacheExists('acrRepoList', this.activeSubscription)) {
-      console.log('Loading cached data from file...')
+    if (cacheExists('acrRepoList', this.activeSubscription) && !flags.resyncData) {
+      this.log('Loading cached data from file...')
       repos = getCache('acrRepoList', this.activeSubscription)
     } else {
-      console.log('Loading data from Azure...')
+      this.log('Loading data from Azure...')
       repos = await getAllContainerRepositories(opts, azCliCredential)
       setCache('acrRepoList', repos, this.activeSubscription)
     }
     console.log(repos)
+    return repos
 
     // repos.repositories.map(repo => {
     //   const manifests = repo.manifests ? repo.manifests.length : 0

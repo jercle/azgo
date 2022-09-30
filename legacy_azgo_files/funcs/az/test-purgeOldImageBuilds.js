@@ -13,12 +13,12 @@ const {
 } = require('@azure/arm-containerregistry');
 
 const opts = {
-  subscriptionId: process.env.subscriptionId,
-  resourceGroup: process.env.resourceGroup,
-  acrName: process.env.acrName,
-  assessmentName: process.env.assessmentName,
+  subscriptionId: process.env.AZGO_SUBSCRIPTION_ID,
+  resourceGroup: process.env.AZGO_RESOURCE_GROUP,
+  acrName: process.env.AZGO_ACR_REGISTRY,
+  assessmentName: process.env.AZGO_ASSESSMENT_ID,
   nsgName: process.env.nsgName,
-  acrRegistry: process.env.acrRegistry,
+  acrRegistry: process.env.AZGO_ACR_REGISTRY,
   testDataPath: process.env.testDataPath
 }
 // {
@@ -33,10 +33,10 @@ const opts = {
 
 
 
-purgeOldImageBuilds(opts).then((r) => console.log(r));
+purgeOldImageBuilds(opts)
 
 async function purgeOldImageBuilds(
-  { acrRegistry, subscriptionId, rg },
+  { acrRegistry, subscriptionId, resourceGroup },
   azCliCredential
 ) {
   const client = new ContainerRegistryManagementClient(
@@ -44,7 +44,8 @@ async function purgeOldImageBuilds(
     subscriptionId
   );
   // const iterator = await client.registries.get(rg, acrRegistry);
-  const iterator = await client.registries.get(rg, acrRegistry)
+  const iterator = await client.registries.get(resourceGroup, acrRegistry)
+  // client.registries.get()
   // console.log(registries)
   // let registries = [];
 

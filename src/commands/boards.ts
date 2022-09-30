@@ -121,6 +121,8 @@ export default class Boards extends AzureDevOpsCommand {
       organization: flags['organization']
     }
 
+    // console.log(flags)
+
 
     if (flags.id) {
       const workItem = await getWorkItem(options.id, options.organization)
@@ -135,6 +137,8 @@ export default class Boards extends AzureDevOpsCommand {
 
     if (flags.list) {
       const workItems = await listMyWorkItems(options)
+
+      // console.log(workItems)
 
       if (flags.onlyCount) {
         workItems.length != 0 && workItems.length > 1 ?
