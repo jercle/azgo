@@ -65,8 +65,8 @@ export function getCache(
   const hoursSinceSync = differenceInHours(new Date(), parseISO(cache.azgoSyncDate))
 
   if (hoursSinceSync > 24) {
-    console.log(chalk.magenta(`NOTE: ${cacheFileName[0].toUpperCase() + cacheFileName.substring(1)} cache data stale
-      Last sync'd ${hoursSinceSync} hours / ${timeSinceSync}`))
+    setTimeout(() => {console.log(chalk.magenta(`NOTE: ${cacheFileName[0].toUpperCase() + cacheFileName.substring(1)} cache data stale
+    Last sync'd ${hoursSinceSync} hours / ${timeSinceSync}`))}, 5000)
   }
   // console.log({ timeSinceSync, hoursSinceSync })
   return cache
