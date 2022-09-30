@@ -81,7 +81,7 @@ $ npm install -g azgo
 $ azgo COMMAND
 running command...
 $ azgo (--version)
-azgo/0.0.8 darwin-arm64 node-v18.9.1
+azgo/0.0.9 darwin-arm64 node-v18.9.1
 $ azgo --help [COMMAND]
 USAGE
   $ azgo COMMAND
@@ -291,7 +291,7 @@ EXAMPLES
   $ azgo boards
 ```
 
-_See code: [dist/commands/boards.ts](https://github.com/jercle/azgo/blob/v0.0.8/dist/commands/boards.ts)_
+_See code: [dist/commands/boards.ts](https://github.com/jercle/azgo/blob/v0.0.9/dist/commands/boards.ts)_
 
 ## `azgo commands`
 
@@ -411,7 +411,7 @@ DESCRIPTION
   Display help for azgo.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.12/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.14/src/commands/help.ts)_
 
 ## `azgo subs`
 
@@ -439,5 +439,5 @@ DESCRIPTION
   Lists subscriptinos, grouped by Tenant ID
 ```
 
-_See code: [dist/commands/subs.ts](https://github.com/jercle/azgo/blob/v0.0.8/dist/commands/subs.ts)_
+_See code: [dist/commands/subs.ts](https://github.com/jercle/azgo/blob/v0.0.9/dist/commands/subs.ts)_
 <!-- commandsstop -->
