@@ -36,7 +36,7 @@
     "@azure/identity": "^2.1.0",
     "@oclif/core": "^1",
     "@oclif/plugin-commands": "^2.2.0",
-    "@oclif/plugin-help": "^5",
+    "@oclif/plugin-help": "^5.1.13",
     "axios": "^0.27.2",
     "chalk": "^5.0.1",
     "command-exists": "^1.2.9",
