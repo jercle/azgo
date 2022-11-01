@@ -46,7 +46,7 @@
     "mongodb": "^4.10.0",
     "open": "^8.4.0",
     "yaml": "^2.1.1",
-    "yeoman-environment": "^3.11.1"
+    "yeoman-environment": "^3.12.1"
   },
   "devDependencies": {
     "@oclif/test": "^2",
