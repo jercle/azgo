@@ -43,6 +43,8 @@ async function purgeOldImageBuilds(
     new DefaultAzureCredential(),
     subscriptionId
   );
+
+  console.log({ acrRegistry, subscriptionId, resourceGroup })
   // const iterator = await client.registries.get(rg, acrRegistry);
   const iterator = await client.registries.get(resourceGroup, acrRegistry)
   // client.registries.get()

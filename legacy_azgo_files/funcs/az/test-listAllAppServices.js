@@ -12,13 +12,14 @@ const { WebSiteManagementClient } = require("@azure/arm-appservice")
 const { readFileSync, writeFileSync } = require("fs")
 
 const opts = {
-  subscriptionId: process.env.subscriptionId,
-  resourceGroup: process.env.resourceGroup,
-  acrName: process.env.acrName,
-  assessmentName: process.env.assessmentName,
+  subscriptionId: process.env.AZGO_SUBSCRIPTION_ID,
+  resourceGroup: process.env.AZGO_RESOURCE_GROUP,
+  acrName: process.env.AZGO_ACR_REGISTRY,
+  assessmentName: process.env.AZGO_ASSESSMENT_ID,
   nsgName: process.env.nsgName,
-  acrRegistry: process.env.acrRegistry,
-  testDataPath: process.env.testDataPath
+  acrRegistry: process.env.AZGO_ACR_REGISTRY,
+  testDataPath: process.env.testDataPath,
+  imageRetention: 30
 }
 // {
 //   subscriptionId,
@@ -36,7 +37,7 @@ listAllAppServices(opts, new DefaultAzureCredential())
 async function listAllAppServices({ subscriptionId }) {
   const client = new WebSiteManagementClient(
     new DefaultAzureCredential(),
-    subscriptionId.nonprod
+    subscriptionId
   )
 
   let allAppServices = []
@@ -53,14 +54,14 @@ async function listAllAppServices({ subscriptionId }) {
   //   readFileSync("../testData/allAppServices.json")
   // )
 
-  // console.log(
-  //   JSON.stringify(
-  //     allAppServices.filter((app) => app.name.toLowerCase().includes("ahpl"))
-  //   )
-  // )
   console.log(
-    allAppServices.filter((app) => app.name.toLowerCase().includes("aahr"))
+    // JSON.stringify(
+      allAppServices.filter((app) => app.name.toLowerCase().includes("grants")).map((app) => app.name)
+    // )
   )
+  // console.log(
+  //   allAppServices.filter((app) => app.name.toLowerCase().includes("aahr"))
+  // )
   // console.log(JSON.stringify(allAppServices.filter((app) => !app.identity)))
   //////////////////////
   let formattedAppServices = allAppServices.map((app) => {
@@ -95,12 +96,14 @@ async function listAllAppServices({ subscriptionId }) {
     return appService
   })
   ///////////////
-  console.log(JSON.stringify(formattedAppServices))
-  console.log(
-    formattedAppServices.filter((item) =>
-      item.name.toLowerCase().includes("aahr")
-    )
-  )
+
+  // console.log(formattedAppServices.length)
+  // console.log(JSON.stringify(formattedAppServices))
+  // console.log(
+  //   formattedAppServices.filter((item) =>
+  //     item.name.toLowerCase().includes("aahr")
+  //   )
+  // )
   // formattedAppServices.map((app) => app.image && console.log(app.image))
 }
 

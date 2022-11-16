@@ -189,10 +189,18 @@ export default class AcrVulns extends AzureCommand {
 
     // console.log(cacheExists('containerRegistries', opts.subscriptionId, this.config.cacheDir))
 
+    // console.log(cacheExists('getAllContainerRegistries', opts.subscriptionId))
 
-    const containerRegsitries = cacheExists('getAllContainerRegistries', opts.subscriptionId, this.config.cacheDir) ?
-      getCache('containerRegistries', opts.subscriptionId, this.config.cacheDir)
-      : await getAllContainerRegistries(opts, azCliCredential)
+    let containerRegsitries
+
+    if (cacheExists('AllContainerRegistries', opts.subscriptionId)) {
+      containerRegsitries = getCache('getAllContainerRegistries', opts.subscriptionId,).data
+    } else {
+      const res = await getAllContainerRegistries(opts, azCliCredential)
+      containerRegsitries = res.data
+      // console.log(containerRegsitries)
+      setCache('getAllContainerRegistries', res, opts.subscriptionId)
+    }
     // console.log(testing)
     // console.log(containerRegsitries)
     // console.log(cacheExists('getAllContainerRegistries', opts.subscriptionId, this.config.cacheDir))

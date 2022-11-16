@@ -14,6 +14,7 @@ import {
   getAllUniqueCves,
   countByAttribute
 } from './azureVulnarabilityAggregation.js'
+import { existsSync, mkdirSync } from 'fs';
 
 
 // const repos = JSON.parse(readFileSync("/Users/jercle/git/azgo/testData/20220616/getAllContainerRepositories.json").toString().trim()).repositories
@@ -104,6 +105,14 @@ export async function showDebug(opts, config) {
 // return requested data
 
 
+export function initConfig(configDir) {
+  if (!existsSync(configDir)) {
+    // console.log(`Base config location does not exist. Creating ${configDir}`)
+    mkdirSync(configDir, { recursive: true })
+    // } else {
+    // console.log(`Base config location exists`)
+  }
+}
 
 
 export function vulnerabilityFilter(data, filter) {
