@@ -13,7 +13,7 @@ const opts = {
   includeManifests: process.env.AZGO_INCLUDE_MANIFESTS,
   resyncData: process.env.AZGO_RESYNC_DATA,
   subscriptionId: process.env.AZGO_SUBSCRIPTION_ID,
-  cacheDir: '/Users/jercle/Library/Caches/azgo'
+  cacheDir: '/Users/jercle/git/azgo/tempcache'
 }
 
 // const json = getCache('repositories', opts.subscriptionId, opts.cacheDir)
@@ -34,9 +34,12 @@ export function setCache(
   cacheFileName: string,
   data: Object,
   subscriptionId: string,
-  cacheDir: string): void {
+  cacheDir: string = process.env.XDG_CACHE_HOME || this.config.cacheDir): void {
 
-  writeFileSync(`${cacheDir}/${subscriptionId}/${cacheFileName}.json`, JSON.stringify(data))
+  const cacheLocation = `${cacheDir}/${subscriptionId}/${cacheFileName}.json`
+  console.log(`Cache saved to ${cacheLocation}`)
+
+  writeFileSync(cacheLocation, JSON.stringify(data))
 }
 
 // console.log()
@@ -54,17 +57,24 @@ export function setCache(
 export function getCache(
   cacheFileName: string,
   subscriptionId: string,
-  cacheDir: string) {
+  cacheDir: string = process.env.XDG_CACHE_HOME || this.config.cacheDir) {
+
+  // console.log(subscriptionId)
+
   const cache = JSON.parse(readFileSync(`${cacheDir}/${subscriptionId}/${cacheFileName}.json`)
     .toString()
     .trim())
+
+
 
   const timeSinceSync = formatDistance(parseISO(cache.azgoSyncDate), new Date(), { addSuffix: true })
   const hoursSinceSync = differenceInHours(new Date(), parseISO(cache.azgoSyncDate))
 
   if (hoursSinceSync > 24) {
+
     console.log(chalk.magenta(`NOTE: ${cacheFileName[0].toUpperCase() + cacheFileName.substring(1)} cache data stale
-      Last sync'd ${hoursSinceSync} hours / ${timeSinceSync}`))
+    Last sync'd ${hoursSinceSync} hours / ${timeSinceSync}`))
+
   }
   // console.log({ timeSinceSync, hoursSinceSync })
   return cache
@@ -83,12 +93,17 @@ export function getCache(
 * @returns object
 *
 */
-export function cacheExists(cacheFileName: string, subscriptionId: string, cacheDir: string) {
+export function cacheExists(
+  cacheFileName: string,
+  subscriptionId: string,
+  cacheDir: string = process.env.XDG_CACHE_HOME || this.config.cacheDir) {
   const subCacheDir = `${cacheDir}/${subscriptionId}`
   if (!existsSync(subCacheDir)) {
     return false
   }
   const subscriptionCacheFiles = readdirSync(subCacheDir).map(name => name.toLowerCase())
+
+  // console.log(subscriptionCacheFiles)
 
   return subscriptionCacheFiles.includes(`${cacheFileName.toLowerCase()}.json`)
 }
@@ -105,12 +120,11 @@ export function cacheExists(cacheFileName: string, subscriptionId: string, cache
 *
 */
 export function initCache(cacheDir: string, subscriptionId: string): void {
-  const subCacheDir = `${cacheDir}/${subscriptionId}`
-  if (!existsSync(subCacheDir)) {
-    // console.log(`cache doesn't exist, creating cache for subscriptioon ${opts.subscriptionId}`)
-    mkdirSync(subCacheDir, { recursive: true })
+  if (!existsSync(cacheDir)) {
+    // console.log(`Base cache location does not exist. Creating ${cacheDir}`)
+    mkdirSync(cacheDir, { recursive: true })
     // } else {
-    // console.log(`cache exists for subscription ${opts.subscriptionId}`)
+    // console.log(`Base cache location exists`)
   }
 }
 
@@ -162,7 +176,7 @@ export function checkCache(opts, azCliCredential, config, filter = null) {
     console.log('in if')
     const containerRegsitries = Object.keys(subscriptionCacheFiles).includes('containerRegsitries.json') && !opts.resyncData ?
       JSON.parse(readFileSync(`${config.cacheDir}/containerRegsitries.json`).toString().trim()) : []
-      // await getAllContainerRegistries(opts, azCliCredential)
+    // await getAllContainerRegistries(opts, azCliCredential)
     return containerRegsitries
   }
   // console.log('post if')

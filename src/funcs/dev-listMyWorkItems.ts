@@ -123,6 +123,7 @@ export default async function listMyWorkItems({
 
       },
     })
+    // console.log(resp)
 
     const workItems = resp.data.workItems.map(async (wi) => {
       const res = await axios.default({

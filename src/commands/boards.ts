@@ -114,12 +114,16 @@ export default class Boards extends AzureDevOpsCommand {
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(Boards)
-    const user = flags.user || Boards.subscriptions.default.username
+    const user = flags.user || this.subscriptions.default.username
     let options: any = {
       ...flags,
       user,
       organization: flags['organization']
     }
+
+    // console.log(flags)
+    // console.log(options)
+    // console.log(this.subscriptions)
 
 
     if (flags.id) {
@@ -135,6 +139,8 @@ export default class Boards extends AzureDevOpsCommand {
 
     if (flags.list) {
       const workItems = await listMyWorkItems(options)
+
+      // console.log(workItems)
 
       if (flags.onlyCount) {
         workItems.length != 0 && workItems.length > 1 ?

@@ -5,16 +5,24 @@ const {
 const { DefaultAzureCredential } = require("@azure/identity")
 const { readFileSync, writeFileSync } = require("fs")
 const moment = require("moment")
-
+const {
+  formatDistance,
+  formatISO,
+  differenceInHours,
+  differenceInDays,
+  parseISO,
+  parseJSON,
+} = require("date-fns")
 
 const opts = {
-  subscriptionId: process.env.subscriptionId,
-  resourceGroup: process.env.resourceGroup,
-  acrName: process.env.acrName,
-  assessmentName: process.env.assessmentName,
+  subscriptionId: process.env.AZGO_SUBSCRIPTION_ID,
+  resourceGroup: process.env.AZGO_RESOURCE_GROUP,
+  acrName: process.env.AZGO_ACR_REGISTRY,
+  assessmentName: process.env.AZGO_ASSESSMENT_ID,
   nsgName: process.env.nsgName,
-  acrRegistry: process.env.acrRegistry,
-  testDataPath: process.env.testDataPath
+  acrRegistry: process.env.AZGO_ACR_REGISTRY,
+  testDataPath: process.env.testDataPath,
+  imageRetention: 30
 }
 // {
 //   subscriptionId,
@@ -26,21 +34,18 @@ const opts = {
 //   testDataPath,
 // }
 
-
-
-
 async function main({ acrRegistry, subscriptionId, appName, imageRetention }) {
   // console.log(args)
   // Create a new ContainerRegistryClient
   const client = new ContainerRegistryClient(
-    acrRegistry.nonprod,
+    `https://${acrRegistry}.azurecr.io`,
     new DefaultAzureCredential(),
     {
       audience: KnownContainerRegistryAudience.AzureResourceManagerPublicCloud,
     }
   )
 
-  const repo = await client.getRepository(appName)
+  const repo = await client.getRepository("gm")
   const iterator = await repo.listManifestProperties()
   // const image = client.getArtifact("library/hello-world", "v1");
   // const artifact = repo.getArtifact('latest');
@@ -55,11 +60,11 @@ async function main({ acrRegistry, subscriptionId, appName, imageRetention }) {
   // writeFileSync('../testData/gm-manifests.json', JSON.stringify(manifests));
   // const manifests = JSON.parse(readFileSync("../testData/gm-manifests.json"))
 
-  console.log(
-    manifests.filter(
-      (i) => i.repositoryName == "fmds" && i.tags.includes("latest")
-    )
-  )
+  // console.log(
+  //   manifests.filter(
+  //     (i) => i.repositoryName == "gm" && i.tags.includes("latest")
+  //   )
+  // )
   // console.log(manifests)
   // Reduce result to single array of tags
   const repoTags = manifests
@@ -72,8 +77,11 @@ async function main({ acrRegistry, subscriptionId, appName, imageRetention }) {
           createdOnFormatted: new Date().toString(),
           lastUpdatedOn: new Date(item.lastUpdatedOn),
           tagAge: moment().diff(item.lastUpdatedOn, "days"),
+          // tagAge: differenceInDays(new Date(), parseJSON(item.lastUpdatedOn)),
         }
       })
+
+      // const hoursSinceSync = differenceInHours(new Date(), parseISO(cache.azgoSyncDate))
 
       return [...all, ...objects]
     }, [])
@@ -86,9 +94,9 @@ async function main({ acrRegistry, subscriptionId, appName, imageRetention }) {
       (item.tag.includes("latest") && item.tag !== "latest") ||
       (item.tagAge > imageRetention && item.tag !== "latest")
   )
-  // console.log(filteredTags)
+  console.log(filteredTags)
   // .filter((i, index) => index < 3)
-  // console.log(filteredTags.length)
+  console.log(filteredTags.length)
   // console.log()
 
   // const tagData = repoTags.map((tag) => {
