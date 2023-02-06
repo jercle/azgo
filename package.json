@@ -35,7 +35,7 @@
     "@azure/container-registry": "^1.0.0",
     "@azure/identity": "^2.1.0",
     "@oclif/core": "^1",
-    "@oclif/plugin-commands": "^2.2.1",
+    "@oclif/plugin-commands": "^2.2.7",
     "@oclif/plugin-help": "^5",
     "axios": "^0.27.2",
     "chalk": "^5.1.2",
