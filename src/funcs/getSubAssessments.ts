@@ -46,6 +46,7 @@ export default async function getsubAssessments(
   //   return data
   // }
 
+
   const client = new SecurityCenter(credentials, subscriptionId)
 
   const subAssessmentsList = await client.subAssessments.list(

@@ -7,9 +7,21 @@ import listSubscriptions from "./funcs/listSubscriptions.js"
 import { showDebug } from './funcs/azgoUtils.js'
 import baseCommand from './baseCommand.js';
 
+import { cacheExists, getCache, setCache } from './funcs/azgoCaching.js'
+
 export default abstract class extends BaseCommand {
   static azCliCredential = new DefaultAzureCredential()
   static subscriptions = listSubscriptions()
+
+  static getCache = getCache
+  // cacheFileName: string,
+  // subscriptionId: string,
+  // cacheDir: string
+
+  static setCache = setCache
+  static cacheExists = cacheExists
+
+
   // subscriptions = listSubscriptions()
   // activeSubscription = this.subscriptions.default.subscriptionId
   activeSubscription = listSubscriptions().default.subscriptionId
