@@ -44,7 +44,7 @@
     "esm": "^3.2.25",
     "inquirer": "^9.1.4",
     "mongodb": "^4.13.0",
-    "open": "^8.4.0",
+    "open": "^8.4.1",
     "yaml": "^2.2.1",
     "yeoman-environment": "^3.13.0"
   },
