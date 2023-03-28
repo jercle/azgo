@@ -1,3 +1,3 @@
 [submodule "testData"]
 	path = testData
-	url = https://github.com/stkcat/azure-tooling-testData.git
+	url = git@github.com:stkcat/azure-tooling-testData.git
