@@ -53,7 +53,7 @@
     "@types/chai": "^4",
     "@types/inquirer": "^9.0.2",
     "@types/mocha": "^10.0.0",
-    "@types/node": "^18.7.23",
+    "@types/node": "^18.14.2",
 
     "chai": "^4",
     "eslint": "^8.24.0",
