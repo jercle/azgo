@@ -30,7 +30,7 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
-    "@azure/arm-containerregistry": "^10.0.0",
+    "@azure/arm-containerregistry": "^10.1.0",
     "@azure/arm-security": "^5.0.0",
     "@azure/container-registry": "^1.0.0",
     "@azure/identity": "^3.0.0",
