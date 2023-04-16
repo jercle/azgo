@@ -81,7 +81,7 @@ $ npm install -g azgo
 $ azgo COMMAND
 running command...
 $ azgo (--version)
-azgo/0.0.6 linux-x64 node-v18.15.0
+azgo/0.0.7 linux-x64 node-v18.15.0
 $ azgo --help [COMMAND]
 USAGE
   $ azgo COMMAND
@@ -93,7 +93,8 @@ USAGE
 * [`azgo acr repos list`](#azgo-acr-repos-list)
 * [`azgo acr repos purge`](#azgo-acr-repos-purge)
 * [`azgo acr vulns`](#azgo-acr-vulns)
-* [`azgo boards`](#azgo-boards)
+* [`azgo ado boards`](#azgo-ado-boards)
+* [`azgo ado pr list [FILE]`](#azgo-ado-pr-list-file)
 * [`azgo commands`](#azgo-commands)
 * [`azgo config devops defaultSub [FILE]`](#azgo-config-devops-defaultsub-file)
 * [`azgo generate azure app`](#azgo-generate-azure-app)
@@ -107,7 +108,7 @@ Get all container vulnerabilities
 
 ```
 USAGE
-  $ azgo acr repos list -a <value> [--json] [-o <value>] [-m] [-r]
+  $ azgo acr repos list -a <value> [--json] [--debug] [-s <value>] [-o <value>] [-m] [-r]
 
 FLAGS
   -a, --acrRegistry=<value>  (required) ACR registry to use
@@ -115,8 +116,13 @@ FLAGS
   -o, --outfile=<value>      Save output to file
   -r, --resyncData           Resync data from Azure
 
+GLOBAL AZURE FLAGS
+  -s, --subscriptionId=<value>  Subscription ID to use.
+                                If not supplied, will use current active Azure CLI subscription.
+
 GLOBAL FLAGS
-  --json  Format output as json.
+  --debug  Testing only. Returns CLI config and, and some other debug info
+  --json   Format output as json.
 
 DESCRIPTION
   Get all container vulnerabilities
@@ -147,9 +153,9 @@ Get all vulnerabilities related to container images
 
 ```
 USAGE
-  $ azgo acr vulns [--json] [-r <value>] [-a <value>] [--resyncData] [-f <value>] [-T ] [-C ] [-l |  | -g
-    repository|category|severity|patchable|os|osDetails|imageDigest|cve|byRepoUnderCve | [-d -c -o <value>]] [-U] [-S
-    <value>]
+  $ azgo acr vulns [--json] [--debug] [-s <value>] [-r <value>] [-a <value>] [--resyncData] [-f <value>] [-T ]
+    [-C ] [-l |  | -g repository|category|severity|patchable|os|osDetails|imageDigest|cve|byRepoUnderCve | [-d -c -o
+    <value>]] [-U] [-S <value>]
 
 FLAGS
   -C, --formatCsv                   Show output as CSV
@@ -173,8 +179,13 @@ FLAGS
                                     If not supplied, will attempt to acquire from ACR's ID string
   --resyncData                      Resync data from Azure to cache, and optionally (with -U) upload to MongoDB
 
+GLOBAL AZURE FLAGS
+  -s, --subscriptionId=<value>  Subscription ID to use.
+                                If not supplied, will use current active Azure CLI subscription.
+
 GLOBAL FLAGS
-  --json  Format output as json.
+  --debug  Testing only. Returns CLI config and, and some other debug info
+  --json   Format output as json.
 
 DESCRIPTION
   Get all vulnerabilities related to container images
@@ -216,15 +227,15 @@ FLAG DESCRIPTIONS
     ...
 ```
 
-## `azgo boards`
+## `azgo ado boards`
 
 Azure DevOps Boards related commands
 
 ```
 USAGE
-  $ azgo boards [--json] [-i <value> | -l] [-u <value>] [-c ] [-g state|type ] [-t
-    bug|task|decision|epic|feature|impediment|pbi|risk ] [--closed | [-s todo|inprogress|done|removed|new|approved|commi
-    tted|considered|identify|analyse|evaluate|treat|monitor|open|closed|all ] |  | --all]
+  $ azgo ado boards -o <value> [--json] [--debug] [--subscriptionId <value>] [-i <value> | -l] [-u <value>] [-c
+    ] [-g state|type ] [-t bug|task|decision|epic|feature|impediment|pbi|risk ] [--closed | [-s todo|inprogress|done|rem
+    oved|new|approved|committed|considered|identify|analyse|evaluate|treat|monitor|open|closed|all ] |  | --all]
 
 FLAGS
   -c, --onlyCount
@@ -265,8 +276,16 @@ FLAGS
   --closed
       Return all work items in any CLOSED state
 
+GLOBAL AZURE DEVOPS FLAGS
+  -o, --organization=<value>  (required) Organization to use for Azure DevOps related commands
+                              NOTE: Can also be set using AZGO_DEVOPS_ORG environment variable
+  --subscriptionId=<value>    Subscription ID to use.
+                              If not supplied, will use current active Azure CLI subscription.
+                              Configurable with "azgo config devops defaultSub" command.
+
 GLOBAL FLAGS
-  --json  Format output as json.
+  --debug  Testing only. Returns CLI config and, and some other debug info
+  --json   Format output as json.
 
 DESCRIPTION
   Azure DevOps Boards related commands
@@ -274,10 +293,30 @@ DESCRIPTION
   Current functionality is listing all items, with some filtering
 
 EXAMPLES
-  $ azgo boards
+  $ azgo ado boards
 ```
 
-_See code: [dist/commands/boards.ts](https://github.com/jercle/azgo/blob/v0.0.6/dist/commands/boards.ts)_
+## `azgo ado pr list [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ azgo ado pr list [FILE] [-n <value>] [-f]
+
+ARGUMENTS
+  FILE  file to read
+
+FLAGS
+  -f, --force
+  -n, --name=<value>  name to print
+
+DESCRIPTION
+  describe the command here
+
+EXAMPLES
+  $ azgo ado pr list
+```
 
 ## `azgo commands`
 
@@ -317,14 +356,22 @@ Shows the default subscription for Azure DevOps
 
 ```
 USAGE
-  $ azgo config devops defaultSub [FILE] [--json] [-s]
+  $ azgo config devops defaultSub [FILE] -o <value> [--json] [--debug] [--subscriptionId <value>] [-s]
 
 FLAGS
   -s, --select  Select the default subscription to be used by Azure DevOps commands from currently logged in Azure CLI
                 subscriptions
 
+GLOBAL AZURE DEVOPS FLAGS
+  -o, --organization=<value>  (required) Organization to use for Azure DevOps related commands
+                              NOTE: Can also be set using AZGO_DEVOPS_ORG environment variable
+  --subscriptionId=<value>    Subscription ID to use.
+                              If not supplied, will use current active Azure CLI subscription.
+                              Configurable with "azgo config devops defaultSub" command.
+
 GLOBAL FLAGS
-  --json  Format output as json.
+  --debug  Testing only. Returns CLI config and, and some other debug info
+  --json   Format output as json.
 
 DESCRIPTION
   Shows the default subscription for Azure DevOps
@@ -429,19 +476,24 @@ Display current configured Azure CLI subscriptions.
 
 ```
 USAGE
-  $ azgo subs [--json] [-a | -x]
+  $ azgo subs [--json] [--debug] [-s <value>] [-a | -x]
 
 FLAGS
   -a, --showActive  Show current active subscription for Azure CLI
   -x, --setActive   Set active subscription for Azure CLI
 
+GLOBAL AZURE FLAGS
+  -s, --subscriptionId=<value>  Subscription ID to use.
+                                If not supplied, will use current active Azure CLI subscription.
+
 GLOBAL FLAGS
-  --json  Format output as json.
+  --debug  Testing only. Returns CLI config and, and some other debug info
+  --json   Format output as json.
 
 DESCRIPTION
   Display current configured Azure CLI subscriptions.
   Lists subscriptinos, grouped by Tenant ID
 ```
 
-_See code: [dist/commands/subs.ts](https://github.com/jercle/azgo/blob/v0.0.6/dist/commands/subs.ts)_
+_See code: [dist/commands/subs.ts](https://github.com/jercle/azgo/blob/v0.0.7/dist/commands/subs.ts)_
 <!-- commandsstop -->
