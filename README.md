@@ -81,7 +81,7 @@ $ npm install -g azgo
 $ azgo COMMAND
 running command...
 $ azgo (--version)
-azgo/0.0.6 darwin-arm64 node-v18.9.1
+azgo/0.0.8 linux-x64 node-v18.15.0
 $ azgo --help [COMMAND]
 USAGE
   $ azgo COMMAND
@@ -93,11 +93,13 @@ USAGE
 * [`azgo acr repos list`](#azgo-acr-repos-list)
 * [`azgo acr repos purge`](#azgo-acr-repos-purge)
 * [`azgo acr vulns`](#azgo-acr-vulns)
-* [`azgo boards`](#azgo-boards)
+* [`azgo ado boards`](#azgo-ado-boards)
+* [`azgo ado pr list [FILE]`](#azgo-ado-pr-list-file)
 * [`azgo commands`](#azgo-commands)
+* [`azgo config devops defaultSub [FILE]`](#azgo-config-devops-defaultsub-file)
 * [`azgo generate azure app`](#azgo-generate-azure-app)
 * [`azgo generate azure platform`](#azgo-generate-azure-platform)
-* [`azgo help [COMMAND]`](#azgo-help-command)
+* [`azgo help [COMMANDS]`](#azgo-help-commands)
 * [`azgo subs`](#azgo-subs)
 
 ## `azgo acr repos list`
@@ -225,15 +227,15 @@ FLAG DESCRIPTIONS
     ...
 ```
 
-## `azgo boards`
+## `azgo ado boards`
 
 Azure DevOps Boards related commands
 
 ```
 USAGE
-  $ azgo boards -o <value> [--json] [--debug] [-i <value> | -l] [-u <value>] [-c ] [-g state|type ] [-t
-    bug|task|decision|epic|feature|impediment|pbi|risk ] [--closed | [-s todo|inprogress|done|removed|new|approved|commi
-    tted|considered|identify|analyse|evaluate|treat|monitor|open|closed|all ] |  | --all]
+  $ azgo ado boards -o <value> [--json] [--debug] [--subscriptionId <value>] [-i <value> | -l] [-u <value>] [-c
+    ] [-g state|type ] [-t bug|task|decision|epic|feature|impediment|pbi|risk ] [--closed | [-s todo|inprogress|done|rem
+    oved|new|approved|committed|considered|identify|analyse|evaluate|treat|monitor|open|closed|all ] |  | --all]
 
 FLAGS
   -c, --onlyCount
@@ -277,6 +279,9 @@ FLAGS
 GLOBAL AZURE DEVOPS FLAGS
   -o, --organization=<value>  (required) Organization to use for Azure DevOps related commands
                               NOTE: Can also be set using AZGO_DEVOPS_ORG environment variable
+  --subscriptionId=<value>    Subscription ID to use.
+                              If not supplied, will use current active Azure CLI subscription.
+                              Configurable with "azgo config devops defaultSub" command.
 
 GLOBAL FLAGS
   --debug  Testing only. Returns CLI config and, and some other debug info
@@ -288,10 +293,30 @@ DESCRIPTION
   Current functionality is listing all items, with some filtering
 
 EXAMPLES
-  $ azgo boards
+  $ azgo ado boards
 ```
 
-_See code: [dist/commands/boards.ts](https://github.com/jercle/azgo/blob/v0.0.6/dist/commands/boards.ts)_
+## `azgo ado pr list [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ azgo ado pr list [FILE] [-n <value>] [-f]
+
+ARGUMENTS
+  FILE  file to read
+
+FLAGS
+  -f, --force
+  -n, --name=<value>  name to print
+
+DESCRIPTION
+  describe the command here
+
+EXAMPLES
+  $ azgo ado pr list
+```
 
 ## `azgo commands`
 
@@ -323,7 +348,39 @@ DESCRIPTION
   list all the commands
 ```
 
-_See code: [@oclif/plugin-commands](https://github.com/oclif/plugin-commands/blob/v2.2.0/src/commands/commands.ts)_
+_See code: [@oclif/plugin-commands](https://github.com/oclif/plugin-commands/blob/v2.2.14/src/commands/commands.ts)_
+
+## `azgo config devops defaultSub [FILE]`
+
+Shows the default subscription for Azure DevOps
+
+```
+USAGE
+  $ azgo config devops defaultSub [FILE] -o <value> [--json] [--debug] [--subscriptionId <value>] [-s]
+
+FLAGS
+  -s, --select  Select the default subscription to be used by Azure DevOps commands from currently logged in Azure CLI
+                subscriptions
+
+GLOBAL AZURE DEVOPS FLAGS
+  -o, --organization=<value>  (required) Organization to use for Azure DevOps related commands
+                              NOTE: Can also be set using AZGO_DEVOPS_ORG environment variable
+  --subscriptionId=<value>    Subscription ID to use.
+                              If not supplied, will use current active Azure CLI subscription.
+                              Configurable with "azgo config devops defaultSub" command.
+
+GLOBAL FLAGS
+  --debug  Testing only. Returns CLI config and, and some other debug info
+  --json   Format output as json.
+
+DESCRIPTION
+  Shows the default subscription for Azure DevOps
+
+EXAMPLES
+  $ azgo config devops defaultSub
+
+  $ azgo config devops defaultSub --select
+```
 
 ## `azgo generate azure app`
 
@@ -382,7 +439,7 @@ FLAGS
       (required) Name of application
 
   -s, --subscriptionId=<value>
-      [default: 23310d40-a0d5-4446-8433-d0e6b151c2ab]
+      [default: bae338c7-6098-4d52-b173-e2147e107dfa]
       Subscription ID to use.
       If not supplied, will use current active Azure CLI subscription.
 
@@ -393,16 +450,16 @@ EXAMPLES
   $ azgo generate azure platform
 ```
 
-## `azgo help [COMMAND]`
+## `azgo help [COMMANDS]`
 
 Display help for azgo.
 
 ```
 USAGE
-  $ azgo help [COMMAND] [-n]
+  $ azgo help [COMMANDS] [-n]
 
 ARGUMENTS
-  COMMAND  Command to show help for.
+  COMMANDS  Command to show help for.
 
 FLAGS
   -n, --nested-commands  Include all nested commands in the output.
@@ -411,7 +468,7 @@ DESCRIPTION
   Display help for azgo.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.14/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.2.9/src/commands/help.ts)_
 
 ## `azgo subs`
 
@@ -435,9 +492,8 @@ GLOBAL FLAGS
 
 DESCRIPTION
   Display current configured Azure CLI subscriptions.
-
   Lists subscriptinos, grouped by Tenant ID
 ```
 
-_See code: [dist/commands/subs.ts](https://github.com/jercle/azgo/blob/v0.0.6/dist/commands/subs.ts)_
+_See code: [dist/commands/subs.ts](https://github.com/jercle/azgo/blob/v0.0.8/dist/commands/subs.ts)_
 <!-- commandsstop -->

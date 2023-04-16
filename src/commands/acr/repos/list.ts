@@ -1,4 +1,4 @@
-import { Command, Flags, CliUx } from '@oclif/core'
+import { Flags } from '@oclif/core'
 import AzureCommand from "../../../baseAzure.js"
 
 // import { writeFileSync } from 'fs'
@@ -45,7 +45,7 @@ export default class AcrReposList extends AzureCommand {
 
   // { acrRegistry, outfile, includeManifests, resyncData, subscriptionId, }
 
-  static args = []
+  static args = {}
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(AcrReposList)

@@ -17,7 +17,7 @@ export default class GenerateAzureApp extends Command {
     // force: Flags.boolean({ char: 'f' }),
   }
 
-  static args = []
+  static args = {}
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(GenerateAzureApp)

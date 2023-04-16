@@ -1,8 +1,10 @@
-import { Command, Flags } from '@oclif/core'
+import { Args, Flags } from '@oclif/core'
 
 import AzureDevOpsCommand from "../../../baseAzureDevOps.js"
 
 import { selectActiveAzureDevOpsSubscription } from '../../../funcs/selectActiveSubscription.js'
+
+import { initConfig } from '../../../funcs/azgoUtils.js'
 
 export default class ConfigDevopsDefaultSub extends AzureDevOpsCommand {
   static description = 'Shows the default subscription for Azure DevOps'
@@ -23,7 +25,9 @@ export default class ConfigDevopsDefaultSub extends AzureDevOpsCommand {
     // force: Flags.boolean({ char: 'f' }),
   }
 
-  static args = [{ name: 'file' }]
+  static args = {
+    file: Args.string({decription: "file to read"})
+   }
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(ConfigDevopsDefaultSub)
@@ -36,6 +40,8 @@ export default class ConfigDevopsDefaultSub extends AzureDevOpsCommand {
     // if (args.file && flags.force) {
     //   this.log(`you input --force and --file: ${args.file}`)
     // }
+
+
 
     // if (process.env.XDG_CONFIG_HOME) {
     //   initConfig(process.env.XDG_CONFIG_HOME)
