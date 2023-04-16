@@ -81,7 +81,7 @@ $ npm install -g azgo
 $ azgo COMMAND
 running command...
 $ azgo (--version)
-azgo/0.0.7 linux-x64 node-v18.15.0
+azgo/0.0.8 linux-x64 node-v18.15.0
 $ azgo --help [COMMAND]
 USAGE
   $ azgo COMMAND
@@ -495,5 +495,5 @@ DESCRIPTION
   Lists subscriptinos, grouped by Tenant ID
 ```
 
-_See code: [dist/commands/subs.ts](https://github.com/jercle/azgo/blob/v0.0.7/dist/commands/subs.ts)_
+_See code: [dist/commands/subs.ts](https://github.com/jercle/azgo/blob/v0.0.8/dist/commands/subs.ts)_
 <!-- commandsstop -->
