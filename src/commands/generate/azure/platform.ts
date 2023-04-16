@@ -62,7 +62,7 @@ export default class GenerateAzurePlatform extends Command {
     })
   }
 
-  static args = []
+  static args = {}
 
   public async run(): Promise<void> {
 

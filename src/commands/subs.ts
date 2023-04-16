@@ -31,7 +31,7 @@ export default class Subs extends AzureCommand {
     }),
   }
 
-  static args = []
+  static args = {}
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(Subs)
