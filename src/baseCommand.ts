@@ -7,7 +7,7 @@ export default abstract class extends Command {
   //   loglevel: Flags.string({options: ['error', 'warn', 'info', 'debug']})
   // }
   public static enableJsonFlag = true
-  static globalFlags = {
+  static baseFlags = {
     // interactive: Flags.boolean({
     //   char: 'i',
     //   description: 'Run command in interactive mode',

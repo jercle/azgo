@@ -3,7 +3,7 @@ import { homedir } from 'os';
 
 import { DefaultAzureCredential } from '@azure/identity'
 
-import { CliUx, Flags } from '@oclif/core'
+import { ux, Flags } from '@oclif/core'
 import AzureCommand from "../../baseAzure.js"
 
 
@@ -155,7 +155,7 @@ export default class AcrVulns extends AzureCommand {
   }
   // { acrRegistry, outfile, includeManifests, resyncData },
   // { assessmentId, subscriptionId, resourceGroup, acrRegistry, outfile, resyncData},
-  static args = []
+  static args = {}
 
   public async run(): Promise<void> {
     const { flags } = await this.parse(AcrVulns)
@@ -304,7 +304,7 @@ Is "${opts.acrRegistryId.split('/')[4]}" correct?`,
     if (opts.groupBy && opts.showCounts) {
       const result = countByAttribute(filteredData, opts.groupBy, "array")
       if (opts.formatTable || opts.formatCsv) {
-        CliUx.ux.table(<any>result, {
+        ux.table(<any>result, {
           attr: {
             header: "Attribute"
           },

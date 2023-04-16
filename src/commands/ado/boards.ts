@@ -1,8 +1,8 @@
 import { Flags } from '@oclif/core'
 
-import AzureDevOpsCommand from "../baseAzureDevOps.js"
-import { formatWorkItems, printWorkItems } from '../funcs/azgoUtils.js'
-import listMyWorkItems, { buildFilterQuery, getWorkItem } from '../funcs/dev-listMyWorkItems.js'
+import AzureDevOpsCommand from "../../baseAzureDevOps.js"
+import { formatWorkItems, printWorkItems } from '../../funcs/azgoUtils.js'
+import listMyWorkItems, { buildFilterQuery, getWorkItem } from '../../funcs/dev-listMyWorkItems.js'
 
 
 export default class Boards extends AzureDevOpsCommand {
@@ -110,7 +110,7 @@ export default class Boards extends AzureDevOpsCommand {
     }),
   }
 
-  static args = []
+  static args = {}
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(Boards)
