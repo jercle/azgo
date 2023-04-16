@@ -29,8 +29,8 @@ export default abstract class extends BaseCommand {
 
   static flags = {}
 
-  static globalFlags = {
-    ...BaseCommand.globalFlags,
+  static baseFlags = {
+    ...BaseCommand.baseFlags,
     subscriptionId: Flags.string({
       description: `
       Subscription ID to use.
