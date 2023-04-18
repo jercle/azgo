@@ -20,12 +20,6 @@ export default class Boards extends AzureDevOpsCommand {
       description: 'ID of the work item to display',
       exclusive: ['list'],
     }),
-    user: Flags.string({
-      char: 'u', description: `User's full name or Email address used for Azure DevOps login
-    "John Smith" or "john.smith@org.com.au" to filter by assignment
-
-    NOTE: If not provided, email address used with current active subscription will be used.
-    This can be found or changed with the "azgo subs" command.`}),
     list: Flags.boolean({
       char: 'l',
       description: "List all work items assigned to given user"

@@ -49,6 +49,12 @@ export default abstract class extends BaseCommand {
       env: 'AZGO_DEVOPS_ORG',
       required: true
     }),
+    user: Flags.string({
+      char: 'u', description: `User's full name or Email address used for Azure DevOps login
+    "John Smith" or "john.smith@org.com.au" to filter by assignment
+
+    NOTE: If not provided, email address used with current active subscription will be used.
+    This can be found or changed with the "azgo subs" command.`}),
   };
 
   async init() {
