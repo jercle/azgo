@@ -1,6 +1,8 @@
-import {Args, Command, Flags} from '@oclif/core'
+import {Args, Flags} from '@oclif/core'
 
-export default class AdoPrList extends Command {
+import AzureDevOpsCommand from "../../../baseAzureDevOps.js"
+
+export default class AdoPrList extends AzureDevOpsCommand {
   static description = 'describe the command here'
 
   static examples = [
