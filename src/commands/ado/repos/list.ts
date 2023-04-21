@@ -1,8 +1,6 @@
-import {Args, Flags} from '@oclif/core'
+import {Args, Command, Flags} from '@oclif/core'
 
-import AzureDevOpsCommand from "../../../baseAzureDevOps.js"
-
-export default class AdoPrList extends AzureDevOpsCommand {
+export default class AdoReposList extends Command {
   static description = 'describe the command here'
 
   static examples = [
@@ -21,10 +19,10 @@ export default class AdoPrList extends AzureDevOpsCommand {
   }
 
   public async run(): Promise<void> {
-    const {args, flags} = await this.parse(AdoPrList)
+    const {args, flags} = await this.parse(AdoReposList)
 
     const name = flags.name ?? 'world'
-    this.log(`hello ${name} from /home/jercle/git/azgo/src/commands/ado/pr/list.ts`)
+    this.log(`hello ${name} from /home/ec2-user/git/azgo/src/commands/ado/repos/list.ts`)
     if (args.file && flags.force) {
       this.log(`you input --force and --file: ${args.file}`)
     }
