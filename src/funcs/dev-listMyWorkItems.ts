@@ -1,4 +1,4 @@
-import axios from 'axios'
+import * as axios from 'axios'
 import chalk from 'chalk'
 // import { readFileSync, writeFileSync } from 'fs';
 import { stripHtml } from '../funcs/azgoUtils.js'
