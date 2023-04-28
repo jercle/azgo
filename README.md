@@ -81,7 +81,7 @@ $ npm install -g azgo
 $ azgo COMMAND
 running command...
 $ azgo (--version)
-azgo/0.0.8 linux-x64 node-v18.15.0
+azgo/0.0.8 darwin-arm64 node-v18.9.1
 $ azgo --help [COMMAND]
 USAGE
   $ azgo COMMAND
@@ -94,7 +94,8 @@ USAGE
 * [`azgo acr repos purge`](#azgo-acr-repos-purge)
 * [`azgo acr vulns`](#azgo-acr-vulns)
 * [`azgo ado boards`](#azgo-ado-boards)
-* [`azgo ado pr list [FILE]`](#azgo-ado-pr-list-file)
+* [`azgo ado repos list [FILE]`](#azgo-ado-repos-list-file)
+* [`azgo ado repos pr list [FILE]`](#azgo-ado-repos-pr-list-file)
 * [`azgo commands`](#azgo-commands)
 * [`azgo config devops defaultSub [FILE]`](#azgo-config-devops-defaultsub-file)
 * [`azgo generate azure app`](#azgo-generate-azure-app)
@@ -233,7 +234,7 @@ Azure DevOps Boards related commands
 
 ```
 USAGE
-  $ azgo ado boards -o <value> [--json] [--debug] [--subscriptionId <value>] [-i <value> | -l] [-u <value>] [-c
+  $ azgo ado boards -o <value> [--json] [--debug] [--subscriptionId <value>] [-u <value>] [-i <value> | -l] [-c
     ] [-g state|type ] [-t bug|task|decision|epic|feature|impediment|pbi|risk ] [--closed | [-s todo|inprogress|done|rem
     oved|new|approved|committed|considered|identify|analyse|evaluate|treat|monitor|open|closed|all ] |  | --all]
 
@@ -296,13 +297,13 @@ EXAMPLES
   $ azgo ado boards
 ```
 
-## `azgo ado pr list [FILE]`
+## `azgo ado repos list [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ azgo ado pr list [FILE] [-n <value>] [-f]
+  $ azgo ado repos list [FILE] [-n <value>] [-f]
 
 ARGUMENTS
   FILE  file to read
@@ -315,7 +316,46 @@ DESCRIPTION
   describe the command here
 
 EXAMPLES
-  $ azgo ado pr list
+  $ azgo ado repos list
+```
+
+## `azgo ado repos pr list [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ azgo ado repos pr list [FILE] -o <value> [--json] [--debug] [--subscriptionId <value>] [-u <value>] [-n <value>]
+    [-f]
+
+ARGUMENTS
+  FILE  file to read
+
+FLAGS
+  -f, --force
+  -n, --name=<value>  name to print
+  -u, --user=<value>  User's full name or Email address used for Azure DevOps login
+                      "John Smith" or "john.smith@org.com.au" to filter by assignment
+
+                      NOTE: If not provided, email address used with current active subscription will be used.
+                      This can be found or changed with the "azgo subs" command.
+
+GLOBAL AZURE DEVOPS FLAGS
+  -o, --organization=<value>  (required) Organization to use for Azure DevOps related commands
+                              NOTE: Can also be set using AZGO_DEVOPS_ORG environment variable
+  --subscriptionId=<value>    Subscription ID to use.
+                              If not supplied, will use current active Azure CLI subscription.
+                              Configurable with "azgo config devops defaultSub" command.
+
+GLOBAL FLAGS
+  --debug  Testing only. Returns CLI config and, and some other debug info
+  --json   Format output as json.
+
+DESCRIPTION
+  describe the command here
+
+EXAMPLES
+  $ azgo ado repos pr list
 ```
 
 ## `azgo commands`
@@ -356,11 +396,16 @@ Shows the default subscription for Azure DevOps
 
 ```
 USAGE
-  $ azgo config devops defaultSub [FILE] -o <value> [--json] [--debug] [--subscriptionId <value>] [-s]
+  $ azgo config devops defaultSub [FILE] -o <value> [--json] [--debug] [--subscriptionId <value>] [-u <value>] [-s]
 
 FLAGS
-  -s, --select  Select the default subscription to be used by Azure DevOps commands from currently logged in Azure CLI
-                subscriptions
+  -s, --select        Select the default subscription to be used by Azure DevOps commands from currently logged in Azure
+                      CLI subscriptions
+  -u, --user=<value>  User's full name or Email address used for Azure DevOps login
+                      "John Smith" or "john.smith@org.com.au" to filter by assignment
+
+                      NOTE: If not provided, email address used with current active subscription will be used.
+                      This can be found or changed with the "azgo subs" command.
 
 GLOBAL AZURE DEVOPS FLAGS
   -o, --organization=<value>  (required) Organization to use for Azure DevOps related commands
