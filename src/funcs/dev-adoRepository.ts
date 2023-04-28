@@ -25,7 +25,7 @@ const project = 'azure-terraform'
 export async function listADORepositories(organization: string, project: string) {
   const { data } = await axios.default({
     method: "GET",
-    url: `https://dev.azure.com/${organization}/${project}/_apis/git/repositories?api-version=7.0ttps://dev.azure.com/${organization}/_apis/wit/workitems/${id}?api-version=7.1-preview.3`,
+    url: `https://dev.azure.com/${organization}/${project}/_apis/git/repositories?api-version=7.0`,
     auth: {
       username: "",
       password: pat,
