@@ -1,6 +1,6 @@
 {
   "name": "azgo",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Azure Tooling with enhanced reporting, data aggregation, and UX",
   "author": "Evan Colwell @jercle",
   "bin": {
