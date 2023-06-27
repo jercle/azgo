@@ -34,7 +34,7 @@
     "@azure/arm-security": "^5.0.0",
     "@azure/container-registry": "^1.0.0",
     "@azure/identity": "^3.1.4",
-    "@oclif/core": "^2.8.2",
+    "@oclif/core": "^2.8.8",
     "@oclif/plugin-commands": "^2.2.14",
     "@oclif/plugin-help": "^5.2.9",
     "@oclif/plugin-plugins": "^2.4.7",
