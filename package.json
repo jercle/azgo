@@ -45,10 +45,10 @@
     "esm": "^3.2.25",
     "inquirer": "^9.2.0",
     "mongodb": "^5.3.0",
-    "oclif": "^3",
+    "oclif": "^4.0.0",
     "open": "^9.1.0",
     "yaml": "^2.2.2",
-    "yeoman-environment": "^3.15.1"
+    "yeoman-environment": "^4.0.0"
   },
   "devDependencies": {
     "@oclif/test": "^2.3.17",
@@ -60,7 +60,7 @@
     "eslint-config-oclif": "^4",
     "eslint-config-oclif-typescript": "^1.0.3",
     "mocha": "^10",
-    "oclif": "^3",
+    "oclif": "^4.0.0",
     "shx": "^0.3.3",
     "ts-node": "^10.9.1",
     "tslib": "^2.5.0",
