@@ -43,7 +43,7 @@
     "command-exists": "^1.2.9",
     "date-fns": "^2.30.0",
     "esm": "^3.2.25",
-    "inquirer": "^9.2.0",
+    "inquirer": "^9.2.12",
     "mongodb": "^5.8.0",
     "oclif": "^3",
     "open": "^9.1.0",
