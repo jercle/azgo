@@ -54,7 +54,7 @@
     "@oclif/test": "^2.3.33",
     "@types/chai": "^4",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^20.4.4",
+    "@types/node": "^20.10.5",
     "chai": "^4",
     "eslint": "^8.45.0",
     "eslint-config-oclif": "^4",
