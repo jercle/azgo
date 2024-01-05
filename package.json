@@ -53,7 +53,7 @@
   "devDependencies": {
     "@oclif/test": "^2.3.33",
     "@types/chai": "^4",
-    "@types/mocha": "^10.0.1",
+    "@types/mocha": "^10.0.6",
     "@types/node": "^20.4.4",
     "chai": "^4",
     "eslint": "^8.45.0",
