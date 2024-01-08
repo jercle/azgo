@@ -35,7 +35,7 @@
     "@azure/container-registry": "^1.1.0",
     "@azure/identity": "^4.0.0",
     "@oclif/core": "^3.16.0",
-    "@oclif/plugin-commands": "^3.0.8",
+    "@oclif/plugin-commands": "^3.1.0",
     "@oclif/plugin-help": "^6.0.9",
     "@oclif/plugin-plugins": "^4.1.14",
     "axios": "^1.6.4",
