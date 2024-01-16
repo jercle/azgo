@@ -13,7 +13,7 @@ const opts = {
   includeManifests: process.env.AZGO_INCLUDE_MANIFESTS,
   resyncData: process.env.AZGO_RESYNC_DATA,
   subscriptionId: process.env.AZGO_SUBSCRIPTION_ID,
-  cacheDir: '/Users/jercle/git/azgo/tempcache'
+  cacheDir: '/home/jercle/git/azgo/tempcache'
 }
 
 // const json = getCache('repositories', opts.subscriptionId, opts.cacheDir)
