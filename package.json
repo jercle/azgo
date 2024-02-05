@@ -37,7 +37,7 @@
     "@oclif/core": "^3.16.0",
     "@oclif/plugin-commands": "^3.1.1",
     "@oclif/plugin-help": "^6.0.12",
-    "@oclif/plugin-plugins": "^4.1.22",
+    "@oclif/plugin-plugins": "^4.2.1",
     "axios": "^1.6.5",
     "chalk": "^5.3.0",
     "command-exists": "^1.2.9",
