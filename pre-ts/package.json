@@ -30,7 +30,10 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
+    "@azure/arm-billing": "^4.1.0",
+    "@azure/arm-consumption": "^9.2.0",
     "@azure/arm-containerregistry": "^10.1.0",
+    "@azure/arm-costmanagement": "^1.0.0-beta.1",
     "@azure/arm-security": "^5.0.0",
     "@azure/container-registry": "^1.1.0",
     "@azure/identity": "^4.0.1",

@@ -1,7 +1,7 @@
 import * as axios from 'axios'
 import chalk from 'chalk'
 // import { readFileSync, writeFileSync } from 'fs';
-import { stripHtml } from '../funcs/azgoUtils.js'
+import { stripHtml } from './azgoUtils.js'
 
 const pat = process.env.AZURE_DEVOPS_EXT_PAT
 

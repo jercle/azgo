@@ -7,14 +7,14 @@ import getAllContainerRepositories from './getAllContainerRepositories.js'
 import getAllContainerRegistries from './dev-getAllContainerRegistries.js'
 import getSubAssessments from './getSubAssessments.js'
 
-const opts = {
-  acrRegistry: process.env.AZGO_ACR_REGISTRY,
-  outfile: process.env.AZGO_SAVE_FILE,
-  includeManifests: process.env.AZGO_INCLUDE_MANIFESTS,
-  resyncData: process.env.AZGO_RESYNC_DATA,
-  subscriptionId: process.env.AZGO_SUBSCRIPTION_ID,
-  cacheDir: '/home/jercle/git/azgo/tempcache'
-}
+// const opts = {
+//   acrRegistry: process.env.AZGO_ACR_REGISTRY,
+//   outfile: process.env.AZGO_SAVE_FILE,
+//   includeManifests: process.env.AZGO_INCLUDE_MANIFESTS,
+//   resyncData: process.env.AZGO_RESYNC_DATA,
+//   subscriptionId: process.env.AZGO_SUBSCRIPTION_ID,
+//   cacheDir: '/home/jercle/git/azgo/tempcache'
+// }
 
 // const json = getCache('repositories', opts.subscriptionId, opts.cacheDir)
 
@@ -34,7 +34,7 @@ export function setCache(
   cacheFileName: string,
   data: Object,
   subscriptionId: string,
-  cacheDir: string = process.env.XDG_CACHE_HOME || this.config.cacheDir): void {
+  cacheDir: string = process.env.XDG_CACHE_HOME || global.config.cacheDir): void {
 
   const cacheLocation = `${cacheDir}/${subscriptionId}/${cacheFileName}.json`
   console.log(`Cache saved to ${cacheLocation}`)
@@ -57,7 +57,7 @@ export function setCache(
 export function getCache(
   cacheFileName: string,
   subscriptionId: string,
-  cacheDir: string = process.env.XDG_CACHE_HOME || this.config.cacheDir) {
+  cacheDir: string = process.env.XDG_CACHE_HOME || global.config.cacheDir) {
 
   // console.log(subscriptionId)
 
@@ -96,7 +96,7 @@ export function getCache(
 export function cacheExists(
   cacheFileName: string,
   subscriptionId: string,
-  cacheDir: string = process.env.XDG_CACHE_HOME || this.config.cacheDir) {
+  cacheDir: string = process.env.XDG_CACHE_HOME || global.config.cacheDir) {
   const subCacheDir = `${cacheDir}/${subscriptionId}`
   if (!existsSync(subCacheDir)) {
     return false

@@ -12,7 +12,7 @@ import {
   KnownContainerRegistryAudience,
 } from "@azure/container-registry"
 
-import { cacheExists, getCache, setCache } from '../funcs/azgoCaching.js'
+import { cacheExists, getCache, setCache } from './azgoCaching.js'
 
 // import moment = require("momment")
 
