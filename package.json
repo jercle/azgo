@@ -48,7 +48,7 @@
     "oclif": "^4",
     "open": "^10.0.3",
     "yaml": "^2.3.4",
-    "yeoman-environment": "^4.2.1"
+    "yeoman-environment": "^4.3.0"
   },
   "devDependencies": {
     "@oclif/test": "^3.1.17",
