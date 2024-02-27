@@ -51,7 +51,7 @@
     "yeoman-environment": "^4.3.0"
   },
   "devDependencies": {
-    "@oclif/test": "^3.1.17",
+    "@oclif/test": "^3.2.1",
     "@types/chai": "^4",
     "@types/mocha": "^10.0.6",
     "@types/node": "^20.11.19",
