@@ -6,7 +6,7 @@ faker.seed(69420)
 const dataPath = "./fakedata/nsgLogs"
 
 if (!existsSync(dataPath)) {
-  mkdirSync(dataPath, {recursive: true})
+  mkdirSync(dataPath, { recursive: true })
 }
 
 const ipAddresses = {
