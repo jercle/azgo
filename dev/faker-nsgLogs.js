@@ -3,10 +3,10 @@ import { writeFileSync, existsSync, mkdirSync } from 'fs';
 
 faker.seed(69420)
 
-const testDataPath = "./testData/nsgLogs"
+const dataPath = "./fakedata/nsgLogs"
 
-if (!existsSync(testDataPath)) {
-  mkdirSync(testDataPath, {recursive: true})
+if (!existsSync(dataPath)) {
+  mkdirSync(dataPath, {recursive: true})
 }
 
 const ipAddresses = {
@@ -34,7 +34,7 @@ for (let i = 0; i < 1000; i++) {
     }
   })
 
-  writeFileSync(`${testDataPath}/${fileNames[i]}.json`, JSON.stringify(testData, null, 2))
+  writeFileSync(`${dataPath}/${fileNames[i]}.json`, JSON.stringify(testData, null, 2))
 }
 
 function createFlowData(dateTime) {

@@ -4,6 +4,8 @@ import path from 'path'
 
 import cliProgress from "cli-progress"
 
+const dataPath = "./fakedata/nsgLogs"
+
 function formatValue(v, options, type) {
   function autopadding(value, length) {
     return (options.autopaddingChar + value).slice(-length)
@@ -44,7 +46,7 @@ const getAllFiles = dir =>
     return isDirectory ? [...files, ...getAllFiles(name)] : [...files, name];
   }, []);
 
-const allFileNames = getAllFiles("./nsgLogs")
+const allFileNames = getAllFiles(dataPath)
 
 
 
