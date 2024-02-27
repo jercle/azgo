@@ -46,5 +46,5 @@ for (let i = 0; i < 1000; i++) {
     min: 100, max: 1000
   }})
 
-  writeFileSync(`../testData/nsgLogs/${fileNames[i]}.log`, JSON.stringify(testData))
+  writeFileSync(`../testData/nsgLogs/${fileNames[i]}.json`, JSON.stringify(testData, null, 2))
 }
