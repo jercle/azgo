@@ -1,0 +1,1885 @@
+[
+  {
+    "time": "2024-01-06T22:45:03.804Z",
+    "systemId": "88a6d27b-448d-40b2-9d1c-b03c38a073cd",
+    "macAddress": "2021b1eb4b4e",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/humming-spokeswoman/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "2ec32c288d2d",
+              "flowTuples": [
+                "1704581103,195.62.207.231,255.254.162.199,885,15071,T,I,D",
+                "1704581103,14.89.54.27,187.3.145.127,20574,19029,T,I,D",
+                "1704581103,100.75.170.253,187.3.145.127,17417,63150,T,I,D",
+                "1704581103,173.127.170.233,255.254.162.199,39295,55225,T,I,D",
+                "1704581103,117.249.139.124,255.254.162.199,48613,254,T,I,D",
+                "1704581103,167.98.33.13,187.3.145.127,26291,22478,T,I,D",
+                "1704581103,234.189.141.177,187.3.145.127,25335,196,T,I,D",
+                "1704581103,204.104.111.233,255.254.162.199,26207,21663,T,I,D",
+                "1704581103,18.148.58.242,255.254.162.199,47378,58367,T,I,D",
+                "1704581103,28.208.21.92,255.254.162.199,26309,44437,T,I,D",
+                "1704581103,14.89.54.27,187.3.145.127,63688,17067,T,I,D",
+                "1704581103,65.90.208.100,255.254.162.199,373,5969,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-21T18:26:39.806Z",
+    "systemId": "1c73a32e-79f6-4e9a-8fb3-2a2fc56831bb",
+    "macAddress": "b09c93088712",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/violet-hospitalisation/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "c387c1d53dcf",
+              "flowTuples": [
+                "1705861599,178.58.109.143,255.254.162.199,10847,8167,T,I,D",
+                "1705861599,178.18.239.8,187.3.145.127,51941,42445,T,I,D",
+                "1705861599,147.227.255.39,255.254.162.199,10490,59977,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-16T23:27:22.146Z",
+    "systemId": "2b2c4a25-e979-49c5-b3d7-7cb7ecbdd801",
+    "macAddress": "9b638d746b47",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/serpentine-tectonics/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "45a7ce2a0a02",
+              "flowTuples": [
+                "1705447642,213.239.18.244,187.3.145.127,62891,40300,T,I,D",
+                "1705447642,94.249.215.151,187.3.145.127,41196,3545,T,I,D",
+                "1705447642,179.54.66.163,187.3.145.127,52030,54403,T,I,D",
+                "1705447642,74.93.27.248,255.254.162.199,47686,25734,T,I,D",
+                "1705447642,147.227.255.39,187.3.145.127,10883,18841,T,I,D",
+                "1705447642,72.135.21.25,187.3.145.127,33766,26679,T,I,D",
+                "1705447642,213.239.18.244,187.3.145.127,22798,64336,T,I,D",
+                "1705447642,234.189.141.177,255.254.162.199,38369,20392,T,I,D",
+                "1705447642,178.18.239.8,187.3.145.127,25711,28185,T,I,D",
+                "1705447642,100.30.165.38,187.3.145.127,35922,20589,T,I,D",
+                "1705447642,65.160.66.224,255.254.162.199,29696,62534,T,I,D",
+                "1705447642,65.205.124.30,187.3.145.127,21853,62608,T,I,D",
+                "1705447642,55.111.233.7,187.3.145.127,7198,60282,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-11T02:47:12.557Z",
+    "systemId": "80704668-efcf-4e4f-a31c-c5b67eeaca00",
+    "macAddress": "16cef629b6c0",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/decimal-chairperson/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "1693636efa06",
+              "flowTuples": [
+                "1704941232,23.226.184.65,255.254.162.199,39272,57775,T,I,D",
+                "1704941232,234.189.141.177,187.3.145.127,39421,15239,T,I,D",
+                "1704941232,153.42.72.226,255.254.162.199,10089,46988,T,I,D",
+                "1704941232,26.159.98.87,187.3.145.127,47649,26107,T,I,D",
+                "1704941232,153.26.122.58,187.3.145.127,16972,3765,T,I,D",
+                "1704941232,213.239.18.244,187.3.145.127,2173,1482,T,I,D",
+                "1704941232,205.203.98.83,255.254.162.199,16283,59362,T,I,D",
+                "1704941232,245.102.10.27,255.254.162.199,57866,27586,T,I,D",
+                "1704941232,197.192.69.17,255.254.162.199,31810,52534,T,I,D",
+                "1704941232,60.75.49.92,255.254.162.199,19012,54300,T,I,D",
+                "1704941232,153.26.122.58,187.3.145.127,50436,41355,T,I,D",
+                "1704941232,152.84.97.176,255.254.162.199,29430,62557,T,I,D",
+                "1704941232,65.160.66.224,255.254.162.199,23131,1260,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-20T01:28:06.057Z",
+    "systemId": "85c2a2f2-fbe6-4e8f-ad00-ab76c4cedd97",
+    "macAddress": "d6fc713a5f78",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/corrupt-photodiode/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "d96f1cb79198",
+              "flowTuples": [
+                "1705714086,179.54.66.163,187.3.145.127,30498,14048,T,I,D",
+                "1705714086,195.64.218.95,255.254.162.199,13330,42747,T,I,D",
+                "1705714086,6.31.142.68,255.254.162.199,65428,37810,T,I,D",
+                "1705714086,234.62.222.244,255.254.162.199,41949,32962,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-24T01:25:20.606Z",
+    "systemId": "40fddfdd-4728-408a-a4f0-1edc34dada15",
+    "macAddress": "c22c13bf5070",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/remorseful-read/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "bd9b118877bc",
+              "flowTuples": [
+                "1706059520,19.34.190.136,255.254.162.199,50415,16440,T,I,D",
+                "1706059520,153.26.122.58,255.254.162.199,29968,39323,T,I,D",
+                "1706059520,65.205.124.30,187.3.145.127,13545,11360,T,I,D",
+                "1706059520,195.62.207.231,187.3.145.127,26603,15284,T,I,D",
+                "1706059520,26.218.195.196,187.3.145.127,26889,52251,T,I,D",
+                "1706059520,204.104.111.233,255.254.162.199,41885,33757,T,I,D",
+                "1706059520,100.75.170.253,187.3.145.127,52410,31414,T,I,D",
+                "1706059520,74.126.57.78,255.254.162.199,35144,62064,T,I,D",
+                "1706059520,56.219.211.16,255.254.162.199,12570,61655,T,I,D",
+                "1706059520,176.159.143.162,187.3.145.127,61554,8349,T,I,D",
+                "1706059520,65.90.208.100,255.254.162.199,60417,52171,T,I,D",
+                "1706059520,20.68.5.7,255.254.162.199,6818,63373,T,I,D",
+                "1706059520,64.99.248.57,187.3.145.127,63285,58175,T,I,D",
+                "1706059520,100.75.170.253,187.3.145.127,46518,62839,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-04T02:39:45.049Z",
+    "systemId": "5aa88824-a1f8-40d2-adfd-774554bceb5c",
+    "macAddress": "6288bc784945",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/everlasting-airforce/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "cdf31713b4a5",
+              "flowTuples": [
+                "1704335985,64.99.248.57,187.3.145.127,37237,24697,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-24T08:16:47.103Z",
+    "systemId": "fc023fb8-2267-405b-b798-d2dc20a2c6b5",
+    "macAddress": "6b6f67c93891",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/splendid-tactics/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "2f47d6479ec4",
+              "flowTuples": [
+                "1706084207,173.202.60.187,255.254.162.199,10979,40499,T,I,D",
+                "1706084207,211.87.177.110,255.254.162.199,749,20089,T,I,D",
+                "1706084207,100.30.165.38,255.254.162.199,27534,26841,T,I,D",
+                "1706084207,165.79.109.86,255.254.162.199,61565,50607,T,I,D",
+                "1706084207,117.249.139.124,255.254.162.199,48448,1019,T,I,D",
+                "1706084207,173.202.60.187,187.3.145.127,24637,52197,T,I,D",
+                "1706084207,120.140.101.30,255.254.162.199,24550,26243,T,I,D",
+                "1706084207,204.104.111.233,187.3.145.127,57636,35195,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-03T12:31:36.555Z",
+    "systemId": "b73e4b80-1dc9-47f7-b24c-a59ee318ffd8",
+    "macAddress": "f9ac216f6ed3",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/diligent-poker/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "aa367ba127d5",
+              "flowTuples": [
+                "1704285096,129.138.218.79,255.254.162.199,64700,29918,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-17T02:00:42.645Z",
+    "systemId": "88e7d847-7def-43e0-8208-c9860954311e",
+    "macAddress": "74e3d0e0f3bb",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/bronze-wage/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "b5c4a8459531",
+              "flowTuples": [
+                "1705456842,47.157.173.58,187.3.145.127,53574,33372,T,I,D",
+                "1705456842,236.174.31.12,255.254.162.199,58953,62,T,I,D",
+                "1705456842,3.157.214.202,255.254.162.199,13025,37003,T,I,D",
+                "1705456842,236.174.31.12,255.254.162.199,65009,51867,T,I,D",
+                "1705456842,65.205.124.30,187.3.145.127,49217,63867,T,I,D",
+                "1705456842,56.219.211.16,187.3.145.127,16446,17202,T,I,D",
+                "1705456842,120.252.74.18,187.3.145.127,13288,43682,T,I,D",
+                "1705456842,227.154.88.23,255.254.162.199,57955,48138,T,I,D",
+                "1705456842,204.104.79.211,255.254.162.199,18966,7356,T,I,D",
+                "1705456842,248.103.38.56,255.254.162.199,41114,53709,T,I,D",
+                "1705456842,61.207.91.159,187.3.145.127,45330,49082,T,I,D",
+                "1705456842,38.18.233.49,255.254.162.199,43736,65369,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-06T17:58:40.240Z",
+    "systemId": "8555a83a-b541-4bf5-a9ef-6f4cfb356438",
+    "macAddress": "7cf1f7a684a2",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/frosty-reconsideration/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "f05362367b90",
+              "flowTuples": [
+                "1704563920,20.68.5.7,187.3.145.127,8039,64760,T,I,D",
+                "1704563920,14.89.54.27,255.254.162.199,1859,22620,T,I,D",
+                "1704563920,94.249.215.151,187.3.145.127,62074,35220,T,I,D",
+                "1704563920,229.91.214.90,255.254.162.199,17110,12244,T,I,D",
+                "1704563920,110.247.111.39,255.254.162.199,10755,45038,T,I,D",
+                "1704563920,21.118.29.168,255.254.162.199,5861,16108,T,I,D",
+                "1704563920,135.52.51.26,255.254.162.199,63626,37570,T,I,D",
+                "1704563920,117.249.139.124,187.3.145.127,41027,34929,T,I,D",
+                "1704563920,17.150.213.196,187.3.145.127,47976,9743,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-23T12:21:31.721Z",
+    "systemId": "f9deadd3-309a-4db5-82f6-0d539344e75b",
+    "macAddress": "911c4a94ac1f",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/fake-haste/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "1df6ae8b4a8c",
+              "flowTuples": [
+                "1706012491,211.87.177.110,187.3.145.127,35749,7121,T,I,D",
+                "1706012491,104.120.14.180,187.3.145.127,46909,26961,T,I,D",
+                "1706012491,47.134.70.179,187.3.145.127,54176,31388,T,I,D",
+                "1706012491,46.166.222.10,255.254.162.199,54742,16505,T,I,D",
+                "1706012491,100.75.170.253,187.3.145.127,19410,24503,T,I,D",
+                "1706012491,65.90.208.100,255.254.162.199,56096,13675,T,I,D",
+                "1706012491,83.180.154.131,187.3.145.127,11163,37974,T,I,D",
+                "1706012491,147.227.255.39,187.3.145.127,55245,13579,T,I,D",
+                "1706012491,73.250.170.35,187.3.145.127,40959,12107,T,I,D",
+                "1706012491,39.125.249.48,255.254.162.199,38010,41723,T,I,D",
+                "1706012491,208.25.26.221,255.254.162.199,43668,45732,T,I,D",
+                "1706012491,139.199.88.11,187.3.145.127,12902,41867,T,I,D",
+                "1706012491,176.159.143.162,255.254.162.199,25739,6914,T,I,D",
+                "1706012491,139.211.3.101,255.254.162.199,35829,46000,T,I,D",
+                "1706012491,70.150.214.247,255.254.162.199,63146,61954,T,I,D",
+                "1706012491,83.200.151.87,255.254.162.199,46694,28522,T,I,D",
+                "1706012491,170.94.17.124,187.3.145.127,51131,35083,T,I,D",
+                "1706012491,75.13.58.68,255.254.162.199,32134,12298,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-29T07:39:40.564Z",
+    "systemId": "d5fcc06c-253a-4e27-bf19-e2a6c1be9ac0",
+    "macAddress": "69f7c3fd7a15",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/shimmering-anthropology/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "50a8dd9876b1",
+              "flowTuples": [
+                "1706513980,104.120.14.180,255.254.162.199,25958,16629,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-29T04:35:25.045Z",
+    "systemId": "0fad69d7-28b1-4cbb-b3ce-6aef1c2ebac8",
+    "macAddress": "2777427e4a9d",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/shabby-roommate/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "ed139141ce63",
+              "flowTuples": [
+                "1706502925,165.79.109.86,255.254.162.199,9141,55468,T,I,D",
+                "1706502925,110.247.111.39,187.3.145.127,46784,60072,T,I,D",
+                "1706502925,224.136.155.190,255.254.162.199,51135,30979,T,I,D",
+                "1706502925,224.136.155.190,187.3.145.127,18731,56677,T,I,D",
+                "1706502925,60.75.49.92,187.3.145.127,21382,5645,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-27T20:32:08.952Z",
+    "systemId": "a83227b2-478d-4adb-b285-cd9af9074c91",
+    "macAddress": "95ea168f7552",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/joyous-ounce/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "86416df80f67",
+              "flowTuples": [
+                "1706387528,28.208.21.92,255.254.162.199,53422,21380,T,I,D",
+                "1706387528,70.150.214.247,187.3.145.127,9381,47650,T,I,D",
+                "1706387528,255.186.212.53,187.3.145.127,29169,32547,T,I,D",
+                "1706387528,195.64.218.95,187.3.145.127,14365,9746,T,I,D",
+                "1706387528,56.219.211.16,187.3.145.127,8638,32895,T,I,D",
+                "1706387528,194.249.113.10,187.3.145.127,46245,20509,T,I,D",
+                "1706387528,178.58.109.143,187.3.145.127,61965,14542,T,I,D",
+                "1706387528,3.157.214.202,187.3.145.127,46325,14215,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-17T19:32:06.448Z",
+    "systemId": "ae0cecbe-1bac-4233-a07f-874787c17420",
+    "macAddress": "d8a188040bd6",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/tedious-anarchy/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "363d8364a004",
+              "flowTuples": [
+                "1705519926,242.227.127.234,187.3.145.127,21420,59294,T,I,D",
+                "1705519926,176.159.143.162,187.3.145.127,46438,3603,T,I,D",
+                "1705519926,19.34.190.136,255.254.162.199,41815,58499,T,I,D",
+                "1705519926,220.127.151.41,187.3.145.127,57140,36805,T,I,D",
+                "1705519926,242.227.127.234,255.254.162.199,33426,54332,T,I,D",
+                "1705519926,74.114.66.118,187.3.145.127,19410,31391,T,I,D",
+                "1705519926,195.62.207.231,255.254.162.199,59184,44619,T,I,D",
+                "1705519926,46.166.222.10,187.3.145.127,16271,3654,T,I,D",
+                "1705519926,204.104.111.233,255.254.162.199,21650,59664,T,I,D",
+                "1705519926,211.183.69.168,255.254.162.199,42560,62456,T,I,D",
+                "1705519926,17.150.213.196,187.3.145.127,13160,17495,T,I,D",
+                "1705519926,245.102.10.27,255.254.162.199,46563,46123,T,I,D",
+                "1705519926,130.20.24.136,255.254.162.199,61182,7827,T,I,D",
+                "1705519926,112.162.90.180,255.254.162.199,48298,46053,T,I,D",
+                "1705519926,70.150.214.247,255.254.162.199,21241,41708,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-15T20:44:00.043Z",
+    "systemId": "3ef06331-220f-4fe3-9c4d-3c2f8af1c364",
+    "macAddress": "8f3daa6ed19d",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/extra-large-yarmulke/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "7e25740c3a91",
+              "flowTuples": [
+                "1705351440,85.251.15.120,187.3.145.127,41124,25578,T,I,D",
+                "1705351440,51.115.237.150,255.254.162.199,19613,47916,T,I,D",
+                "1705351440,153.26.122.58,187.3.145.127,6451,40450,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-29T06:32:11.011Z",
+    "systemId": "d50d7b15-8a0b-4287-a9b1-944424c813d8",
+    "macAddress": "72f469452de9",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/medium-flintlock/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "310aef10a954",
+              "flowTuples": [
+                "1706509931,74.114.66.118,255.254.162.199,3,48585,T,I,D",
+                "1706509931,130.20.24.136,255.254.162.199,59651,55520,T,I,D",
+                "1706509931,61.207.91.159,255.254.162.199,19805,55718,T,I,D",
+                "1706509931,83.197.54.68,255.254.162.199,28981,15047,T,I,D",
+                "1706509931,55.111.233.7,187.3.145.127,47818,33249,T,I,D",
+                "1706509931,74.126.57.78,187.3.145.127,5488,1432,T,I,D",
+                "1706509931,23.226.184.65,187.3.145.127,21361,40138,T,I,D",
+                "1706509931,129.138.218.79,187.3.145.127,18086,59011,T,I,D",
+                "1706509931,19.104.242.22,255.254.162.199,2019,28879,T,I,D",
+                "1706509931,147.227.255.39,187.3.145.127,4290,21629,T,I,D",
+                "1706509931,19.104.242.22,187.3.145.127,11399,24408,T,I,D",
+                "1706509931,204.104.111.233,255.254.162.199,21539,17958,T,I,D",
+                "1706509931,26.218.195.196,255.254.162.199,53804,35836,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-21T03:33:55.049Z",
+    "systemId": "d8f48262-3d2a-439e-9a58-448e9c560c8f",
+    "macAddress": "a66969a29c1e",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/yummy-hubcap/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "322f0f32daeb",
+              "flowTuples": [
+                "1705808035,87.255.160.186,255.254.162.199,61583,38255,T,I,D",
+                "1705808035,3.157.214.202,187.3.145.127,39178,47668,T,I,D",
+                "1705808035,39.125.249.48,255.254.162.199,43720,3164,T,I,D",
+                "1705808035,19.34.190.136,187.3.145.127,26373,63307,T,I,D",
+                "1705808035,26.218.195.196,187.3.145.127,45538,39763,T,I,D",
+                "1705808035,178.58.109.143,187.3.145.127,43819,48759,T,I,D",
+                "1705808035,100.75.170.253,187.3.145.127,18517,61177,T,I,D",
+                "1705808035,227.154.88.23,255.254.162.199,11373,4110,T,I,D",
+                "1705808035,28.208.21.92,255.254.162.199,19342,41938,T,I,D",
+                "1705808035,90.161.224.124,187.3.145.127,54606,61126,T,I,D",
+                "1705808035,194.32.83.108,255.254.162.199,64327,32705,T,I,D",
+                "1705808035,26.218.195.196,255.254.162.199,11673,60162,T,I,D",
+                "1705808035,35.228.20.166,187.3.145.127,34857,37206,T,I,D",
+                "1705808035,153.42.72.226,187.3.145.127,33502,28329,T,I,D",
+                "1705808035,129.138.218.79,187.3.145.127,33943,47588,T,I,D",
+                "1705808035,86.116.80.146,187.3.145.127,14322,5860,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-11T15:03:47.211Z",
+    "systemId": "621fb540-9c26-4553-bdb2-0706fc2bbb36",
+    "macAddress": "f8cc8879758a",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/tender-sunday/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "7530f89dd391",
+              "flowTuples": [
+                "1704985427,173.127.170.233,187.3.145.127,41454,31601,T,I,D",
+                "1704985427,9.114.156.160,255.254.162.199,55749,54136,T,I,D",
+                "1704985427,38.18.233.49,187.3.145.127,28710,57008,T,I,D",
+                "1704985427,211.183.69.168,187.3.145.127,21699,21936,T,I,D",
+                "1704985427,220.127.151.41,187.3.145.127,57228,13707,T,I,D",
+                "1704985427,35.228.20.166,255.254.162.199,18983,33815,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-26T14:35:07.700Z",
+    "systemId": "745c2e3f-ff2a-4204-ad2e-6406f9ff1f11",
+    "macAddress": "633555895fd8",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/unwitting-lesson/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "bd0bf3e37960",
+              "flowTuples": [
+                "1706279707,17.150.213.196,255.254.162.199,48510,36563,T,I,D",
+                "1706279707,75.13.58.68,187.3.145.127,39943,13843,T,I,D",
+                "1706279707,18.148.58.242,187.3.145.127,872,34556,T,I,D",
+                "1706279707,117.249.139.124,255.254.162.199,25665,15546,T,I,D",
+                "1706279707,3.205.171.123,187.3.145.127,24656,20936,T,I,D",
+                "1706279707,3.157.214.202,187.3.145.127,34390,45839,T,I,D",
+                "1706279707,74.189.164.163,255.254.162.199,63279,47701,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-02T18:04:45.847Z",
+    "systemId": "7fd8e736-1057-456a-93b7-8041bd170cd8",
+    "macAddress": "214b6b661fc1",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/interesting-blueberry/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "09deba1d86dd",
+              "flowTuples": [
+                "1704218685,139.211.3.101,187.3.145.127,44005,38544,T,I,D",
+                "1704218685,117.249.139.124,187.3.145.127,19109,6644,T,I,D",
+                "1704218685,156.238.226.150,255.254.162.199,37383,52288,T,I,D",
+                "1704218685,56.219.211.16,255.254.162.199,50520,39777,T,I,D",
+                "1704218685,185.24.48.157,255.254.162.199,3240,3207,T,I,D",
+                "1704218685,6.31.142.68,187.3.145.127,30694,37529,T,I,D",
+                "1704218685,9.68.164.170,187.3.145.127,39892,36017,T,I,D",
+                "1704218685,51.115.237.150,187.3.145.127,51870,41400,T,I,D",
+                "1704218685,4.167.2.21,187.3.145.127,1239,15126,T,I,D",
+                "1704218685,62.22.70.164,187.3.145.127,48642,46939,T,I,D",
+                "1704218685,154.19.175.182,187.3.145.127,44672,36078,T,I,D",
+                "1704218685,100.30.165.38,255.254.162.199,30272,27691,T,I,D",
+                "1704218685,204.104.79.211,255.254.162.199,10998,7628,T,I,D",
+                "1704218685,18.148.58.242,255.254.162.199,50061,7337,T,I,D",
+                "1704218685,203.232.246.122,187.3.145.127,28172,4238,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-26T01:46:45.810Z",
+    "systemId": "0920755d-c2b5-4ebe-bba2-ba04f428b688",
+    "macAddress": "27f00764c2a7",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/broken-hexagon/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "0113a651b04f",
+              "flowTuples": [
+                "1706233605,184.153.74.138,255.254.162.199,32667,819,T,I,D",
+                "1706233605,196.223.83.114,187.3.145.127,29443,1019,T,I,D",
+                "1706233605,26.159.98.87,255.254.162.199,39749,57923,T,I,D",
+                "1706233605,35.228.20.166,187.3.145.127,43665,6637,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-04T17:32:20.145Z",
+    "systemId": "c0a06697-00e5-496b-93d4-b066fd787fe6",
+    "macAddress": "3f6f4db13d12",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/wet-muskrat/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "34cf1a1e2128",
+              "flowTuples": [
+                "1704389540,74.126.57.78,255.254.162.199,39519,2850,T,I,D",
+                "1704389540,196.223.83.114,187.3.145.127,42271,32496,T,I,D",
+                "1704389540,247.207.192.112,255.254.162.199,42580,60200,T,I,D",
+                "1704389540,234.62.222.244,255.254.162.199,55180,58537,T,I,D",
+                "1704389540,188.20.80.63,187.3.145.127,46087,8986,T,I,D",
+                "1704389540,208.25.26.221,187.3.145.127,28750,20682,T,I,D",
+                "1704389540,88.234.86.171,255.254.162.199,65033,48073,T,I,D",
+                "1704389540,67.42.254.21,255.254.162.199,29409,22525,T,I,D",
+                "1704389540,28.208.21.92,187.3.145.127,51559,23946,T,I,D",
+                "1704389540,3.157.214.202,187.3.145.127,62925,12436,T,I,D",
+                "1704389540,100.75.170.253,187.3.145.127,65068,15784,T,I,D",
+                "1704389540,244.49.183.35,187.3.145.127,50802,63546,T,I,D",
+                "1704389540,208.25.26.221,187.3.145.127,39816,59117,T,I,D",
+                "1704389540,60.75.49.92,187.3.145.127,32034,51086,T,I,D",
+                "1704389540,46.166.222.10,255.254.162.199,23691,51145,T,I,D",
+                "1704389540,236.174.31.12,255.254.162.199,16343,46401,T,I,D",
+                "1704389540,75.13.58.68,255.254.162.199,51664,17123,T,I,D",
+                "1704389540,236.174.31.12,187.3.145.127,52183,27448,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-11T19:27:22.564Z",
+    "systemId": "ca69ba84-c2e5-4efe-9610-96d1657cb8cd",
+    "macAddress": "950139d38831",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/sure-footed-analysis/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "418b30f18498",
+              "flowTuples": [
+                "1705001242,194.32.83.108,187.3.145.127,987,9304,T,I,D",
+                "1705001242,197.192.69.17,187.3.145.127,38525,20806,T,I,D",
+                "1705001242,236.174.31.12,187.3.145.127,52767,30213,T,I,D",
+                "1705001242,124.89.238.231,255.254.162.199,37517,14176,T,I,D",
+                "1705001242,252.216.29.33,187.3.145.127,15302,33228,T,I,D",
+                "1705001242,173.202.60.187,187.3.145.127,26862,17319,T,I,D",
+                "1705001242,65.205.124.30,187.3.145.127,42272,37269,T,I,D",
+                "1705001242,171.28.133.162,187.3.145.127,46709,51163,T,I,D",
+                "1705001242,74.93.27.248,187.3.145.127,62502,34086,T,I,D",
+                "1705001242,74.126.57.78,187.3.145.127,31630,10790,T,I,D",
+                "1705001242,35.228.20.166,187.3.145.127,9783,43149,T,I,D",
+                "1705001242,94.249.215.151,255.254.162.199,41560,56993,T,I,D",
+                "1705001242,155.93.154.56,187.3.145.127,17311,64245,T,I,D",
+                "1705001242,196.223.83.114,187.3.145.127,55238,9247,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-03T21:17:24.274Z",
+    "systemId": "6a811faf-b566-4f51-af02-1a287bd3bb61",
+    "macAddress": "8dcdad23b0a0",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/rubbery-aim/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "9cc1666c1e7a",
+              "flowTuples": [
+                "1704316644,159.3.151.2,187.3.145.127,26896,1808,T,I,D",
+                "1704316644,188.20.80.63,187.3.145.127,14888,61338,T,I,D",
+                "1704316644,26.218.195.196,187.3.145.127,16464,54291,T,I,D",
+                "1704316644,211.183.69.168,187.3.145.127,174,47497,T,I,D",
+                "1704316644,156.238.226.150,255.254.162.199,62674,9154,T,I,D",
+                "1704316644,28.208.21.92,255.254.162.199,760,43718,T,I,D",
+                "1704316644,9.128.178.210,255.254.162.199,47191,33920,T,I,D",
+                "1704316644,9.68.164.170,187.3.145.127,18788,43220,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-27T09:28:56.984Z",
+    "systemId": "d5623b8d-e7b7-43d1-84c8-eda2f042b9dd",
+    "macAddress": "b41b1e64b685",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/whirlwind-runner/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "c30407418016",
+              "flowTuples": [
+                "1706347736,165.79.109.86,187.3.145.127,30254,5930,T,I,D",
+                "1706347736,208.25.26.221,187.3.145.127,42806,12776,T,I,D",
+                "1706347736,38.18.233.49,255.254.162.199,43224,63066,T,I,D",
+                "1706347736,213.239.18.244,187.3.145.127,38663,1104,T,I,D",
+                "1706347736,28.208.21.92,187.3.145.127,21100,57753,T,I,D",
+                "1706347736,15.176.119.150,187.3.145.127,57380,3230,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-01T00:51:22.553Z",
+    "systemId": "ab123a3d-eadf-4b43-b7c5-3a232418e101",
+    "macAddress": "071505eb329b",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/proper-yarn/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "7fd5e29dde0e",
+              "flowTuples": [
+                "1704070282,37.171.109.186,255.254.162.199,15632,14089,T,I,D",
+                "1704070282,61.207.91.159,187.3.145.127,19632,19279,T,I,D",
+                "1704070282,14.89.54.27,255.254.162.199,2997,55806,T,I,D",
+                "1704070282,27.161.127.12,187.3.145.127,45771,19966,T,I,D",
+                "1704070282,220.127.151.41,255.254.162.199,8695,35521,T,I,D",
+                "1704070282,244.49.183.35,255.254.162.199,39516,16777,T,I,D",
+                "1704070282,196.223.83.114,255.254.162.199,38155,64124,T,I,D",
+                "1704070282,102.111.68.197,187.3.145.127,64775,28281,T,I,D",
+                "1704070282,184.153.74.138,255.254.162.199,51444,19297,T,I,D",
+                "1704070282,176.159.143.162,187.3.145.127,21517,64111,T,I,D",
+                "1704070282,166.50.252.166,255.254.162.199,60841,40295,T,I,D",
+                "1704070282,181.152.66.66,255.254.162.199,30491,20305,T,I,D",
+                "1704070282,255.186.212.53,187.3.145.127,3936,46706,T,I,D",
+                "1704070282,248.88.53.7,187.3.145.127,61279,53776,T,I,D",
+                "1704070282,74.189.164.163,255.254.162.199,62812,5225,T,I,D",
+                "1704070282,56.219.211.16,187.3.145.127,23916,24155,T,I,D",
+                "1704070282,4.167.2.21,255.254.162.199,5321,44693,T,I,D",
+                "1704070282,211.87.177.110,255.254.162.199,35404,12586,T,I,D",
+                "1704070282,176.159.143.162,255.254.162.199,63606,45659,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-12T10:06:49.086Z",
+    "systemId": "61d49325-f86f-45e2-9577-c0167f074c16",
+    "macAddress": "7479d5e2a749",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/glaring-longitude/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "d2067a5ba1b2",
+              "flowTuples": [
+                "1705054009,51.115.237.150,255.254.162.199,29975,44529,T,I,D",
+                "1705054009,244.49.183.35,187.3.145.127,34111,36653,T,I,D",
+                "1705054009,165.79.109.86,255.254.162.199,29891,17578,T,I,D",
+                "1705054009,65.90.208.100,255.254.162.199,26427,12850,T,I,D",
+                "1705054009,208.25.26.221,187.3.145.127,45742,15416,T,I,D",
+                "1705054009,55.111.233.7,187.3.145.127,50812,32509,T,I,D",
+                "1705054009,6.31.142.68,187.3.145.127,52104,14220,T,I,D",
+                "1705054009,65.160.66.224,187.3.145.127,46006,17476,T,I,D",
+                "1705054009,14.89.54.27,255.254.162.199,14644,54477,T,I,D",
+                "1705054009,7.116.67.43,255.254.162.199,7093,54364,T,I,D",
+                "1705054009,90.161.224.124,187.3.145.127,27267,62501,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-08T20:00:03.439Z",
+    "systemId": "5d332e46-b30f-4eb3-b9ef-abe2adeee6df",
+    "macAddress": "398f1ade0786",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/probable-colt/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "40e403f52c0d",
+              "flowTuples": [
+                "1704744003,205.203.98.83,187.3.145.127,61095,28199,T,I,D",
+                "1704744003,47.134.70.179,187.3.145.127,51792,47268,T,I,D",
+                "1704744003,185.24.48.157,255.254.162.199,30490,62151,T,I,D",
+                "1704744003,61.207.91.159,187.3.145.127,15355,16151,T,I,D",
+                "1704744003,37.17.28.15,255.254.162.199,17068,51439,T,I,D",
+                "1704744003,61.207.91.159,255.254.162.199,576,23994,T,I,D",
+                "1704744003,204.104.111.233,187.3.145.127,49043,62981,T,I,D",
+                "1704744003,87.255.160.186,187.3.145.127,64498,43080,T,I,D",
+                "1704744003,229.91.214.90,255.254.162.199,7171,54047,T,I,D",
+                "1704744003,252.216.29.33,255.254.162.199,56569,42532,T,I,D",
+                "1704744003,71.200.9.223,187.3.145.127,27236,59466,T,I,D",
+                "1704744003,6.31.142.68,187.3.145.127,61835,46888,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-18T21:33:30.675Z",
+    "systemId": "0d77e59f-004f-49a1-9136-9eebc9175e01",
+    "macAddress": "d8d490c1c220",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/lovable-skullcap/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "9375a96b7b76",
+              "flowTuples": [
+                "1705613610,74.93.27.248,187.3.145.127,7000,13447,T,I,D",
+                "1705613610,178.58.109.143,255.254.162.199,25944,12090,T,I,D",
+                "1705613610,188.20.80.63,255.254.162.199,10033,12397,T,I,D",
+                "1705613610,26.159.98.87,187.3.145.127,23438,48001,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-04T07:27:28.021Z",
+    "systemId": "b7fb67f3-3ac3-48ed-ac2d-80ddbf6a45a9",
+    "macAddress": "df4b0e5de59f",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/digital-hamburger/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "3754463fa4d2",
+              "flowTuples": [
+                "1704353248,211.87.177.110,187.3.145.127,36107,59281,T,I,D",
+                "1704353248,26.159.98.87,187.3.145.127,1887,888,T,I,D",
+                "1704353248,46.166.222.10,187.3.145.127,51937,35666,T,I,D",
+                "1704353248,51.115.237.150,255.254.162.199,33192,63587,T,I,D",
+                "1704353248,245.102.10.27,187.3.145.127,64094,427,T,I,D",
+                "1704353248,170.94.17.124,255.254.162.199,8157,11166,T,I,D",
+                "1704353248,188.20.80.63,187.3.145.127,9265,52605,T,I,D",
+                "1704353248,88.234.86.171,187.3.145.127,47995,64215,T,I,D",
+                "1704353248,194.32.83.108,255.254.162.199,63282,49011,T,I,D",
+                "1704353248,178.58.109.143,255.254.162.199,51851,29214,T,I,D",
+                "1704353248,173.202.60.187,255.254.162.199,21431,15401,T,I,D",
+                "1704353248,234.62.222.244,187.3.145.127,40966,18840,T,I,D",
+                "1704353248,74.114.66.118,255.254.162.199,37301,24048,T,I,D",
+                "1704353248,115.22.178.229,255.254.162.199,45198,9513,T,I,D",
+                "1704353248,61.207.91.159,187.3.145.127,8166,22613,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-20T06:04:38.312Z",
+    "systemId": "c23476f0-6d73-42fd-b2d5-b65e201c92e8",
+    "macAddress": "112522095de7",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/unwitting-demand/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "b5ac837ead72",
+              "flowTuples": [
+                "1705730678,195.64.218.95,255.254.162.199,21829,58768,T,I,D",
+                "1705730678,155.93.154.56,187.3.145.127,42421,24826,T,I,D",
+                "1705730678,20.68.5.7,187.3.145.127,29794,63570,T,I,D",
+                "1705730678,204.104.111.233,255.254.162.199,36779,8083,T,I,D",
+                "1705730678,86.116.80.146,187.3.145.127,6531,12153,T,I,D",
+                "1705730678,46.166.222.10,187.3.145.127,6721,2734,T,I,D",
+                "1705730678,4.167.2.21,187.3.145.127,39973,1013,T,I,D",
+                "1705730678,247.207.192.112,187.3.145.127,53282,49673,T,I,D",
+                "1705730678,18.227.51.142,255.254.162.199,17714,14535,T,I,D",
+                "1705730678,120.252.74.18,187.3.145.127,4479,43722,T,I,D",
+                "1705730678,86.193.220.179,255.254.162.199,47666,2968,T,I,D",
+                "1705730678,65.205.124.30,255.254.162.199,26894,54882,T,I,D",
+                "1705730678,211.183.69.168,255.254.162.199,46034,11736,T,I,D",
+                "1705730678,248.88.53.7,255.254.162.199,3870,40960,T,I,D",
+                "1705730678,73.250.170.35,187.3.145.127,60015,17679,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-06T14:11:54.007Z",
+    "systemId": "c8ff6e5a-4c17-4d75-9034-6430bc77b410",
+    "macAddress": "61d1a2fba26e",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/innocent-refusal/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "95e613586ae8",
+              "flowTuples": [
+                "1704550314,227.154.88.23,255.254.162.199,62919,15710,T,I,D",
+                "1704550314,85.251.15.120,255.254.162.199,14764,16255,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-21T21:52:12.821Z",
+    "systemId": "fc4273f5-c1ba-47ef-96e6-3c8705102448",
+    "macAddress": "a8d87bfd7a28",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/memorable-lysine/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "559b79dd2f1c",
+              "flowTuples": [
+                "1705873932,3.205.171.123,255.254.162.199,42101,3958,T,I,D",
+                "1705873932,204.104.111.233,187.3.145.127,19228,21231,T,I,D",
+                "1705873932,197.192.69.17,187.3.145.127,57967,49318,T,I,D",
+                "1705873932,38.18.233.49,187.3.145.127,17613,418,T,I,D",
+                "1705873932,151.183.208.70,255.254.162.199,7164,44486,T,I,D",
+                "1705873932,110.247.111.39,255.254.162.199,43084,3032,T,I,D",
+                "1705873932,3.157.214.202,187.3.145.127,10695,40393,T,I,D",
+                "1705873932,244.49.183.35,187.3.145.127,51995,57090,T,I,D",
+                "1705873932,71.200.9.223,255.254.162.199,26075,14127,T,I,D",
+                "1705873932,248.88.53.7,187.3.145.127,38536,23913,T,I,D",
+                "1705873932,55.111.233.7,255.254.162.199,46985,28954,T,I,D",
+                "1705873932,147.227.255.39,255.254.162.199,7948,3388,T,I,D",
+                "1705873932,196.223.83.114,255.254.162.199,6743,29953,T,I,D",
+                "1705873932,117.249.139.124,255.254.162.199,58497,54580,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-10T14:20:03.720Z",
+    "systemId": "7b9c0d15-f444-431b-b381-e27ca2cfd401",
+    "macAddress": "28a47fdf7bf7",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/acidic-transportation/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "164adfc8f7d1",
+              "flowTuples": [
+                "1704896403,18.148.58.242,187.3.145.127,8762,20103,T,I,D",
+                "1704896403,179.54.66.163,187.3.145.127,7745,11119,T,I,D",
+                "1704896403,178.18.239.8,255.254.162.199,38985,47390,T,I,D",
+                "1704896403,14.89.54.27,187.3.145.127,34423,34404,T,I,D",
+                "1704896403,19.34.190.136,187.3.145.127,12137,41298,T,I,D",
+                "1704896403,194.249.113.10,187.3.145.127,37565,2185,T,I,D",
+                "1704896403,61.207.91.159,187.3.145.127,59206,34184,T,I,D",
+                "1704896403,147.227.255.39,187.3.145.127,7101,18727,T,I,D",
+                "1704896403,86.193.220.179,255.254.162.199,26029,2597,T,I,D",
+                "1704896403,245.102.10.27,255.254.162.199,63610,25762,T,I,D",
+                "1704896403,71.200.9.223,187.3.145.127,58888,14177,T,I,D",
+                "1704896403,14.89.54.27,187.3.145.127,8633,34709,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-22T02:29:17.711Z",
+    "systemId": "b2628100-08a3-4cb0-ad32-fd6b494b1654",
+    "macAddress": "7486cb1f2df2",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/upbeat-underwire/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "ef44be61d48d",
+              "flowTuples": [
+                "1705890557,86.193.220.179,255.254.162.199,55835,55363,T,I,D",
+                "1705890557,165.79.109.86,255.254.162.199,25285,44225,T,I,D",
+                "1705890557,115.22.178.229,255.254.162.199,10498,17463,T,I,D",
+                "1705890557,158.253.141.218,255.254.162.199,49505,13075,T,I,D",
+                "1705890557,248.103.38.56,187.3.145.127,60711,37513,T,I,D",
+                "1705890557,224.136.155.190,187.3.145.127,41741,18418,T,I,D",
+                "1705890557,85.251.15.120,187.3.145.127,8570,36363,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-14T22:46:01.884Z",
+    "systemId": "ed6b6eca-097b-4fcb-a629-767415be7ac1",
+    "macAddress": "67cac364d3ad",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/red-hospitalisation/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "52a3ab2b9c91",
+              "flowTuples": [
+                "1705272361,73.250.170.35,187.3.145.127,16206,45856,T,I,D",
+                "1705272361,14.89.54.27,187.3.145.127,22521,41437,T,I,D",
+                "1705272361,188.20.80.63,187.3.145.127,65263,64762,T,I,D",
+                "1705272361,67.42.254.21,187.3.145.127,55209,61933,T,I,D",
+                "1705272361,67.42.254.21,187.3.145.127,48227,54692,T,I,D",
+                "1705272361,171.28.133.162,255.254.162.199,14212,58061,T,I,D",
+                "1705272361,21.118.29.168,255.254.162.199,51739,47166,T,I,D",
+                "1705272361,28.208.21.92,187.3.145.127,31322,16592,T,I,D",
+                "1705272361,39.125.249.48,187.3.145.127,63540,260,T,I,D",
+                "1705272361,60.75.49.92,187.3.145.127,11650,16731,T,I,D",
+                "1705272361,152.84.97.176,255.254.162.199,13093,30939,T,I,D",
+                "1705272361,195.62.207.231,255.254.162.199,15354,3586,T,I,D",
+                "1705272361,60.75.49.92,255.254.162.199,58220,53273,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-18T07:20:04.143Z",
+    "systemId": "b83fbb1f-69ae-46cb-bc69-68f1417dddbf",
+    "macAddress": "c24c0f4f6a5e",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/pure-kitten/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "459d21e9914b",
+              "flowTuples": [
+                "1705562404,120.140.101.30,187.3.145.127,39425,64381,T,I,D",
+                "1705562404,227.154.88.23,255.254.162.199,30787,2133,T,I,D",
+                "1705562404,196.223.83.114,255.254.162.199,58338,584,T,I,D",
+                "1705562404,165.79.109.86,255.254.162.199,60766,7367,T,I,D",
+                "1705562404,102.111.68.197,255.254.162.199,7216,42745,T,I,D",
+                "1705562404,61.207.91.159,187.3.145.127,2115,27656,T,I,D",
+                "1705562404,211.183.69.168,187.3.145.127,50407,5081,T,I,D",
+                "1705562404,74.114.66.118,255.254.162.199,62039,34860,T,I,D",
+                "1705562404,65.90.208.100,187.3.145.127,15800,26663,T,I,D",
+                "1705562404,147.227.255.39,187.3.145.127,25574,34135,T,I,D",
+                "1705562404,166.50.252.166,255.254.162.199,63114,53854,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-29T19:42:03.896Z",
+    "systemId": "929ba40a-bc16-43c5-a67a-8eeffe21d66a",
+    "macAddress": "27f476bc7a9b",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/fantastic-romaine/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "fa02ae39e747",
+              "flowTuples": [
+                "1706557323,248.103.38.56,187.3.145.127,18091,297,T,I,D",
+                "1706557323,3.205.171.123,187.3.145.127,10476,7159,T,I,D",
+                "1706557323,27.161.127.12,255.254.162.199,6565,54283,T,I,D",
+                "1706557323,74.126.57.78,255.254.162.199,46591,14636,T,I,D",
+                "1706557323,250.106.86.132,255.254.162.199,12780,58944,T,I,D",
+                "1706557323,59.250.189.90,187.3.145.127,24107,8701,T,I,D",
+                "1706557323,135.52.51.26,255.254.162.199,36135,25824,T,I,D",
+                "1706557323,155.195.134.242,187.3.145.127,61999,57079,T,I,D",
+                "1706557323,204.104.79.211,187.3.145.127,27795,20720,T,I,D",
+                "1706557323,185.24.48.157,187.3.145.127,3674,23433,T,I,D",
+                "1706557323,205.203.98.83,255.254.162.199,6672,11861,T,I,D",
+                "1706557323,9.68.164.170,187.3.145.127,60537,51754,T,I,D",
+                "1706557323,236.174.31.12,187.3.145.127,11662,1377,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-13T07:01:25.621Z",
+    "systemId": "db2cc26e-3363-41dd-bce3-6e8d5c8b79df",
+    "macAddress": "3e3f084cff5d",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/truthful-dysfunction/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "6dec0dbfd8b4",
+              "flowTuples": [
+                "1705129285,74.126.57.78,187.3.145.127,40147,34816,T,I,D",
+                "1705129285,155.93.154.56,187.3.145.127,50110,36994,T,I,D",
+                "1705129285,17.150.213.196,255.254.162.199,54731,55164,T,I,D",
+                "1705129285,155.195.134.242,187.3.145.127,14119,5963,T,I,D",
+                "1705129285,4.167.2.21,187.3.145.127,50046,61734,T,I,D",
+                "1705129285,86.193.220.179,255.254.162.199,50518,30371,T,I,D",
+                "1705129285,224.136.155.190,255.254.162.199,7164,62362,T,I,D",
+                "1705129285,61.207.91.159,187.3.145.127,20949,53450,T,I,D",
+                "1705129285,14.89.54.27,187.3.145.127,50663,26458,T,I,D",
+                "1705129285,159.3.151.2,255.254.162.199,58197,63459,T,I,D",
+                "1705129285,26.218.189.227,187.3.145.127,42504,64468,T,I,D",
+                "1705129285,153.42.72.226,187.3.145.127,21167,28786,T,I,D",
+                "1705129285,194.32.83.108,187.3.145.127,60210,57567,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-02T23:01:33.802Z",
+    "systemId": "b2f82e41-cba1-4504-9b83-aba938830bfe",
+    "macAddress": "d8c833f82125",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/swift-derivative/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "8ec3b7808d80",
+              "flowTuples": [
+                "1704236493,60.75.49.92,255.254.162.199,33069,5618,T,I,D",
+                "1704236493,72.135.21.25,255.254.162.199,43373,10667,T,I,D",
+                "1704236493,20.68.5.7,187.3.145.127,64505,25627,T,I,D",
+                "1704236493,46.166.222.10,255.254.162.199,52618,30707,T,I,D",
+                "1704236493,30.163.132.96,187.3.145.127,38587,4911,T,I,D",
+                "1704236493,139.199.88.11,187.3.145.127,39530,55974,T,I,D",
+                "1704236493,242.227.127.234,255.254.162.199,47789,37441,T,I,D",
+                "1704236493,134.82.136.77,187.3.145.127,40005,55900,T,I,D",
+                "1704236493,15.176.119.150,255.254.162.199,42458,6789,T,I,D",
+                "1704236493,248.103.38.56,255.254.162.199,15868,15467,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-23T13:42:58.961Z",
+    "systemId": "1635da98-fc2e-4030-b913-25f6e0086f2b",
+    "macAddress": "042cc9a8b12f",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/svelte-help/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "18e81620c8fe",
+              "flowTuples": [
+                "1706017378,83.200.151.87,255.254.162.199,57540,50871,T,I,D",
+                "1706017378,171.28.133.162,255.254.162.199,56132,25613,T,I,D",
+                "1706017378,9.128.178.210,187.3.145.127,55650,2208,T,I,D",
+                "1706017378,104.120.14.180,255.254.162.199,47657,51896,T,I,D",
+                "1706017378,59.250.189.90,187.3.145.127,61643,26284,T,I,D",
+                "1706017378,62.22.70.164,255.254.162.199,35426,39463,T,I,D",
+                "1706017378,223.204.249.77,255.254.162.199,12454,46147,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-29T22:19:03.941Z",
+    "systemId": "3d2c4e84-866a-4832-b20c-841db187e98e",
+    "macAddress": "12143caf89dc",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/chilly-observatory/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "450055c969d8",
+              "flowTuples": [
+                "1706566743,255.199.206.49,255.254.162.199,33872,12896,T,I,D",
+                "1706566743,130.20.24.136,255.254.162.199,49058,60324,T,I,D",
+                "1706566743,37.17.28.15,187.3.145.127,17485,44069,T,I,D",
+                "1706566743,30.163.132.96,255.254.162.199,28212,62584,T,I,D",
+                "1706566743,18.148.58.242,187.3.145.127,13751,52941,T,I,D",
+                "1706566743,74.93.27.248,255.254.162.199,26149,48805,T,I,D",
+                "1706566743,55.111.233.7,187.3.145.127,19799,57671,T,I,D",
+                "1706566743,27.161.127.12,255.254.162.199,2237,59057,T,I,D",
+                "1706566743,166.50.252.166,255.254.162.199,15740,47831,T,I,D",
+                "1706566743,59.250.189.90,187.3.145.127,48696,58286,T,I,D",
+                "1706566743,71.200.9.223,255.254.162.199,53813,25074,T,I,D",
+                "1706566743,71.200.9.223,255.254.162.199,16582,54661,T,I,D",
+                "1706566743,46.166.222.10,187.3.145.127,54804,13815,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-16T06:40:26.063Z",
+    "systemId": "9fd1f283-596b-4a9b-8941-cbedca53c505",
+    "macAddress": "f29c9a0ee1c3",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/genuine-tote/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "06804068688d",
+              "flowTuples": [
+                "1705387226,130.20.24.136,255.254.162.199,37861,2460,T,I,D",
+                "1705387226,59.34.238.28,255.254.162.199,45546,65143,T,I,D",
+                "1705387226,86.116.80.146,255.254.162.199,56164,52419,T,I,D",
+                "1705387226,167.98.33.13,255.254.162.199,22095,13668,T,I,D",
+                "1705387226,15.176.119.150,255.254.162.199,55396,57456,T,I,D",
+                "1705387226,20.68.5.7,187.3.145.127,65151,30573,T,I,D",
+                "1705387226,75.13.58.68,187.3.145.127,7635,27504,T,I,D",
+                "1705387226,151.183.208.70,255.254.162.199,14186,56766,T,I,D",
+                "1705387226,65.90.208.100,255.254.162.199,18514,193,T,I,D",
+                "1705387226,166.50.252.166,255.254.162.199,20706,17696,T,I,D",
+                "1705387226,156.238.226.150,255.254.162.199,45608,56392,T,I,D",
+                "1705387226,245.102.10.27,255.254.162.199,46235,27864,T,I,D",
+                "1705387226,112.162.90.180,187.3.145.127,3148,55413,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-29T22:59:39.640Z",
+    "systemId": "fec5ede9-40d0-4de7-b37c-3e34bf463ed0",
+    "macAddress": "8431d46db4c4",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/tart-windage/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "db7145f895d3",
+              "flowTuples": [
+                "1706569179,117.249.139.124,187.3.145.127,6884,9803,T,I,D",
+                "1706569179,110.247.111.39,187.3.145.127,50155,449,T,I,D",
+                "1706569179,28.208.21.92,255.254.162.199,63579,16618,T,I,D",
+                "1706569179,110.247.111.39,187.3.145.127,34637,61820,T,I,D",
+                "1706569179,26.218.195.196,187.3.145.127,63733,40561,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-10T01:33:41.897Z",
+    "systemId": "af679fe2-4cb3-4e43-ac7f-9c72027564d4",
+    "macAddress": "b1cff7d7b67d",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/bleak-attic/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "83893e3f1c85",
+              "flowTuples": [
+                "1704850421,75.13.58.68,187.3.145.127,12014,47790,T,I,D",
+                "1704850421,110.69.110.123,187.3.145.127,10918,9683,T,I,D",
+                "1704850421,17.150.213.196,255.254.162.199,35163,4575,T,I,D",
+                "1704850421,38.18.233.49,187.3.145.127,21324,47181,T,I,D",
+                "1704850421,255.186.212.53,187.3.145.127,31896,4265,T,I,D",
+                "1704850421,179.54.66.163,187.3.145.127,22069,20308,T,I,D",
+                "1704850421,124.89.238.231,187.3.145.127,57275,5730,T,I,D",
+                "1704850421,94.249.215.151,255.254.162.199,56028,44432,T,I,D",
+                "1704850421,7.116.67.43,187.3.145.127,42547,44373,T,I,D",
+                "1704850421,35.228.20.166,255.254.162.199,14829,56350,T,I,D",
+                "1704850421,28.208.21.92,255.254.162.199,34312,58609,T,I,D",
+                "1704850421,188.20.80.63,187.3.145.127,38742,16045,T,I,D",
+                "1704850421,4.167.2.21,255.254.162.199,7510,23860,T,I,D",
+                "1704850421,178.18.239.8,255.254.162.199,27713,1205,T,I,D",
+                "1704850421,15.135.1.195,187.3.145.127,7087,44019,T,I,D",
+                "1704850421,188.20.80.63,255.254.162.199,44996,17202,T,I,D",
+                "1704850421,155.93.154.56,255.254.162.199,20151,10893,T,I,D",
+                "1704850421,167.98.33.13,255.254.162.199,52836,55587,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-14T01:29:44.723Z",
+    "systemId": "9a2ce33c-0746-4597-839e-d9722356d5a5",
+    "macAddress": "5686aedcdf43",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/gentle-wannabe/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "0f92736805c5",
+              "flowTuples": [
+                "1705195784,184.153.74.138,255.254.162.199,9628,41829,T,I,D",
+                "1705195784,74.126.57.78,255.254.162.199,47090,56506,T,I,D",
+                "1705195784,37.17.28.15,187.3.145.127,31980,43998,T,I,D",
+                "1705195784,61.207.91.159,255.254.162.199,48536,4439,T,I,D",
+                "1705195784,28.208.21.92,255.254.162.199,48844,63034,T,I,D",
+                "1705195784,65.160.66.224,187.3.145.127,51647,8057,T,I,D",
+                "1705195784,244.49.183.35,255.254.162.199,3006,32939,T,I,D",
+                "1705195784,110.247.111.39,187.3.145.127,34046,9699,T,I,D",
+                "1705195784,194.32.83.108,255.254.162.199,43591,42938,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-27T20:34:08.606Z",
+    "systemId": "a351ac47-ff5f-4b39-8dd9-a0d2d71b84bc",
+    "macAddress": "4687bad04ebb",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/forked-sociology/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "4d716525590a",
+              "flowTuples": [
+                "1706387648,166.50.252.166,255.254.162.199,54085,15601,T,I,D",
+                "1706387648,248.88.53.7,187.3.145.127,62652,37130,T,I,D",
+                "1706387648,153.26.122.58,187.3.145.127,4689,11475,T,I,D",
+                "1706387648,155.93.154.56,187.3.145.127,15988,6788,T,I,D",
+                "1706387648,194.249.113.10,187.3.145.127,38973,27973,T,I,D",
+                "1706387648,179.54.66.163,187.3.145.127,32558,6158,T,I,D",
+                "1706387648,173.127.170.233,255.254.162.199,37970,38735,T,I,D",
+                "1706387648,26.218.195.196,187.3.145.127,64888,18502,T,I,D",
+                "1706387648,159.3.151.2,187.3.145.127,37135,56679,T,I,D",
+                "1706387648,204.104.79.211,255.254.162.199,41593,59083,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-30T07:48:14.280Z",
+    "systemId": "ea911bb6-95af-48f0-bb17-2165f002de65",
+    "macAddress": "5cee6a516558",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/liquid-cot/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "57e0d646340c",
+              "flowTuples": [
+                "1706600894,194.249.113.10,187.3.145.127,44075,9792,T,I,D",
+                "1706600894,139.199.88.11,255.254.162.199,41267,51699,T,I,D",
+                "1706600894,151.92.34.102,255.254.162.199,24073,45694,T,I,D",
+                "1706600894,250.106.86.132,255.254.162.199,38700,28686,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-08T05:01:23.655Z",
+    "systemId": "173a6691-f838-4467-be90-80de4c81782f",
+    "macAddress": "a280a9e5e171",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/substantial-fish/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "bc0b4ced34d4",
+              "flowTuples": [
+                "1704690083,134.82.136.77,187.3.145.127,32907,50608,T,I,D",
+                "1704690083,139.199.88.11,255.254.162.199,16676,26031,T,I,D",
+                "1704690083,19.104.242.22,187.3.145.127,26034,48568,T,I,D",
+                "1704690083,100.75.170.253,187.3.145.127,31092,32033,T,I,D",
+                "1704690083,159.3.151.2,255.254.162.199,57326,10733,T,I,D",
+                "1704690083,208.25.26.221,255.254.162.199,58734,42013,T,I,D",
+                "1704690083,26.159.98.87,187.3.145.127,50694,11017,T,I,D",
+                "1704690083,37.171.109.186,255.254.162.199,48161,34033,T,I,D",
+                "1704690083,204.104.79.211,187.3.145.127,30930,57093,T,I,D",
+                "1704690083,4.167.2.21,255.254.162.199,42978,55985,T,I,D",
+                "1704690083,59.34.238.28,187.3.145.127,48916,2072,T,I,D",
+                "1704690083,65.160.66.224,255.254.162.199,62878,4856,T,I,D",
+                "1704690083,205.203.98.83,255.254.162.199,48198,47400,T,I,D",
+                "1704690083,204.104.111.233,255.254.162.199,8561,57334,T,I,D",
+                "1704690083,65.160.66.224,255.254.162.199,55649,60828,T,I,D",
+                "1704690083,204.104.111.233,187.3.145.127,26461,28903,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-13T19:48:33.569Z",
+    "systemId": "229a3c08-7c87-4f84-b3e7-88964f22f77e",
+    "macAddress": "df0ec0c2ea44",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/lighthearted-stepmother/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "86abb020da5d",
+              "flowTuples": [
+                "1705175313,62.22.70.164,187.3.145.127,47452,42542,T,I,D",
+                "1705175313,154.19.175.182,187.3.145.127,16030,15221,T,I,D",
+                "1705175313,255.186.212.53,255.254.162.199,17794,593,T,I,D",
+                "1705175313,155.195.134.242,255.254.162.199,52148,48720,T,I,D",
+                "1705175313,84.184.199.254,187.3.145.127,62287,28240,T,I,D",
+                "1705175313,67.42.254.21,187.3.145.127,12280,32810,T,I,D",
+                "1705175313,195.62.207.231,255.254.162.199,2522,45766,T,I,D",
+                "1705175313,65.90.208.100,187.3.145.127,59434,26358,T,I,D",
+                "1705175313,112.162.90.180,255.254.162.199,27009,5558,T,I,D",
+                "1705175313,171.28.133.162,187.3.145.127,17294,58110,T,I,D",
+                "1705175313,59.34.238.28,187.3.145.127,6640,44107,T,I,D",
+                "1705175313,73.250.170.35,255.254.162.199,56253,40880,T,I,D",
+                "1705175313,255.186.212.53,187.3.145.127,53903,991,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-23T22:55:57.298Z",
+    "systemId": "ac312c4a-3b7f-49ae-aae2-2cbb8c61d3fc",
+    "macAddress": "b8ce788fed44",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/mysterious-coordination/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "45df52f4c7e0",
+              "flowTuples": [
+                "1706050557,60.75.49.92,187.3.145.127,9518,49809,T,I,D",
+                "1706050557,86.193.220.179,255.254.162.199,14062,56237,T,I,D",
+                "1706050557,72.135.21.25,187.3.145.127,892,55209,T,I,D",
+                "1706050557,74.126.57.78,255.254.162.199,60211,24316,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-26T05:40:54.926Z",
+    "systemId": "a9777bee-51f8-4684-9efe-d3618583d558",
+    "macAddress": "a01cd34f7d4d",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/fluid-civilisation/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "8cce17efe55b",
+              "flowTuples": [
+                "1706247654,18.227.51.142,187.3.145.127,30435,47305,T,I,D",
+                "1706247654,67.42.254.21,187.3.145.127,22421,47218,T,I,D",
+                "1706247654,47.134.70.179,255.254.162.199,41619,27852,T,I,D",
+                "1706247654,188.20.80.63,255.254.162.199,2885,24005,T,I,D",
+                "1706247654,248.88.53.7,187.3.145.127,22690,5380,T,I,D",
+                "1706247654,27.161.127.12,187.3.145.127,21136,7794,T,I,D",
+                "1706247654,155.93.154.56,187.3.145.127,22913,9738,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-21T16:01:31.847Z",
+    "systemId": "40051814-64e4-4753-9831-7c5dfa36eb75",
+    "macAddress": "87c80a5a8dfe",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/virtual-cookie/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "977325f0397f",
+              "flowTuples": [
+                "1705852891,223.204.249.77,255.254.162.199,60250,24778,T,I,D",
+                "1705852891,51.115.237.150,187.3.145.127,63195,39551,T,I,D",
+                "1705852891,71.200.9.223,255.254.162.199,9314,32384,T,I,D",
+                "1705852891,185.24.48.157,187.3.145.127,38965,49310,T,I,D",
+                "1705852891,47.134.70.179,255.254.162.199,58693,1945,T,I,D",
+                "1705852891,165.79.109.86,255.254.162.199,32466,6138,T,I,D",
+                "1705852891,255.199.206.49,187.3.145.127,15270,41882,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-05T19:01:42.636Z",
+    "systemId": "a21a9ebd-f676-40d6-94f6-fbb05d71d10f",
+    "macAddress": "4af566b886c5",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/stupendous-texture/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "a97a6f08e884",
+              "flowTuples": [
+                "1704481302,205.203.98.83,255.254.162.199,13294,14164,T,I,D",
+                "1704481302,227.154.88.23,187.3.145.127,58757,27892,T,I,D",
+                "1704481302,135.52.51.26,187.3.145.127,56564,45692,T,I,D",
+                "1704481302,3.205.171.123,255.254.162.199,61975,26920,T,I,D",
+                "1704481302,104.120.14.180,255.254.162.199,20178,24211,T,I,D",
+                "1704481302,196.223.83.114,255.254.162.199,31532,5189,T,I,D",
+                "1704481302,124.89.238.231,187.3.145.127,48132,57471,T,I,D",
+                "1704481302,255.186.212.53,255.254.162.199,42685,5975,T,I,D",
+                "1704481302,75.13.58.68,187.3.145.127,18232,45489,T,I,D",
+                "1704481302,38.18.233.49,255.254.162.199,20435,48381,T,I,D",
+                "1704481302,195.62.207.231,255.254.162.199,48465,10163,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "time": "2024-01-14T03:53:52.279Z",
+    "systemId": "b0cbffb2-3b4f-4ccc-a284-d5d67b3c2a65",
+    "macAddress": "e2439bbd137c",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/a3a98e7f-e799-4ec6-b3b2-d722e0976509/RESOURCEGROUPS/pastel-cookie/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/HUB1",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+      "Version": 1,
+      "flows": [
+        {
+          "rule": "UserRule_deny-all-temp",
+          "flows": [
+            {
+              "mac": "3ef686150bce",
+              "flowTuples": [
+                "1705204432,155.93.154.56,187.3.145.127,4058,49083,T,I,D",
+                "1705204432,129.138.218.79,187.3.145.127,58311,2172,T,I,D",
+                "1705204432,194.249.113.10,255.254.162.199,54772,38724,T,I,D",
+                "1705204432,17.150.213.196,187.3.145.127,27033,55089,T,I,D",
+                "1705204432,223.204.249.77,187.3.145.127,12354,38629,T,I,D",
+                "1705204432,74.114.66.118,255.254.162.199,36875,20050,T,I,D",
+                "1705204432,234.62.222.244,255.254.162.199,47828,55422,T,I,D",
+                "1705204432,104.120.14.180,187.3.145.127,62808,32818,T,I,D",
+                "1705204432,71.200.9.223,255.254.162.199,31810,39433,T,I,D",
+                "1705204432,71.200.9.223,255.254.162.199,21411,1708,T,I,D",
+                "1705204432,94.249.215.151,255.254.162.199,3931,7853,T,I,D",
+                "1705204432,15.135.1.195,187.3.145.127,32305,10748,T,I,D",
+                "1705204432,74.189.164.163,187.3.145.127,42610,36886,T,I,D",
+                "1705204432,204.104.111.233,255.254.162.199,62121,53422,T,I,D",
+                "1705204432,124.89.238.231,187.3.145.127,16264,48190,T,I,D",
+                "1705204432,129.138.218.79,187.3.145.127,19036,64357,T,I,D",
+                "1705204432,9.68.164.170,255.254.162.199,57198,54838,T,I,D"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "env": {
+    "pat": "rkvteudufi3huxhps3mzdkf7txwh5qkepcn2x6gbdi2j4ri3gacq",
+    "organization": "agriculturegovau",
+    "project": "DMZ-Migration",
+    "appName": "ahpl"
+  },
+  "stackcats": {
+    "pat": "b6rfgo7ugs4xtcwcbjbfp5q7rnepdiibvpvwaxjltq33ef3b7tmq",
+    "organization": "stackcats",
+    "project": "blank",
+    "appName": "blank"
+  }
+}

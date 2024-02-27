@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    /> -->
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.3.0-beta.2/pdfmake.min.js"
+    integrity="sha512-k9XKlDENMt9s19gEl+L6F/r+OWAR4pesbUd8/SKQVMt3b1ECqsRXgLA9XnJoq4J9mjlxLQabfTxf3268lzpFUQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.3.0-beta.2/vfs_fonts.min.js"
+    integrity="sha512-6RDwGHTexMgLUqN/M2wHQ5KIR9T3WVbXd7hg0bnT+vs5ssavSnCica4Uw0EJnrErHzQa6LRfItjECPqRt4iZmA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+  <!-- <script src="js/jsPDF/dist/jspdf.min.js"></script> -->
+
+  <script>
+      // var stuff = JSON.parse(document.getElementById('stuff').innerHTML);
+  </script>
+  <!-- <script src="test.js"></script> -->
+</head>
+
+<body id="body">
+  <!-- Shell -->
+  <!-- This example requires Tailwind CSS v2.0+ -->
+  <!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full bg-gray-100">
+  <body class="h-full">
+  ```
+-->
+  <div class="min-h-full">
+    <nav class="bg-gray-800">
+      <div class="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <img class="h-8"
+                src="data:image/png;base64,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"
+                alt="Workflow" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <div class="max-w-9xl mx-auto py-6 sm:px-6 lg:px-8">
+        <!-- Replace with your content -->
+        <div class="lg:flex lg:items-center lg:justify-between tems-baseline">
+          <div class="flex-1 min-w-0">
+            <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+              Vulnerability Scan <span id="data-title"></span>
+            </h2>
+            <div class="mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
+              <div class="mt-2 flex items-center text-sm text-gray-500" id="numVulns" style="display: none;">
+                <!-- Heroicon name: solid/shield-check -->
+                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z"
+                    clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-500" id="numWithFixes" style="display: none;">
+                <!-- Heroicon name: solid/location-marker -->
+                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-500" id="osVulns" style="display: none;">
+                <!-- Heroicon name: solid/currency-dollar -->
+                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M2 5a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm14 1a1 1 0 11-2 0 1 1 0 012 0zM2 13a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2zm14 1a1 1 0 11-2 0 1 1 0 012 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                0 OS Level Vulnerabilities
+              </div>
+              <div class="mt-2 flex items-center text-sm text-gray-500" id="appVulns" style="display: none;">
+                <!-- Heroicon name: solid/calendar -->
+                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd" />
+                </svg>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pb-5 border-b border-gray-200">
+          <div class="-ml-2 -mt-2 flex flex-wrap items-baseline">
+            <h3 class="ml-2 mt-2 text-lg leading-6 font-medium text-gray-900">
+              System Level Packages
+            </h3>
+            <p class="ml-2 mt-1 text-sm text-gray-500 truncate">
+              No vulnerabilities found
+            </p>
+          </div>
+        </div>
+        <!-- /End replace -->
+      </div>
+    </main>
+  </div>
+
+  <!-- This example requires Tailwind CSS v2.0+ -->
+
+  <!-- Backdrop -->
+  <!-- This example requires Tailwind CSS v2.0+ -->
+
+  <!-- Tailwind Table -->
+  <!-- This example requires Tailwind CSS v2.0+ -->
+  <div class="px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <!-- Section Header -->
+    <!-- Section Header -->
+    <!-- Section Header -->
+    <!--
+  This example requires Tailwind CSS v2.0+
+
+  This example requires some changes to your config:
+
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+    <div class="pb-5 border-b border-gray-200 sm:flex sm:items-center sm:justify-between">
+      <h3 class="text-lg leading-6 font-medium text-gray-900">
+        Java Packages
+      </h3>
+      <div class="mt-3 sm:mt-0 sm:ml-4">
+        <!-- <label for="desktop-search-vulns" class="sr-only">Search</label> -->
+        <div class="flex ">
+          <div class="relative flex-grow focus-within:z-10">
+
+
+          </div>
+          <!-- <input
+                type="text"
+                name="desktop-search-vulns"
+                id="desktop-search-vulns"
+                class="hidden focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-none rounded-l-md pl-10 sm:block sm:text-sm border-gray-300"
+                placeholder="Search vaulnerabilities"
+              /> -->
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Select File for Processing</label>
+            <input class="form-control" type="file" id="file-input" />
+          </div>
+          <button id="savePdf">Save to PDF</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- End Section Header -->
+  <!-- End Section Header -->
+  <!-- End Section Header -->
+  <!-- End Section Header -->
+
+  <div class="mt-8 flex flex-col">
+    <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+        <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+          <table class="min-w-full divide-y divide-gray-300">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                  <a href="#" class="group inline-flex">
+                    Vulnerability ID
+                    <!-- Active: "bg-gray-200 text-gray-900 group-hover:bg-gray-300", Not Active: "invisible text-gray-400 group-hover:visible group-focus:visible" -->
+                    <span
+                      class="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
+                      <!-- Heroicon name: solid/chevron-down -->
+                      <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span>
+                  </a>
+                </th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                  <a href="#" class="group inline-flex">
+                    Package
+                    <!-- Active: "bg-gray-200 text-gray-900 group-hover:bg-gray-300", Not Active: "invisible text-gray-400 group-hover:visible group-focus:visible" -->
+                    <span class="invisible ml-2 flex-none rounded bg-gray-200 text-gray-900 group-hover:bg-gray-300">
+                      <!-- Heroicon name: solid/chevron-down -->
+                      <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span>
+                  </a>
+                </th>
+                <!-- <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                  <a href="#" class="group inline-flex">
+                    Package Path
+                    <!-- Active: "bg-gray-200 text-gray-900 group-hover:bg-gray-300", Not Active: "invisible text-gray-400 group-hover:visible group-focus:visible"
+                    <span
+                      class="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
+                      <!-- Heroicon name: solid/chevron-down
+                      <svg
+                        class="invisible ml-2 h-5 w-5 flex-none rounded text-gray-400 group-hover:visible group-focus:visible"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span>
+                  </a>
+                </th> -->
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                  <a href="#" class="group inline-flex">
+                    Installed Version
+                    <!-- Active: "bg-gray-200 text-gray-900 group-hover:bg-gray-300", Not Active: "invisible text-gray-400 group-hover:visible group-focus:visible" -->
+                    <span
+                      class="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
+                      <!-- Heroicon name: solid/chevron-down -->
+                      <svg
+                        class="invisible ml-2 h-5 w-5 flex-none rounded text-gray-400 group-hover:visible group-focus:visible"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span>
+                  </a>
+                </th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                  <a href="#" class="group inline-flex">
+                    Fix Version
+                    <!-- Active: "bg-gray-200 text-gray-900 group-hover:bg-gray-300", Not Active: "invisible text-gray-400 group-hover:visible group-focus:visible" -->
+                    <span
+                      class="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
+                      <!-- Heroicon name: solid/chevron-down -->
+                      <svg
+                        class="invisible ml-2 h-5 w-5 flex-none rounded text-gray-400 group-hover:visible group-focus:visible"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span>
+                  </a>
+                </th>
+                <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
+                  <span class="sr-only">Edit</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 bg-white" id="vulnerabilities"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Modal -->
+
+  <!-- This example requires Tailwind CSS v2.0+ -->
+  <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true" style="display: none">
+    <!--
+    Background backdrop, show/hide based on modal state.
+
+    Entering: "ease-out duration-300"
+      From: "opacity-0"
+      To: "opacity-100"
+    Leaving: "ease-in duration-200"
+      From: "opacity-100"
+      To: "opacity-0"
+  -->
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+    <div class="fixed z-10 inset-0 overflow-y-auto">
+      <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <!-- This element is to trick the browser into centering the modal contents. -->
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+        <!--
+        Modal panel, show/hide based on modal state.
+
+        Entering: "ease-out duration-300"
+          From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          To: "opacity-100 translate-y-0 sm:scale-100"
+        Leaving: "ease-in duration-200"
+          From: "opacity-100 translate-y-0 sm:scale-100"
+          To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+      -->
+        <div
+          class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+          <div class="sm:flex sm:items-start">
+            <div
+              class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+              <!-- Heroicon name: outline/exclamation -->
+              <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="2" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+              <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                Deactivate account
+              </h3>
+              <div class="mt-2">
+                <p class="text-sm text-gray-500">
+                  Are you sure you want to deactivate your account? All of
+                  your data will be permanently removed from our servers
+                  forever. This action cannot be undone.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
+            <button type="button"
+              class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+              Deactivate
+            </button>
+            <button type="button"
+              class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- This example requires Tailwind CSS v2.0+ -->
+  <!-- <div class="px-4 sm:px-6 lg:px-8">
+      <div class="sm:flex sm:items-center">
+        <div class="sm:flex-auto">
+          <h1 class="text-xl font-semibold text-gray-900">Users</h1>
+          <p class="mt-2 text-sm text-gray-700">
+            A list of all the users in your account including their name, title,
+            email and role.
+          </p>
+        </div>
+        <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+          <button
+            type="button"
+            class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
+          >
+            Add user
+          </button>
+        </div>
+      </div>
+      <div class="mt-8 flex flex-col">
+        <div class="-my-2 -mx-4 sm:-mx-6 lg:-mx-8">
+          <div class="inline-block min-w-full py-2 align-middle">
+            <div class="shadow-sm ring-1 ring-black ring-opacity-5">
+              <table
+                class="min-w-full border-separate"
+                style="border-spacing: 0"
+              >
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th
+                      scope="col"
+                      class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8"
+                    >
+                      Name
+                    </th>
+                    <th
+                      scope="col"
+                      class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell"
+                    >
+                      Title
+                    </th>
+                    <th
+                      scope="col"
+                      class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+                    >
+                      Email
+                    </th>
+                    <th
+                      scope="col"
+                      class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter"
+                    >
+                      Role
+                    </th>
+                    <th
+                      scope="col"
+                      class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pr-4 pl-3 backdrop-blur backdrop-filter sm:pr-6 lg:pr-8"
+                    >
+                      <span class="sr-only">Edit</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white">
+                  <tr>
+                    <td
+                      class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8"
+                    >
+                      Lindsay Walton
+                    </td>
+                    <td
+                      class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell"
+                    >
+                      Front-end Developer
+                    </td>
+                    <td
+                      class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell"
+                    >
+                      lindsay.walton@example.com
+                    </td>
+                    <td
+                      class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500"
+                    >
+                      Member
+                    </td>
+                    <td
+                      class="relative whitespace-nowrap border-b border-gray-200 py-4 pr-4 pl-3 text-right text-sm font-medium sm:pr-6 lg:pr-8"
+                    >
+                      <a href="#" class="text-indigo-600 hover:text-indigo-900"
+                        >Edit<span class="sr-only">, Lindsay Walton</span></a
+                      >
+                    </td>
+                  </tr>
+
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  <script>
+    $(function () {
+
+      const reader = new FileReader()
+      let data = []
+      let title
+      let withFixes
+
+      $("#file-input").on('change', () => {
+        // $("#loadingfile").toggleClass('d-none', false)
+        const file = document.querySelector("#file-input").files[0]
+        reader.readAsText(file)
+        reader.addEventListener('load', function (e) {
+          title = file.name.split('.')[0]
+          $("#data-title").text(` - ${title}`)
+          const text = JSON.parse(e.target.result.toString())
+          // const dataArray = text.map(item => item.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)).filter(i => i.length > 2)
+          console.log(text)
+          data = text.Results[0].Vulnerabilities.map(vuln => {
+            let sevNum
+            if (vuln.Severity.toLowerCase() == 'critical') {
+              sevNum = 1
+            } else if (vuln.Severity.toLowerCase() == 'high') {
+              sevNum = 2
+            } else if (vuln.Severity.toLowerCase() == 'medium') {
+              sevNum = 3
+            } else if (vuln.Severity.toLowerCase() == 'low') {
+              sevNum = 4
+            } else if (vuln.Severity.toLowerCase() == 'advisory') {
+              sevNum = 5
+            } else if (vuln.Severity.toLowerCase() == 'unknown') {
+              sevNum = 6
+            }
+            return {
+              sevNum,
+              ...vuln
+            }
+          }).sort((a, b) => (a.sevNum > b.sevNum) ? 1 : -1)
+          processData(data)
+        })
+      })
+
+      function processData(data) {
+        $("#scanDesc").text(
+          `${data.length} vulnerabilities found in Java packages`
+        )
+        $("#numVulns").append(`${data.length} Total Vulnerabilities Found`)
+        $("#numVulns").toggle()
+        withFixes = data.filter(item => item.FixedVersion)
+        $("#numWithFixes").append(`${withFixes.length} Number With Available Fixes`)
+        $("#numWithFixes").toggle()
+        $("#osVulns").toggle()
+        $("#appVulns").append(`${data.length} App Level Vulnerabilities Found`)
+        $("#appVulns").toggle()
+
+        data.forEach((vuln) => {
+          const severity = () => {
+            switch (vuln.Severity.toLowerCase()) {
+              case "critical":
+                return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-red-400 text-red-800"> ${vuln.Severity} </span>`
+                break
+              case "high":
+                return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-orange-400 text-orange-800"> ${vuln.Severity} </span>`
+                break
+              case "medium":
+                return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-amber-200 text-amber-700"> ${vuln.Severity} </span>`
+                break
+              case "low":
+                return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-red-100 text-red-800"> ${vuln.Severity} </span>`
+                break
+              case "advisory":
+                return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-red-100 text-red-800"> ${vuln.Severity} </span>`
+                break
+              case "unknown":
+                return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-red-100 text-red-800"> ${vuln.Severity} </span>`
+                break
+            }
+          }
+
+          const availableFix = () => {
+            switch (vuln.FixedVersion) {
+              case undefined:
+                return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-red-100 text-red-800"> Not Available </span>`
+                break
+              default:
+                return vuln.FixedVersion
+                break
+            }
+          }
+
+          // vuln.FixedVersion
+          // <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">${vuln.PkgPath}</td>
+          $("#vulnerabilities").append(`
+        <tr class="critical">
+          <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">${vuln.VulnerabilityID}</td>
+          <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">${vuln.PkgName}</td>
+          <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">${vuln.InstalledVersion}</td>
+          <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">${availableFix()}</td>
+          <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+          ${severity()}
+          </td>
+        </tr>
+        `)
+        })
+      }
+      // $("#jsonData").html("")
+
+
+      $('#savePdf').on('click', () => {
+        // var bodyElement = document.getElementById('body');
+
+        //     {
+        // 	style: 'tableExample',
+        // 	table: {
+        // 		headerRows: 1,
+        // 		// dontBreakRows: true,
+        // 		// keepWithHeaderRows: 1,
+        // 		body: [
+        // 			[{text: 'Header 1', style: 'tableHeader'}, {text: 'Header 2', style: 'tableHeader'}, {text: 'Header 3', style: 'tableHeader'}],
+        // 			[
+        // 				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        // 				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        // 				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        // 			]
+        // 		]
+        // 	}
+        // },
+
+        let transformedData = data.map(vuln => {
+          const severity = () => {
+            switch (vuln.Severity.toLowerCase()) {
+              case "critical":
+                return {
+                  fillColor: "#b91c1c",
+                  text: vuln.Severity,
+                }
+                break
+              case "high":
+                return {
+                  fillColor: "#f59e0b",
+                  text: vuln.Severity,
+                }
+                break
+              case "medium":
+                return {
+                  fillColor: "#fde047",
+                  text: vuln.Severity,
+                }
+                break
+              case "low":
+                return {
+                  fillColor: "#fef9c3",
+                  text: vuln.Severity,
+                }
+                break
+              case "advisory":
+                return {
+                  fillColor: "#fefce8",
+                  text: vuln.Severity,
+                }
+                break
+              case "unknown":
+                return {
+                  fillColor: "#fefce8",
+                  text: vuln.Severity,
+                }
+                break
+            }
+          }
+
+          const availableFix = () => {
+            switch (vuln.FixedVersion) {
+              case undefined:
+                return "N/A"
+                break
+              default:
+                return vuln.FixedVersion
+                break
+            }
+          }
+
+          const cve = { text: vuln.VulnerabilityID, link: vuln.PrimaryURL }
+
+          return [
+            cve,
+            vuln.PkgName,
+            vuln.InstalledVersion,
+            availableFix(),
+            severity()
+          ]
+        })
+
+        let pdfData = {
+          styles: {
+            header: {
+              fontSize: 18,
+              bold: true,
+              margin: [0, 0, 0, 10]
+            },
+            subheader: {
+              fontSize: 16,
+              bold: true,
+              margin: [0, 10, 0, 5]
+            },
+            tableExample: {
+              margin: [0, 5, 0, 15],
+              fontSize: 10
+            },
+            tableHeader: {
+              bold: true,
+              fontSize: 13,
+              color: 'black'
+            }
+          },
+          content: [
+            { text: `Vulnerability Scan - ${title}`, style: 'subheader' },
+            `Report gnerated: ${new Date()}`,
+            `${data.length} Total Vulnerabilities Found`,
+            `${withFixes.length} with Available Fixes`,
+            `${data.length} App Level Vulnerabilities Found`,
+            // {
+            //   style: 'tableExample',
+            //   table: {
+            //     headerRows: 1,
+            //     // dontBreakRows: true,
+            //     // keepWithHeaderRows: 1,
+            //     body: [
+            // [
+            //   { text: 'CVE', style: 'tableHeader' },
+            //   { text: 'Package', style: 'tableHeader' },
+            //   { text: 'Installed Version', style: 'tableHeader' },
+            //   { text: 'Fix Version', style: 'tableHeader' },
+            //   { text: 'Severity', style: 'tableHeader' }
+            // ],
+            //       transformedData
+            //     ]
+            //   }
+            // },
+            {
+              style: 'tableExample',
+              table: {
+                headerRows: 1,
+                dontBreakRows: true,
+                keepWithHeaderRows: 1,
+                body: [
+                  [
+                    { text: 'CVE', style: 'tableHeader' },
+                    { text: 'Package', style: 'tableHeader' },
+                    { text: 'Installed Version', style: 'tableHeader' },
+                    { text: 'Fix Version', style: 'tableHeader' },
+                    { text: 'Severity', style: 'tableHeader' }
+                  ],
+                  ...transformedData
+                ]
+              }
+            },
+          ]
+        }
+        // console.log(transformedData)
+        // console.log(pdfData)
+
+
+        // pdfMake.createPdf(pdfData).save()
+        pdfMake.createPdf(pdfData).download(`vulnScan-${title}.pdf`)
+
+
+        // html2pdf(bodyElement).toPdf().save();
+        // html2pdf().from(bodyElement).save();
+        // console.log(pdf)
+      })
+
+
+    })
+  </script>
+</body>
+
+</html>
+
+
+<!-- <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">${vuln.Severity}</td> -->

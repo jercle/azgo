@@ -44,14 +44,11 @@ const getAllFiles = dir =>
     return isDirectory ? [...files, ...getAllFiles(name)] : [...files, name];
   }, []);
 
-// console.log(getAllFiles('./nsglogs'))
-
-const allFileNames = getAllFiles("../testData/nsgLogs")
+const allFileNames = getAllFiles("./nsgLogs")
 
 
 
 const combineFilesProgress = multibar.create(allFileNames.length - 1, 0, { filename: `Combining and transforming dataset` })
-let allFileData = []
 let allSourceIps = []
 let allDestIps = []
 
@@ -69,7 +66,7 @@ for (let i = 0; i < allFileNames.length; i++) {
   // process.exit(0)
 
   for (const fileLog of fileData) {
-    console.log(fileLog)
+    // console.log(fileLog)
     const sourceIps = []
     const destIps = []
 
@@ -87,47 +84,18 @@ for (let i = 0; i < allFileNames.length; i++) {
 
       }
     }
-    allSourceIps = [...new Set([...allSourceIps, ...sourceIps])]
-    allDestIps = [...new Set([...allDestIps, ...destIps])]
+    allSourceIps = [...allSourceIps, ...sourceIps]
+    allDestIps = [...allDestIps, ...destIps]
   }
 
-  // console.log(fileData)
-  // break
+  allSourceIps = [...new Set([...allSourceIps])]
+  allDestIps = [...new Set([...allDestIps])]
+
 }
 
-// console.log("allSourceIps.length", allSourceIps.length)
-// console.log("allDestIps.length", allDestIps.length)
 
-// const ipSourceSet = [...new Set(...allSourceIps)]
-// const ipDestSet = [...new Set(...allDestIps)]
-
-// console.log("ipSourceSet.length", ipSourceSet.length)
-// console.log("ipDestSet.length", ipDestSet.length)
-
-// allFileData.length
 multibar.stop()
 
 
-// const ipSourceCsv = ipSourceSet.reduce((all, item, index) => {
-//   all += item + '\n'
-// },"")
-
-// const ipDestSetCsv = ipDestSet.reduce((all, item, index) => {
-//   all += item + '\n'
-// },"")
-
 writeFileSync("sourceIps.csv", allSourceIps.join("\n"))
-writeFileSync("sourceIps.csv", allDestIps.join("\n"))
-
-// appendFileSync
-
-// allFileData = [...allFileData, ...fileData.records]
-
-
-// console.log(fileData)
-// break
-
-
-
-// writeFileSync('./records.json', JSON.stringify(allFileData, null, 2))
-// console.log(JSON.stringify(fileData))
+writeFileSync("allDestIps.csv", allDestIps.join("\n"))

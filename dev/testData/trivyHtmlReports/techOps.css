@@ -1,0 +1,214 @@
+/* <div class="container-1">
+<span class="icon">
+    <i class="fa fa-search"></i>
+</span>
+<input type="search" id="search" placeholder="Search..."  action="submit" autofocus />
+<!--    value="uwbaq"  value="INC28601816"  value="CRQ257336"    -->
+</div> */
+
+
+thead {
+    background-color: #44A479;
+    color: #aaf0d1;
+}
+
+.container-1 {
+    width: 300px;
+    vertical-align: middle;
+    align-content: center;
+    white-space: nowrap;
+    position: relative;
+}
+
+.container-1 input#search {
+    width: 300px;
+    height: 30px;
+    background: #207d54;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #aaf0d1;
+    z-index: -1;
+    padding-left: 45px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transition: background 0.55s ease;
+    -moz-transition: background 0.55s ease;
+    -ms-transition: background 0.55s ease;
+    -o-transition: background 0.55s ease;
+    transition: background 0.55s ease;
+}
+
+.container-1 input#search::-webkit-input-placeholder {
+    color: #aaf0d1;
+}
+
+.container-1 input#search:-moz-placeholder {
+    color: #aaf0d1;
+}
+
+.container-1 input#search::-moz-placeholder {
+    color: #aaf0d1;
+}
+
+.container-1 input#search:-ms-input-placeholder {
+    color: #aaf0d1;
+}
+
+.container-1 .icon {
+    position: absolute;
+    top: 50%;
+    margin-left: -287px;
+    margin-top: 5px;
+    color: #aaf0d1;
+    z-index: 1;
+    /*background-color: white;*/
+}
+
+.container-1 input#search:hover,
+.container-1 input#search:focus,
+.container-1 input#search:active {
+    outline: none;
+    background: #dbffef;
+    color: #207d54;
+}
+
+
+/* Tooltip container */
+.time {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    /* border-bottom: 1px dotted black; If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.time .fromnow {
+    visibility: hidden;
+    /* width: 120px; */
+    bottom: 100%;
+    max-width: 600px;
+    left: 20%; 
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    overflow: auto;
+    min-width: 100px;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.time:hover .fromnow {
+    visibility: visible;
+}
+
+
+
+
+/* Tooltip container */
+.desc {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    /* border-bottom: 1px dotted black; If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.desc .detdesc {
+    visibility: hidden;
+    max-width: 600px;
+    bottom: 100%;
+    left: 20%; 
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    overflow: auto;
+    max-height: 300px;
+    min-width: 100px;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.desc:hover .detdesc {
+    visibility: visible;
+}
+
+
+
+
+
+/* Tooltip container */
+.alertName {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    /* border-bottom: 1px dotted black; If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.alertName .alertDesc {
+    visibility: hidden;
+    max-width: 480px;
+    bottom: 100%;
+    left: 20%; 
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    overflow: auto;
+    min-width: 100px;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.alertName:hover .alertDesc {
+    visibility: visible;
+}
+
+
+
+.smallfont {
+    font-size: 10px;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.techopsincs {
+    grid-column: 1 / 4;
+    border: 1px solid black;
+}
+
+.scomalerts {
+    grid-column: 4 / 5;
+    border: 1px solid black;
+}
+
+.incId {
+    text-align: center;
+}
+
+.scomIncId {
+    text-align: center;
+}
+
+.centered {
+    text-align: center;
+}

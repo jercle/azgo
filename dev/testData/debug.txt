@@ -1,0 +1,1193 @@
+[
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-16T19:37:13.7506410Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-01-20T03:12:19.3655119Z",
+    "digest": "sha256:07911a0780a938b26f0212091552e9ba2a0d45ca240d6446d2763d942f8c2039",
+    "imageSize": 90527509,
+    "lastUpdateTime": "2022-01-20T03:12:19.3655119Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "159190"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-02-22T23:50:42.5976881Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":1},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-01-18T20:16:25.5968128Z",
+    "digest": "sha256:10eb1c79abe205587f90755237b172e2784abf0d105334bbc0a9101bb3b1753e",
+    "imageSize": 90909483,
+    "lastUpdateTime": "2022-01-18T20:16:25.5968128Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux"
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-06-16T22:16:13.8491090Z\",\"summary\":[{\"severity\":\"High\",\"count\":0},{\"severity\":\"Medium\",\"count\":1},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-05-03T08:49:57.9140725Z",
+    "digest": "sha256:13b2588073a9ebaad04f6a1ddf1223383e76396be2101a69911d2e9fdfeb1aa7",
+    "imageSize": 20063400,
+    "lastUpdateTime": "2022-05-03T08:49:57.9140725Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "255475"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-16T19:37:13.7506410Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-01-18T23:30:37.6761253Z",
+    "digest": "sha256:159c3289fd87d144b25f5c0f38073bd3ae2f691f618544dca9cdd58aa790d094",
+    "imageSize": 90526448,
+    "lastUpdateTime": "2022-01-18T23:30:37.6761253Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "latest6"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-05-11T19:34:45.9253378Z\",\"summary\":[{\"severity\":\"High\",\"count\":3},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-14T03:44:39.5228623Z",
+    "digest": "sha256:1ce4d92d89e9e53ed1bc1af519eb23dff6b68eafdb539887038f9384f32bec5e",
+    "imageSize": 90886889,
+    "lastUpdateTime": "2022-04-14T03:44:39.5228623Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "236904"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-16T19:37:13.7506410Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-02-10T03:14:21.3095285Z",
+    "digest": "sha256:1d173980fc9b4f597de4baa2f5d826ccbe1bffaf11f4ab26ab17f955b147e407",
+    "imageSize": 90548652,
+    "lastUpdateTime": "2022-02-10T03:14:21.3095285Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "174279"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-05-19T18:54:22.4046462Z\",\"summary\":[{\"severity\":\"High\",\"count\":0},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-05-05T23:10:02.172065Z",
+    "digest": "sha256:1f0069aa06a0674280e6bb7568640eddaedeba98386f936670ab7bfacf4a7c06",
+    "imageSize": 20328672,
+    "lastUpdateTime": "2022-05-05T23:10:02.172065Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "258109"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-16T19:37:13.7506410Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-01-18T22:44:24.9945526Z",
+    "digest": "sha256:22705ccb5ee6b7182c29f848ecfc4fe86121f644724e3e7a2278a63c5680b3bf",
+    "imageSize": 90526212,
+    "lastUpdateTime": "2022-01-18T22:44:24.9945526Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "latest3"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-06-07T19:48:55.8767766Z\",\"summary\":[{\"severity\":\"High\",\"count\":11},{\"severity\":\"Medium\",\"count\":5},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-01-18T23:00:40.8617176Z",
+    "digest": "sha256:22707163c615af62c0b5208eb4f925b8f07ff7ee1b88fe0a3af324fed3d6baa7",
+    "imageSize": 90526350,
+    "lastUpdateTime": "2022-01-18T23:00:40.8617176Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "latest4"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-04-28T01:37:04.3666017Z\",\"summary\":[{\"severity\":\"High\",\"count\":6},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-03-29T07:20:35.8712783Z",
+    "digest": "sha256:23541fbe1ef167a865f0ddf2978da0dfe07349dd6020d258116f451fba739887",
+    "imageSize": 91224996,
+    "lastUpdateTime": "2022-03-29T07:20:35.8712783Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "219932"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-16T19:37:13.7506410Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-01-18T21:41:12.208006Z",
+    "digest": "sha256:27f9f7fb8fe3bf8d12a44f7157da530536fd7d700065a48e4c1d42aa1ed5220f",
+    "imageSize": 90909500,
+    "lastUpdateTime": "2022-01-18T21:41:12.208006Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "latest1"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan InProgress\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"5/25/2022 11:04:59 AM\",\"summary\":[{\"severity\":\"High\",\"count\":0},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-27T06:25:42.2845397Z",
+    "digest": "sha256:2dc56d7b43de80b10e412adcf2201366c4bb00bb7d1293ae274d31fd63b20d81",
+    "imageSize": 90886671,
+    "lastUpdateTime": "2022-04-27T06:25:42.2845397Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "249365"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-04-26T18:44:55.2637476Z\",\"summary\":[{\"severity\":\"High\",\"count\":2},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-27T06:19:27.8106605Z",
+    "digest": "sha256:45d71e48736e841ed501b20daa59e9416d4affda3c1aa5da024c95339a8b6a36",
+    "imageSize": 90887057,
+    "lastUpdateTime": "2022-04-27T06:19:27.8106605Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "249360"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-05-26T21:42:11.1345303Z\",\"summary\":[{\"severity\":\"High\",\"count\":4},{\"severity\":\"Medium\",\"count\":1},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-28T09:07:27.8891193Z",
+    "digest": "sha256:5034ea24deeae362714c2be84904aade502422f46fd260606afd4851f9d19fd3",
+    "imageSize": 90887114,
+    "lastUpdateTime": "2022-04-28T09:07:27.8891193Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "250604"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-16T19:37:13.7506410Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-01-19T00:34:46.6919592Z",
+    "digest": "sha256:50d3664c1560723c1da503ac108ff1a72211a5366e8a84a4c779bd930dc18ad5",
+    "imageSize": 90527540,
+    "lastUpdateTime": "2022-01-19T00:34:46.6919592Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "latest10"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-04-20T18:45:14.8724502Z\",\"summary\":[{\"severity\":\"High\",\"count\":0},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-20T23:27:47.2104349Z",
+    "digest": "sha256:58a07fbd651d52c59b14417e0ffd149a2ac68ddf01543a0f1e8a66eef76a520f",
+    "imageSize": 90886861,
+    "lastUpdateTime": "2022-04-20T23:27:47.2104349Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "243137"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-06-16T22:16:13.8491090Z\",\"summary\":[{\"severity\":\"High\",\"count\":5},{\"severity\":\"Medium\",\"count\":1},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-29T00:59:35.5562597Z",
+    "digest": "sha256:671213949844414a492e805ae5f06658aafaaa7282331bdb47cdd1954c38679e",
+    "imageSize": 90886976,
+    "lastUpdateTime": "2022-04-29T00:59:35.5562597Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "251326"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-09T21:08:37.6640734Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-02-07T00:20:45.83425Z",
+    "digest": "sha256:737b9d75df473408aa563e87966271603cc0f8fc7aa34ce2bc300a7455f4edc6",
+    "imageSize": 90549105,
+    "lastUpdateTime": "2022-02-07T00:20:45.83425Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "171432"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-05-23T22:54:40.8954346Z\",\"summary\":[{\"severity\":\"High\",\"count\":3},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-27T05:35:17.0589726Z",
+    "digest": "sha256:811808803c5081727039f93700dfe56cca688175fa3e83399a2930f037d27b16",
+    "imageSize": 90886859,
+    "lastUpdateTime": "2022-04-27T05:35:17.0589726Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "249299"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-31T21:01:06.6212672Z\",\"summary\":[{\"severity\":\"High\",\"count\":2},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-02-23T23:56:38.1614135Z",
+    "digest": "sha256:885b01ddec1def7148192835a107266cad373ce4bb6752b1288f1a0bf311c0bf",
+    "imageSize": 90560474,
+    "lastUpdateTime": "2022-02-23T23:56:38.1614135Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "185810"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-16T19:37:13.7506410Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-02-09T02:38:58.4415523Z",
+    "digest": "sha256:8efca45793da08649319a2f1bc4b8a63dc927c397c8d821fa096f30e29b93bab",
+    "imageSize": 90548930,
+    "lastUpdateTime": "2022-02-09T02:38:58.4415523Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "173437"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-02-22T23:50:42.5976881Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":1},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-01-18T23:20:15.4184946Z",
+    "digest": "sha256:945ef71c7f28d2fbd50227381d8111e5c6d250f7624966eb44a0fdc9ce254be7",
+    "imageSize": 90526378,
+    "lastUpdateTime": "2022-01-18T23:20:15.4184946Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux"
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-06-02T22:23:04.0429698Z\",\"summary\":[{\"severity\":\"High\",\"count\":5},{\"severity\":\"Medium\",\"count\":1},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-21T01:25:17.8939319Z",
+    "digest": "sha256:98370b6a155926a0e3ea99edffb34f447bfc2ae3b6c822479e907de5dda14ebd",
+    "imageSize": 90887056,
+    "lastUpdateTime": "2022-04-21T01:25:17.8939319Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "243288"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-02-18T01:34:05.5930308Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-01-17T03:18:26.3097749Z",
+    "digest": "sha256:98673292c28b30c3cae0b8b3c933582cdd44f475d9c83bd2d08ce95893165853",
+    "imageSize": 56458778,
+    "lastUpdateTime": "2022-01-17T03:18:26.3097749Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux"
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-16T19:37:13.7506410Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-01-18T23:10:15.3588011Z",
+    "digest": "sha256:9880e48a09ce135146bfc7efda83bb3c8ead92fdecf8eee02067178db2656955",
+    "imageSize": 90526329,
+    "lastUpdateTime": "2022-01-18T23:10:15.3588011Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "latest5"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan InProgress\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"4/29/2022 9:04:46 PM\",\"summary\":[{\"severity\":\"High\",\"count\":0},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-27T04:34:44.147338Z",
+    "digest": "sha256:9c47209859576ae929884e1ff34c2f4d143ba69d94ebdcec7310ab674398553f",
+    "imageSize": 90886774,
+    "lastUpdateTime": "2022-04-27T04:34:44.147338Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "249222"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-16T19:37:13.7506410Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-02-10T05:01:34.8437826Z",
+    "digest": "sha256:9cdb384e3ce347a5abab068ccc0265f22da63d9be5b91ec43400d1e2afe14f4d",
+    "imageSize": 90548156,
+    "lastUpdateTime": "2022-02-10T05:01:34.8437826Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "174352"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-16T19:37:13.7506410Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-02-10T03:22:09.1185438Z",
+    "digest": "sha256:9e4b2441f87d87eebda8264030aba0d7e507445a4f5ad6d9feea5bd4ea4da427",
+    "imageSize": 90548280,
+    "lastUpdateTime": "2022-02-10T03:22:09.1185438Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "174288"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-16T19:37:13.7506410Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-01-19T03:25:07.0193163Z",
+    "digest": "sha256:9f68f42dc8de5b8d6732d0ee533788edc2bee604d16edf7c2e121b48f8b72eff",
+    "imageSize": 90527555,
+    "lastUpdateTime": "2022-01-19T03:25:07.0193163Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "latest11"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-16T19:37:13.7506410Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-01-18T23:41:34.9244692Z",
+    "digest": "sha256:a2bb4a2ef58bd518a278140e88d1fbddaf303de86f6c440e7b556f2ae898561f",
+    "imageSize": 90527783,
+    "lastUpdateTime": "2022-01-18T23:41:34.9244692Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "latest8"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-05-26T21:42:11.1345303Z\",\"summary\":[{\"severity\":\"High\",\"count\":4},{\"severity\":\"Medium\",\"count\":1},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-21T02:48:35.6956952Z",
+    "digest": "sha256:a6205717a50162a6b7f0ac2c41dfea69769a1df69ff957767f29ee0eb285e83a",
+    "imageSize": 90886912,
+    "lastUpdateTime": "2022-04-21T02:48:35.6956952Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "243356"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-23T19:59:17.8985744Z\",\"summary\":[{\"severity\":\"High\",\"count\":2},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-02-11T12:39:29.1620612Z",
+    "digest": "sha256:b39b0573e01ddcd57aeb9f2536340dd33507400707bb144972c737e270293068",
+    "imageSize": 90554887,
+    "lastUpdateTime": "2022-02-11T12:39:29.1620612Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "175491"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-06-07T19:48:55.8767766Z\",\"summary\":[{\"severity\":\"High\",\"count\":0},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-05-30T23:04:17.7776017Z",
+    "digest": "sha256:b88cd97d56b4b70757fe987748f84a56c5a6aaabd7007bbc1cdf91e493b4565b",
+    "imageSize": 86769907,
+    "lastUpdateTime": "2022-05-30T23:04:17.7776017Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "284194"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-16T19:37:13.7506410Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-01-18T23:58:09.4099013Z",
+    "digest": "sha256:b9a2d1994fc439dbd504f6978194f99b0516e6f00089e61f78e2a775052021ac",
+    "imageSize": 90527449,
+    "lastUpdateTime": "2022-01-18T23:58:09.4099013Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "latest9"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-16T19:37:13.7506410Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-01-18T23:32:08.2986687Z",
+    "digest": "sha256:bce9bfcf33fea4f245c98cb067c3255073f7b45551710882da166e929fdb7f9a",
+    "imageSize": 90526461,
+    "lastUpdateTime": "2022-01-18T23:32:08.2986687Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "latest7"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-05-19T18:54:22.4046462Z\",\"summary\":[{\"severity\":\"High\",\"count\":4},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-19T03:05:13.6130339Z",
+    "digest": "sha256:be3587883fe18c8543da991f8a2134f25b5ff45f3ea39e13fe2d970d30ba4c7b",
+    "imageSize": 90886306,
+    "lastUpdateTime": "2022-04-19T03:05:13.6130339Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "241268"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-06-15T19:23:54.0797900Z\",\"summary\":[{\"severity\":\"High\",\"count\":11},{\"severity\":\"Medium\",\"count\":5},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-01-18T04:50:32.9469928Z",
+    "digest": "sha256:bff24330fc7d1d09561f82bd1f1a0f4eb61a4828832c9e6c6f9d08ed3f3b5e48",
+    "imageSize": 90909509,
+    "lastUpdateTime": "2022-01-18T04:50:32.9469928Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "latest"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-05-19T18:54:22.4046462Z\",\"summary\":[{\"severity\":\"High\",\"count\":0},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-05-06T03:20:33.5956803Z",
+    "digest": "sha256:cd9bb347231d7542d3881baf77524cf31743111ec22b7d74fe0a9f19449c3278",
+    "imageSize": 20328341,
+    "lastUpdateTime": "2022-05-06T03:20:33.5956803Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "258346"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-16T19:37:13.7506410Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-02-09T00:43:24.0603492Z",
+    "digest": "sha256:d366aacf742680e3462fa28d99584b2d492247c348e231639fe1cb163a49ca6b",
+    "imageSize": 90548598,
+    "lastUpdateTime": "2022-02-09T00:43:24.0603492Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "173324",
+      "latest-GM_Dev"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-05-26T21:42:11.1345303Z\",\"summary\":[{\"severity\":\"High\",\"count\":2},{\"severity\":\"Medium\",\"count\":1},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-28T06:14:58.4252162Z",
+    "digest": "sha256:d46f13eca5c2dc7307741bc47c06d0a9f0cfcf19214a0fdd292be73b1334c403",
+    "imageSize": 92619099,
+    "lastUpdateTime": "2022-04-28T06:14:58.4252162Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "250443"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-04-20T18:45:14.8724502Z\",\"summary\":[{\"severity\":\"High\",\"count\":0},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-21T01:57:26.22407Z",
+    "digest": "sha256:d52c273f9fc3c9b0204c929b0ac5943754aabe2a82fc55f92c1547d5790372a5",
+    "imageSize": 90886876,
+    "lastUpdateTime": "2022-04-21T01:57:26.22407Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "243312"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-05-25T20:12:42.5258374Z\",\"summary\":[{\"severity\":\"High\",\"count\":4},{\"severity\":\"Medium\",\"count\":1},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-27T04:52:29.5345628Z",
+    "digest": "sha256:d67a34dedd1ef1edccc4fe61f0d83180220b031933968bed458691b7f9f8c44d",
+    "imageSize": 90886944,
+    "lastUpdateTime": "2022-04-27T04:52:29.5345628Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "249249"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-06-02T22:23:04.0429698Z\",\"summary\":[{\"severity\":\"High\",\"count\":6},{\"severity\":\"Medium\",\"count\":1},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-14T04:10:36.0613953Z",
+    "digest": "sha256:d71bd432d72546e49071ed109068b1536b3bcd8c1fc5c99ffeac7b5ae80e5c87",
+    "imageSize": 90885097,
+    "lastUpdateTime": "2022-04-14T04:10:36.0613953Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "236942"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-05-11T19:34:45.9253378Z\",\"summary\":[{\"severity\":\"High\",\"count\":3},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-03-30T00:00:14.5107201Z",
+    "digest": "sha256:da230ae38785b19c26d1739a773b805bc4fd2965b793485aaba1137786bdb179",
+    "imageSize": 90883856,
+    "lastUpdateTime": "2022-03-30T00:00:14.5107201Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "220627"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-05-26T21:42:11.1345303Z\",\"summary\":[{\"severity\":\"High\",\"count\":0},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-05-27T01:05:38.2273005Z",
+    "digest": "sha256:df3f3277bc49bbc88e6daebd18c27d1c580d5e6eb3c86c7114adbeaa334c6be0",
+    "imageSize": 86770049,
+    "lastUpdateTime": "2022-05-27T01:05:38.2273005Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "280606"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-31T21:01:06.6212672Z\",\"summary\":[{\"severity\":\"High\",\"count\":2},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-02-24T00:43:19.2682299Z",
+    "digest": "sha256:e29485e330d06d32d625d667761d414a7a1812614547ef6b2f92846d62e708f5",
+    "imageSize": 90560550,
+    "lastUpdateTime": "2022-02-24T00:43:19.2682299Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "185855"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-05-23T22:54:40.8954346Z\",\"summary\":[{\"severity\":\"High\",\"count\":4},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-19T00:18:45.6420229Z",
+    "digest": "sha256:e5e214b95cd56cfbf3767178bbd7100bdc47563600e79fd4160a249b4d5a9176",
+    "imageSize": 90886344,
+    "lastUpdateTime": "2022-04-19T00:18:45.6420229Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "241073"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-06-07T19:48:55.8767766Z\",\"summary\":[{\"severity\":\"High\",\"count\":0},{\"severity\":\"Medium\",\"count\":1},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-05-06T03:34:47.4202712Z",
+    "digest": "sha256:e66fd8f7c1a4a12b7d2b73aaab9f30b01c8884c5c62fec53cf03e4a277bf54fd",
+    "imageSize": 20328346,
+    "lastUpdateTime": "2022-05-06T03:34:47.4202712Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "258356"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-04-28T01:37:04.3666017Z\",\"summary\":[{\"severity\":\"High\",\"count\":0},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-03-29T06:44:34.3595326Z",
+    "digest": "sha256:ed14476877dfdc070d43c9ab1319adc16b15ea321cdd27061fccc37eb6dc17c3",
+    "imageSize": 91224931,
+    "lastUpdateTime": "2022-03-29T06:44:34.3595326Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "219894"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-04-26T18:44:55.2637476Z\",\"summary\":[{\"severity\":\"High\",\"count\":2},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-27T05:19:06.8010066Z",
+    "digest": "sha256:ee83a587d6499ccfd8ffb32eae06c16c2c471d0ccb4abce63752063f566c8212",
+    "imageSize": 90886871,
+    "lastUpdateTime": "2022-04-27T05:19:06.8010066Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "249291"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-04-20T18:45:14.8724502Z\",\"summary\":[{\"severity\":\"High\",\"count\":0},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-21T02:32:10.7183275Z",
+    "digest": "sha256:eea723cf3c254dd67dcb4c0fa330aa399c46870a1e68783f35f2a6f265ea237c",
+    "imageSize": 90886797,
+    "lastUpdateTime": "2022-04-21T02:32:10.7183275Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "243336"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-04-26T18:44:55.2637476Z\",\"summary\":[{\"severity\":\"High\",\"count\":2},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-27T05:04:30.222989Z",
+    "digest": "sha256:f22c7f5551a5c2d715f3fc32ccd1606743996679c4eeb120fef16feebc0fc5a7",
+    "imageSize": 90886977,
+    "lastUpdateTime": "2022-04-27T05:04:30.222989Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "249268"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-05-23T22:54:40.8954346Z\",\"summary\":[{\"severity\":\"High\",\"count\":3},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-27T05:15:53.3044911Z",
+    "digest": "sha256:f2ce87f4a6561bc186cf4ded46fbf7d6ed97c296843c12dc82658ac341907fe2",
+    "imageSize": 90886793,
+    "lastUpdateTime": "2022-04-27T05:15:53.3044911Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "249280"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-16T19:37:13.7506410Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-01-18T21:42:55.1216099Z",
+    "digest": "sha256:f5b455c3079f7c4207044d081577d46c0de521d2f5141d302de6d6ab9fa25d25",
+    "imageSize": 90909507,
+    "lastUpdateTime": "2022-01-18T21:42:55.1216099Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "latest2"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-03-16T19:37:13.7506410Z\",\"summary\":[{\"severity\":\"High\",\"count\":1},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-02-09T01:14:48.9915292Z",
+    "digest": "sha256:f62cf912c940ed005164172f004046e6009488766614d9f8f0b433a37e3140d7",
+    "imageSize": 90548542,
+    "lastUpdateTime": "2022-02-09T01:14:48.9915292Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "173367",
+      "latest-GM_Dev2"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-06-01T17:54:10.4992756Z\",\"summary\":[{\"severity\":\"High\",\"count\":5},{\"severity\":\"Medium\",\"count\":1},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-04-21T02:59:16.2123218Z",
+    "digest": "sha256:f6b1cd6dbaffdb7ad3b15bcd1226e37ff36324691b3e5de9dcd0868b7441b6c5",
+    "imageSize": 90886804,
+    "lastUpdateTime": "2022-04-21T02:59:16.2123218Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "243360"
+    ]
+  },
+  {
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2022-04-07T23:39:16.7161342Z\",\"summary\":[{\"severity\":\"High\",\"count\":3},{\"severity\":\"Medium\",\"count\":3},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2022-02-24T02:43:40.1662351Z",
+    "digest": "sha256:fddbf0dc95f3550d43e1f44c046601ba4358ae54e56ec2283c13266a633e370d",
+    "imageSize": 90838143,
+    "lastUpdateTime": "2022-02-24T02:43:40.1662351Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "tags": [
+      "185990",
+      "latest-GRANTS_Dev"
+    ]
+  }
+]

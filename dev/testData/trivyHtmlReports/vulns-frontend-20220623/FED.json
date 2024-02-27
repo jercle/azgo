@@ -1,0 +1,1344 @@
+{
+  "SchemaVersion": 2,
+  "ArtifactName": ".",
+  "ArtifactType": "filesystem",
+  "Metadata": {
+    "ImageConfig": {
+      "architecture": "",
+      "created": "0001-01-01T00:00:00Z",
+      "os": "",
+      "rootfs": {
+        "type": "",
+        "diff_ids": null
+      },
+      "config": {}
+    }
+  },
+  "Results": [
+    {
+      "Target": "Java",
+      "Class": "lang-pkgs",
+      "Type": "jar",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2012-5784",
+          "PkgName": "axis:axis",
+          "PkgPath": "fed.war",
+          "InstalledVersion": "1.3",
+          "Layer": {},
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2012-5784",
+          "DataSource": {
+            "ID": "glad",
+            "Name": "GitLab Advisory Database Community",
+            "URL": "https://gitlab.com/gitlab-org/advisories-community"
+          },
+          "Title": "axis: missing connection hostname check against X.509 certificate name",
+          "Description": "Apache Axis 1.4 and earlier, as used in PayPal Payments Pro, PayPal Mass Pay, PayPal Transactional Information SOAP, the Java Message Service implementation in Apache ActiveMQ, and other products, does not verify that the server hostname matches a domain name in the subject's Common Name (CN) or subjectAltName field of the X.509 certificate, which allows man-in-the-middle attackers to spoof SSL servers via an arbitrary valid certificate.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-20"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:P/I:P/A:N",
+              "V2Score": 5.8
+            },
+            "redhat": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N",
+              "V2Score": 4.3
+            }
+          },
+          "References": [
+            "http://lists.opensuse.org/opensuse-security-announce/2019-06/msg00007.html",
+            "http://lists.opensuse.org/opensuse-security-announce/2019-06/msg00022.html",
+            "http://rhn.redhat.com/errata/RHSA-2013-0269.html",
+            "http://rhn.redhat.com/errata/RHSA-2013-0683.html",
+            "http://rhn.redhat.com/errata/RHSA-2014-0037.html",
+            "http://secunia.com/advisories/51219",
+            "http://www.cs.utexas.edu/~shmat/shmat_ccs12.pdf",
+            "http://www.securityfocus.com/bid/56408",
+            "https://access.redhat.com/security/cve/CVE-2012-5784",
+            "https://exchange.xforce.ibmcloud.com/vulnerabilities/79829",
+            "https://github.com/advisories/GHSA-55w9-c3g2-4rrh",
+            "https://linux.oracle.com/cve/CVE-2012-5784.html",
+            "https://linux.oracle.com/errata/ELSA-2013-0683.html",
+            "https://lists.apache.org/thread.html/44d4e88a5fa8ae60deb752029afe9054da87c5f859caf296fcf585e5@%3Cjava-dev.axis.apache.org%3E",
+            "https://lists.apache.org/thread.html/5e6c92145deddcecf70c3604041dcbd615efa2d37632fc2b9c367780@%3Cjava-dev.axis.apache.org%3E",
+            "https://lists.apache.org/thread.html/8aa25c99eeb0693fc229ec87d1423b5ed5d58558618706d8aba1d832@%3Cjava-dev.axis.apache.org%3E",
+            "https://lists.apache.org/thread.html/a308887782e05da7cf692e4851ae2bd429a038570cbf594e6631cc8d@%3Cjava-dev.axis.apache.org%3E",
+            "https://lists.apache.org/thread.html/de2af12dcaba653d02b03235327ca4aa930401813a3cced8e151d29c@%3Cjava-dev.axis.apache.org%3E",
+            "https://nvd.nist.gov/vuln/detail/CVE-2012-5784"
+          ],
+          "PublishedDate": "2012-11-04T22:55:00Z",
+          "LastModifiedDate": "2019-06-07T21:29:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2018-8032",
+          "PkgName": "axis:axis",
+          "PkgPath": "fed.war",
+          "InstalledVersion": "1.3",
+          "Layer": {},
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2018-8032",
+          "DataSource": {
+            "ID": "glad",
+            "Name": "GitLab Advisory Database Community",
+            "URL": "https://gitlab.com/gitlab-org/advisories-community"
+          },
+          "Title": "axis: cross-site scripting (XSS) attack in the default servlet/services",
+          "Description": "Apache Axis 1.x up to and including 1.4 is vulnerable to a cross-site scripting (XSS) attack in the default servlet/services.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-79"
+          ],
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+              "V3Score": 6.1
+            },
+            "nvd": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+              "V2Score": 4.3,
+              "V3Score": 6.1
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N",
+              "V3Score": 5.4
+            }
+          },
+          "References": [
+            "http://mail-archives.apache.org/mod_mbox/axis-java-dev/201807.mbox/%3CJIRA.13170716.1531060536000.93536.1531060560060@Atlassian.JIRA%3E",
+            "https://access.redhat.com/security/cve/CVE-2018-8032",
+            "https://github.com/advisories/GHSA-96jq-75wh-2658",
+            "https://issues.apache.org/jira/browse/AXIS-2924",
+            "https://lists.apache.org/thread.html/3b89bc9e9d055db7eba8835ff6501f3f5db99d2a0928ec0be9b1d17b@%3Cjava-dev.axis.apache.org%3E",
+            "https://lists.apache.org/thread.html/d06ed5e4eeb77d00e8d594ec01ee8ee1cba173a01ac4b18f1579d041@%3Cjava-dev.axis.apache.org%3E",
+            "https://lists.debian.org/debian-lts-announce/2021/11/msg00015.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2018-8032",
+            "https://www.oracle.com/security-alerts/cpuApr2021.html",
+            "https://www.oracle.com/security-alerts/cpuapr2020.html",
+            "https://www.oracle.com/security-alerts/cpuapr2022.html",
+            "https://www.oracle.com/security-alerts/cpujan2020.html",
+            "https://www.oracle.com/security-alerts/cpujan2021.html",
+            "https://www.oracle.com/security-alerts/cpujul2020.html",
+            "https://www.oracle.com/security-alerts/cpujul2022.html",
+            "https://www.oracle.com/security-alerts/cpuoct2021.html",
+            "https://www.oracle.com/technetwork/security-advisory/cpuoct2019-5072832.html"
+          ],
+          "PublishedDate": "2018-08-02T13:29:00Z",
+          "LastModifiedDate": "2022-07-25T18:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2014-0114",
+          "PkgName": "commons-beanutils:commons-beanutils",
+          "PkgPath": "fed.war",
+          "InstalledVersion": "1.8.0",
+          "FixedVersion": "1.9.2",
+          "Layer": {},
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2014-0114",
+          "DataSource": {
+            "ID": "glad",
+            "Name": "GitLab Advisory Database Community",
+            "URL": "https://gitlab.com/gitlab-org/advisories-community"
+          },
+          "Title": "Apache Struts 1: Class Loader manipulation via request parameters",
+          "Description": "Apache Commons BeanUtils, as distributed in lib/commons-beanutils-1.8.0.jar in Apache Struts 1.x through 1.3.10 and in other products requiring commons-beanutils through 1.9.2, does not suppress the class property, which allows remote attackers to \"manipulate\" the ClassLoader and execute arbitrary code via the class parameter, as demonstrated by the passing of this parameter to the getClass method of the ActionForm object in Struts 1.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-20"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V2Score": 7.5
+            },
+            "redhat": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V2Score": 7.5
+            }
+          },
+          "References": [
+            "http://advisories.mageia.org/MGASA-2014-0219.html",
+            "http://apache-ignite-developers.2346864.n4.nabble.com/CVE-2014-0114-Apache-Ignite-is-vulnerable-to-existing-CVE-2014-0114-td31205.html",
+            "http://commons.apache.org/proper/commons-beanutils/javadocs/v1.9.2/RELEASE-NOTES.txt",
+            "http://h30499.www3.hp.com/t5/HP-Security-Research-Blog/Protect-your-Struts1-applications/ba-p/6463188#.U2J7xeaSxro",
+            "http://lists.fedoraproject.org/pipermail/package-announce/2014-August/136958.html",
+            "http://marc.info/?l=bugtraq\u0026m=140119284401582\u0026w=2",
+            "http://marc.info/?l=bugtraq\u0026m=140801096002766\u0026w=2",
+            "http://marc.info/?l=bugtraq\u0026m=141451023707502\u0026w=2",
+            "http://openwall.com/lists/oss-security/2014/06/15/10",
+            "http://openwall.com/lists/oss-security/2014/07/08/1",
+            "http://seclists.org/fulldisclosure/2014/Dec/23",
+            "http://secunia.com/advisories/57477",
+            "http://secunia.com/advisories/58710",
+            "http://secunia.com/advisories/58851",
+            "http://secunia.com/advisories/58947",
+            "http://secunia.com/advisories/59014",
+            "http://secunia.com/advisories/59118",
+            "http://secunia.com/advisories/59228",
+            "http://secunia.com/advisories/59245",
+            "http://secunia.com/advisories/59246",
+            "http://secunia.com/advisories/59430",
+            "http://secunia.com/advisories/59464",
+            "http://secunia.com/advisories/59479",
+            "http://secunia.com/advisories/59480",
+            "http://secunia.com/advisories/59704",
+            "http://secunia.com/advisories/59718",
+            "http://secunia.com/advisories/60177",
+            "http://secunia.com/advisories/60703",
+            "http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-0114",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21674128",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21674812",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21675266",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21675387",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21675689",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21675898",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21675972",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21676091",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21676110",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21676303",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21676375",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21676931",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21677110",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg27042296",
+            "http://www.debian.org/security/2014/dsa-2940",
+            "http://www.ibm.com/support/docview.wss?uid=swg21675496",
+            "http://www.mandriva.com/security/advisories?name=MDVSA-2014:095",
+            "http://www.oracle.com/technetwork/security-advisory/cpujan2018-3236628.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpujul2018-4258247.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpuoct2016-2881722.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpuoct2017-3236626.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html",
+            "http://www.oracle.com/technetwork/topics/security/cpujan2015-1972971.html",
+            "http://www.oracle.com/technetwork/topics/security/cpujul2014-1972956.html",
+            "http://www.oracle.com/technetwork/topics/security/cpuoct2014-1972960.html",
+            "http://www.securityfocus.com/archive/1/534161/100/0/threaded",
+            "http://www.securityfocus.com/bid/67121",
+            "http://www.vmware.com/security/advisories/VMSA-2014-0008.html",
+            "http://www.vmware.com/security/advisories/VMSA-2014-0012.html",
+            "https://access.redhat.com/errata/RHSA-2018:2669",
+            "https://access.redhat.com/errata/RHSA-2019:2995",
+            "https://access.redhat.com/security/cve/CVE-2014-0114",
+            "https://access.redhat.com/solutions/869353",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=1091938",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=1116665",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0114",
+            "https://github.com/advisories/GHSA-p66x-2cv9-qq3v",
+            "https://h20566.www2.hpe.com/portal/site/hpsc/public/kb/docDisplay?docId=emr_na-c05324755",
+            "https://issues.apache.org/jira/browse/BEANUTILS-463",
+            "https://linux.oracle.com/cve/CVE-2014-0114.html",
+            "https://linux.oracle.com/errata/ELSA-2014-0474.html",
+            "https://lists.apache.org/thread.html/0340493a1ddf3660dee09a5c503449cdac5bec48cdc478de65858859@%3Cdev.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/080af531a9113e29d3f6a060e3f992dc9f40315ec7234e15c3b339e3@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/084ae814e69178d2ce174cfdf149bc6e46d7524f3308c08d3adb43cb@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/098e9aae118ac5c06998a9ba4544ab2475162981d290fdef88e6f883@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/09981ae3df188a2ad1ce20f62ef76a5b2d27cf6b9ebab366cf1d6cc6@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/0a35108a56e2d575e3b3985588794e39fbf264097aba66f4c5569e4f@%3Cuser.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/0efed939139f5b9dcd62b8acf7cb8a9789227d14abdc0c6f141c4a4c@%3Cissues.activemq.apache.org%3E",
+            "https://lists.apache.org/thread.html/1565e8b786dff4cb3b48ecc8381222c462c92076c9e41408158797b5@%3Ccommits.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/15fcdf27fa060de276edc0b4098526afc21c236852eb3de9be9594f3@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/1f78f1e32cc5614ec0c5b822ba4bd7fc8e8b5c46c8e038b6bd609cb5@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/2454e058fd05ba30ca29442fdeb7ea47505d47a888fbc9f3a53f31d0@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/2ba22f2e3de945039db735cf6cbf7f8be901ab2537337c7b1dd6a0f0@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/31f9dc2c9cb68e390634a4202f84b8569f64b6569bfcce46348fd9fd@%3Ccommits.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/37e1ed724a1b0e5d191d98c822c426670bdfde83804567131847d2a3@%3Cdevnull.infra.apache.org%3E",
+            "https://lists.apache.org/thread.html/3f500972dceb48e3cb351f58565aecf6728b1ea7a69593af86c30b30@%3Cissues.activemq.apache.org%3E",
+            "https://lists.apache.org/thread.html/40fc236a35801a535cd49cf1979dbeab034b833c63a284941bce5bf1@%3Cdev.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/42ad6326d62ea8453d0d0ce12eff39bbb7c5b4fca9639da007291346@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/4c3fd707a049bfe0577dba8fc9c4868ffcdabe68ad86586a0a49242e@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f@%3Cdev.drill.apache.org%3E",
+            "https://lists.apache.org/thread.html/65b39fa6d700e511927e5668a4038127432178a210aff81500eb36e5@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/66176fa3caeca77058d9f5b0316419a43b4c3fa2b572e05b87132226@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/6afe2f935493e69a332b9c5a4f23cafe95c15ede1591a492cf612293@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/6b30629b32d020c40d537f00b004d281c37528d471de15ca8aec2cd4@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/708d94141126eac03011144a971a6411fcac16d9c248d1d535a39451@%3Csolr-user.lucene.apache.org%3E",
+            "https://lists.apache.org/thread.html/869c08899f34c1a70c9fb42f92ac0d043c98781317e0c19d7ba3f5e3@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/88c497eead24ed517a2bb3159d3dc48725c215e97fe7a98b2cf3ea25@%3Cdev.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/8e2bdfabd5b14836aa3cf900aa0a62ff9f4e22a518bb4e553ebcf55f@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/918ec15a80fc766ff46c5d769cb8efc88fed6674faadd61a7105166b@%3Cannounce.apache.org%3E",
+            "https://lists.apache.org/thread.html/9317fd092b257a0815434b116a8af8daea6e920b6673f4fd5583d5fe@%3Ccommits.druid.apache.org%3E",
+            "https://lists.apache.org/thread.html/956995acee0d8bc046f1df0a55b7fbeb65dd2f82864e5de1078bacb0@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/97fc033dad4233a5d82fcb75521eabdd23dd99ef32eb96f407f96a1a@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/9b5505632f5683ee17bda4f7878525e672226c7807d57709283ffa64@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/aa4ca069c7aea5b1d7329bc21576c44a39bcc4eb7bb2760c4b16f2f6@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442@%3Cdev.drill.apache.org%3E",
+            "https://lists.apache.org/thread.html/c24c0b931632a397142882ba248b7bd440027960f22845c6f664c639@%3Ccommits.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/c70da3cb6e3f03e0ad8013e38b6959419d866c4a7c80fdd34b73f25c@%3Ccommits.pulsar.apache.org%3E",
+            "https://lists.apache.org/thread.html/c7e31c3c90b292e0bafccc4e1b19c9afc1503a65d82cb7833dfd7478@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/cee6b1c4533be1a753614f6a7d7c533c42091e7cafd7053b8f62792a@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/d27c51b3c933f885460aa6d3004eb228916615caaaddbb8e8bfeeb40@%3Cgitbox.activemq.apache.org%3E",
+            "https://lists.apache.org/thread.html/df093c662b5e49fe9e38ef91f78ffab09d0839dea7df69a747dffa86@%3Cdev.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/df1c385f2112edffeff57a6b21d12e8d24031a9f578cb8ba22a947a8@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/ebc4f019798f6ce2a39f3e0c26a9068563a9ba092cdf3ece398d4e2f@%3Cnotifications.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/f3682772e62926b5c009eed63c62767021be6da0bb7427610751809f@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc@%3Cissues.drill.apache.org%3E",
+            "https://lists.apache.org/thread.html/fda473f46e51019a78ab217a7a3a3d48dafd90846e75bd5536ef72f3@%3Cnotifications.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/ffde3f266d3bde190b54c9202169e7918a92de7e7e0337d792dc7263@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/r204ba2a9ea750f38d789d2bb429cc0925ad6133deea7cbc3001d96b5@%3Csolr-user.lucene.apache.org%3E",
+            "https://lists.apache.org/thread.html/r458d61eaeadecaad04382ebe583230bc027f48d9e85e4731bc573477@%3Ccommits.dolphinscheduler.apache.org%3E",
+            "https://lists.apache.org/thread.html/r75d67108e557bb5d4c4318435067714a0180de525314b7e8dab9d04e@%3Cissues.activemq.apache.org%3E",
+            "https://lists.apache.org/thread.html/rf5230a049d989dbfdd404b4320a265dceeeba459a4d04ec21873bd55@%3Csolr-user.lucene.apache.org%3E",
+            "https://nvd.nist.gov/vuln/detail/CVE-2014-0114",
+            "https://security.gentoo.org/glsa/201607-09",
+            "https://security.netapp.com/advisory/ntap-20140911-0001/",
+            "https://security.netapp.com/advisory/ntap-20180629-0006/",
+            "https://snyk.io/vuln/SNYK-JAVA-COMMONSBEANUTILS-30077",
+            "https://www.oracle.com/technetwork/security-advisory/cpuapr2019-5072813.html",
+            "https://www.oracle.com/technetwork/security-advisory/cpujan2019-5072801.html",
+            "https://www.oracle.com/technetwork/security-advisory/cpujul2019-5072835.html"
+          ],
+          "PublishedDate": "2014-04-30T10:49:00Z",
+          "LastModifiedDate": "2021-01-26T18:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2019-10086",
+          "PkgName": "commons-beanutils:commons-beanutils",
+          "PkgPath": "fed.war",
+          "InstalledVersion": "1.8.0",
+          "FixedVersion": "1.9.4",
+          "Layer": {},
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2019-10086",
+          "DataSource": {
+            "ID": "glad",
+            "Name": "GitLab Advisory Database Community",
+            "URL": "https://gitlab.com/gitlab-org/advisories-community"
+          },
+          "Title": "apache-commons-beanutils: does not suppresses the class property in PropertyUtilsBean by default",
+          "Description": "In Apache Commons Beanutils 1.9.2, a special BeanIntrospector class was added which allows suppressing the ability for an attacker to access the classloader via the class property available on all Java objects. We, however were not using this by default characteristic of the PropertyUtilsBean.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-502"
+          ],
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+              "V3Score": 7.3
+            },
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+              "V2Score": 7.5,
+              "V3Score": 7.3
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+              "V3Score": 7.3
+            }
+          },
+          "References": [
+            "http://lists.opensuse.org/opensuse-security-announce/2019-09/msg00007.html",
+            "http://mail-archives.apache.org/mod_mbox/www-announce/201908.mbox/%3cC628798F-315D-4428-8CB1-4ED1ECC958E4@apache.org%3e",
+            "https://access.redhat.com/errata/RHSA-2019:4317",
+            "https://access.redhat.com/errata/RHSA-2020:0057",
+            "https://access.redhat.com/errata/RHSA-2020:0194",
+            "https://access.redhat.com/errata/RHSA-2020:0804",
+            "https://access.redhat.com/errata/RHSA-2020:0805",
+            "https://access.redhat.com/errata/RHSA-2020:0806",
+            "https://access.redhat.com/errata/RHSA-2020:0811",
+            "https://access.redhat.com/security/cve/CVE-2019-10086",
+            "https://commons.apache.org/proper/commons-beanutils/javadocs/v1.9.4/RELEASE-NOTES.txt",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-10086",
+            "https://github.com/advisories/GHSA-6phf-73q6-gh87",
+            "https://github.com/apache/commons-beanutils/commit/dd48f4e589462a8cdb1f29bbbccb35d6b0291d58",
+            "https://github.com/apache/commons-beanutils/pull/7",
+            "https://issues.apache.org/jira/browse/BEANUTILS-520",
+            "https://linux.oracle.com/cve/CVE-2019-10086.html",
+            "https://linux.oracle.com/errata/ELSA-2020-0194.html",
+            "https://lists.apache.org/thread.html/02094ad226dbc17a2368beaf27e61d8b1432f5baf77d0ca995bb78bc@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/1f78f1e32cc5614ec0c5b822ba4bd7fc8e8b5c46c8e038b6bd609cb5@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/2fd61dc89df9aeab738d2b49f48d42c76f7d53b980ba04e1d48bce48@%3Cdev.shiro.apache.org%3E",
+            "https://lists.apache.org/thread.html/3d1ed1a1596c08c4d5fea97b36c651ce167b773f1afc75251ce7a125@%3Ccommits.tinkerpop.apache.org%3E",
+            "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f@%3Cdev.drill.apache.org%3E",
+            "https://lists.apache.org/thread.html/5261066cd7adee081ee05c8bf0e96cf0b2eeaced391e19117ae4daa6@%3Cdev.shiro.apache.org%3E",
+            "https://lists.apache.org/thread.html/956995acee0d8bc046f1df0a55b7fbeb65dd2f82864e5de1078bacb0@%3Cissues.commons.apache.org%3E",
+            "https://lists.apache.org/thread.html/a684107d3a78e431cf0fbb90629e8559a36ff8fe94c3a76e620b39fa@%3Cdev.shiro.apache.org%3E",
+            "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442@%3Cdev.drill.apache.org%3E",
+            "https://lists.apache.org/thread.html/c94bc9649d5109a663b2129371dc45753fbdeacd340105548bbe93c3@%3Cdev.shiro.apache.org%3E",
+            "https://lists.apache.org/thread.html/d6ca9439c53374b597f33b7ec180001625597db48ea30356af01145f@%3Cdev.shiro.apache.org%3E",
+            "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc@%3Cissues.drill.apache.org%3E",
+            "https://lists.apache.org/thread.html/r18d8b4f9263e5cad3bbaef0cdba0e2ccdf9201316ac4b85e23eb7ee4@%3Cdev.atlas.apache.org%3E",
+            "https://lists.apache.org/thread.html/r2d5f1d88c39bd615271abda63964a0bee9b2b57fef1f84cb4c43032e@%3Cissues.nifi.apache.org%3E",
+            "https://lists.apache.org/thread.html/r306c0322aa5c0da731e03f3ce9f07f4745c052c6b73f4e78faf232ca@%3Cdev.atlas.apache.org%3E",
+            "https://lists.apache.org/thread.html/r43de02fd4a4f52c4bdeff8c02f09625d83cd047498009c1cdab857db@%3Cdev.rocketmq.apache.org%3E",
+            "https://lists.apache.org/thread.html/r46e536fc98942dce99fadd2e313aeefe90c1a769c5cd85d98df9d098@%3Cissues.nifi.apache.org%3E",
+            "https://lists.apache.org/thread.html/r513a7a21c422170318115463b399dd58ab447fe0990b13e5884f0825@%3Ccommits.dolphinscheduler.apache.org%3E",
+            "https://lists.apache.org/thread.html/r6194ced4828deb32023cd314e31f41c61d388b58935d102c7de91f58@%3Cdev.atlas.apache.org%3E",
+            "https://lists.apache.org/thread.html/r967953a14e05016bc4bcae9ef3dd92e770181158b4246976ed8295c9@%3Cdev.brooklyn.apache.org%3E",
+            "https://lists.apache.org/thread.html/ra41fd0ad4b7e1d675c03a5081a16a6603085a4e37d30b866067566fe@%3Cissues.nifi.apache.org%3E",
+            "https://lists.apache.org/thread.html/ra87ac17410a62e813cba901fdd4e9a674dd53daaf714870f28e905f1@%3Cdev.atlas.apache.org%3E",
+            "https://lists.apache.org/thread.html/ra9a139fdc0999750dcd519e81384bc1fe3946f311b1796221205f51c@%3Ccommits.dolphinscheduler.apache.org%3E",
+            "https://lists.apache.org/thread.html/racd3e7b2149fa2f255f016bd6bffab0fea77b6fb81c50db9a17f78e6@%3Cdev.atlas.apache.org%3E",
+            "https://lists.apache.org/thread.html/rae81e0c8ebdf47ffaa85a01240836bfece8a990c48f55c7933162b5c@%3Cdev.atlas.apache.org%3E",
+            "https://lists.apache.org/thread.html/rb1f76c2c0a4d6efb8a3523974f9d085d5838b73e7bffdf9a8f212997@%3Cissues.nifi.apache.org%3E",
+            "https://lists.apache.org/thread.html/rb8dac04cb7e9cc5dedee8dabaa1c92614f590642e5ebf02a145915ba@%3Ccommits.atlas.apache.org%3E",
+            "https://lists.apache.org/thread.html/rcc029be4edaaf5b8bb85818aab494e16f312fced07a0f4a202771ba2@%3Cissues.nifi.apache.org%3E",
+            "https://lists.apache.org/thread.html/rd2d2493f4f1af6980d265b8d84c857e2b7ab80a46e1423710c448957@%3Cissues.nifi.apache.org%3E",
+            "https://lists.apache.org/thread.html/re2028d4d76ba1db3e3c3a722d6c6034e801cc3b309f69cc166eaa32b@%3Ccommits.nifi.apache.org%3E",
+            "https://lists.apache.org/thread.html/re3cd7cb641d7fc6684e4fc3c336a8bad4a01434bb5625a06e3600fd1@%3Cissues.nifi.apache.org%3E",
+            "https://lists.apache.org/thread.html/rec74f3a94dd850259c730b4ba6f7b6211222b58900ec088754aa0534@%3Cissues.nifi.apache.org%3E",
+            "https://lists.apache.org/thread.html/reee57101464cf7622d640ae013b2162eb864f603ec4093de8240bb8f@%3Cdev.atlas.apache.org%3E",
+            "https://lists.debian.org/debian-lts-announce/2019/08/msg00030.html",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4APPGLBWMFAS4WHNLR4LIJ65DJGPV7TF/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/JIUYSL2RSIWZVNSUIXJTIFPIPIF6OAIO/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2019-10086",
+            "https://www.oracle.com//security-alerts/cpujul2021.html",
+            "https://www.oracle.com/security-alerts/cpuApr2021.html",
+            "https://www.oracle.com/security-alerts/cpuapr2020.html",
+            "https://www.oracle.com/security-alerts/cpuapr2022.html",
+            "https://www.oracle.com/security-alerts/cpujan2020.html",
+            "https://www.oracle.com/security-alerts/cpujan2021.html",
+            "https://www.oracle.com/security-alerts/cpujan2022.html",
+            "https://www.oracle.com/security-alerts/cpujul2020.html",
+            "https://www.oracle.com/security-alerts/cpujul2022.html",
+            "https://www.oracle.com/security-alerts/cpuoct2021.html"
+          ],
+          "PublishedDate": "2019-08-20T21:15:00Z",
+          "LastModifiedDate": "2022-07-25T18:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2015-7501",
+          "PkgName": "commons-collections:commons-collections",
+          "PkgPath": "fed.war",
+          "InstalledVersion": "3.2",
+          "FixedVersion": "3.2.2",
+          "Layer": {},
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2015-7501",
+          "DataSource": {
+            "ID": "glad",
+            "Name": "GitLab Advisory Database Community",
+            "URL": "https://gitlab.com/gitlab-org/advisories-community"
+          },
+          "Title": "apache-commons-collections: InvokerTransformer code execution during deserialisation",
+          "Description": "Red Hat JBoss A-MQ 6.x; BPM Suite (BPMS) 6.x; BRMS 6.x and 5.x; Data Grid (JDG) 6.x; Data Virtualization (JDV) 6.x and 5.x; Enterprise Application Platform 6.x, 5.x, and 4.3.x; Fuse 6.x; Fuse Service Works (FSW) 6.x; Operations Network (JBoss ON) 3.x; Portal 6.x; SOA Platform (SOA-P) 5.x; Web Server (JWS) 3.x; Red Hat OpenShift/xPAAS 3.x; and Red Hat Subscription Asset Manager 1.3 allow remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-502"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:C/I:C/A:C",
+              "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 10,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V2Score": 7.5
+            }
+          },
+          "References": [
+            "http://foxglovesecurity.com/2015/11/06/what-do-weblogic-websphere-jboss-jenkins-opennms-and-your-application-have-in-common-this-vulnerability/",
+            "http://rhn.redhat.com/errata/RHSA-2015-2500.html",
+            "http://rhn.redhat.com/errata/RHSA-2015-2501.html",
+            "http://rhn.redhat.com/errata/RHSA-2015-2502.html",
+            "http://rhn.redhat.com/errata/RHSA-2015-2514.html",
+            "http://rhn.redhat.com/errata/RHSA-2015-2516.html",
+            "http://rhn.redhat.com/errata/RHSA-2015-2517.html",
+            "http://rhn.redhat.com/errata/RHSA-2015-2521.html",
+            "http://rhn.redhat.com/errata/RHSA-2015-2522.html",
+            "http://rhn.redhat.com/errata/RHSA-2015-2524.html",
+            "http://rhn.redhat.com/errata/RHSA-2015-2670.html",
+            "http://rhn.redhat.com/errata/RHSA-2015-2671.html",
+            "http://rhn.redhat.com/errata/RHSA-2016-0040.html",
+            "http://rhn.redhat.com/errata/RHSA-2016-1773.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpuapr2018-3678067.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpujan2018-3236628.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpujul2018-4258247.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html",
+            "http://www.securityfocus.com/bid/78215",
+            "http://www.securitytracker.com/id/1034097",
+            "http://www.securitytracker.com/id/1037052",
+            "http://www.securitytracker.com/id/1037053",
+            "http://www.securitytracker.com/id/1037640",
+            "https://access.redhat.com/security/cve/CVE-2015-7501",
+            "https://access.redhat.com/security/vulnerabilities/2059393",
+            "https://access.redhat.com/solutions/2045023",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=1279330",
+            "https://linux.oracle.com/cve/CVE-2015-7501.html",
+            "https://linux.oracle.com/errata/ELSA-2015-2671.html",
+            "https://rhn.redhat.com/errata/RHSA-2015-2536.html",
+            "https://www.oracle.com/security-alerts/cpujul2020.html"
+          ],
+          "PublishedDate": "2017-11-09T17:29:00Z",
+          "LastModifiedDate": "2020-07-15T03:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2015-6420",
+          "PkgName": "commons-collections:commons-collections",
+          "PkgPath": "fed.war",
+          "InstalledVersion": "3.2",
+          "FixedVersion": "3.2.2",
+          "Layer": {},
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2015-6420",
+          "DataSource": {
+            "ID": "glad",
+            "Name": "GitLab Advisory Database Community",
+            "URL": "https://gitlab.com/gitlab-org/advisories-community"
+          },
+          "Title": "Insecure Deserialization in Apache Commons Collection",
+          "Description": "Serialized-object interfaces in certain Cisco Collaboration and Social Media; Endpoint Clients and Client Software; Network Application, Service, and Acceleration; Network and Content Security Devices; Network Management and Provisioning; Routing and Switching - Enterprise and Service Provider; Unified Computing; Voice and Unified Communications Devices; Video, Streaming, TelePresence, and Transcoding Devices; Wireless; and Cisco Hosted Services products allow remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-502"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V2Score": 7.5
+            }
+          },
+          "References": [
+            "http://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20151209-java-deserialization",
+            "http://www.oracle.com/technetwork/security-advisory/cpujul2018-4258247.html",
+            "http://www.securityfocus.com/bid/78872",
+            "https://github.com/advisories/GHSA-6hgm-866r-3cjv",
+            "https://h20566.www2.hpe.com/portal/site/hpsc/public/kb/docDisplay?docId=emr_na-c05376917",
+            "https://h20566.www2.hpe.com/portal/site/hpsc/public/kb/docDisplay?docId=emr_na-c05390722",
+            "https://lists.apache.org/thread.html/r352e40ca9874d1beb4ad95403792adca7eb295e6bc3bd7b65fabcc21@%3Ccommits.samza.apache.org%3E",
+            "https://nvd.nist.gov/vuln/detail/CVE-2015-6420",
+            "https://www.kb.cert.org/vuls/id/581311",
+            "https://www.tenable.com/security/research/tra-2017-14",
+            "https://www.tenable.com/security/research/tra-2017-23"
+          ],
+          "PublishedDate": "2015-12-15T05:59:00Z",
+          "LastModifiedDate": "2021-03-10T16:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2016-1000031",
+          "PkgName": "commons-fileupload:commons-fileupload",
+          "PkgPath": "fed.war",
+          "InstalledVersion": "1.2",
+          "FixedVersion": "1.3.3",
+          "Layer": {},
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2016-1000031",
+          "DataSource": {
+            "ID": "glad",
+            "Name": "GitLab Advisory Database Community",
+            "URL": "https://gitlab.com/gitlab-org/advisories-community"
+          },
+          "Title": "Apache Commons FileUpload: DiskFileItem file manipulation",
+          "Description": "Apache Commons FileUpload before 1.3.3 DiskFileItem File Manipulation Remote Code Execution",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-284"
+          ],
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.5,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+              "V2Score": 6.8,
+              "V3Score": 7.3
+            }
+          },
+          "References": [
+            "http://lists.opensuse.org/opensuse-security-announce/2019-05/msg00036.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html",
+            "http://www.securityfocus.com/bid/93604",
+            "http://www.tenable.com/security/research/tra-2016-12",
+            "http://www.zerodayinitiative.com/advisories/ZDI-16-570/",
+            "https://access.redhat.com/security/cve/CVE-2016-1000031",
+            "https://github.com/advisories/GHSA-7x9j-7223-rg5m",
+            "https://issues.apache.org/jira/browse/FILEUPLOAD-279",
+            "https://issues.apache.org/jira/browse/WW-4812",
+            "https://lists.apache.org/thread.html/708d94141126eac03011144a971a6411fcac16d9c248d1d535a39451@%3Csolr-user.lucene.apache.org%3E",
+            "https://lists.apache.org/thread.html/d66657323fd25e437face5e84899c8ca404ccd187e81c3f2fa8b6080@%3Cannounce.apache.org%3E",
+            "https://nvd.nist.gov/vuln/detail/CVE-2016-1000031",
+            "https://security.netapp.com/advisory/ntap-20190212-0001/",
+            "https://www.oracle.com/security-alerts/cpuapr2020.html",
+            "https://www.oracle.com/security-alerts/cpujan2020.html",
+            "https://www.oracle.com/security-alerts/cpujan2021.html",
+            "https://www.oracle.com/security-alerts/cpujul2020.html",
+            "https://www.oracle.com/security-alerts/cpujul2022.html",
+            "https://www.oracle.com/security-alerts/cpuoct2020.html",
+            "https://www.oracle.com/security-alerts/cpuoct2021.html",
+            "https://www.oracle.com/technetwork/security-advisory/cpuapr2019-5072813.html",
+            "https://www.oracle.com/technetwork/security-advisory/cpujan2019-5072801.html",
+            "https://www.oracle.com/technetwork/security-advisory/cpujul2019-5072835.html",
+            "https://www.oracle.com/technetwork/security-advisory/cpuoct2016-2881722.html",
+            "https://www.oracle.com/technetwork/security-advisory/cpuoct2019-5072832.html",
+            "https://www.tenable.com/security/research/tra-2016-12",
+            "https://www.tenable.com/security/research/tra-2016-23",
+            "https://www.tenable.com/security/research/tra-2016-30"
+          ],
+          "PublishedDate": "2016-10-25T14:29:00Z",
+          "LastModifiedDate": "2022-07-25T18:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2013-2186",
+          "PkgName": "commons-fileupload:commons-fileupload",
+          "PkgPath": "fed.war",
+          "InstalledVersion": "1.2",
+          "FixedVersion": "1.3.1",
+          "Layer": {},
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2013-2186",
+          "DataSource": {
+            "ID": "glad",
+            "Name": "GitLab Advisory Database Community",
+            "URL": "https://gitlab.com/gitlab-org/advisories-community"
+          },
+          "Title": "Apache commons-fileupload: Arbitrary file upload via deserialization",
+          "Description": "The DiskFileItem class in Apache Commons FileUpload, as used in Red Hat JBoss BRMS 5.3.1; JBoss Portal 4.3 CP07, 5.2.2, and 6.0.0; and Red Hat JBoss Web Server 1.0.2 allows remote attackers to write to arbitrary files via a NULL byte in a file name in a serialized instance.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-20"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V2Score": 7.5
+            },
+            "redhat": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V2Score": 7.5
+            }
+          },
+          "References": [
+            "http://lists.opensuse.org/opensuse-security-announce/2013-11/msg00008.html",
+            "http://lists.opensuse.org/opensuse-updates/2013-10/msg00033.html",
+            "http://lists.opensuse.org/opensuse-updates/2013-10/msg00050.html",
+            "http://rhn.redhat.com/errata/RHSA-2013-1428.html",
+            "http://rhn.redhat.com/errata/RHSA-2013-1429.html",
+            "http://rhn.redhat.com/errata/RHSA-2013-1430.html",
+            "http://rhn.redhat.com/errata/RHSA-2013-1442.html",
+            "http://rhn.redhat.com/errata/RHSA-2013-1448.html",
+            "http://secunia.com/advisories/55716",
+            "http://ubuntu.com/usn/usn-2029-1",
+            "http://www.debian.org/security/2013/dsa-2827",
+            "http://www.oracle.com/technetwork/topics/security/cpujan2015-1972971.html",
+            "http://www.oracle.com/technetwork/topics/security/cpujan2016-2367955.html",
+            "http://www.oracle.com/technetwork/topics/security/cpujul2015-2367936.html",
+            "http://www.securityfocus.com/bid/63174",
+            "https://access.redhat.com/errata/RHSA-2016:0070",
+            "https://access.redhat.com/security/cve/CVE-2013-2186",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2013-2186",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2186",
+            "https://exchange.xforce.ibmcloud.com/vulnerabilities/88133",
+            "https://wiki.jenkins-ci.org/display/SECURITY/Jenkins+Security+Advisory+2014-10-01",
+            "https://www.tenable.com/security/research/tra-2016-23"
+          ],
+          "PublishedDate": "2013-10-28T21:55:00Z",
+          "LastModifiedDate": "2018-01-09T02:29:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2014-0050",
+          "PkgName": "commons-fileupload:commons-fileupload",
+          "PkgPath": "fed.war",
+          "InstalledVersion": "1.2",
+          "FixedVersion": "1.3.1",
+          "Layer": {},
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2014-0050",
+          "DataSource": {
+            "ID": "glad",
+            "Name": "GitLab Advisory Database Community",
+            "URL": "https://gitlab.com/gitlab-org/advisories-community"
+          },
+          "Title": "apache-commons-fileupload: denial of service due to too-small buffer size used by MultipartStream",
+          "Description": "MultipartStream.java in Apache Commons FileUpload before 1.3.1, as used in Apache Tomcat, JBoss Web, and other products, allows remote attackers to cause a denial of service (infinite loop and CPU consumption) via a crafted Content-Type header that bypasses a loop's intended exit conditions.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-264"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V2Score": 7.5
+            },
+            "redhat": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:N/I:N/A:P",
+              "V2Score": 5
+            }
+          },
+          "References": [
+            "http://advisories.mageia.org/MGASA-2014-0110.html",
+            "http://blog.spiderlabs.com/2014/02/cve-2014-0050-exploit-with-boundaries-loops-without-boundaries.html",
+            "http://jvn.jp/en/jp/JVN14876762/index.html",
+            "http://jvndb.jvn.jp/jvndb/JVNDB-2014-000017",
+            "http://mail-archives.apache.org/mod_mbox/commons-dev/201402.mbox/%3C52F373FC.9030907@apache.org%3E",
+            "http://mail-archives.apache.org/mod_mbox/www-announce/201402.mbox/%3C52F373FC.9030907@apache.org%3E",
+            "http://marc.info/?l=bugtraq\u0026m=143136844732487\u0026w=2",
+            "http://packetstormsecurity.com/files/127215/VMware-Security-Advisory-2014-0007.html",
+            "http://rhn.redhat.com/errata/RHSA-2014-0252.html",
+            "http://rhn.redhat.com/errata/RHSA-2014-0253.html",
+            "http://rhn.redhat.com/errata/RHSA-2014-0400.html",
+            "http://seclists.org/fulldisclosure/2014/Dec/23",
+            "http://seclists.org/fulldisclosure/2014/Feb/41",
+            "http://secunia.com/advisories/57915",
+            "http://secunia.com/advisories/58075",
+            "http://secunia.com/advisories/58976",
+            "http://secunia.com/advisories/59039",
+            "http://secunia.com/advisories/59041",
+            "http://secunia.com/advisories/59183",
+            "http://secunia.com/advisories/59184",
+            "http://secunia.com/advisories/59185",
+            "http://secunia.com/advisories/59187",
+            "http://secunia.com/advisories/59232",
+            "http://secunia.com/advisories/59399",
+            "http://secunia.com/advisories/59492",
+            "http://secunia.com/advisories/59500",
+            "http://secunia.com/advisories/59725",
+            "http://secunia.com/advisories/60475",
+            "http://secunia.com/advisories/60753",
+            "http://struts.apache.org/docs/s2-020.html",
+            "http://svn.apache.org/r1565143",
+            "http://svn.apache.org/viewvc?view=revision\u0026revision=1565143",
+            "http://tomcat.apache.org/security-7.html",
+            "http://tomcat.apache.org/security-8.html",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21669554",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21675432",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21676091",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21676092",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21676401",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21676403",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21676405",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21676410",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21676656",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21676853",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21677691",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21677724",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21681214",
+            "http://www.debian.org/security/2014/dsa-2856",
+            "http://www.hitachi.co.jp/Prod/comp/soft1/global/security/info/vuls/HS14-015/index.html",
+            "http://www.hitachi.co.jp/Prod/comp/soft1/global/security/info/vuls/HS14-016/index.html",
+            "http://www.hitachi.co.jp/Prod/comp/soft1/global/security/info/vuls/HS14-017/index.html",
+            "http://www.huawei.com/en/security/psirt/security-bulletins/security-advisories/hw-350733.htm",
+            "http://www.mandriva.com/security/advisories?name=MDVSA-2015:084",
+            "http://www.oracle.com/technetwork/security-advisory/cpuoct2016-2881722.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpuoct2017-3236626.html",
+            "http://www.oracle.com/technetwork/topics/security/cpuapr2015-2365600.html",
+            "http://www.oracle.com/technetwork/topics/security/cpujan2015-1972971.html",
+            "http://www.oracle.com/technetwork/topics/security/cpujan2016-2367955.html",
+            "http://www.oracle.com/technetwork/topics/security/cpujul2014-1972956.html",
+            "http://www.oracle.com/technetwork/topics/security/cpuoct2014-1972960.html",
+            "http://www.oracle.com/technetwork/topics/security/cpuoct2015-2367953.html",
+            "http://www.securityfocus.com/archive/1/532549/100/0/threaded",
+            "http://www.securityfocus.com/archive/1/534161/100/0/threaded",
+            "http://www.securityfocus.com/bid/65400",
+            "http://www.ubuntu.com/usn/USN-2130-1",
+            "http://www.vmware.com/security/advisories/VMSA-2014-0007.html",
+            "http://www.vmware.com/security/advisories/VMSA-2014-0008.html",
+            "http://www.vmware.com/security/advisories/VMSA-2014-0012.html",
+            "https://access.redhat.com/security/cve/CVE-2014-0050",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=1062337",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0050",
+            "https://github.com/advisories/GHSA-xx68-jfcg-xmmf",
+            "https://h20566.www2.hpe.com/portal/site/hpsc/public/kb/docDisplay?docId=emr_na-c05324755",
+            "https://h20566.www2.hpe.com/portal/site/hpsc/public/kb/docDisplay?docId=emr_na-c05376917",
+            "https://h20566.www2.hpe.com/portal/site/hpsc/public/kb/docDisplay?docId=emr_na-c05390722",
+            "https://linux.oracle.com/cve/CVE-2014-0050.html",
+            "https://linux.oracle.com/errata/ELSA-2014-0429.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2014-0050",
+            "https://ubuntu.com/security/notices/USN-2130-1",
+            "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-0050"
+          ],
+          "PublishedDate": "2014-04-01T06:27:00Z",
+          "LastModifiedDate": "2021-07-17T08:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2016-3092",
+          "PkgName": "commons-fileupload:commons-fileupload",
+          "PkgPath": "fed.war",
+          "InstalledVersion": "1.2",
+          "FixedVersion": "1.3.2",
+          "Layer": {},
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2016-3092",
+          "DataSource": {
+            "ID": "glad",
+            "Name": "GitLab Advisory Database Community",
+            "URL": "https://gitlab.com/gitlab-org/advisories-community"
+          },
+          "Title": "tomcat: Usage of vulnerable FileUpload package can result in denial of service",
+          "Description": "The MultipartStream class in Apache Commons Fileupload before 1.3.2, as used in Apache Tomcat 7.x before 7.0.70, 8.x before 8.0.36, 8.5.x before 8.5.3, and 9.x before 9.0.0.M7 and other products, allows remote attackers to cause a denial of service (CPU consumption) via a long boundary string.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-20"
+          ],
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:N/I:N/A:C",
+              "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V2Score": 7.8,
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:N/I:N/A:P",
+              "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V2Score": 4.3,
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "http://jvn.jp/en/jp/JVN89379547/index.html",
+            "http://jvndb.jvn.jp/jvndb/JVNDB-2016-000121",
+            "http://lists.opensuse.org/opensuse-updates/2016-09/msg00025.html",
+            "http://mail-archives.apache.org/mod_mbox/commons-dev/201606.mbox/%3CCAF8HOZ%2BPq2QH8RnxBuJyoK1dOz6jrTiQypAC%2BH8g6oZkBg%2BCxg%40mail.gmail.com%3E",
+            "http://mail-archives.us.apache.org/mod_mbox/www-announce/201606.mbox/%3C6223ece6-2b41-ef4f-22f9-d3481e492832@apache.org%3E",
+            "http://markmail.org/message/oyxfv73jb2g7rjg3",
+            "http://rhn.redhat.com/errata/RHSA-2016-2068.html",
+            "http://rhn.redhat.com/errata/RHSA-2016-2069.html",
+            "http://rhn.redhat.com/errata/RHSA-2016-2070.html",
+            "http://rhn.redhat.com/errata/RHSA-2016-2071.html",
+            "http://rhn.redhat.com/errata/RHSA-2016-2072.html",
+            "http://rhn.redhat.com/errata/RHSA-2016-2599.html",
+            "http://rhn.redhat.com/errata/RHSA-2016-2807.html",
+            "http://rhn.redhat.com/errata/RHSA-2016-2808.html",
+            "http://rhn.redhat.com/errata/RHSA-2017-0457.html",
+            "http://svn.apache.org/viewvc/commons/proper/fileupload/trunk/RELEASE-NOTES.txt?r1=1745717\u0026r2=1749637\u0026diff_format=h",
+            "http://svn.apache.org/viewvc?view=revision\u0026revision=1743480",
+            "http://svn.apache.org/viewvc?view=revision\u0026revision=1743722",
+            "http://svn.apache.org/viewvc?view=revision\u0026revision=1743738",
+            "http://svn.apache.org/viewvc?view=revision\u0026revision=1743742",
+            "http://tomcat.apache.org/security-7.html",
+            "http://tomcat.apache.org/security-8.html",
+            "http://tomcat.apache.org/security-9.html",
+            "http://tomcat.apache.org/security.html",
+            "http://www.debian.org/security/2016/dsa-3609",
+            "http://www.debian.org/security/2016/dsa-3611",
+            "http://www.debian.org/security/2016/dsa-3614",
+            "http://www.oracle.com/technetwork/security-advisory/cpuapr2018-3678067.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpujul2017-3236622.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpujul2018-4258247.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpuoct2017-3236626.html",
+            "http://www.oracle.com/technetwork/topics/security/bulletinjul2016-3090568.html",
+            "http://www.securityfocus.com/bid/91453",
+            "http://www.securitytracker.com/id/1036427",
+            "http://www.securitytracker.com/id/1036900",
+            "http://www.securitytracker.com/id/1037029",
+            "http://www.securitytracker.com/id/1039606",
+            "http://www.ubuntu.com/usn/USN-3024-1",
+            "http://www.ubuntu.com/usn/USN-3027-1",
+            "https://access.redhat.com/errata/RHSA-2017:0455",
+            "https://access.redhat.com/errata/RHSA-2017:0456",
+            "https://access.redhat.com/security/cve/CVE-2016-3092",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=1349468",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=1349475",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3092",
+            "https://github.com/advisories/GHSA-fvm3-cfvj-gxqq",
+            "https://h20566.www2.hpe.com/portal/site/hpsc/public/kb/docDisplay?docId=emr_na-c05204371",
+            "https://h20566.www2.hpe.com/portal/site/hpsc/public/kb/docDisplay?docId=emr_na-c05289840",
+            "https://h20566.www2.hpe.com/portal/site/hpsc/public/kb/docDisplay?docId=emr_na-c05324759",
+            "https://linux.oracle.com/cve/CVE-2016-3092.html",
+            "https://linux.oracle.com/errata/ELSA-2016-2599.html",
+            "https://lists.apache.org/thread.html/343558d982879bf88ec20dbf707f8c11255f8e219e81d45c4f8d0551@%3Cdev.tomcat.apache.org%3E",
+            "https://lists.apache.org/thread.html/388a323769f1dff84c9ec905455aa73fbcb20338e3c7eb131457f708@%3Cdev.tomcat.apache.org%3E",
+            "https://lists.apache.org/thread.html/r9136ff5b13e4f1941360b5a309efee2c114a14855578c3a2cbe5d19c@%3Cdev.tomcat.apache.org%3E",
+            "https://nvd.nist.gov/vuln/detail/CVE-2016-3092",
+            "https://security.gentoo.org/glsa/201705-09",
+            "https://security.netapp.com/advisory/ntap-20190212-0001/",
+            "https://ubuntu.com/security/notices/USN-3024-1",
+            "https://ubuntu.com/security/notices/USN-3027-1",
+            "https://www.oracle.com/security-alerts/cpuapr2020.html",
+            "https://www.oracle.com/technetwork/security-advisory/cpuapr2019-5072813.html"
+          ],
+          "PublishedDate": "2016-07-04T22:59:00Z",
+          "LastModifiedDate": "2021-07-17T08:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2013-0248",
+          "PkgName": "commons-fileupload:commons-fileupload",
+          "PkgPath": "fed.war",
+          "InstalledVersion": "1.2",
+          "FixedVersion": "1.3",
+          "Layer": {},
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2013-0248",
+          "DataSource": {
+            "ID": "glad",
+            "Name": "GitLab Advisory Database Community",
+            "URL": "https://gitlab.com/gitlab-org/advisories-community"
+          },
+          "Title": "jakarta-commons-fileupload, apache-commons-fileupload: /tmp directory used by default for uploaded files (possibility to overwrite arbitrary files)",
+          "Description": "The default configuration of javax.servlet.context.tempdir in Apache Commons FileUpload 1.0 through 1.2.2 uses the /tmp directory for uploaded files, which allows local users to overwrite arbitrary files via an unspecified symlink attack.",
+          "Severity": "LOW",
+          "CweIDs": [
+            "CWE-264"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:L/AC:M/Au:N/C:N/I:P/A:P",
+              "V2Score": 3.3
+            },
+            "redhat": {
+              "V2Vector": "AV:N/AC:H/Au:S/C:N/I:P/A:N",
+              "V2Score": 2.1
+            }
+          },
+          "References": [
+            "http://archives.neohapsis.com/archives/bugtraq/2013-03/0035.html",
+            "http://mail-archives.apache.org/mod_mbox/commons-user/201303.mbox/%3C51371C31.8020805@apache.org%3E",
+            "http://marc.info/?l=bugtraq\u0026m=144050155601375\u0026w=2",
+            "http://www.oracle.com/technetwork/security-advisory/cpuoct2017-3236626.html",
+            "http://www.osvdb.org/90906",
+            "http://www.securityfocus.com/bid/58326",
+            "https://access.redhat.com/security/cve/CVE-2013-0248",
+            "https://bugzilla.redhat.com/CVE-2013-0248",
+            "https://github.com/advisories/GHSA-vm69-474v-7q2w",
+            "https://nvd.nist.gov/vuln/detail/CVE-2013-0248",
+            "https://security.gentoo.org/glsa/202107-39"
+          ],
+          "PublishedDate": "2013-03-15T20:55:00Z",
+          "LastModifiedDate": "2021-07-17T08:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2012-5783",
+          "PkgName": "commons-httpclient:commons-httpclient",
+          "PkgPath": "fed.war",
+          "InstalledVersion": "3.1",
+          "Layer": {},
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2012-5783",
+          "DataSource": {
+            "ID": "glad",
+            "Name": "GitLab Advisory Database Community",
+            "URL": "https://gitlab.com/gitlab-org/advisories-community"
+          },
+          "Title": "jakarta-commons-httpclient: missing connection hostname check against X.509 certificate name",
+          "Description": "Apache Commons HttpClient 3.x, as used in Amazon Flexible Payments Service (FPS) merchant Java SDK and other products, does not verify that the server hostname matches a domain name in the subject's Common Name (CN) or subjectAltName field of the X.509 certificate, which allows man-in-the-middle attackers to spoof SSL servers via an arbitrary valid certificate.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-295"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:P/I:P/A:N",
+              "V2Score": 5.8
+            },
+            "redhat": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N",
+              "V3Vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N",
+              "V2Score": 4.3,
+              "V3Score": 3.7
+            }
+          },
+          "References": [
+            "http://lists.opensuse.org/opensuse-updates/2013-02/msg00078.html",
+            "http://lists.opensuse.org/opensuse-updates/2013-04/msg00040.html",
+            "http://lists.opensuse.org/opensuse-updates/2013-04/msg00041.html",
+            "http://lists.opensuse.org/opensuse-updates/2013-04/msg00053.html",
+            "http://rhn.redhat.com/errata/RHSA-2013-0270.html",
+            "http://rhn.redhat.com/errata/RHSA-2013-0679.html",
+            "http://rhn.redhat.com/errata/RHSA-2013-0680.html",
+            "http://rhn.redhat.com/errata/RHSA-2013-0681.html",
+            "http://rhn.redhat.com/errata/RHSA-2013-0682.html",
+            "http://rhn.redhat.com/errata/RHSA-2013-1147.html",
+            "http://rhn.redhat.com/errata/RHSA-2013-1853.html",
+            "http://rhn.redhat.com/errata/RHSA-2014-0224.html",
+            "http://www.cs.utexas.edu/~shmat/shmat_ccs12.pdf",
+            "http://www.securityfocus.com/bid/58073",
+            "http://www.ubuntu.com/usn/USN-2769-1",
+            "https://access.redhat.com/errata/RHSA-2017:0868",
+            "https://access.redhat.com/security/cve/CVE-2012-5783",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5783",
+            "https://exchange.xforce.ibmcloud.com/vulnerabilities/79984",
+            "https://github.com/advisories/GHSA-3832-9276-x7gf",
+            "https://issues.apache.org/jira/browse/HTTPCLIENT-1265",
+            "https://linux.oracle.com/cve/CVE-2012-5783.html",
+            "https://linux.oracle.com/errata/ELSA-2013-0270.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2012-5783",
+            "https://ubuntu.com/security/notices/USN-2769-1"
+          ],
+          "PublishedDate": "2012-11-04T22:55:00Z",
+          "LastModifiedDate": "2021-04-23T17:28:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2015-0899",
+          "PkgName": "org.apache.struts:struts-core",
+          "PkgPath": "fed.war",
+          "InstalledVersion": "1.3.10",
+          "Layer": {},
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2015-0899",
+          "DataSource": {
+            "ID": "glad",
+            "Name": "GitLab Advisory Database Community",
+            "URL": "https://gitlab.com/gitlab-org/advisories-community"
+          },
+          "Title": "Apache Struts 1: input validation bypass in MultiPageValidator",
+          "Description": "The MultiPageValidator implementation in Apache Struts 1 1.1 through 1.3.10 allows remote attackers to bypass intended access restrictions via a modified page parameter.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-20"
+          ],
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+              "V3Score": 7.5
+            },
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:N/I:P/A:N",
+              "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+              "V2Score": 5,
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N",
+              "V2Score": 4.3
+            }
+          },
+          "References": [
+            "http://en.sourceforge.jp/projects/terasoluna/wiki/StrutsPatch2-EN",
+            "http://jvn.jp/en/jp/JVN86448949/index.html",
+            "http://jvndb.jvn.jp/en/contents/2015/JVNDB-2015-000042.html",
+            "http://jvndb.jvn.jp/jvndb/JVNDB-2015-000042",
+            "http://www.debian.org/security/2016/dsa-3536",
+            "http://www.oracle.com/technetwork/security-advisory/cpuoct2017-3236626.html",
+            "http://www.securityfocus.com/bid/74423",
+            "https://access.redhat.com/security/cve/CVE-2015-0899",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-0899",
+            "https://en.osdn.jp/projects/terasoluna/wiki/StrutsPatch2-EN",
+            "https://github.com/advisories/GHSA-cvvx-r33m-v7pq",
+            "https://jvn.jp/en/jp/JVN86448949/index.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2015-0899",
+            "https://security.netapp.com/advisory/ntap-20180629-0006/"
+          ],
+          "PublishedDate": "2016-07-04T22:59:00Z",
+          "LastModifiedDate": "2018-07-01T01:29:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2016-1181",
+          "PkgName": "org.apache.struts:struts-core",
+          "PkgPath": "fed.war",
+          "InstalledVersion": "1.3.10",
+          "Layer": {},
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2016-1181",
+          "DataSource": {
+            "ID": "glad",
+            "Name": "GitLab Advisory Database Community",
+            "URL": "https://gitlab.com/gitlab-org/advisories-community"
+          },
+          "Title": "struts: Vulnerability in ActionForm allows unintended remote operations against components on server memory",
+          "Description": "ActionServlet.java in Apache Struts 1 1.x through 1.3.10 mishandles multithreaded access to an ActionForm instance, which allows remote attackers to execute arbitrary code or cause a denial of service (unexpected memory access) via a multipart request, a related issue to CVE-2015-0899.",
+          "Severity": "HIGH",
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 8.1
+            },
+            "nvd": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 6.8,
+              "V3Score": 8.1
+            },
+            "redhat": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+              "V2Score": 6.8
+            }
+          },
+          "References": [
+            "http://jvn.jp/en/jp/JVN03188560/index.html",
+            "http://jvndb.jvn.jp/jvndb/JVNDB-2016-000096",
+            "http://www.oracle.com/technetwork/security-advisory/cpujan2018-3236628.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpujul2016-2881720.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpujul2017-3236622.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpujul2018-4258247.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpuoct2016-2881722.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpuoct2017-3236626.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html",
+            "http://www.securityfocus.com/bid/91068",
+            "http://www.securityfocus.com/bid/91787",
+            "http://www.securitytracker.com/id/1036056",
+            "https://access.redhat.com/security/cve/CVE-2016-1181",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=1343538",
+            "https://github.com/advisories/GHSA-7jw3-5q4w-89qg",
+            "https://github.com/kawasima/struts1-forever/commit/eda3a79907ed8fcb0387a0496d0cb14332f250e8",
+            "https://jvn.jp/en/jp/JVN03188560/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2016-1181",
+            "https://security-tracker.debian.org/tracker/CVE-2016-1181",
+            "https://security.netapp.com/advisory/ntap-20180629-0006/",
+            "https://www.oracle.com/security-alerts/cpujan2020.html",
+            "https://www.oracle.com/security-alerts/cpujul2020.html",
+            "https://www.oracle.com/technetwork/security-advisory/cpuapr2019-5072813.html",
+            "https://www.oracle.com/technetwork/security-advisory/cpujan2019-5072801.html",
+            "https://www.oracle.com/technetwork/security-advisory/cpujul2019-5072835.html"
+          ],
+          "PublishedDate": "2016-07-04T22:59:00Z",
+          "LastModifiedDate": "2020-07-15T03:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2016-1182",
+          "PkgName": "org.apache.struts:struts-core",
+          "PkgPath": "fed.war",
+          "InstalledVersion": "1.3.10",
+          "Layer": {},
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2016-1182",
+          "DataSource": {
+            "ID": "glad",
+            "Name": "GitLab Advisory Database Community",
+            "URL": "https://gitlab.com/gitlab-org/advisories-community"
+          },
+          "Title": "struts: Improper input validation in Validator",
+          "Description": "ActionServlet.java in Apache Struts 1 1.x through 1.3.10 does not properly restrict the Validator configuration, which allows remote attackers to conduct cross-site scripting (XSS) attacks or cause a denial of service via crafted input, a related issue to CVE-2015-0899.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-20"
+          ],
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:H",
+              "V3Score": 8.2
+            },
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:N/I:P/A:P",
+              "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:H",
+              "V2Score": 6.4,
+              "V3Score": 8.2
+            },
+            "redhat": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:N/I:P/A:P",
+              "V2Score": 5.8
+            }
+          },
+          "References": [
+            "http://jvn.jp/en/jp/JVN65044642/index.html",
+            "http://jvndb.jvn.jp/jvndb/JVNDB-2016-000097",
+            "http://www.oracle.com/technetwork/security-advisory/cpujan2018-3236628.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpujul2016-2881720.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpujul2018-4258247.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpuoct2016-2881722.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpuoct2017-3236626.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html",
+            "http://www.securityfocus.com/bid/91067",
+            "http://www.securityfocus.com/bid/91787",
+            "http://www.securitytracker.com/id/1036056",
+            "https://access.redhat.com/security/cve/CVE-2016-1182",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=1343540",
+            "https://github.com/advisories/GHSA-5ggr-mpgw-3mgx",
+            "https://github.com/kawasima/struts1-forever/commit/eda3a79907ed8fcb0387a0496d0cb14332f250e8",
+            "https://jvn.jp/en/jp/JVN65044642/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2016-1182",
+            "https://security-tracker.debian.org/tracker/CVE-2016-1182",
+            "https://security.netapp.com/advisory/ntap-20180629-0006/",
+            "https://www.oracle.com/security-alerts/cpujan2020.html",
+            "https://www.oracle.com/security-alerts/cpujul2020.html",
+            "https://www.oracle.com/technetwork/security-advisory/cpuapr2019-5072813.html",
+            "https://www.oracle.com/technetwork/security-advisory/cpujan2019-5072801.html",
+            "https://www.oracle.com/technetwork/security-advisory/cpujul2019-5072835.html"
+          ],
+          "PublishedDate": "2016-07-04T22:59:00Z",
+          "LastModifiedDate": "2020-07-15T03:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2017-5661",
+          "PkgName": "org.apache.xmlgraphics:fop",
+          "PkgPath": "fed.war",
+          "InstalledVersion": "1.1",
+          "FixedVersion": "2.2",
+          "Layer": {},
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2017-5661",
+          "DataSource": {
+            "ID": "glad",
+            "Name": "GitLab Advisory Database Community",
+            "URL": "https://gitlab.com/gitlab-org/advisories-community"
+          },
+          "Title": "fop: XML external entity processing vulnerability",
+          "Description": "In Apache FOP before 2.2, files lying on the filesystem of the server which uses FOP can be revealed to arbitrary users who send maliciously formed SVG files. The file types that can be shown depend on the user context in which the exploitable application is running. If the user is root a full compromise of the server - including confidential or sensitive files - would be possible. XXE can also be used to attack the availability of the server via denial of service as the references within a xml document can trivially trigger an amplification attack.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-611"
+          ],
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:N/A:H",
+              "V3Score": 7.3
+            },
+            "nvd": {
+              "V2Vector": "AV:N/AC:M/Au:S/C:C/I:N/A:C",
+              "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:N/A:H",
+              "V2Score": 7.9,
+              "V3Score": 7.3
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "http://www.debian.org/security/2017/dsa-3864",
+            "http://www.openwall.com/lists/oss-security/2017/04/18/2",
+            "http://www.securityfocus.com/bid/97947",
+            "https://access.redhat.com/security/cve/CVE-2017-5661",
+            "https://access.redhat.com/security/cve/cve-2017-5661",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5661",
+            "https://github.com/advisories/GHSA-5hg8-r9vq-gjqp",
+            "https://nvd.nist.gov/vuln/detail/CVE-2017-5661",
+            "https://ubuntu.com/security/notices/USN-3281-1",
+            "https://vuldb.com/?id.99936",
+            "https://www.tenable.com/security/tns-2021-14",
+            "https://xmlgraphics.apache.org/security.html"
+          ],
+          "PublishedDate": "2017-04-18T14:59:00Z",
+          "LastModifiedDate": "2021-07-22T18:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-34169",
+          "PkgName": "xalan:xalan",
+          "PkgPath": "fed.war",
+          "InstalledVersion": "2.7.0",
+          "Layer": {},
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-34169",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "OpenJDK: integer truncation issue in Xalan-J (JAXP, 8285407)",
+          "Description": "The Apache Xalan Java XSLT library is vulnerable to an integer truncation issue when processing malicious XSLT stylesheets. This can be used to corrupt Java class files generated by the internal XSLTC compiler and execute arbitrary Java bytecode. The Apache Xalan Java project is dormant and in the process of being retired. No future releases of Apache Xalan Java to address this issue are expected. Note: Java runtimes (such as OpenJDK) include repackaged copies of Xalan.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-681"
+          ],
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/07/19/5",
+            "http://www.openwall.com/lists/oss-security/2022/07/19/6",
+            "http://www.openwall.com/lists/oss-security/2022/07/20/2",
+            "http://www.openwall.com/lists/oss-security/2022/07/20/3",
+            "https://access.redhat.com/errata/RHSA-2022:5696",
+            "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2022-21540.json",
+            "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2022-21541.json",
+            "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2022-34169.json",
+            "https://access.redhat.com/security/cve/CVE-2022-34169",
+            "https://bugzilla.redhat.com/2108540",
+            "https://bugzilla.redhat.com/2108543",
+            "https://bugzilla.redhat.com/2108554",
+            "https://errata.almalinux.org/8/ALSA-2022-5696.html",
+            "https://github.com/advisories/GHSA-9339-86wc-4qgf",
+            "https://linux.oracle.com/cve/CVE-2022-34169.html",
+            "https://linux.oracle.com/errata/ELSA-2022-5736.html",
+            "https://lists.apache.org/thread/12pxy4phsry6c34x2ol4fft6xlho4kyw",
+            "https://lists.apache.org/thread/2qvl7r43wb4t8p9dd9om1bnkssk07sn8",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-34169",
+            "https://security.netapp.com/advisory/ntap-20220729-0009/",
+            "https://www.debian.org/security/2022/dsa-5188",
+            "https://www.debian.org/security/2022/dsa-5192",
+            "https://www.oracle.com/security-alerts/cpujul2022.html"
+          ],
+          "PublishedDate": "2022-07-19T18:15:00Z",
+          "LastModifiedDate": "2022-07-29T20:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2014-0107",
+          "PkgName": "xalan:xalan",
+          "PkgPath": "fed.war",
+          "InstalledVersion": "2.7.0",
+          "FixedVersion": "2.7.2",
+          "Layer": {},
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2014-0107",
+          "DataSource": {
+            "ID": "glad",
+            "Name": "GitLab Advisory Database Community",
+            "URL": "https://gitlab.com/gitlab-org/advisories-community"
+          },
+          "Title": "Xalan-Java: insufficient constraints in secure processing feature",
+          "Description": "The TransformerFactory in Apache Xalan-Java before 2.7.2 does not properly restrict access to certain properties when FEATURE_SECURE_PROCESSING is enabled, which allows remote attackers to bypass expected restrictions and load arbitrary classes or access external resources via a crafted (1) xalan:content-header, (2) xalan:entities, (3) xslt:content-header, or (4) xslt:entities property, or a Java property that is bound to the XSLT 1.0 system-property function.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-264"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V2Score": 7.5
+            },
+            "redhat": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+              "V2Score": 6.8
+            }
+          },
+          "References": [
+            "http://rhn.redhat.com/errata/RHSA-2014-0348.html",
+            "http://rhn.redhat.com/errata/RHSA-2014-1351.html",
+            "http://rhn.redhat.com/errata/RHSA-2015-1888.html",
+            "http://secunia.com/advisories/57563",
+            "http://secunia.com/advisories/59036",
+            "http://secunia.com/advisories/59151",
+            "http://secunia.com/advisories/59247",
+            "http://secunia.com/advisories/59290",
+            "http://secunia.com/advisories/59291",
+            "http://secunia.com/advisories/59369",
+            "http://secunia.com/advisories/59515",
+            "http://secunia.com/advisories/59711",
+            "http://secunia.com/advisories/60502",
+            "http://svn.apache.org/viewvc?view=revision\u0026revision=1581058",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21674334",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21676093",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21677145",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21680703",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21681933",
+            "http://www.debian.org/security/2014/dsa-2886",
+            "http://www.ibm.com/support/docview.wss?uid=swg21677967",
+            "http://www.ocert.org/advisories/ocert-2014-002.html",
+            "http://www.oracle.com/technetwork/security-advisory/cpuoct2017-3236626.html",
+            "http://www.oracle.com/technetwork/topics/security/cpujan2016-2367955.html",
+            "http://www.securityfocus.com/bid/66397",
+            "http://www.securitytracker.com/id/1034711",
+            "http://www.securitytracker.com/id/1034716",
+            "https://access.redhat.com/security/cve/CVE-2014-0107",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0107",
+            "https://exchange.xforce.ibmcloud.com/vulnerabilities/92023",
+            "https://github.com/advisories/GHSA-rc2w-r4jq-7pfx",
+            "https://h20566.www2.hpe.com/portal/site/hpsc/public/kb/docDisplay?docId=emr_na-c05324755",
+            "https://issues.apache.org/jira/browse/XALANJ-2435",
+            "https://linux.oracle.com/cve/CVE-2014-0107.html",
+            "https://linux.oracle.com/errata/ELSA-2014-0348.html",
+            "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f@%3Cdev.drill.apache.org%3E",
+            "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442@%3Cdev.drill.apache.org%3E",
+            "https://lists.apache.org/thread.html/r0c00afcab8f238562e27b3ae7b8af1913c62bc60838fb8b34c19e26b@%3Cdev.tomcat.apache.org%3E",
+            "https://lists.apache.org/thread.html/r2900489bc665a2e32d021bb21f6ce2cb8e6bb5973490eebb9a346bca@%3Cdev.tomcat.apache.org%3E",
+            "https://nvd.nist.gov/vuln/detail/CVE-2014-0107",
+            "https://security.gentoo.org/glsa/201604-02",
+            "https://ubuntu.com/security/notices/USN-2218-1",
+            "https://www.oracle.com//security-alerts/cpujul2021.html",
+            "https://www.oracle.com/security-alerts/cpuoct2021.html",
+            "https://www.oracle.com/technetwork/security-advisory/cpuapr2019-5072813.html",
+            "https://www.tenable.com/security/tns-2018-15"
+          ],
+          "PublishedDate": "2014-04-15T23:13:00Z",
+          "LastModifiedDate": "2021-10-20T11:15:00Z"
+        }
+      ]
+    }
+  ]
+}

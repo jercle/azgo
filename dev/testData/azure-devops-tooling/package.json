@@ -1,0 +1,33 @@
+{
+  "name": "ado-tooling",
+  "version": "0.0.2",
+  "description": "Tooling for A23's DAWE DMZ Migration project",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jERCle/a23-dawe-dmz-migration-tooling.git"
+  },
+  "author": "Evan Colwell <evan.colwell@a23.com.au>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jERCle/a23-dawe-dmz-migration-tooling/issues"
+  },
+  "homepage": "https://github.com/jERCle/a23-dawe-dmz-migration-tooling#readme",
+  "bin": {
+    "ado": "main.js"
+  },
+  "pkg": {
+    "outputPath": "dist"
+  },
+  "dependencies": {
+    "axios": "^0.21.2",
+    "http-proxy-agent": "^5.0.0",
+    "node-fetch-with-proxy": "^0.1.6",
+    "readline-sync": "^1.4.10",
+    "yargonaut": "^1.1.4",
+    "yargs": "^17.0.1"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "registryLoginServer": "stkcatacr.azurecr.io",
+  "name": "gm",
+  "createdOn": "2022-05-13T07:07:40.591Z",
+  "lastUpdatedOn": "2022-05-13T07:28:17.691Z",
+  "manifestCount": 1,
+  "tagCount": 2,
+  "canDelete": true,
+  "canWrite": true,
+  "canList": true,
+  "canRead": true,
+  "manifests": [
+    {
+      "registryLoginServer": "stkcatacr.azurecr.io",
+      "repositoryName": "gm",
+      "digest": "sha256:d71bd432d72546e49071ed109068b1536b3bcd8c1fc5c99ffeac7b5ae80e5c87",
+      "sizeInBytes": 90885097,
+      "createdOn": "2022-05-13T07:07:40.729Z",
+      "lastUpdatedOn": "2022-05-13T07:07:40.729Z",
+      "architecture": "amd64",
+      "operatingSystem": "linux",
+      "relatedArtifacts": [],
+      "tags": ["1234", "latest"],
+      "canDelete": true,
+      "canList": true,
+      "canRead": true,
+      "canWrite": true
+    }
+  ]
+}
