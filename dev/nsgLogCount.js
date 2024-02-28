@@ -1,5 +1,11 @@
 import { readFileSync } from "fs";
 
-const jsonData = JSON.parse(readFileSync("../testData/nsgLogs.json"))
+import { listAllFiles } from "./combineNsgFlowLogs.js";
 
-console.log(jsonData.length)
+// const jsonData = JSON.parse(readFileSync("../testData/nsgLogs.json"))
+
+// console.log(jsonData.length)
+const dataPath = "./fakedata/nsgLogs"
+const allFileNames = listAllFiles(dataPath)
+
+console.log(allFileNames.length)

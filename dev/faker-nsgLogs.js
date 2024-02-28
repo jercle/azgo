@@ -13,7 +13,7 @@ const ipAddresses = {
   source: faker.helpers.multiple(faker.internet.ipv4, {
     count: {
       min: 40,
-      max: 1000
+      max: 100000
     }
   }),
   destination: faker.helpers.multiple(faker.internet.ipv4, {
@@ -28,11 +28,14 @@ const subId = faker.string.uuid()
 
 for (let i = 0; i < 1000; i++) {
   // console.log(i, );
-  const testData = faker.helpers.multiple(createLog, {
-    count: {
-      min: 10, max: 400
-    }
-  })
+  const testData = {
+    records: faker.helpers.multiple(createLog, {
+      count: {
+        min: 10, max: 100
+      }
+    })
+  }
+
 
   writeFileSync(`${dataPath}/${fileNames[i]}.json`, JSON.stringify(testData, null, 2))
 }
@@ -42,8 +45,28 @@ function createFlowData(dateTime) {
   return `${timestamp.toString().substring(0, 10)},${faker.helpers.arrayElement(ipAddresses.source)},${faker.helpers.arrayElement(ipAddresses.destination)},${faker.internet.port()},${faker.internet.port()},T,I,D`
 }
 
+
+
 function createLog() {
+  function generateFlow() {
+    return {
+      rule: "UserRule_deny-all-temp",
+        flows: [
+          {
+            mac: faker.internet.mac({ separator: "" }),
+            flowTuples:
+              faker.helpers.multiple(() => createFlowData(dateTime), {
+                count: {
+                  min: 1, max: 20
+                }
+              })
+
+          }
+        ]
+    }
+  }
   const dateTime = faker.date.between({ from: '2024-01-01T00:00:00.000Z', to: '2024-02-01T00:00:00.000Z' })
+
   return {
     time: dateTime,
     systemId: faker.string.uuid(),
@@ -53,23 +76,13 @@ function createLog() {
     operationName: "NetworkSecurityGroupFlowEvents",
     properties: {
       Version: 1,
-      flows: [
+      flows: faker.helpers.multiple(generateFlow, {
+        count:
         {
-          rule: "UserRule_deny-all-temp",
-          flows: [
-            {
-              mac: faker.internet.mac({ separator: "" }),
-              flowTuples:
-                faker.helpers.multiple(() => createFlowData(dateTime), {
-                  count: {
-                    min: 1, max: 20
-                  }
-                })
-
-            }
-          ]
+          min: 1,
+          max: 4
         }
-      ]
+      })
     }
   }
 }
