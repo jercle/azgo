@@ -110,11 +110,12 @@ const vmSizes = JSON.parse(readFileSync("vmSizes.json")).map(s => s.name)
 // console.log(vmSizes)
 
 
-function createVirtualMachine() {
-
+function createVirtualMachine(subscriptionId, resGroupArr, vmSizes) {
+  const resourceGroup = faker.helpers.arrayElement(resGrpArr)
+  const osDiskName = `${faker.hacker.noun()}_OsDisk_1_${faker.string.uuid()}`
   const virtualMachine = {
     name: faker.lorem.slug(),
-    id: `/subscriptions/${subscriptionId}/resourceGroups/${faker.helpers.arrayElement(resGrpArr)}/providers/Microsoft.Compute/virtualMachines/${faker.hacker.verbs()}`,
+    id: `/subscriptions/${subscriptionId}/resourceGroups/${resourceGroup}/providers/Microsoft.Compute/virtualMachines/${faker.hacker.verbs()}`,
     type: "Microsoft.Compute/virtualMachines",
     location: "australiaeast",
     properties: {
@@ -133,6 +134,16 @@ function createVirtualMachine() {
           sku: "o365-prod-multi-session-w10",
           version: "0.0.78",
           exactVersion: "0.0.78",
+        }
+        "osDisk": {
+          osType: "Windows",
+          name: osDiskName,
+          createOption: "FromImage",
+          caching: "ReadWrite",
+          managedDisk: {
+            id: `/subscriptions/${subscriptionId}/resourceGroups/${faker.helpers.arrayElement(resGrpArr)}/providers/Microsoft.Compute/disks/${osDiskName}`
+          },
+          deleteOption: "Delete"
         }
       }
       }
