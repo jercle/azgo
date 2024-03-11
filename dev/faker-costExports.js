@@ -2,6 +2,13 @@ import {faker} from '@faker-js/faker'
 import {writeFileSync, existsSync, mkdirSync, readFileSync} from 'fs'
 import {format} from 'date-fns'
 
+import azureResourceTypes from "./azureProviderList.json" assert { type: "json" };
+import azurePriceList from "./azurePriceList.json" assert { type: "json" }
+import { exit } from 'process';
+
+import { json2csv } from 'json-2-csv';
+//https://www.npmjs.com/package/json-2-csv
+
 // faker.seed(69420)
 
 const dataPath = './fakedata/cost-exports'
@@ -35,6 +42,16 @@ let subs = {
 //     SubscriptionName: name,
 //   }
 // })
+
+// console.log(azureProviderNamespaces)
+
+// console.log(azureResourceTypes)
+
+const resourceTypesByProvider = azureResourceTypes.reduce((all, item, index) => {
+  const resourceTypes = item.resourceTypes.map(rt => rt.resourceType)
+  all[item.namespace] = resourceTypes
+  return all
+}, {})
 
 function generateCostExport(subs) {
   // let env = faker.helpers.arrayElement(['red', 'blue', 'purple'])
@@ -99,10 +116,11 @@ function generateTenantCostExport(sub) {
     //     }
     //   })
     // }
-    // writeFileSync(`${dataPath}/${fileNames[i]}.json`, JSON.stringify(testData, null, 2))
   }
+  writeFileSync(`${dataPath}/${sub}.json`, JSON.stringify(costExportRows, null, 2))
 
-  console.log(costExportRows)
+  // console.log(costExportRows.length)
+  // console.log(sub)
 }
 
 // for (let i = 0; i < 1000; i++) {
@@ -134,13 +152,22 @@ function generateCostExportRow(subs) {
     'yyyy-MM-dd',
   )
 
+  const ConsumedService = faker.helpers.arrayElement(Object.keys(resourceTypesByProvider))
+
+  const UsageQuantity = faker.number.float({max: 30})
+
+  const pricingMeter = faker.helpers.arrayElement(azurePriceList.Items)
+  const ResourceRate = pricingMeter.unitPrice
+  const ResourceGroup = faker.helpers.arrayElement(ResourceGroups)
+  const ResourceType = `${ConsumedService}/${faker.helpers.arrayElement(resourceTypesByProvider[ConsumedService])}`
+
   return {
     DepartmentName,
     AccountName,
     AccountOwnerId,
     SubscriptionGuid: sub.SubscriptionGuid,
     SubscriptionName: sub.SubscriptionName,
-    ResourceGroup: faker.helpers.arrayElement(ResourceGroups),
+    ResourceGroup,
     ResourceLocation: 'AU East',
     AvailabilityZone: '',
     UsageDateTime,
@@ -149,23 +176,24 @@ function generateCostExportRow(subs) {
     MeterSubcategory: '',
     MeterId: '',
     MeterName: '',
-    MeterRegion: '',
-    UnitOfMeasure: '',
-    UsageQuantity: '',
-    ResourceRate: '',
-    PreTaxCost: '',
+    MeterRegion: 'AU East',
+    UnitOfMeasure: pricingMeter.unitOfMeasure,
+    UsageQuantity,
+    ResourceRate,
+    PreTaxCost: UsageQuantity * ResourceRate,
     CostCenter: '',
-    ConsumedService: '',
-    ResourceType: '',
-    InstanceId: '',
+    ConsumedService,
+    ResourceType,
+    InstanceId: `/subscriptions/${sub.SubscriptionName}/resourceGroups/${ResourceGroup}/providers/${ResourceType}/${faker.lorem.word()}`,
     Tags: '',
-    OfferId: '',
+    OfferId: 'MS-AZR-1234',
     AdditionalInfo: '',
     ServiceInfo1: '',
     ServiceInfo2: '',
-    Currency: '',
+    Currency: 'AUD',
   }
 }
+
 
 generateCostExport(subs)
 // let costExportRow = generateCostExportRow()
