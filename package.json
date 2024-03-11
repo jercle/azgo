@@ -16,7 +16,7 @@
     "chalk": "^5.3.0",
     "date-fns": "^3.3.1",
     "inquirer": "^9.2.15",
-    "mongodb": "^6.3.0"
+    "mongodb": "^6.4.0"
   },
   "description": "Azure Tooling with enhanced reporting, data aggregation, and UX",
   "devDependencies": {
@@ -32,7 +32,7 @@
     "eslint-config-oclif-typescript": "^3",
     "eslint-config-prettier": "^9.1.0",
     "mocha": "^10",
-    "oclif": "^4.4.19",
+    "oclif": "^4.5.2",
     "shx": "^0.3.4",
     "ts-node": "^10.9.2",
     "typescript": "^5"
