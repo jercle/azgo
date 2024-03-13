@@ -6,7 +6,7 @@ import azureResourceTypes from "./azureProviderList.json" assert { type: "json" 
 import azurePriceList from "./azurePriceList.json" assert { type: "json" }
 import { exit } from 'process';
 
-import { json2csv } from 'json-2-csv';
+// import { json2csv } from 'json-2-csv';
 //https://www.npmjs.com/package/json-2-csv
 
 // faker.seed(69420)
@@ -117,9 +117,9 @@ function generateTenantCostExport(sub) {
     //   })
     // }
   }
-  writeFileSync(`${dataPath}/${sub}.json`, JSON.stringify(costExportRows, null, 2))
+  // writeFileSync(`${dataPath}/${sub}.json`, JSON.stringify(costExportRows, null, 2))
 
-  // console.log(costExportRows.length)
+  console.log(costExportRows)
   // console.log(sub)
 }
 
