@@ -21,13 +21,13 @@ let AccountOwnerId = faker.string.uuid()
 let DepartmentName = faker.helpers.arrayElement(['Engineering', 'Sales', 'Marketing', 'Finance', 'HR'])
 // let subIds = faker.helpers.multiple(faker.string.uuid, {count: 7})
 let subs = {
-  red: ['apc', 'apc2', 'apc3', 'pud10'],
-  reddtq: ['apcdtq', 'apcdtq5', 'puddtq'],
-  blue: ['hap6', 'hap'],
+  red: ['apc1', 'apc2', 'apc3', 'pud'],
+  reddtq: ['apcdtq1', 'apcdtq5', 'puddtq'],
+  blue: ['hap6', 'hap1'],
   bluedtq: ['hapdtq8', 'hapdtq9'],
-  purple: ['dev', 'dev1', 'dev2', 'dev3'],
-  purpledtq: ['devdtq', 'devdtq1', 'devdtq2', 'devdtq3'],
-  yellow: ['yellow', 'yellow1', 'yellow2', 'yellow3'],
+  purple: ['dev1', 'dev4', 'dev2', 'dev3'],
+  purpledtq: ['devdtq1', 'devdtq2', 'devdtq3', 'devdtq4'],
+  yellow: ['yellow1', 'yellow4', 'yellow2', 'yellow3'],
 }
 
 // let subs = faker.helpers.multiple(() => {
@@ -117,7 +117,7 @@ function generateTenantCostExport(sub) {
     //   })
     // }
   }
-  // writeFileSync(`${dataPath}/${sub}.json`, JSON.stringify(costExportRows, null, 2))
+  writeFileSync(`${dataPath}/monthly-cost-exports_${sub.toUpperCase()}.json`, JSON.stringify(costExportRows, null, 2))
 
   console.log(costExportRows)
   // console.log(sub)
@@ -191,6 +191,7 @@ function generateCostExportRow(subs) {
     ServiceInfo1: '',
     ServiceInfo2: '',
     Currency: 'AUD',
+    Datafile: sub.SubscriptionName.slice(0, -1).toUpperCase()
   }
 }
 
